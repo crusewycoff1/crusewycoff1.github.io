@@ -36,6 +36,7 @@
              nav li{
                  display: inline-block;
                  padding:  0 10px;
+                 font-family: "Comic Sans MS";
              }
              nav a{
                  text-decoration: none;
@@ -99,13 +100,13 @@
                             <td><button onclick="buybath()"> Bathtime With Pen² $<span id="bathcost">1000</span> - <span id="bathamt">0</span></button> </td>
                         </tr> 
                         <tr>
-                            <td>Visiting Rei's Room-10,000</td>
+                            <td><button onclick="buyrei()"> Visiting Rei's Room $<span id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
                         </tr>
                         <tr>
-                            <td>Listening to music with Asuka-100,000</td>
+                            <td><button onclick="buymusic()"> Listening to music with Asuka $<span id="musiccost">100,000</span> - <span id="musicamt">0</span></button> </td>
                         </tr>
                         <tr>
-                            <td>Trip to the Hospital-1,000,000</td>
+                            <td><button onclick="buyhospital()"> Trip to the Hospital $<span id="hospitalcost">1,000,000</span> - <span id="hospitalcost">0</span></button> </td>
                         </tr>
                     </table>
                     </center>
@@ -119,6 +120,7 @@
                         </tr>
                     </table>
                 </center>
+                <br><center> <h7>Made By Cruse Wycoff:D</h7></center></br> 
                 </div>
                 <div class="column">
                     <center>
@@ -146,7 +148,7 @@
                             <td>Asuka-1,000,000,000</td>
                         </tr>
                     </table>
-                    </center>    
+                    </center> 
                 </div>   
         </main>
         <script>
@@ -161,6 +163,15 @@
 
             var bathcost = 1000
             var bathamt = 0
+
+            var reicost = 10000
+            var reiamt = 0
+
+            var musiccost = 100000
+            var musicamt = 0
+
+            var hospitalcost = 1000000
+            var hospitalamt = 0
            
 
             function buynerve() {
@@ -203,7 +214,7 @@
             setInterval(function() {
                 score = score + saunaamt;
                 document.getElementById("score").innerHTML = score;
-            }, 100) // 1000ms = 1 second
+            }, 500) // 1000ms = 1 second
 
             function buybath() {
                 if (score >= bathcost) {
@@ -220,7 +231,58 @@
             setInterval(function() {
                 score = score + bathamt;
                 document.getElementById("score").innerHTML = score;
+            }, 100) // 1000ms = 1 second
+
+            function buyrei() {
+                if (score >= reicost) {
+                    score = score - reicost;
+                    reiamt = reiamt + 1;
+                    reicost = Math.round(reicost * 1.25);
+
+                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("reicost").innerHTML = reicost;
+                    document.getElementById("reiamt").innerHTML = reiamt;
+                }
+            }
+
+            setInterval(function() {
+                score = score + reiamt;
+                document.getElementById("score").innerHTML = score;
+            }, 50) // 1000ms = 1 second
+
+            function buymusic() {
+                if (score >= musiccost) {
+                    score = score - musiccost;
+                    musicamt = musicamt + 1;
+                    musiccost = Math.round(musiccost * 1.25);
+
+                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("musiccost").innerHTML = musiccost;
+                    document.getElementById("musicamt").innerHTML = musicamt;
+                }
+            }
+
+            setInterval(function() {
+                score = score + musicamt;
+                document.getElementById("score").innerHTML = score;
             }, 10) // 1000ms = 1 second
+
+            function buyhospital() {
+                if (score >= hospitalcost) {
+                    score = score - hospitalcost;
+                    hospitalamt = hospitalamt + 1;
+                    hospitalcost = Math.round(hospitalcost * 1.25);
+
+                    document.getElementById("score").innerHTML = score;
+                    document.getElementById("hospitalcost").innerHTML = hospitalcost;
+                    document.getElementById("hospitalamt").innerHTML = hospitalamt;
+                }
+            }
+
+            setInterval(function() {
+                score = score + hospitalamt;
+                document.getElementById("score").innerHTML = score;
+            }, 5) // 1000ms = 1 second
         </script>
     </body>
 </html>
