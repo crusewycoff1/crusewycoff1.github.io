@@ -369,7 +369,7 @@
 
             function loadgame() { 
                 var savedGame = JSON.parse(localStorage.getItem("gameSave"));
-                if (typeof savedGame.score !== "undefined") score = savedGame.score;
+                if (typeof savedGame.score !== "undefined") {score = savedGame.score;}
                 if (typeof savedGame.nervepersonnel !== "undefined") nervepersonnel = savedGame.nervepersonnel;
                 if (typeof savedGame.nervepersonnelcost !== "undefined") nervepersonnelcost = savedGame.nervepersonnelcost;
                 if (typeof savedGame.saunaamt !== "undefined") saunaamt = savedGame.saunaamt;
