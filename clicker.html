@@ -95,19 +95,19 @@
                             <td><button class="nerve" onclick="buynerve()" title="1 Mayo per second" >Nerve personnel &#120132<span id="nervepersonnelcost">10</span> - <span id="nervepersonnel">0</span></button> </td>
                         </tr>  
                         <tr>
-                            <td><button class="sauna" onclick="buysauna()" title="2 Mayo per second"> Sauna with Kaworu &#120132<span id="saunacost">100</span> - <span id="saunaamt">0</span></button> </td>
+                            <td><button class="sauna" onclick="buysauna()" title="5 Mayo per second"> Sauna with Kaworu &#120132<span id="saunacost">100</span> - <span id="saunaamt">0</span></button> </td>
                         </tr>
                         <tr>
                             <td><button class="bath" onclick="buybath()" title="10 Mayo per second"> Bathtime With Pen² &#120132<span id="bathcost">1000</span> - <span id="bathamt">0</span></button> </td>
                         </tr> 
                         <tr>
-                            <td><button onclick="buyrei()" title="20 Mayo per second"> Visiting Rei's Room &#120132<span id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
+                            <td><button onclick="buyrei()" title="50 Mayo per second"> Visiting Rei's Room &#120132<span id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
                         </tr>
                         <tr>
                             <td><button onclick="buymusic()" title="100 Mayo per second"> Listening to music with Asuka &#120132<span id="musiccost">100,000</span> - <span id="musicamt">0</span></button> </td>
                         </tr>
                         <tr>
-                            <td><button onclick="buyhospital()" title="200 Mayo per second"> Trip to the Hospital &#120132<span id="hospitalcost">1,000,000</span> - <span id="hospitalamt">0</span></button> </td>
+                            <td><button onclick="buyhospital()" title="500 Mayo per second"> Trip to the Hospital &#120132<span id="hospitalcost">1,000,000</span> - <span id="hospitalamt">0</span></button> </td>
                         </tr>
                     </table>
                     </center>
@@ -217,7 +217,7 @@
             setInterval(function() {
                 score = score + saunaamt;
                 document.getElementById("score").innerHTML = score;
-            }, 500) // 1000ms = 1 second
+            }, 200) // 1000ms = 1 second
 
             function buybath() {
                 if (score >= bathcost) {
@@ -251,7 +251,7 @@
             setInterval(function() {
                 score = score + reiamt;
                 document.getElementById("score").innerHTML = score;
-            }, 50) // 1000ms = 1 second
+            }, 20) // 1000ms = 1 second
 
             function buymusic() {
                 if (score >= musiccost) {
@@ -285,7 +285,7 @@
             setInterval(function() {
                 score = score + hospitalamt;
                 document.getElementById("score").innerHTML = score;
-            }, 5) // 1000ms = 1 second
+            }, 2) // 1000ms = 1 second
 
             function gendo() {
                 if (score >= gendocost) {
