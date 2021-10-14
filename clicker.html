@@ -11,6 +11,7 @@
                 font-family: Arial;
                 color: rgb(5, 238, 5);
                 margin: auto;
+                font-family: 'Times New Roman';
             }
             Body{
                 background-color: purple;
@@ -66,7 +67,7 @@
     </head>
     <body>
         <center>
-            <h1>Shinji's Sandwhich Shop</h1>
+            <h1><strong>Shinji's Sandwhich Shop</strong></h1>
         </center>
         <nav>
             <ul>
@@ -74,7 +75,7 @@
                     <a href="index.html"> Home </a>
                 </li>
                 <li>
-                    <a href="portfolio.hmtl"> Portfolio </a>
+                    <a href="portfolio.html"> Portfolio </a>
                 </li>
                 <li>
                     <a href="clicker.html">Shinji's Sandwhich Shop</a>
@@ -91,22 +92,22 @@
                             <th>Upgrades</th>
                         </tr>
                         <tr>
-                            <td><button onclick="buynerve()" >Nerve personnel $<span id="nervepersonnelcost">10</span> - <span id="nervepersonnel">0</span></button></td>
+                            <td><button class="nerve" onclick="buynerve()" title="1 Mayo per second" >Nerve personnel &#120132<span id="nervepersonnelcost">10</span> - <span id="nervepersonnel">0</span></button> </td>
                         </tr>  
                         <tr>
-                            <td><button onclick="buysauna()">Sauna with Kaworu $<span id="saunacost">100</span> - <span id="saunaamt">0</span></button> </td>
+                            <td><button class="sauna" onclick="buysauna()" title="2 Mayo per second"> Sauna with Kaworu &#120132<span id="saunacost">100</span> - <span id="saunaamt">0</span></button> </td>
                         </tr>
                         <tr>
-                            <td><button onclick="buybath()"> Bathtime With Pen² $<span id="bathcost">1000</span> - <span id="bathamt">0</span></button> </td>
+                            <td><button class="bath" onclick="buybath()" title="10 Mayo per second"> Bathtime With Pen² &#120132<span id="bathcost">1000</span> - <span id="bathamt">0</span></button> </td>
                         </tr> 
                         <tr>
-                            <td><button onclick="buyrei()"> Visiting Rei's Room $<span id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
+                            <td><button onclick="buyrei()" title="20 Mayo per second"> Visiting Rei's Room &#120132<span id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
                         </tr>
                         <tr>
-                            <td><button onclick="buymusic()"> Listening to music with Asuka $<span id="musiccost">100,000</span> - <span id="musicamt">0</span></button> </td>
+                            <td><button onclick="buymusic()" title="100 Mayo per second"> Listening to music with Asuka &#120132<span id="musiccost">100,000</span> - <span id="musicamt">0</span></button> </td>
                         </tr>
                         <tr>
-                            <td><button onclick="buyhospital()"> Trip to the Hospital $<span id="hospitalcost">1,000,000</span> - <span id="hospitalcost">0</span></button> </td>
+                            <td><button onclick="buyhospital()" title="200 Mayo per second"> Trip to the Hospital &#120132<span id="hospitalcost">1,000,000</span> - <span id="hospitalamt">0</span></button> </td>
                         </tr>
                     </table>
                     </center>
@@ -130,7 +131,8 @@
                             <th>People</th>
                         </tr>
                         <tr>
-                            <td>Gendo-5,000</td>
+                            <td>Gendo-5,000 </td>
+                
                         </tr>
                         <tr>
                             <td>Kaji-50,000</td>
@@ -172,7 +174,8 @@
 
             var hospitalcost = 1000000
             var hospitalamt = 0
-           
+
+            var gendocost = 5000
 
             function buynerve() {
                 if (score >= nervepersonnelcost) {
@@ -283,6 +286,15 @@
                 score = score + hospitalamt;
                 document.getElementById("score").innerHTML = score;
             }, 5) // 1000ms = 1 second
+
+            function gendo() {
+                if (score >= gendocost) {
+                    score = score - gendocost
+
+                }
+
+            }
+            
         </script>
     </body>
 </html>
