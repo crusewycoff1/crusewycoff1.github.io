@@ -20,10 +20,17 @@
 </html>
 <script>
     var box = document.getElementById("box");
-    var x = 150;
+    var x = 0
     
     box.style.left = x + "px"
 
-    
+    setInterval(update, 50)
 
+    function update(){
+        box.style.left = x + "px"
+        x = x + 5;
+        if (x === 1000){
+            x = x - 5
+        }
+    }
 </script>
