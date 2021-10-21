@@ -89,7 +89,7 @@
 
 <body>
     <center>
-        <h1><strong>Shinji's Sandwhich Shop</strong></h1>
+        <h1><strong>Shinji's Sandwich Shop</strong></h1>
     </center>
     <nav>
         <ul>
@@ -171,11 +171,11 @@
                             <th>People</th>
                         </tr>
                         <tr>
-                            <td><Gendo-5,000 </td>
+                            <td><button onclick="upgradenerve()">Gendo-5,000</button></td>
 
                         </tr>
                         <tr>
-                            <td>Kaji-50,000</td>
+                            <td> Kaji-50,000</td>
                         </tr>
                         <tr>
                             <td>Pen Pen-500,000</td>
@@ -197,6 +197,7 @@
             </div>
     </main>
     <script>
+        //all variables//
         var score = 0;
 
         var nervepersonnelcost = 10;
@@ -221,9 +222,17 @@
         var picturecost = 5000000
         var pictureamt = 0
 
-        var gendocost = 5000
         var scorePerSecond = 0
 
+        var gendocost = 5000
+        var gendoupgrade = 1
+        var pressednerve = false
+
+        var kajicost = 50000
+        var kajiupgrade = 1
+        var pressedsauna = false
+        
+        //Adding score//
         function addToScore(amount) {
             score = score + amount;
             document.getElementById("score").innerHTML = score;
@@ -322,13 +331,38 @@
             }
         }
 
+        function upgradenerve() {
+            if (score >= gendocost) {
+                if (pressednerve === false) {
+                score = score - gendocost;
+                gendoupgrade = gendoupgrade * 5;
+                pressednerve = true;
+
+                document.getElementById("score").innerHTML = score;
+                updateScorePerSecond();
+                }
+            }
+        }
+        function upgradesauna() {
+            if (score >= kajicost) {
+                if (pressedsauna === false) {
+                score = score - kajicost;
+                kajiupgrade = kajiupgrade * 10;
+                pressedsauna = true;
+
+                document.getElementById("score").innerHTML = score;
+                updateScorePerSecond();
+                }
+            }
+        }
+
         setInterval(function () {
-            score = score + nervepersonnel;
+            score = score + (nervepersonnel * gendoupgrade);
             document.getElementById("score").innerHTML = score;
         }, 1000) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + saunaamt;
+            score = score + (saunaamt * kajiupgrade);
             document.getElementById("score").innerHTML = score;
         }, 200) // 1000ms = 1 second
 
@@ -370,16 +404,8 @@
             audio.play();
         }
 
-        function gendo() {
-            if (score >= gendocost) {
-                score = score - gendocost
-
-            }
-
-        }
-
         function updateScorePerSecond() {
-            scorePerSecond = nervepersonnel + saunaamt * 5 + bathamt * 10 + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * 5) + bathamt * 10 + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 

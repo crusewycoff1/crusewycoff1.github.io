@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        div {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position:absolute;
-        }
-    </style>
-    <head>
-        
+<style>
+    div {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+    }
+</style>
 
-    </head>
-    <body>
-        <div id="box">
- 
-        </div>
-    </body>
+<head>
+
+
+</head>
+
+<body>
+    <div id="box">
+balls
+    </div>
+</body>
+
 </html>
 <script>
     var box = document.getElementById("box");
     var x = 0
-    
+    var y = 0
+    var xspeed = .5
+    var yspeed = .5
+
     box.style.left = x + "px"
+    
 
-    setInterval(update, 50)
+    setInterval(update, 1)
 
-    function update(){
+    function update() {
         box.style.left = x + "px"
-        x = x + 5;
-        if (x === 1000){
-            x = x - 5
+        x = x + xspeed;
+        if (x > window.innerWidth - 50) {
+            xspeed = xspeed * -1
+        }
+        if (x < 0) {
+            xspeed = xspeed * -1
+        }
+        box.style.top = y + "px"
+        y = y + yspeed;
+        if (y > window.innerHeight - 50) {
+            yspeed = yspeed * -1
+        }
+        if (y < 0) {
+            yspeed = yspeed * -1
         }
     }
+
 </script>
