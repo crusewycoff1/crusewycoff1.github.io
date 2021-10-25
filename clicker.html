@@ -171,11 +171,11 @@
                             <th>People</th>
                         </tr>
                         <tr>
-                            <td><button onclick="upgradenerve()">Gendo-5,000</button></td>
+                            <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5">Gendo-5,000</button></td>
 
                         </tr>
                         <tr>
-                            <td> Kaji-50,000</td>
+                            <td><button onclick="upgradesauna()"> Kaji-50,000</button></td>
                         </tr>
                         <tr>
                             <td>Pen Pen-500,000</td>
@@ -347,7 +347,7 @@
             if (score >= kajicost) {
                 if (pressedsauna === false) {
                 score = score - kajicost;
-                kajiupgrade = kajiupgrade * 10;
+                kajiupgrade = kajiupgrade * 15;
                 pressedsauna = true;
 
                 document.getElementById("score").innerHTML = score;
@@ -405,7 +405,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * 5) + bathamt * 10 + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade) + bathamt * 10 + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
