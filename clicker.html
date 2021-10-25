@@ -425,7 +425,9 @@
                 hospitalamt: hospitalamt,
                 hospitalcost: hospitalcost,
                 pictureamt: pictureamt,
-                picturecost: picturecost
+                picturecost: picturecost,
+                gendoupgrade: gendoupgrade,
+                pressednerve: pressednerve
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -448,6 +450,8 @@
                 if (typeof savedGame.hospitalcost !== "undefined") hospitalcost = savedGame.hospitalcost;
                 if (typeof savedGame.pictureamt !== "undefined") pictureamt = savedGame.pictureamt;
                 if (typeof savedGame.picturecost !== "undefined") picturecost = savedGame.picturecost;
+                if (typeof savedGame.gendoupgrade !== "undefined") gendoupgrade = savedGame.gendoupgrade;
+                if (typeof savedGame.pressednerve !== "undefined") pressednerve = savedGame.pressednerve;
             }
        
             window.onload = function() {
@@ -468,7 +472,8 @@
                 document.getElementById("hospitalamt").innerHTML = hospitalamt;
                 document.getElementById("picturecost").innerHTML = picturecost;
                 document.getElementById("pictureamt").innerHTML = pictureamt;
-
+                document.getElementById("gendoupgrade").innerHTML = gendoupgrade;
+                document.getElementById("pressednerve").innerHTML = pressednerve;
 
         } 
         
