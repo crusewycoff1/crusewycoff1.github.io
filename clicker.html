@@ -18,6 +18,7 @@
 
         Body {
             background-color: purple;
+            //background-image: url('https://cdnb.artstation.com/p/assets/images/images/011/985/289/large/rasel-trainstation.jpg?1532446650');
             cursor: url("Unit01.cur"), auto;
         }
 
@@ -171,14 +172,14 @@
                             <th>People</th>
                         </tr>
                         <tr>
-                            <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5">Gendo-5,000</button></td>
+                            <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS">Gendo-5,000</button></td>
 
                         </tr>
                         <tr>
-                            <td><button onclick="upgradesauna()"> Kaji-50,000</button></td>
+                            <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"> Kaji-50,000</button></td>
                         </tr>
                         <tr>
-                            <td>Pen Pen-500,000</td>
+                            <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" >Pen Pen-500,000</button></td>
                         </tr>
                         <tr>
                             <td>Misato-5,000,000</td>
@@ -190,7 +191,7 @@
                             <td>Kaworu-500,000,000</td>
                         </tr>
                         <tr>
-                            <td><button onclick="playsplat();"><img src="https://i.kym-cdn.com/photos/images/facebook/000/927/249/517.jpg" width="75px" heigh="75px"> Asuka-1,000,000,000</button></td>
+                            <td><button onclick="playsplat();" title="booba>:)" ><img src="https://i.kym-cdn.com/photos/images/facebook/000/927/249/517.jpg" width="75px" heigh="75px"> Asuka-1,000,000,000</button></td>
                         </tr>
                     </table>
                 </center>
@@ -231,6 +232,12 @@
         var kajicost = 50000
         var kajiupgrade = 1
         var pressedsauna = false
+        var beforesauna = 5
+
+        var pencost = 500000
+        var penupgrade = 1
+        var pressedbath = false
+        var beforebath = 10
         
         //Adding score//
         function addToScore(amount) {
@@ -343,12 +350,28 @@
                 }
             }
         }
+
         function upgradesauna() {
             if (score >= kajicost) {
                 if (pressedsauna === false) {
                 score = score - kajicost;
                 kajiupgrade = kajiupgrade * 15;
+                beforesauna = 1
                 pressedsauna = true;
+
+                document.getElementById("score").innerHTML = score;
+                updateScorePerSecond();
+                }
+            }
+        }
+
+        function upgradebath() {
+            if (score >= pencost) {
+                if (pressedbath === false) {
+                score = score - pencost;
+                penupgrade = penupgrade * 25;
+                beforebath = 1
+                pressedbath = true;
 
                 document.getElementById("score").innerHTML = score;
                 updateScorePerSecond();
@@ -367,7 +390,7 @@
         }, 200) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + bathamt;
+            score = score + (bathamt * penupgrade);
             document.getElementById("score").innerHTML = score;
         }, 100) // 1000ms = 1 second
 
@@ -405,7 +428,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade) + bathamt * 10 + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
@@ -427,7 +450,9 @@
                 pictureamt: pictureamt,
                 picturecost: picturecost,
                 gendoupgrade: gendoupgrade,
-                pressednerve: pressednerve
+                pressednerve: pressednerve,
+                kajiupgrade: kajiupgrade,
+                pressedsauna: pressedsauna
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -452,6 +477,8 @@
                 if (typeof savedGame.picturecost !== "undefined") picturecost = savedGame.picturecost;
                 if (typeof savedGame.gendoupgrade !== "undefined") gendoupgrade = savedGame.gendoupgrade;
                 if (typeof savedGame.pressednerve !== "undefined") pressednerve = savedGame.pressednerve;
+                if (typeof savedGame.kajiupgrade !== "undefined") kajiupgrade = savedGame.kajiupgrade;
+                if (typeof savedGame.pressedsauna !== "undefined") pressedsauna = savedGame.pressedsauna;
             }
        
             window.onload = function() {
@@ -474,6 +501,8 @@
                 document.getElementById("pictureamt").innerHTML = pictureamt;
                 document.getElementById("gendoupgrade").innerHTML = gendoupgrade;
                 document.getElementById("pressednerve").innerHTML = pressednerve;
+                document.getElementById("kajiupgrade").innerHTML = kajiupgrade;
+                document.getElementById("pressedsauna").innerHTML = pressedsauna;
 
         } 
         
