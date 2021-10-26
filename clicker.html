@@ -182,7 +182,7 @@
                             <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" >Pen Pen-500,000</button></td>
                         </tr>
                         <tr>
-                            <td>Misato-5,000,000</td>
+                            <td title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)">Misato-5,000,000</td>
                         </tr>
                         <tr>
                             <td>Ritsuko-25,000,000</td>
@@ -452,7 +452,8 @@
                 gendoupgrade: gendoupgrade,
                 pressednerve: pressednerve,
                 kajiupgrade: kajiupgrade,
-                pressedsauna: pressedsauna
+                pressedsauna: pressedsauna,
+                beforesauna: beforesauna
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -479,6 +480,7 @@
                 if (typeof savedGame.pressednerve !== "undefined") pressednerve = savedGame.pressednerve;
                 if (typeof savedGame.kajiupgrade !== "undefined") kajiupgrade = savedGame.kajiupgrade;
                 if (typeof savedGame.pressedsauna !== "undefined") pressedsauna = savedGame.pressedsauna;
+                if (typeof savedGame.beforesauna !== "undefined") beforesauna = savedGame.beforesauna;
             }
        
             window.onload = function() {
@@ -503,6 +505,7 @@
                 document.getElementById("pressednerve").innerHTML = pressednerve;
                 document.getElementById("kajiupgrade").innerHTML = kajiupgrade;
                 document.getElementById("pressedsauna").innerHTML = pressedsauna;
+                document.getElementById("beforesauna").innerHTML = beforesauna;
 
         } 
         
