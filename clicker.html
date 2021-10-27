@@ -162,6 +162,7 @@
                 <br>
                 <center>
                     <h7>Made By Cruse Wycoff:D</h7>
+                    <button onclick="window.location.href='credits.html'">Credits</button>
                 </center></br>
             </div>
             <div class="column">
@@ -182,7 +183,7 @@
                             <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" >Pen Pen-500,000</button></td>
                         </tr>
                         <tr>
-                            <td title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)">Misato-5,000,000</td>
+                            <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)">Misato-5,000,000</button></td>
                         </tr>
                         <tr>
                             <td>Ritsuko-25,000,000</td>
@@ -238,6 +239,11 @@
         var penupgrade = 1
         var pressedbath = false
         var beforebath = 10
+
+        var misatocost = 5000000
+        var misatoupgrade = 1
+        var pressedrei = false
+        var beforerei = 50
         
         //Adding score//
         function addToScore(amount) {
@@ -379,6 +385,20 @@
             }
         }
 
+        function upgraderei() {
+            if (score >= misatocost) {
+                if (pressedrei === false) {
+                score = score - misatocost;
+                misatoupgrade = misatoupgrade * 25;
+                beforerei = 1
+                pressedrei = true;
+
+                document.getElementById("score").innerHTML = score;
+                updateScorePerSecond();
+                }
+            }
+        }
+
         setInterval(function () {
             score = score + (nervepersonnel * gendoupgrade);
             document.getElementById("score").innerHTML = score;
@@ -395,7 +415,7 @@
         }, 100) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + reiamt;
+            score = score + (reiamt * misatoupgrade);
             document.getElementById("score").innerHTML = score;
         }, 20) // 1000ms = 1 second
 
@@ -428,7 +448,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + reiamt * 50 + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforebath) + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
@@ -453,7 +473,10 @@
                 pressednerve: pressednerve,
                 kajiupgrade: kajiupgrade,
                 pressedsauna: pressedsauna,
-                beforesauna: beforesauna
+                beforesauna: beforesauna,
+                penupgrade: penupgrade,
+                pressedbath: pressedbath,
+                beforebath: beforebath
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -481,6 +504,9 @@
                 if (typeof savedGame.kajiupgrade !== "undefined") kajiupgrade = savedGame.kajiupgrade;
                 if (typeof savedGame.pressedsauna !== "undefined") pressedsauna = savedGame.pressedsauna;
                 if (typeof savedGame.beforesauna !== "undefined") beforesauna = savedGame.beforesauna;
+                if (typeof savedGame.penupgrade !== "undefined") penupgrade = savedGame.penupgrade;
+                if (typeof savedGame.pressedbath !== "undefined") pressedbath = savedGame.pressedbath;
+                if (typeof savedGame.beforebath !== "undefined") beforebath = savedGame.beforebath;
             }
        
             window.onload = function() {
@@ -506,6 +532,9 @@
                 document.getElementById("kajiupgrade").innerHTML = kajiupgrade;
                 document.getElementById("pressedsauna").innerHTML = pressedsauna;
                 document.getElementById("beforesauna").innerHTML = beforesauna;
+                document.getElementById("penupgrade").innerHTML = penupgrade;
+                document.getElementById("pressedbath").innerHTML = pressedbath;
+                document.getElementById("beforebath").innerHTML = beforebath;
 
         } 
         
