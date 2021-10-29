@@ -30,6 +30,14 @@ balls
     var yspeed = .5
 
     box.style.left = x + "px"
+
+    document.addEventListener("keypress",test)
+    function test(e){
+        box.innerText = e.key
+    }
+
+
+
     
 
     setInterval(update, 1)

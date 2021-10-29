@@ -85,6 +85,10 @@
         button:hover{
             background-color: rgb(5, 238, 5);
         }
+        .tabcontent{
+        display: none;
+        padding: 6px 12px;
+        }
     </style>
 </head>
 
@@ -168,35 +172,55 @@
             </div>
             <div class="column">
                 <center>
-                    <h2>Give Sandwiches To</h2>
-                    <table>
-                        <tr>
-                            <th>People</th>
-                        </tr>
-                        <tr>
-                            <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS">Gendo-5,000</button></td>
-
-                        </tr>
-                        <tr>
-                            <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"> Kaji-50,000</button></td>
-                        </tr>
-                        <tr>
-                            <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" >Pen Pen-500,000</button></td>
-                        </tr>
-                        <tr>
-                            <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)">Misato-5,000,000</button></td>
-                        </tr>
-                        <tr>
-                            <td>Ritsuko-25,000,000</td>
-                        </tr>
-                        <tr>
-                            <td>Kaworu-500,000,000</td>
-                        </tr>
-                        <tr>
-                            <td><button onclick="playsplat();" title="booba>:)" ><img src="https://i.kym-cdn.com/photos/images/facebook/000/927/249/517.jpg" width="75px" heigh="75px"> Asuka-1,000,000,000</button></td>
-                        </tr>
-                    </table>
-                </center>
+                    <div class="tab">
+                        <button class="tablinks" onclick="openCity(event, 'London')">Sandwich Delivery</button>
+                        <button class="tablinks" onclick="openCity(event, 'Paris')">Play Music</button>
+                      </div>
+                      <div id="London" class="tabcontent">
+                        <h2>Give Sandwiches To</h2>
+                        <table>
+                            <tr>
+                                <th>People</th>
+                            </tr>
+                            <tr>
+                                <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS">Gendo-5,000</button></td>
+    
+                            </tr>
+                            <tr>
+                                <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"> Kaji-50,000</button></td>
+                            </tr>
+                            <tr>
+                                <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" >Pen Pen-500,000</button></td>
+                            </tr>
+                            <tr>
+                                <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)">Misato-5,000,000</button></td>
+                            </tr>
+                            <tr>
+                                <td>Ritsuko-25,000,000</td>
+                            </tr>
+                            <tr>
+                                <td>Kaworu-500,000,000</td>
+                            </tr>
+                            <tr>
+                                <td><button onclick="playsplat();" title="booba>:)" ><img src="https://i.kym-cdn.com/photos/images/facebook/000/927/249/517.jpg" width="75px" heigh="75px"> Asuka-1,000,000,000</button></td>
+                            </tr>
+                        </table>
+                    </center>
+                      </div>
+                      
+                      <div id="Paris" class="tabcontent">
+                          Fly Me to the Moon<br>
+                        <audio controls  >
+                            <source src="/Unused stuff/Evasounds/20 - FLY ME TO THE MOON [TV. Size Version].mp3" type="audio/ogg">
+                            <source src="/Unused stuff/Evasounds/20 - FLY ME TO THE MOON [TV. Size Version].mp3" type="audio/mpeg">
+                        </audio><br>
+                        Both of You Dance Like You Want to Win!<br>
+                        <audio controls  >
+                            <source src="/Unused stuff/Evasounds/07 - Both of you, Dance Like You Want to Win!.mp3" type="audio/ogg">
+                            <source src="/Unused stuff/Evasounds/07 - Both of you, Dance Like You Want to Win!.mp3" type="audio/mpeg">
+                        </audio>
+                      </div>
+                    
             </div>
     </main>
     <script>
@@ -205,7 +229,6 @@
 
         var nervepersonnelcost = 10;
         var nervepersonnel = 0;
-
 
         var saunacost = 100;
         var saunaamt = 0
@@ -219,7 +242,7 @@
         var musiccost = 100000
         var musicamt = 0
 
-        var hospitalcost = 1000000
+        var hospitalcost = 10000003
         var hospitalamt = 0
 
         var picturecost = 5000000
@@ -542,6 +565,27 @@
         setInterval(function () {
             saveGame();
         }, 30000); // 30000 ms = 30 sec
+
+        function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
 
 
     </script>
