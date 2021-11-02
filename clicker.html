@@ -150,6 +150,10 @@
                             <td><button onclick="buypicture()" title="1500 Mayo per second"><img src="http://i.imgur.com/gzzbdWd.png" width="60px" height="60px"> Copying Misato's Picture
                                 &#120132<span id="picturecost">5,000,000</span> - <span id="pictureamt">0</span></button> </td>
                         </tr>
+                        <tr>
+                            <td><button onclick="buymelon()" title="5000 Mayo per second"><img src="/Images/Melon.jpg" width="60px" height="60px"> Picking some of Kaji's Melons
+                                &#120132<span id="meloncost">15,000,000</span> - <span id="melonamt">0</span></button> </td>
+                        </tr>
                     </table>
                 </center>
             </div>
@@ -250,11 +254,14 @@
         var musiccost = 100000
         var musicamt = 0
 
-        var hospitalcost = 10000003
+        var hospitalcost = 1000000
         var hospitalamt = 0
 
         var picturecost = 5000000
         var pictureamt = 0
+
+        var meloncost = 15000000
+        var melonamt = 0
 
         var scorePerSecond = 0
 
@@ -378,7 +385,20 @@
                 updateScorePerSecond();
             }
         }
-        //upgrade
+
+        function buymelon() {
+            if (score >= meloncost) {
+                score = score - meloncost;
+                melonamt = melonamt + 1;
+                meloncost = Math.round(meloncost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("meloncost").innerHTML = meloncost;
+                document.getElementById("melonamt").innerHTML = melonamt;
+                updateScorePerSecond();
+            }
+        }
+        //upgrades *cries*//
         function upgradenerve() {
             if (score >= gendocost) {
                 gendoappear();
@@ -437,7 +457,7 @@
                 }
             }
         }
-
+        //Interval Functions//
         setInterval(function () {
             score = score + (nervepersonnel * gendoupgrade);
             document.getElementById("score").innerHTML = score;
@@ -473,6 +493,11 @@
             document.getElementById("score").innerHTML = score;
         }, 1) // 1000ms = 1 second
 
+        setInterval(function () {
+            score = score + melonamt * 25;
+            document.getElementById("score").innerHTML = score;
+        }, 1) // 1000ms = 1 second
+
         function playsplat() {
             if (score >= 1000000000) {
                 score = score - 1000000000;
@@ -487,7 +512,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + musicamt * 100 + hospitalamt * 500 + pictureamt * 1500+ melonamt * 5000;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
@@ -514,6 +539,8 @@
                 hospitalcost: hospitalcost,
                 pictureamt: pictureamt,
                 picturecost: picturecost,
+                melonamt: melonamt,
+                meloncost: meloncost,
                 gendoupgrade: gendoupgrade,
                 pressednerve: pressednerve,
                 kajiupgrade: kajiupgrade,
@@ -549,6 +576,8 @@
                 if (typeof savedGame.hospitalcost !== "undefined") hospitalcost = savedGame.hospitalcost;
                 if (typeof savedGame.pictureamt !== "undefined") pictureamt = savedGame.pictureamt;
                 if (typeof savedGame.picturecost !== "undefined") picturecost = savedGame.picturecost;
+                if (typeof savedGame.melonamt !== "undefined") melonamt = savedGame.melonamt;
+                if (typeof savedGame.meloncost !== "undefined") meloncost = savedGame.meloncost;
                 if (typeof savedGame.gendoupgrade !== "undefined") gendoupgrade = savedGame.gendoupgrade;
                 if (typeof savedGame.pressednerve !== "undefined") pressednerve = savedGame.pressednerve;
                 if (typeof savedGame.kajiupgrade !== "undefined") kajiupgrade = savedGame.kajiupgrade;
@@ -582,6 +611,8 @@
                 document.getElementById("hospitalamt").innerHTML = hospitalamt;
                 document.getElementById("picturecost").innerHTML = picturecost;
                 document.getElementById("pictureamt").innerHTML = pictureamt;
+                document.getElementById("meloncost").innerHTML = meloncost;
+                document.getElementById("melonamt").innerHTML = melonamt;
                 document.getElementById("gendoupgrade").innerHTML = gendoupgrade;
                 document.getElementById("pressednerve").innerHTML = pressednerve;
                 document.getElementById("kajiupgrade").innerHTML = kajiupgrade;
