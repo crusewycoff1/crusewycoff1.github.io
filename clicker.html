@@ -18,7 +18,6 @@
 
         Body {
             background-color: purple;
-            //background-image: url('https://cdnb.artstation.com/p/assets/images/images/011/985/289/large/rasel-trainstation.jpg?1532446650');
             cursor: url("Unit01.cur"), auto;
         }
 
@@ -88,6 +87,9 @@
         .tabcontent{
         display: none;
         padding: 6px 12px;
+        }
+        #gendoimg{
+            display: none;
         }
     </style>
 </head>
@@ -218,10 +220,16 @@
                         <audio controls  >
                             <source src="/Unused stuff/Evasounds/07 - Both of you, Dance Like You Want to Win!.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/07 - Both of you, Dance Like You Want to Win!.mp3" type="audio/mpeg">
+                        </audio><br>
+                        Komm, Süsser Tod<br>
+                        <audio controls  >
+                            <source src="/Unused stuff/Evasounds/Komm.mp3" type="audio/ogg">
+                            <source src="/Unused stuff/Evasounds/Komm.mp3" type="audio/mpeg">
                         </audio>
                       </div>
                     
             </div>
+            <p><img id="gendoimg"src="/Shinjiclickimages/Gendoimg.png" width="200px" height="350px"></p>
     </main>
     <script>
         //all variables//
@@ -268,6 +276,9 @@
         var misatoupgrade = 1
         var pressedrei = false
         var beforerei = 50
+        var misatomult= 1
+
+        var gendoimage = false
         
         //Adding score//
         function addToScore(amount) {
@@ -367,16 +378,19 @@
                 updateScorePerSecond();
             }
         }
-
+        //upgrade
         function upgradenerve() {
             if (score >= gendocost) {
+                gendoappear();
                 if (pressednerve === false) {
                 score = score - gendocost;
                 gendoupgrade = gendoupgrade * 5;
                 pressednerve = true;
+                gendoimage = true
 
                 document.getElementById("score").innerHTML = score;
                 updateScorePerSecond();
+                gendoappear();
                 }
             }
         }
@@ -413,9 +427,10 @@
             if (score >= misatocost) {
                 if (pressedrei === false) {
                 score = score - misatocost;
-                misatoupgrade = misatoupgrade * 25;
+                misatoupgrade = misatoupgrade * 125;
                 beforerei = 1
                 pressedrei = true;
+                misatomult = 3
 
                 document.getElementById("score").innerHTML = score;
                 updateScorePerSecond();
@@ -439,7 +454,7 @@
         }, 100) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + (reiamt * misatoupgrade);
+            score = score + (reiamt * misatomult);
             document.getElementById("score").innerHTML = score;
         }, 20) // 1000ms = 1 second
 
@@ -454,7 +469,7 @@
         }, 2) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + pictureamt *15;
+            score = score + pictureamt * 15;
             document.getElementById("score").innerHTML = score;
         }, 1) // 1000ms = 1 second
 
@@ -472,8 +487,14 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforebath) + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + musicamt * 100 + hospitalamt * 500 +pictureamt * 1500;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
+        }
+
+        function gendoappear() {
+            if (gendoimage === true){
+                document.getElementById("gendoimg").style.display = "inline-block";
+            }
         }
 
         function saveGame() {
@@ -500,7 +521,12 @@
                 beforesauna: beforesauna,
                 penupgrade: penupgrade,
                 pressedbath: pressedbath,
-                beforebath: beforebath
+                beforebath: beforebath,
+                misatoupgrade: misatoupgrade,
+                pressedrei: pressedrei,
+                beforerei: beforerei,
+                misatomult: misatomult,
+                gendoimage: gendoimage
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -531,6 +557,11 @@
                 if (typeof savedGame.penupgrade !== "undefined") penupgrade = savedGame.penupgrade;
                 if (typeof savedGame.pressedbath !== "undefined") pressedbath = savedGame.pressedbath;
                 if (typeof savedGame.beforebath !== "undefined") beforebath = savedGame.beforebath;
+                if (typeof savedGame.misatoupgrade !== "undefined") misatoupgrade = savedGame.misatoupgrade;
+                if (typeof savedGame.pressedrei !== "undefined") pressedrei = savedGame.pressedrei;
+                if (typeof savedGame.beforerei !== "undefined") beforerei = savedGame.beforerei;
+                if (typeof savedGame.misatomult !== "undefined") misatomult = savedGame.misatomult;
+                if (typeof savedGame.gendoimage !== "undefined") gendoimage = savedGame.gendoimage;
             }
        
             window.onload = function() {
@@ -559,7 +590,11 @@
                 document.getElementById("penupgrade").innerHTML = penupgrade;
                 document.getElementById("pressedbath").innerHTML = pressedbath;
                 document.getElementById("beforebath").innerHTML = beforebath;
-
+                document.getElementById("misatoupgrade").innerHTML = misatoupgrade;
+                document.getElementById("beforerei").innerHTML = beforerei;
+                document.getElementById("pressedrei").innerHTML = pressedrei;
+                document.getElementById("misatomult").innerHTML = misatomult;
+                document.getElementById("gendoimage").innerHTML = gendoimage;
         } 
         
         setInterval(function () {
@@ -586,8 +621,6 @@
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-
     </script>
 </body>
 </html>
