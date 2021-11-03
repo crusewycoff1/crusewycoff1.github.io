@@ -431,7 +431,7 @@
         function buyeva() {
             if (score >= evacost) {
                 score = score - evacost;
-                evaamt = melonamt + 1;
+                evaamt = evaamt + 1;
                 evacost = Math.round(evacost * 1.25);
 
                 document.getElementById("score").innerHTML = score;
