@@ -96,7 +96,7 @@
         }
         audio::-webkit-media-controls-play-button:hover{
             background-color: purple;
-            border-radius: 100px;
+            border-radius: 50px;
         }
     </style>
 </head>
@@ -200,23 +200,23 @@
                                 <th>People</th>
                             </tr>
                             <tr>
-                                <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS"><img src="/Images/buttonimages/gendobutton.png" width="75px" heigh="75px">Gendo-5,000</button></td>
+                                <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS"><img src="/Images/buttonimages/gendobutton.png" width="75px" heigh="75px">Gendo - <span id="gendopurchased">5,000</span></button></td>
     
                             </tr>
                             <tr>
-                                <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"><img src="/Images/buttonimages/kajibutton.jpg" width="75px" heigh="75px"> Kaji-50,000</button></td>
+                                <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"><img src="/Images/buttonimages/kajibutton.jpg" width="75px" heigh="75px"> Kaji-<span id="kajipurchased">50,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" ><img src="/Images/buttonimages/PENPENBUTTON.jpg" width="75px" heigh="75px">Pen Pen-500,000</button></td>
+                                <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" ><img src="/Images/buttonimages/PENPENBUTTON.jpg" width="75px" heigh="75px">Pen Pen - <span id="penpurchased">500,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)"><img src="/Images/buttonimages/MISATOBUTTON.jpg" width="75px" heigh="75px">Misato-5,000,000</button></td>
+                                <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)"><img src="/Images/buttonimages/MISATOBUTTON.jpg" width="75px" heigh="75px">Misato - <span id="misatopurchased">5,000,000</span></button></td>
                             </tr>
                             <tr>
-                                <td>Ritsuko-25,000,000</td>
+                                <td><button onclick="upgrademusic()" title="Ritsuko fixes Shinjis music player to make it play more music and faster"><img src="/Images/buttonimages/Ritsukobutton.jpeg" width="75px" heigh="75px">Ritsuko - <span id="ritsukopurchased">25,000,000</span></button></td>
                             </tr>
                             <tr>
-                                <td>Kaworu-500,000,000</td>
+                                <td><button onclick="upgradehospital()" title="Kaworu goes to the hospital with Shinji and uhhh [redacted]"><img src="/Images/buttonimages/kaworubutton.jpeg" width="75px" heigh="75px">Kaworu - <span id="kaworupurchased">500,000,000</span></button></td>
                             </tr>
                             <tr>
                                 <td><button onclick="playsplat();" title="booba>:)" ><img src="/Images/buttonimages/Asukasmirk.jpg" width="75px" heigh="75px"> Asuka-1,000,000,000</button></td>
@@ -314,7 +314,26 @@
         var beforerei = 50
         var misatomult= 1
 
+        var ritsukocost = 25000000
+        var ritsukoupgrade = 1
+        var pressedmusic = false
+        var beforemusic = 100
+        var ritsukomult= 1
+
+        var kaworucost = 500000000
+        var kaworuupgrade = 1
+        var pressedhospital = false
+        var beforehospital = 500
+        var kaworumult= 1
+
         var gendoimage = false
+
+        var gendopurchased = "5000"
+        var kajipurchased = "50,000"
+        var penpurchased = "500,000"
+        var misatopurchased = "5,000,000"
+        var ritsukopurchased = "25,000,000"
+        var kaworupurchased = "500,000,000"
         
         //Adding score//
         function addToScore(amount) {
@@ -444,6 +463,8 @@
         function upgradenerve() {
             if (pressednerve === true){
                 document.getElementById("gendoimg").style.display = "inline-block";
+                gendopurchased = "Purchased!"
+                document.getElementById("gendopurchased").innerHTML = gendopurchased;
                 }
             if (score >= gendocost) {
                 gendoappear();
@@ -452,42 +473,60 @@
                 gendoupgrade = gendoupgrade * 5;
                 pressednerve = true;
                 gendoimage = true
+                gendopurchased = "Purchased!"
 
                 document.getElementById("score").innerHTML = score;
+                document.getElementById("gendopurchased").innerHTML = gendopurchased;
                 updateScorePerSecond();
                 }
             }
         }
 
         function upgradesauna() {
+            if (pressedsauna === true){
+                kajipurchased = "Purchased!"
+                document.getElementById("kajipurchased").innerHTML = kajipurchased;
+                }
             if (score >= kajicost) {
                 if (pressedsauna === false) {
                 score = score - kajicost;
                 kajiupgrade = kajiupgrade * 15;
                 beforesauna = 1
                 pressedsauna = true;
+                kajipurchased = "Purchased!"
 
                 document.getElementById("score").innerHTML = score;
+                document.getElementById("kajipurchased").innerHTML = kajipurchased;
                 updateScorePerSecond();
                 }
             }
         }
 
         function upgradebath() {
+            if (pressedbath === true){
+                penpurchased = "Purchased!"
+                document.getElementById("penpurchased").innerHTML = penpurchased;
+                }
             if (score >= pencost) {
                 if (pressedbath === false) {
                 score = score - pencost;
                 penupgrade = penupgrade * 25;
                 beforebath = 1
                 pressedbath = true;
+                penpurchased = "Purchased!"
 
                 document.getElementById("score").innerHTML = score;
+                document.getElementById("penpurchased").innerHTML = penpurchased;
                 updateScorePerSecond();
                 }
             }
         }
 
         function upgraderei() {
+            if (pressedrei === true){
+                misatopurchased = "Purchased!"
+                document.getElementById("misatopurchased").innerHTML = misatopurchased;
+                }
             if (score >= misatocost) {
                 if (pressedrei === false) {
                 score = score - misatocost;
@@ -495,9 +534,53 @@
                 beforerei = 1
                 pressedrei = true;
                 misatomult = 3
+                misatopurchased = "Purchased!"
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("misatopurchased").innerHTML = misatopurchased;
+                updateScorePerSecond();
+                }
+            }
+        }
+
+        function upgrademusic() {
+            if (pressedmusic === true){
+                ritsukopurchased = "Purchased!"
+                document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+                }
+            if (score >= ritsukocost) {
+                if (pressedmusic === false) {
+                score = score - ritsukocost;
+                ritsukoupgrade = ritsukoupgrade * 500;
+                beforemusic = 1
+                pressedmusic = true;
+                ritsukomult = 5
+                ritsukopurchased = "Purchased!"
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+                updateScorePerSecond();
+                }
+            }
+        }
+
+        function upgradehospital() {
+            if (pressedhospital === true){
+                kaworupurchased = "Purchased!"
+                document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
+                }
+            if (score >= kaworucost) {
+                if (pressedhospital === false) {
+                score = score - kaworucost;
+                kaworuupgrade = kaworuupgrade * 500;
+                beforehospital = 1
+                pressedhospital = true;
+                hospitalmult = 4
+                kaworupurchased = "Purchased!"
 
                 document.getElementById("score").innerHTML = score;
                 updateScorePerSecond();
+                document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
                 }
             }
         }
@@ -523,12 +606,12 @@
         }, 20) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + musicamt;
+            score = score + (musicamt * ritsukomult);
             document.getElementById("score").innerHTML = score;
         }, 10) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + hospitalamt;
+            score = score + (hospitalamt * kaworumult);
             document.getElementById("score").innerHTML = score;
         }, 2) // 1000ms = 1 second
 
@@ -561,7 +644,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + musicamt * 100 + hospitalamt * 500 + pictureamt * 1500 + melonamt * 5000 + evaamt * 10000;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + (musicamt * ritsukoupgrade * beforemusic) + (hospitalamt * kaworuupgrade *beforehospital) + pictureamt * 1500 + melonamt * 5000 + evaamt * 10000;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
@@ -604,7 +687,21 @@
                 pressedrei: pressedrei,
                 beforerei: beforerei,
                 misatomult: misatomult,
-                gendoimage: gendoimage
+                ritsukoupgrade: ritsukoupgrade,
+                pressedmusic: pressedmusic,
+                beforemusic: beforemusic,
+                ritsukomult: ritsukomult,
+                kaworuupgrade: kaworuupgrade,
+                pressedhospital: pressedhospital,
+                beforehospital: beforehospital,
+                kaworumult: kaworumult,
+                gendoimage: gendoimage,
+                gendopurchased: gendopurchased,
+                kajipurchased: kajipurchased, 
+                penpurchased: penpurchased,
+                misatopurchased: misatopurchased,
+                ritsukopurchased: ritsukopurchased,
+                kaworupurchased: kaworupurchased
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -643,7 +740,21 @@
                 if (typeof savedGame.pressedrei !== "undefined") pressedrei = savedGame.pressedrei;
                 if (typeof savedGame.beforerei !== "undefined") beforerei = savedGame.beforerei;
                 if (typeof savedGame.misatomult !== "undefined") misatomult = savedGame.misatomult;
+                if (typeof savedGame.ritsukoupgrade !== "undefined") ritsukoupgrade = savedGame.ritsukoupgrade;
+                if (typeof savedGame.pressedmusic !== "undefined") pressedmusic = savedGame.pressedmusic;
+                if (typeof savedGame.beforemusic !== "undefined") beforemusic = savedGame.beforemusic;
+                if (typeof savedGame.ritsukomult !== "undefined") ritsukomult = savedGame.ritsukomult;
+                if (typeof savedGame.kaworuupgrade !== "undefined") kaworuupgrade = savedGame.kaworuupgrade;
+                if (typeof savedGame.pressedhospital !== "undefined") pressedhospital = savedGame.pressedhospital;
+                if (typeof savedGame.beforehospital !== "undefined") beforehospital = savedGame.beforehospital;
+                if (typeof savedGame.kaworumult !== "undefined") kaworumult = savedGame.kaworumult;
                 if (typeof savedGame.gendoimage !== "undefined") gendoimage = savedGame.gendoimage;
+                if (typeof savedGame.gendopurchased !== "undefined") gendopurchased = savedGame.gendopurchased;
+                if (typeof savedGame.kajipurchased !== "undefined") kajipurchased = savedGame.kajipurchased;
+                if (typeof savedGame.penpurchased !== "undefined") penpurchased = savedGame.penpurchased;
+                if (typeof savedGame.misatopurchased !== "undefined") misatopurchased = savedGame.misatopurchased;
+                if (typeof savedGame.ritsukopurchased !== "undefined") ritsukopurchased = savedGame.ritsukopurchased;
+                if (typeof savedGame.kaworupurchased !== "undefined") kaworupurchased = savedGame.kaworupurchased;
             }
        
             window.onload = function() {
@@ -680,7 +791,21 @@
                 document.getElementById("beforerei").innerHTML = beforerei;
                 document.getElementById("pressedrei").innerHTML = pressedrei;
                 document.getElementById("misatomult").innerHTML = misatomult;
+                document.getElementById("ristukoupgrade").innerHTML = ristukoupgrade;
+                document.getElementById("beforemusic").innerHTML = beforemusic;
+                document.getElementById("pressedmusic").innerHTML = pressedmusic;
+                document.getElementById("ristukomult").innerHTML = ristukomult;
+                document.getElementById("kaworuupgrade").innerHTML = kaworuupgrade;
+                document.getElementById("beforehsopital").innerHTML = beforehospital;
+                document.getElementById("pressedhospital").innerHTML = pressedhospital;
+                document.getElementById("kaworumult").innerHTML = kaworumult;
                 document.getElementById("gendoimage").innerHTML = gendoimage;
+                document.getElementById("gendopurchased").innerHTML = gendopurchased;
+                document.getElementById("kajipurchased").innerHTML = kajipurchased;
+                document.getElementById("penpurchased").innerHTML = penpurchased;
+                document.getElementById("misatopurchased").innerHTML = misatopurchased;
+                document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+                document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
         } 
         //save game//
         setInterval(function () {
@@ -693,10 +818,22 @@
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
+    document.getElementById("gendopurchased").innerHTML = gendopurchased;
+    document.getElementById("kajipurchased").innerHTML = kajipurchased;
+    document.getElementById("penpurchased").innerHTML = penpurchased;
+    document.getElementById("misatopurchased").innerHTML = misatopurchased;
+    document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+    document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
   }
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
+    document.getElementById("gendopurchased").innerHTML = gendopurchased;
+    document.getElementById("kajipurchased").innerHTML = kajipurchased;
+    document.getElementById("penpurchased").innerHTML = penpurchased;
+    document.getElementById("misatopurchased").innerHTML = misatopurchased;
+    document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+    document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
