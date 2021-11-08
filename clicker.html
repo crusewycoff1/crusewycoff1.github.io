@@ -91,6 +91,21 @@
         #gendoimg{
             display: none;
         }
+        #kajiimg{
+            display: none;
+        }
+        #penimg{
+            display: none;
+        }
+        #misatoimg{
+            display: none;
+        }
+        #ritsukoimg{
+            display: none;
+        }
+        #kaworuimg{
+            display: none;
+        }
         audio::-webkit-media-controls-panel{
             background-color: rgb(5, 238, 5);
         }
@@ -259,11 +274,18 @@
                       </div>
                     
             </div>
-            <p><img id="gendoimg"src="/Shinjiclickimages/Gendoimg.png" width="200px" height="350px"></p>
+            <div>
+            <p><img id="gendoimg"src="/Shinjiclickimages/Gendoimg.png" width="150px" height="280px">
+            <img id="kajiimg" src="/Shinjiclickimages/kajisandwich.png" width="200px" height="280px">
+            <img id="penimg" src="/Shinjiclickimages/Pen_Pen (1).png" width="170px" height="280px">
+            <img id="misatoimg" src="/Shinjiclickimages/Misato (1).png" width="220px" height="280px">
+            <img id="ritsukoimg" src="/Shinjiclickimages/ritsuko (1).png" width="150px" height="280px">
+            <img id="kaworuimg" src="/Shinjiclickimages/kaworu (1).png" width="150px" height="280px"></p>
+            </div>
     </main>
     <script>
         //all variables//
-        var score = 0;
+        var score = 10000000000;
 
         var nervepersonnelcost = 10;
         var nervepersonnel = 0;
@@ -477,6 +499,7 @@
 
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("gendopurchased").innerHTML = gendopurchased;
+                document.getElementById("gendoimg").style.display = "inline-block";
                 updateScorePerSecond();
                 }
             }
@@ -486,6 +509,7 @@
             if (pressedsauna === true){
                 kajipurchased = "Purchased!"
                 document.getElementById("kajipurchased").innerHTML = kajipurchased;
+                document.getElementById("kajiimg").style.display = "inline-block";
                 }
             if (score >= kajicost) {
                 if (pressedsauna === false) {
@@ -497,6 +521,7 @@
 
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("kajipurchased").innerHTML = kajipurchased;
+                document.getElementById("kajiimg").style.display = "inline-block";
                 updateScorePerSecond();
                 }
             }
@@ -506,6 +531,7 @@
             if (pressedbath === true){
                 penpurchased = "Purchased!"
                 document.getElementById("penpurchased").innerHTML = penpurchased;
+                document.getElementById("penimg").style.display = "inline-block";
                 }
             if (score >= pencost) {
                 if (pressedbath === false) {
@@ -517,6 +543,7 @@
 
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("penpurchased").innerHTML = penpurchased;
+                document.getElementById("penimg").style.display = "inline-block";
                 updateScorePerSecond();
                 }
             }
@@ -526,6 +553,7 @@
             if (pressedrei === true){
                 misatopurchased = "Purchased!"
                 document.getElementById("misatopurchased").innerHTML = misatopurchased;
+                document.getElementById("misatoimg").style.display = "inline-block";
                 }
             if (score >= misatocost) {
                 if (pressedrei === false) {
@@ -538,6 +566,7 @@
 
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("misatopurchased").innerHTML = misatopurchased;
+                document.getElementById("misatoimg").style.display = "inline-block";
                 updateScorePerSecond();
                 }
             }
@@ -547,6 +576,7 @@
             if (pressedmusic === true){
                 ritsukopurchased = "Purchased!"
                 document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+                document.getElementById("ritsukoimg").style.display = "inline-block";
                 }
             if (score >= ritsukocost) {
                 if (pressedmusic === false) {
@@ -559,6 +589,7 @@
 
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
+                document.getElementById("ritsukoimg").style.display = "inline-block";
                 updateScorePerSecond();
                 }
             }
@@ -568,6 +599,7 @@
             if (pressedhospital === true){
                 kaworupurchased = "Purchased!"
                 document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
+                document.getElementById("kaworuimg").style.display = "inline-block";
                 }
             if (score >= kaworucost) {
                 if (pressedhospital === false) {
@@ -581,6 +613,7 @@
                 document.getElementById("score").innerHTML = score;
                 updateScorePerSecond();
                 document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
+                document.getElementById("kaworuimg").style.display = "inline-block";
                 }
             }
         }
