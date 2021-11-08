@@ -857,16 +857,28 @@
     document.getElementById("misatopurchased").innerHTML = misatopurchased;
     document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
     document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
+    if(pressednerve === true){
+        document.getElementById("gendoimg").style.display = "inline-block";
+    }
+    if(pressedsauna === true){
+        document.getElementById("kajiimg").style.display = "inline-block";
+    }
+    if(pressedbath === true){
+        document.getElementById("penimg").style.display = "inline-block";
+    }
+    if(pressedrei === true){
+        document.getElementById("misatoimg").style.display = "inline-block";
+    }
+    if(pressedmusic === true){
+    document.getElementById("ritsukoimg").style.display = "inline-block";
+    }
+    if(pressedhospital === true){
+        document.getElementById("kaworuimg").style.display = "inline-block";
+    }
   }
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
-    document.getElementById("gendopurchased").innerHTML = gendopurchased;
-    document.getElementById("kajipurchased").innerHTML = kajipurchased;
-    document.getElementById("penpurchased").innerHTML = penpurchased;
-    document.getElementById("misatopurchased").innerHTML = misatopurchased;
-    document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
-    document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
