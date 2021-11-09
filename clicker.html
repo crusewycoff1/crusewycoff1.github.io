@@ -182,6 +182,10 @@
                             <td><button onclick="buyeva()" title="10000 Mayo per second"><img src="/Images/Evaunit1.jfif" width="75px" height="60px">Get In the Eva, Shinji!
                                 &#120132<span id="evacost">50,000,000</span> - <span id="evaamt">0</span></button> </td>
                         </tr>
+                        <tr>
+                            <td><button onclick="buysubway()" title="100000 Mayo per second"><img src="/Images/Subway.jpeg" width="75px" height="60px">Ride on the Subway for Hours
+                                &#120132<span id="subwaycost">200,000,000</span> - <span id="subwayamt">0</span></button> </td>
+                        </tr>
                     </table>
                 </center>
                 </div>
@@ -239,7 +243,7 @@
                                 <td><button onclick="upgradehospital()" title="Kaworu goes to the hospital with Shinji and uhhh [redacted]"><img src="/Images/buttonimages/kaworubutton.jpeg" width="75px" heigh="75px">Kaworu - <span id="kaworupurchased">500,000,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="playsplat();" title="booba>:)" ><img src="/Images/buttonimages/Asukasmirk.jpg" width="75px" heigh="75px"> Asuka-1,000,000,000</button></td>
+                                <td><button onclick="playsplat();" title="booba>:)" ><img src="/Images/buttonimages/Asukasmirk.jpg" width="75px" heigh="75px"> Asuka - <span id="splat"> 1,000,000,000</span></button></td>
                             </tr>
                         </table>
                     </center>
@@ -333,6 +337,9 @@
         var evacost = 50000000
         var evaamt = 0
 
+        var subwaycost = 200000000
+        var subwayamt = 0
+
         var scorePerSecond = 0
 
         var gendocost = 5000
@@ -375,6 +382,7 @@
         var misatopurchased = "5,000,000"
         var ritsukopurchased = "25,000,000"
         var kaworupurchased = "500,000,000"
+        var splat = "Splat!"
         
         //Adding score//
         function addToScore(amount) {
@@ -497,6 +505,19 @@
                 document.getElementById("score").innerHTML = score;
                 document.getElementById("evacost").innerHTML = evacost;
                 document.getElementById("evaamt").innerHTML = evaamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buysubway() {
+            if (score >= subwaycost) {
+                score = score - subwaycost;
+                subwayamt = subwayamt + 1;
+                subwaycost = Math.round(subwaycost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("subwaycost").innerHTML = subwaycost;
+                document.getElementById("subwayamt").innerHTML = subwayamt;
                 updateScorePerSecond();
             }
         }
@@ -682,11 +703,18 @@
             document.getElementById("score").innerHTML = score;
         }, 1) // 1000ms = 1 second
 
+        setInterval(function () {
+            score = score + subwayamt * 400;
+            document.getElementById("score").innerHTML = score;
+        }, 1) // 1000ms = 1 second
+
         function playsplat() {
             if (score >= 1000000000) {
                 score = score - 1000000000;
+                splat = splat + "!"
                 var audio = new Audio('snd-splat.mp3');
                 audio.play();
+                document.getElementById("splat").innerHTML = splat;
             }
         }
 
@@ -696,7 +724,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + (musicamt * ritsukoupgrade * beforemusic) + (hospitalamt * kaworuupgrade *beforehospital) + pictureamt * 1500 + melonamt * 5000 + evaamt * 10000;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + (musicamt * ritsukoupgrade * beforemusic) + (hospitalamt * kaworuupgrade *beforehospital) + pictureamt * 1500 + melonamt * 5000 + evaamt * 10000 + subwayamt * 100000;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
@@ -727,6 +755,8 @@
                 meloncost: meloncost,
                 evaamt: evaamt,
                 evacost: evacost,
+                subwayamt: subwayamt,
+                subwaycost: subwaycost,
                 gendoupgrade: gendoupgrade,
                 pressednerve: pressednerve,
                 kajiupgrade: kajiupgrade,
@@ -780,6 +810,8 @@
                 if (typeof savedGame.meloncost !== "undefined") meloncost = savedGame.meloncost;
                 if (typeof savedGame.evaamt !== "undefined") evaamt = savedGame.evaamt;
                 if (typeof savedGame.evacost !== "undefined") evacost = savedGame.evacost;
+                if (typeof savedGame.subwayamt !== "undefined") subwayamt = savedGame.subwayamt;
+                if (typeof savedGame.subwaycost !== "undefined") subwaycost = savedGame.subwaycost;
                 if (typeof savedGame.gendoupgrade !== "undefined") gendoupgrade = savedGame.gendoupgrade;
                 if (typeof savedGame.pressednerve !== "undefined") pressednerve = savedGame.pressednerve;
                 if (typeof savedGame.kajiupgrade !== "undefined") kajiupgrade = savedGame.kajiupgrade;
@@ -831,6 +863,8 @@
                 document.getElementById("melonamt").innerHTML = melonamt;
                 document.getElementById("evacost").innerHTML = evacost;
                 document.getElementById("evaamt").innerHTML = evaamt;
+                document.getElementById("subwaycost").innerHTML = subwaycost;
+                document.getElementById("subwayamt").innerHTML = subwayamt;
                 document.getElementById("gendoupgrade").innerHTML = gendoupgrade;
                 document.getElementById("pressednerve").innerHTML = pressednerve;
                 document.getElementById("kajiupgrade").innerHTML = kajiupgrade;
