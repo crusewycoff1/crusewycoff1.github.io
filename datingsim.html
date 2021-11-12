@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>&#9829Shinji's Dating Sim&#9829</title>
+      <style>
+        #baseplate{
+        background-color: blue;
+        height: 500px;
+        width: 1000px;
+        left: 13%;
+        top: 8%;
+        position:absolute;
+        z-index: -2;
+        }
+        #textbox{
+          background-color: grey;
+          height: 150px;
+          width: 1000px;
+          left: 13%;
+          top: 64.6%;
+          position: absolute;
+          border-radius: 50px;
+          z-index: +1;
+          opacity: 0.8;
+        }
+        #thirdimpact{
+          height: 500px;
+          width: 1000px;
+          left: 13%;
+          top: 8%;
+          position:absolute;
+          z-index: -1;
+        }
+        #shinji{
+          height: 500px;
+          width: 275px;
+          left: 18%;
+          top: 8%;
+          position:absolute;
+        }
+        #asuka{
+          height: 475px;
+          width: 325px;
+          left: 60%;
+          top: 10%;
+          position:absolute;
+          display: none;
+        }
+        #gendo{
+          height: 500px;
+          width: 350px;
+          left: 60%;
+          top: 8%;
+          position:absolute;
+          display: none;
+        }
+        #back{
+          position: absolute;
+          top: 90%;
+          left: 20%;
+        }
+        #continue{
+          position: absolute;
+          top: 90%;
+          left: 70%;
+        }
+        #texthead{
+          position:absolute;
+          left: 20px;
+          color: white;
+        }
+        #textbody{
+          position:absolute;
+          left: 20px;
+          display: none;
+        }
+      </style>
+  </head>
+  <body>
+	<Div id="baseplate"></Div>
+  <div id="textbox"><h3 id="texthead">Shinji:</h3><br><br><div id="textbody"><span id="textchange">bruh bruh bruh</span></div></div>
+  <img id="shinji" src="https://www.pngkit.com/png/full/569-5694347_evangelion-evangelion-official-shinji-ikari-added-extra.png">
+  <img id="asuka" src="/datingimages/Asuka.png">
+  <img id="gendo" src="/datingimages/Gendo_Ikari.png">
+  <img id="thirdimpact" src="https://wallpapercave.com/wp/wp2733018.jpg">
+  <button id="back">Back</button>
+  <button id="continue" onclick="next()">Continue</button>
+  </body>
+</html>
+<script>
+  var shinji = false
+  var text1 = "what happened wheres my sandwwich shop"
+  function next(){
+    if(shinji = false){
+      shinji = true
+      document.getElementById("textbody").style.display = "inline"
+      document.getElementById("textchange").innerHTML = text1;
+    }
+  }
+</script>

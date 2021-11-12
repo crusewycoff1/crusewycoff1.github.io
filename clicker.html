@@ -19,6 +19,10 @@
         Body {
             background-color: purple;
             cursor: url("Unit01.cur"), auto;
+            background-image: none;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
         }
 
         nav {
@@ -106,6 +110,12 @@
         #kaworuimg{
             display: none;
         }
+        .beforeimpact{
+            display: inline-block;
+        }
+        .afterimapct{
+            display:none
+        }
         audio::-webkit-media-controls-panel{
             background-color: rgb(5, 238, 5);
         }
@@ -116,9 +126,9 @@
     </style>
 </head>
 
-<body>
+<body id="body1">
     <center>
-        <h1><strong>Shinji's Sandwich Shop</strong></h1>
+        <h1><strong> Shinji's Sandwich Shop</strong></h1>           
     </center>
     <nav>
         <ul>
@@ -224,26 +234,36 @@
                                 <th>People</th>
                             </tr>
                             <tr>
-                                <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS"><img src="/Images/buttonimages/gendobutton.png" width="75px" heigh="75px">Gendo - <span id="gendopurchased">5,000</span></button></td>
+                                <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS"><img class="beforeimpact" src="/Images/buttonimages/gendobutton.png" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Gendo - <span id="gendopurchased">5,000</span></button></td>
     
                             </tr>
                             <tr>
-                                <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"><img src="/Images/buttonimages/kajibutton.jpg" width="75px" heigh="75px"> Kaji-<span id="kajipurchased">50,000</span></button></td>
+                                <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"><img class="beforeimpact" src="/Images/buttonimages/kajibutton.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Kaji-<span id="kajipurchased">50,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" ><img src="/Images/buttonimages/PENPENBUTTON.jpg" width="75px" heigh="75px">Pen Pen - <span id="penpurchased">500,000</span></button></td>
+                                <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" ><img class="beforeimpact" src="/Images/buttonimages/PENPENBUTTON.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Pen Pen - <span id="penpurchased">500,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)"><img src="/Images/buttonimages/MISATOBUTTON.jpg" width="75px" heigh="75px">Misato - <span id="misatopurchased">5,000,000</span></button></td>
+                                <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)"><img class="beforeimpact" src="/Images/buttonimages/MISATOBUTTON.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Misato - <span id="misatopurchased">5,000,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="upgrademusic()" title="Ritsuko fixes Shinjis music player to make it play more music and faster"><img src="/Images/buttonimages/Ritsukobutton.jpeg" width="75px" heigh="75px">Ritsuko - <span id="ritsukopurchased">25,000,000</span></button></td>
+                                <td><button onclick="upgrademusic()" title="Ritsuko fixes Shinjis music player to make it play more music and faster"><img class="beforeimpact" src="/Images/buttonimages/Ritsukobutton.jpeg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Ritsuko - <span id="ritsukopurchased">25,000,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="upgradehospital()" title="Kaworu goes to the hospital with Shinji and uhhh [redacted]"><img src="/Images/buttonimages/kaworubutton.jpeg" width="75px" heigh="75px">Kaworu - <span id="kaworupurchased">500,000,000</span></button></td>
+                                <td><button onclick="upgradehospital()" title="Kaworu goes to the hospital with Shinji and uhhh [redacted]"><img class="beforeimpact" src="/Images/buttonimages/kaworubutton.jpeg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Kaworu - <span id="kaworupurchased">500,000,000</span></button></td>
                             </tr>
                             <tr>
-                                <td><button onclick="playsplat();" title="booba>:)" ><img src="/Images/buttonimages/Asukasmirk.jpg" width="75px" heigh="75px"> Asuka - <span id="splat"> 1,000,000,000</span></button></td>
+                                <td><button onclick="playsplat();" title="booba>:)" ><img class="beforeimpact" src="/Images/buttonimages/Asukasmirk.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px"> Asuka - <span id="splat"> 1,000,000,000</span></button></td>
+                            </tr>
+                            <tr>
+                                <!-- <td><center><button onclick="thethirdimpact()"><h3>Cause The Third Impact</h3></button></center></td> -->
                             </tr>
                         </table>
                     </center>
@@ -383,6 +403,8 @@
         var ritsukopurchased = "25,000,000"
         var kaworupurchased = "500,000,000"
         var splat = "Splat!"
+
+        var kaworuthingy = src="/Shinjiclickimages/kaworu (1).png"
         
         //Adding score//
         function addToScore(amount) {
@@ -570,7 +592,7 @@
         function upgradebath() {
             if (pressedbath === true){
                 penpurchased = "Purchased!"
-                document.getElementById("penpurchased").innerHTML = penpurchased;
+                document.getElementById("penpurchased").innerHTML ;
                 document.getElementById("penimg").style.display = "inline-block";
                 }
             if (score >= pencost) {
@@ -657,6 +679,26 @@
                 }
             }
         }
+
+        function thethirdimpact(){
+            if(pressednerve === true){
+                if(pressedsauna === true){
+                    if(pressedbath === true){
+                        if(pressedrei === true){
+                            if(pressedmusic === true){
+                                if(pressedhospital === true){
+                                    document.getElementById("body1").style.backgroundImage = "url(Images/Thirdimpact.jpg)";
+                                    document.getElementsByClassName('afterimapct')[0,1,2].style.setProperty("display", "inline-block");
+                                    document.getElementById("button").style.background='red';
+                                    score = 100000
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         //Interval Functions//
         setInterval(function () {
             score = score + (nervepersonnel * gendoupgrade);
@@ -734,6 +776,7 @@
             }
         }
 
+        //save game stuff//
         function saveGame() {
             var gameSave = {
                 score: score,
