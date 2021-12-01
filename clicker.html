@@ -1122,8 +1122,7 @@
                 misatopurchased: misatopurchased,
                 ritsukopurchased: ritsukopurchased,
                 kaworupurchased: kaworupurchased,
-                splat: splat
-
+                splat: splat,
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
         }
@@ -1272,6 +1271,9 @@
                 document.getElementById("misatopurchased").innerHTML = misatopurchased;
                 document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
                 document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
+                if(activethird === true){
+                    thethirdimpact();
+                }
         } 
         //save game//
         setInterval(function () {
@@ -1290,7 +1292,6 @@
     document.getElementById("misatopurchased").innerHTML = misatopurchased;
     document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
     document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
-    document.getElementById("splat").innerHTML = splat;
  if(activethird === false){
     if(pressednerve === true){
         document.getElementById("gendoimg").style.display = "inline-block";
@@ -1312,6 +1313,7 @@
     }
     if(pressedpicture === true){
         document.getElementById("asukaimg").style.display = "inline-block";
+        document.getElementById("splat").innerHTML = splat;
     }
   }
 }
