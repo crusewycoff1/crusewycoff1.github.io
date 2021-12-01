@@ -68,25 +68,40 @@
             clear: both;
         }
 
-        table, th, td {
+        .mytable{
             border: 2px solid rgb(5, 238, 5);
             color: white;
             border-collapse: collapse;
-            border-radius: 30px;
-
         }
-
+        th{
+            border: 2px solid rgb(5, 238, 5);
+            color: white;
+            border-collapse: collapse;
+        }
+        td{
+            border: 2px solid rgb(5, 238, 5);
+            color: white;
+            border-collapse: collapse;
+        }
         h2, h3, h4 {
             color: white
         }
 
-        button {
+        .btnedit {
             background-color: purple;
             color: white;
             cursor: url("Unit01.cur"), auto;
         }
-        button:hover{
+        .btnedit:hover{
             background-color: rgb(5, 238, 5);
+        }
+        .tabcolor{
+            background-color: purple;
+            color: white;
+            cursor: url("Unit01.cur"), auto;
+        }
+        .tabcolor:hover{
+            background-color:rgb(5, 238, 5);
         }
         .tabcontent{
         display: none;
@@ -110,18 +125,39 @@
         #kaworuimg{
             display: none;
         }
+        #asukaimg{
+            display: none;
+        }
         .beforeimpact{
             display: inline-block;
         }
         .afterimapct{
             display:none
         }
-        audio::-webkit-media-controls-panel{
+        .audiocolor::-webkit-media-controls-panel{
             background-color: rgb(5, 238, 5);
         }
-        audio::-webkit-media-controls-play-button:hover{
-            background-color: purple;
-            border-radius: 50px;
+        #mayotable{
+            max-height: 513px;
+            overflow: auto;
+        }
+        #mayotable::-webkit-scrollbar {
+            display: none; 
+        }
+        #upgradetable{
+            max-height: 480px;
+            overflow: auto;
+        }
+        #upgradetable::-webkit-scrollbar {
+            display: none; 
+        }
+        #Paris{
+            max-height: 550px;
+            overflow: auto;
+            color: white;
+        }
+        #Paris::-webkit-scrollbar {
+            display: none; 
         }
     </style>
 </head>
@@ -150,68 +186,102 @@
                     <div id="itemdirection">
                 <center>
                     <h2>Mayonnaise</h2>
-                    <table>
-                        <tr>
-                            <th>Upgrades</th>
+                    <div id="mayotable">
+                    <table class="mytable">
+                        <tr class="tredit">
+                            <th class="thedit">Upgrades</th>
                         </tr>
-                        <tr>
-                            <td><button class="nerve" onclick="buynerve()" title="1 Mayo per second"><img src="https://www.pngitem.com/pimgs/m/408-4081982_neon-genesis-evangelion-nerv-logo-hd-png-download.png" width="50px" height="50px"> Nerve personnel 
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buynerve()" title="1 Mayo per second"><img class="beforeimpact" src="https://www.pngitem.com/pimgs/m/408-4081982_neon-genesis-evangelion-nerv-logo-hd-png-download.png" width="50px" height="50px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Nerve personnel 
                                 &#120132<span id="nervepersonnelcost">10</span> - <span id="nervepersonnel">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button class="sauna" onclick="buysauna()" title="5 Mayo per second"><img src="https://i0.wp.com/jotaku.net/wp-content/uploads/2020/08/nge-subchange-thumb.png?fit=1280%2C720&ssl=1" width="75px" height="50px"> Sauna with Kaworu
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buysauna()" title="5 Mayo per second"><img class="beforeimpact" src="https://i0.wp.com/jotaku.net/wp-content/uploads/2020/08/nge-subchange-thumb.png?fit=1280%2C720&ssl=1" width="75px" height="50px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Sauna with Kaworu
                                     &#120132<span id="saunacost">100</span> - <span id="saunaamt">0</span></button>
                             </td>
                         </tr>
-                        <tr>
-                            <td><button class="bath" onclick="buybath()" title="10 Mayo per second"><img src="https://www.pngkey.com/png/full/240-2401508_options-pen-pen-evangelion-png.png" width="60px" height="55px"> Bathtime With Pen²
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buybath()" title="10 Mayo per second"><img class="beforeimpact" src="https://www.pngkey.com/png/full/240-2401508_options-pen-pen-evangelion-png.png" width="60px" height="55px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Bathtime With Pen²
                                     &#120132<span id="bathcost">1000</span> - <span id="bathamt">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buyrei()" title="50 Mayo per second"><img src="/Images/reisroom.png" width="70px" height="55px"> Visiting Rei's Room &#120132<span
-                                    id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyrei()" title="50 Mayo per second"><img class="beforeimpact" src="/Images/reisroom.png" width="70px" height="55px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Visiting Rei's Room 
+                                &#120132<span id="reicost">10,000</span> - <span id="reiamt">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buymusic()" title="100 Mayo per second"><img src="/Images/musicplayerimg.jfif" width="65px" height="50px"> Listening to music with Asuka
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buymusic()" title="100 Mayo per second"><img class="beforeimpact" src="/Images/musicplayerimg.jfif" width="65px" height="50px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Listening to music with Asuka
                                     &#120132<span id="musiccost">100,000</span> - <span id="musicamt">0</span></button>
                             </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buyhospital()" title="500 Mayo per second"><img src="/Images/shinjihospitalscene.jpg" width="75px" height="55px"> Trip to the Hospital
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyhospital()" title="500 Mayo per second"><img class="beforeimpact" src="/Images/shinjihospitalscene.jpg" width="75px" height="55px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Trip to the Hospital
                                     &#120132<span id="hospitalcost">1,000,000</span> - <span id="hospitalamt">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buypicture()" title="1500 Mayo per second"><img src="/Images/Misatopicture.png" width="60px" height="60px"> Copying Misato's Picture
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buypicture()" title="1,500 Mayo per second"><img class="beforeimpact" src="/Images/Misatopicture.png" width="60px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Copying Misato's Picture
                                 &#120132<span id="picturecost">5,000,000</span> - <span id="pictureamt">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buymelon()" title="5000 Mayo per second"><img src="/Images/Melon.jpg" width="60px" height="60px"> Picking some of Kaji's Melons
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buymelon()" title="5,000 Mayo per second"><img class="beforeimpact" src="/Images/Melon.jpg" width="60px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Picking some of Kaji's Melons
                                 &#120132<span id="meloncost">15,000,000</span> - <span id="melonamt">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buyeva()" title="10000 Mayo per second"><img src="/Images/Evaunit1.jfif" width="75px" height="60px">Get In the Eva, Shinji!
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyeva()" title="10,000 Mayo per second"><img class="beforeimpact" src="/Images/Evaunit1.jfif" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Get In the Eva, Shinji!
                                 &#120132<span id="evacost">50,000,000</span> - <span id="evaamt">0</span></button> </td>
                         </tr>
-                        <tr>
-                            <td><button onclick="buysubway()" title="100000 Mayo per second"><img src="/Images/Subway.jpeg" width="75px" height="60px">Ride on the Subway for Hours
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buysubway()" title="100,000 Mayo per second"><img class="beforeimpact" src="/Images/Subway.jpeg" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Ride on the Subway for Hours
                                 &#120132<span id="subwaycost">200,000,000</span> - <span id="subwayamt">0</span></button> </td>
                         </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyceiling()" title="500,000 Mayo per second"><img class="beforeimpact" src="/Images/ceiling.jpg" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Complain About Your Ceiling
+                                &#120132<span id="ceilingcost">900,000,000</span> - <span id="ceilingamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyspear()" title="1,000,000 Mayo per second"><img class="beforeimpact" src="/Images/spearoflonginus.jpg" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Play Catch the Spear
+                                &#120132<span id="spearcost">2,000,000,000</span> - <span id="spearamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buymonolith()" title="5,000,000 Mayo per second"><img class="beforeimpact" src="/Images/monolith.jpg" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Chill with the Seele Monoliths
+                                &#120132<span id="monolithcost">15,000,000,000</span> - <span id="monolithamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buygloop()" title="10,000,000 Mayo per second"><img class="beforeimpact" src="/Images/lilith.png" width="65px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Watch Lilith Drip Gloop
+                                &#120132<span id="gloopcost">40,000,000,000</span> - <span id="gloopamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buymagi()" title="50,000,000 Mayo per second"><img class="beforeimpact" src="/Images/Magibrain.jpg" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Poke the Magi Brain
+                                &#120132<span id="magicost">120,000,000,000</span> - <span id="magiamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyslap()" title="100,000,000 Mayo per second"><img class="beforeimpact" src="/Images/reislap.gif" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Slap the S#!t out of Shinji
+                                &#120132<span id="slapcost">830,000,000,000</span> - <span id="slapamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buypole()" title="500,000,000 Mayo per second"><img class="beforeimpact" src="/Images/polefield.png" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Visit the P O L E F I E L D
+                                &#120132<span id="polecost">1,400,000,000,000</span> - <span id="poleamt">0</span></button> </td>
+                        </tr>
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="buyclone()" title="1,000,000,000 Mayo per second"><img class="beforeimpact" src="/Images/reiclone.png" width="75px" height="60px"><img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Kill a Rei clone for lols
+                                &#120132<span id="clonecost">7,777,777,777,777</span> - <span id="cloneamt">0</span></button> </td>
+                        </tr>
                     </table>
+                </div>
                 </center>
                 </div>
                 </div>
             </div>
             <div class="column">
                 <center>
-                    <table>
+                    <table class="mytable">
                         <h2><buttom id="angel" onclick="playangel();"> Mayo Sandwiches: <span id="score">0</span></buttom></h2>
                         <h4><span id="scorepersecond">0</span> Mayo Per Second </h4>
-                        <img id="shinjimage" src="/Images/Shinjiclickimage.jfif"
-                            onclick="addToScore(1)">
-                        <tr>
-                            <td><button onclick="saveGame()">Save Game</button></td>
-                            <td><button onclick="window.location.href='credits.html'">Credits</button></td>
-                            <td><button onclick="loadgame()">Load Game</button></td>
+                        <img id="shinjimage" class="beforeimpact" src="/Images/Shinjiclickimage.jfif"
+                            onclick="addToScore(1)"><img id="shinjimage" class="afterimapct" src="/Images/reiclickimage.jpg" onclick="addToScore(1)">
+                        <tr class="tredit">
+                            <td class="tdedit"><button class="btnedit" onclick="saveGame()">Save Game</button></td>
+                            <td class="tdedit"><button class="btnedit" onclick="window.location.href='credits.html'">Credits</button></td>
+                            <td class="tdedit"><button class="btnedit" onclick="loadgame()">Load Game</button></td>
                         </tr>
                     </table>
                 </center>
@@ -219,116 +289,118 @@
                 <center>
                     <h7>Made By Cruse Wycoff:D</h7>
                 </center></br>
-                <div><br><br><br><br><br><br><br><br><br></div>
+                <div><br><br><br><br></div>
             </div>
             <div class="column">
                 <center>
                     <div class="tab">
-                        <button class="tablinks" onclick="openCity(event, 'London')">Sandwich Delivery</button>
-                        <button class="tablinks" onclick="openCity(event, 'Paris')">Play Music</button>
+                        <button  class="tabcolor" class="tablinks" onclick="openCity(event, 'London')">Sandwich Delivery</button>
+                        <button class="tabcolor" class="tablinks" onclick="openCity(event, 'Paris')">Play Music</button>
                       </div>
                       <div id="London" class="tabcontent">
                         <h2>Give Sandwiches To</h2>
-                        <table>
-                            <tr>
-                                <th>People</th>
+                        <div id="upgradetable">
+                        <table class="mytable">
+                            <tr class="tredit">
+                                <th class="thedit">People</th>
                             </tr>
-                            <tr>
-                                <td><button onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS"><img class="beforeimpact" src="/Images/buttonimages/gendobutton.png" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Gendo - <span id="gendopurchased">5,000</span></button></td>
-    
+                            <tr class="tredit" >
+                                <td class="tdedit"><button class="btnedit" onclick="upgradenerve()" title="multiplies Nerve efficiency by 5MPS"><img class="beforeimpact" src="/Images/buttonimages/gendobutton.png" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px">Gendo - <span id="gendopurchased">5,000</span></button></td>
                             </tr>
-                            <tr>
-                                <td><button onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"><img class="beforeimpact" src="/Images/buttonimages/kajibutton.jpg" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Kaji-<span id="kajipurchased">50,000</span></button></td>
+                            <tr class="tredit">
+                                <td class="tdedit"><button class="btnedit" onclick="upgradesauna()" title="Kaji joins the sauna and each one heats up to 15MPS"><img class="beforeimpact" src="/Images/buttonimages/kajibutton.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px">Kaji-<span id="kajipurchased">50,000</span></button></td>
                             </tr>
-                            <tr>
-                                <td><button onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" ><img class="beforeimpact" src="/Images/buttonimages/PENPENBUTTON.jpg" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Pen Pen - <span id="penpurchased">500,000</span></button></td>
+                            <tr class="tredit">
+                                <td class="tdedit"><button class="btnedit" onclick="upgradebath()" title="Pen Pen joins the bath and it gets uncomfy (50MPS)" ><img class="beforeimpact" src="/Images/buttonimages/PENPENBUTTON.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px">Pen Pen - <span id="penpurchased">500,000</span></button></td>
                             </tr>
-                            <tr>
-                                <td><button onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)"><img class="beforeimpact" src="/Images/buttonimages/MISATOBUTTON.jpg" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Misato - <span id="misatopurchased">5,000,000</span></button></td>
+                            <tr class="tredit">
+                                <td class="tdedit"><button class="btnedit" onclick="upgraderei()" title="Misato keeps sending Shinji to Rei's room for some odd reason(she ships them)"><img class="beforeimpact" src="/Images/buttonimages/MISATOBUTTON.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px">Misato - <span id="misatopurchased">5,000,000</span></button></td>
                             </tr>
-                            <tr>
-                                <td><button onclick="upgrademusic()" title="Ritsuko fixes Shinjis music player to make it play more music and faster"><img class="beforeimpact" src="/Images/buttonimages/Ritsukobutton.jpeg" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Ritsuko - <span id="ritsukopurchased">25,000,000</span></button></td>
+                            <tr class="tredit">
+                                <td class="tdedit"><button class="btnedit" onclick="upgrademusic()" title="Ritsuko fixes Shinjis music player to make it play more music and faster"><img class="beforeimpact" src="/Images/buttonimages/Ritsukobutton.jpeg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px">Ritsuko - <span id="ritsukopurchased">25,000,000</span></button></td>
                             </tr>
-                            <tr>
-                                <td><button onclick="upgradehospital()" title="Kaworu goes to the hospital with Shinji and uhhh [redacted]"><img class="beforeimpact" src="/Images/buttonimages/kaworubutton.jpeg" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px">Kaworu - <span id="kaworupurchased">500,000,000</span></button></td>
+                            <tr class="tredit">
+                                <td class="tdedit"><button class="btnedit" onclick="upgradehospital()" title="Kaworu goes to the hospital with Shinji and uhhh [redacted]"><img class="beforeimpact" src="/Images/buttonimages/kaworubutton.jpeg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px">Kaworu - <span id="kaworupurchased">500,000,000</span></button></td>
                             </tr>
-                            <tr>
-                                <td><button onclick="playsplat();" title="booba>:)" ><img class="beforeimpact" src="/Images/buttonimages/Asukasmirk.jpg" width="75px" height="75px">
-                                    <img class="afterimapct" src="/Images/reichiquita.jpg" width="75px" height="75px"> Asuka - <span id="splat"> 1,000,000,000</span></button></td>
+                            <tr class="tredit">
+                                <td class="tdedit"><button class="btnedit" onclick="upgradepicture();" title="booba>:)" ><img class="beforeimpact" src="/Images/buttonimages/Asukasmirk.jpg" width="75px" height="75px">
+                                    <img class="afterimapct" src="/Images/reichiquita2.png" width="60px" height="75px"> Asuka - <span id="splat"> 1,000,000,000</span></button></td>
                             </tr>
-                            <tr>
-                                <!-- <td><center><button onclick="thethirdimpact()"><h3>Cause The Third Impact</h3></button></center></td> -->
-                            </tr>
+                            <!--<tr class="tredit">
+                                 <td class="tdedit"><center><button class="btnedit" onclick="thethirdimpact()" title="Unlock All Previous Upgrades"><h3>Cause The Third Impact</h3></button></center></td>
+                            </tr>-->
+                        </div>
                         </table>
                     </center>
                       </div>
-                      
                       <div id="Paris" class="tabcontent">
                           Fly Me to the Moon<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/20 - FLY ME TO THE MOON [TV. Size Version].mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/20 - FLY ME TO THE MOON [TV. Size Version].mp3" type="audio/mpeg">
                         </audio><br>
                         Both of You Dance Like You Want to Win!<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/07 - Both of you, Dance Like You Want to Win!.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/07 - Both of you, Dance Like You Want to Win!.mp3" type="audio/mpeg">
                         </audio><br>
                         Komm, Süsser Tod<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/Komm.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/Komm.mp3" type="audio/mpeg">
                         </audio><br>
                         Misato<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/08 - MISATO.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/08 - MISATO.mp3" type="audio/mpeg">
                         </audio><br>
                         Ritsuko<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/07 - RITSUKO.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/07 - RITSUKO.mp3" type="audio/mpeg">
                         </audio><br>
                         Asuka Strikes!<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/09 - ASUKA STRIKES!.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/09 - ASUKA STRIKES!.mp3" type="audio/mpeg">
                         </audio><br>
                         Good, or Dont be<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/22 - Good, or Don't Be..mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/22 - Good, or Don't Be..mp3" type="audio/mpeg">
                         </audio><br>
                         When I Find Peace of Mind<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/19 - When I Find Peace of Mind.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/19 - When I Find Peace of Mind.mp3" type="audio/mpeg">
                         </audio><br>
                         Shinji<br>
-                        <audio controls  >
+                        <audio class="audiocolor" controls>
                             <source src="/Unused stuff/Evasounds/12 - I.SHINJI.mp3" type="audio/ogg">
                             <source src="/Unused stuff/Evasounds/12 - I.SHINJI.mp3" type="audio/mpeg">
                         </audio><br>
                       </div>
+                      </div>
             </div>
             <div>
-            <p><img id="gendoimg"src="/Shinjiclickimages/Gendoimg.png" width="150px" height="280px">
-            <img id="kajiimg" src="/Shinjiclickimages/kajisandwich.png" width="200px" height="280px">
-            <img id="penimg" src="/Shinjiclickimages/Pen_Pen (1).png" width="170px" height="280px">
-            <img id="misatoimg" src="/Shinjiclickimages/Misato (1).png" width="220px" height="280px">
-            <img id="ritsukoimg" src="/Shinjiclickimages/ritsuko (1).png" width="150px" height="280px">
-            <img id="kaworuimg" src="/Shinjiclickimages/kaworu (1).png" width="150px" height="280px"></p>
+            <p><img id="gendoimg" class="beforeimpact" src="/Shinjiclickimages/Gendoimg.png" width="150px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
+            <img id="kajiimg" class="beforeimpact" src="/Shinjiclickimages/kajisandwich.png" width="200px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
+            <img id="penimg" class="beforeimpact" src="/Shinjiclickimages/Pen_Pen (1).png" width="190px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
+            <img id="misatoimg" class="beforeimpact" src="/Shinjiclickimages/Misato (1).png" width="220px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
+            <img id="ritsukoimg" class="beforeimpact" src="/Shinjiclickimages/ritsuko (1).png" width="150px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
+            <img id="kaworuimg" class="beforeimpact" src="/Shinjiclickimages/kaworu (1).png" width="150px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
+            <img id="asukaimg" class="beforeimpact" src="/Shinjiclickimages/asuka.png" width="190px" height="280px"><img class="afterimapct" src="/Shinjiclickimages/fanter.png" width="185px" height="280px"></p>
             </div>
     </main>
     <script>
         //all variables//
-        var score = 0;
+        var score = 10000000000000000;
 
         var nervepersonnelcost = 10;
         var nervepersonnel = 0;
@@ -359,6 +431,30 @@
 
         var subwaycost = 200000000
         var subwayamt = 0
+
+        var ceilingcost = 900000000
+        var ceilingamt = 0
+
+        var spearcost = 2000000000
+        var spearamt = 0
+
+        var monolithcost = 15000000000
+        var monolithamt = 0
+
+        var gloopcost = 40000000000
+        var gloopamt = 0
+
+        var magicost = 120000000000
+        var magiamt = 0
+
+        var slapcost = 830000000000
+        var slapamt = 0
+
+        var polecost = 1400000000000
+        var poleamt = 0
+
+        var clonecost = 7777777777777
+        var cloneamt = 0
 
         var scorePerSecond = 0
 
@@ -394,6 +490,12 @@
         var beforehospital = 500
         var kaworumult= 1
 
+        var asukacost = 1000000000
+        var asukaupgrade = 1
+        var pressedpicture = false
+        var beforepicture = 1500
+        var asukamult= 1
+
         var gendoimage = false
 
         var gendopurchased = "5000"
@@ -402,9 +504,10 @@
         var misatopurchased = "5,000,000"
         var ritsukopurchased = "25,000,000"
         var kaworupurchased = "500,000,000"
-        var splat = "Splat!"
+        var splat = "Splat"
+        
+        var activethird = false
 
-        var kaworuthingy = src="/Shinjiclickimages/kaworu (1).png"
         
         //Adding score//
         function addToScore(amount) {
@@ -543,6 +646,111 @@
                 updateScorePerSecond();
             }
         }
+
+        function buyceiling() {
+            if (score >= ceilingcost) {
+                score = score - ceilingcost;
+                ceilingamt = ceilingamt + 1;
+                ceilingcost = Math.round(ceilingcost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("ceilingcost").innerHTML = ceilingcost;
+                document.getElementById("ceilingamt").innerHTML = ceilingamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buyspear() {
+            if (score >= spearcost) {
+                score = score - spearcost;
+                spearamt = spearamt + 1;
+                spearcost = Math.round(spearcost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("spearcost").innerHTML = spearcost;
+                document.getElementById("spearamt").innerHTML = spearamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buymonolith() {
+            if (score >= monolithcost) {
+                score = score - monolithcost;
+                monolithamt = monolithamt + 1;
+                monolithcost = Math.round(monolithcost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("monolithcost").innerHTML = monolithcost;
+                document.getElementById("monolithamt").innerHTML = monolithamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buygloop() {
+            if (score >= gloopcost) {
+                score = score - gloopcost;
+                gloopamt = gloopamt + 1;
+                gloopcost = Math.round(gloopcost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("gloopcost").innerHTML = gloopcost;
+                document.getElementById("gloopamt").innerHTML = gloopamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buymagi() {
+            if (score >= magicost) {
+                score = score - magicost;
+                magiamt = magiamt + 1;
+                magicost = Math.round(magicost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("magicost").innerHTML = magicost;
+                document.getElementById("magiamt").innerHTML = magiamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buyslap() {
+            if (score >= slapcost) {
+                score = score - slapcost;
+                slapamt = slapamt + 1;
+                slapcost = Math.round(slapcost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("slapcost").innerHTML = slapcost;
+                document.getElementById("slapamt").innerHTML = slapamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buypole() {
+            if (score >= polecost) {
+                score = score - polecost;
+                poleamt = poleamt + 1;
+                polecost = Math.round(polecost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("polecost").innerHTML = polecost;
+                document.getElementById("poleamt").innerHTML = poleamt;
+                updateScorePerSecond();
+            }
+        }
+
+        function buyclone() {
+            if (score >= clonecost) {
+                score = score - clonecost;
+                cloneamt = cloneamt + 1;
+                clonecost = Math.round(clonecost * 1.25);
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("clonecost").innerHTML = clonecost;
+                document.getElementById("cloneamt").innerHTML = cloneamt;
+                updateScorePerSecond();
+            }
+        }
+
         //upgrades *cries*//
         function upgradenerve() {
             if (pressednerve === true){
@@ -666,10 +874,10 @@
             if (score >= kaworucost) {
                 if (pressedhospital === false) {
                 score = score - kaworucost;
-                kaworuupgrade = kaworuupgrade * 500;
+                kaworuupgrade = kaworuupgrade * 2000;
                 beforehospital = 1
                 pressedhospital = true;
-                hospitalmult = 4
+                kowurumult = 4
                 kaworupurchased = "Purchased!"
 
                 document.getElementById("score").innerHTML = score;
@@ -680,6 +888,43 @@
             }
         }
 
+        function upgradepicture() {
+            if (pressedpicture === true){
+                splat = splat + "!"
+                var audio = new Audio('snd-splat.mp3');
+                audio.play();
+                document.getElementById("asukaimg").style.display = "inline-block";
+                document.getElementById("splat").innerHTML = splat;
+                }
+            if (score >= asukacost) {
+                if (pressedpicture === false) {
+                score = score - asukacost;
+                asukaupgrade = asukaupgrade * 6000;
+                beforepicture = 1
+                pressedpicture = true;
+                asukamult = 4
+
+                splat = splat + "!"
+                var audio = new Audio('snd-splat.mp3');
+                audio.play();
+
+                document.getElementById("score").innerHTML = score;
+                document.getElementById("splat").innerHTML = splat;
+                document.getElementById("asukaimg").style.display = "inline-block";
+                updateScorePerSecond();
+                }
+            }
+        }
+ 
+        var bimpact = document.getElementsByClassName('beforeimpact')
+        var aimpact = document.getElementsByClassName('afterimapct')
+        var btncolor = document.getElementsByClassName('btnedit')
+        var tabcolor = document.getElementsByClassName('tabcolor')
+        var audiocolor = document.getElementsByClassName('audiocolor')
+        var tablecolor = document.getElementsByClassName('mytable')
+        var trcolor = document.getElementsByClassName('tredit')
+        var tdcolor = document.getElementsByClassName('tdedit')
+        var thcolor = document.getElementsByClassName('thedit')
         function thethirdimpact(){
             if(pressednerve === true){
                 if(pressedsauna === true){
@@ -687,10 +932,40 @@
                         if(pressedrei === true){
                             if(pressedmusic === true){
                                 if(pressedhospital === true){
-                                    document.getElementById("body1").style.backgroundImage = "url(Images/Thirdimpact.jpg)";
-                                    document.getElementsByClassName('afterimapct')[0,1,2].style.setProperty("display", "inline-block");
-                                    document.getElementById("button").style.background='red';
-                                    score = 100000
+                                    if(pressedpicture === true){
+                                        if(cloneamt < 3){
+                                            alert("You need to kill " + (3 - cloneamt) + " more Rei clones to cause The Third Impact")
+                                        }
+                                        if(cloneamt >= 3){
+                                            document.getElementById("body1").style.backgroundImage = "url(Images/thirdimpact2.jpeg)";
+                                            activethird = true
+
+                                            for(i=0; i < aimpact.length; i=i+1){
+                                                document.getElementsByClassName('afterimapct')[i].style.setProperty("display", "inline-block");
+                                            }
+                                            for(i=0; i < bimpact.length; i=i+1){
+                                                document.getElementsByClassName('beforeimpact')[i].style.setProperty("display", "none");
+                                            }
+                                            for(i=0; i < btncolor.length; i=i+1){
+                                                document.getElementsByClassName('btnedit')[i].style.background='red';
+                                            }
+                                            for(i=0; i < tabcolor.length; i=i+1){
+                                                document.getElementsByClassName('tabcolor')[i].style.background='red';
+                                            }
+                                            for(i=0; i < tablecolor.length; i=i+1){
+                                                document.getElementsByClassName('mytable')[i].style.borderColor='red';
+                                            }
+                                            for(i=0; i < trcolor.length; i=i+1){
+                                                document.getElementsByClassName('tredit')[i].style.borderColor='red';
+                                            }
+                                            for(i=0; i < tdcolor.length; i=i+1){
+                                                document.getElementsByClassName('tdedit')[i].style.borderColor='red';
+                                            }
+                                            for(i=0; i < thcolor.length; i=i+1){
+                                                document.getElementsByClassName('thedit')[i].style.borderColor='red';
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -731,22 +1006,22 @@
         }, 2) // 1000ms = 1 second
 
         setInterval(function () {
-            score = score + pictureamt * 15;
+            score = score + pictureamt * 15 * asukamult;
             document.getElementById("score").innerHTML = score;
         }, 1) // 1000ms = 1 second
 
         setInterval(function () {
             score = score + melonamt * 25;
-            document.getElementById("score").innerHTML = score;
-        }, 1) // 1000ms = 1 second
-
-        setInterval(function () {
             score = score + evaamt * 65;
-            document.getElementById("score").innerHTML = score;
-        }, 1) // 1000ms = 1 second
-
-        setInterval(function () {
             score = score + subwayamt * 400;
+            score = score + ceilingamt * 2300;
+            score = score + spearamt * 4500;
+            score = score + monolithamt * 30000;
+            score = score + gloopamt * 70000;
+            score = score + magiamt * 230000;
+            score = score + slapamt * 460000;
+            score = score + poleamt * 2000000;
+            score = score + cloneamt * 4000000;
             document.getElementById("score").innerHTML = score;
         }, 1) // 1000ms = 1 second
 
@@ -766,7 +1041,7 @@
         }
 
         function updateScorePerSecond() {
-            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + (musicamt * ritsukoupgrade * beforemusic) + (hospitalamt * kaworuupgrade *beforehospital) + pictureamt * 1500 + melonamt * 5000 + evaamt * 10000 + subwayamt * 100000;
+            scorePerSecond = (nervepersonnel * gendoupgrade) + (saunaamt * kajiupgrade * beforesauna) + (bathamt * penupgrade * beforebath) + (reiamt * misatoupgrade * beforerei) + (musicamt * ritsukoupgrade * beforemusic) + (hospitalamt * kaworuupgrade * beforehospital) + (pictureamt * asukaupgrade * beforepicture) + melonamt * 5000 + evaamt * 10000 + subwayamt * 100000 + ceilingamt * 500000 + spearamt * 1000000 + monolithamt * 5000000 + gloopamt * 10000000 + magiamt * 50000000 + slapamt * 100000000 + poleamt * 500000000 + cloneamt * 1000000000;
             document.getElementById("scorepersecond").innerHTML = scorePerSecond;
         }
 
@@ -800,6 +1075,22 @@
                 evacost: evacost,
                 subwayamt: subwayamt,
                 subwaycost: subwaycost,
+                ceilingamt: ceilingamt,
+                ceilingcost: ceilingcost,
+                spearamt: spearamt,
+                spearcost: spearcost,
+                monolithamt: monolithamt,
+                monolithcost: monolithcost,
+                gloopamt: gloopamt,
+                gloopcost: gloopcost,
+                magiamt: magiamt,
+                magicost: magicost,
+                slapamt: slapamt,
+                slapcost: slapcost,
+                poleamt: poleamt,
+                polecost: polecost,
+                cloneamt: cloneamt,
+                clonecost: clonecost,
                 gendoupgrade: gendoupgrade,
                 pressednerve: pressednerve,
                 kajiupgrade: kajiupgrade,
@@ -820,13 +1111,18 @@
                 pressedhospital: pressedhospital,
                 beforehospital: beforehospital,
                 kaworumult: kaworumult,
+                asukaupgrade: asukaupgrade,
+                pressedpicture: pressedpicture,
+                beforepicture: beforepicture,
+                asukamult: asukamult,
                 gendoimage: gendoimage,
                 gendopurchased: gendopurchased,
                 kajipurchased: kajipurchased, 
                 penpurchased: penpurchased,
                 misatopurchased: misatopurchased,
                 ritsukopurchased: ritsukopurchased,
-                kaworupurchased: kaworupurchased
+                kaworupurchased: kaworupurchased,
+                splat: splat
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -855,6 +1151,22 @@
                 if (typeof savedGame.evacost !== "undefined") evacost = savedGame.evacost;
                 if (typeof savedGame.subwayamt !== "undefined") subwayamt = savedGame.subwayamt;
                 if (typeof savedGame.subwaycost !== "undefined") subwaycost = savedGame.subwaycost;
+                if (typeof savedGame.ceilingamt !== "undefined") ceilingamt = savedGame.ceilingamt;
+                if (typeof savedGame.ceilingcost !== "undefined") ceilingcost = savedGame.ceilingcost;
+                if (typeof savedGame.spearamt !== "undefined") spearamt = savedGame.spearamt;
+                if (typeof savedGame.spearcost !== "undefined") spearcost = savedGame.spearcost;
+                if (typeof savedGame.monolithamt !== "undefined") monolithamt = savedGame.monolithamt;
+                if (typeof savedGame.monolithcost !== "undefined") monolithcost = savedGame.monolithcost;
+                if (typeof savedGame.gloopamt !== "undefined") gloopamt = savedGame.gloopamt;
+                if (typeof savedGame.gloopcost !== "undefined") gloopcost = savedGame.gloopcost;
+                if (typeof savedGame.magiamt !== "undefined") magiamt = savedGame.magiamt;
+                if (typeof savedGame.magicost !== "undefined") magicost = savedGame.magicost;
+                if (typeof savedGame.slapamt !== "undefined") slapamt = savedGame.slapamt;
+                if (typeof savedGame.slapcost !== "undefined") slapcost = savedGame.slapcost;
+                if (typeof savedGame.poleamt !== "undefined") poleamt = savedGame.poleamt;
+                if (typeof savedGame.polecost !== "undefined") polecost = savedGame.polecost;
+                if (typeof savedGame.cloneamt !== "undefined") cloneamt = savedGame.cloneamt;
+                if (typeof savedGame.clonecost !== "undefined") clonecost = savedGame.clonecost;
                 if (typeof savedGame.gendoupgrade !== "undefined") gendoupgrade = savedGame.gendoupgrade;
                 if (typeof savedGame.pressednerve !== "undefined") pressednerve = savedGame.pressednerve;
                 if (typeof savedGame.kajiupgrade !== "undefined") kajiupgrade = savedGame.kajiupgrade;
@@ -875,6 +1187,10 @@
                 if (typeof savedGame.pressedhospital !== "undefined") pressedhospital = savedGame.pressedhospital;
                 if (typeof savedGame.beforehospital !== "undefined") beforehospital = savedGame.beforehospital;
                 if (typeof savedGame.kaworumult !== "undefined") kaworumult = savedGame.kaworumult;
+                if (typeof savedGame.asukaupgrade !== "undefined") asukaupgrade = savedGame.asukaupgrade;
+                if (typeof savedGame.pressedpicture !== "undefined") pressedpicture = savedGame.pressedpicture;
+                if (typeof savedGame.beforepicture !== "undefined") beforepicture = savedGame.beforepicture;
+                if (typeof savedGame.asukamult !== "undefined") asukamult = savedGame.asukamult;
                 if (typeof savedGame.gendoimage !== "undefined") gendoimage = savedGame.gendoimage;
                 if (typeof savedGame.gendopurchased !== "undefined") gendopurchased = savedGame.gendopurchased;
                 if (typeof savedGame.kajipurchased !== "undefined") kajipurchased = savedGame.kajipurchased;
@@ -882,6 +1198,7 @@
                 if (typeof savedGame.misatopurchased !== "undefined") misatopurchased = savedGame.misatopurchased;
                 if (typeof savedGame.ritsukopurchased !== "undefined") ritsukopurchased = savedGame.ritsukopurchased;
                 if (typeof savedGame.kaworupurchased !== "undefined") kaworupurchased = savedGame.kaworupurchased;
+                if (typeof savedGame.splat !== "undefined") splat = savedGame.splat;
             }
        
             window.onload = function() {
@@ -908,6 +1225,22 @@
                 document.getElementById("evaamt").innerHTML = evaamt;
                 document.getElementById("subwaycost").innerHTML = subwaycost;
                 document.getElementById("subwayamt").innerHTML = subwayamt;
+                document.getElementById("ceilingcost").innerHTML = ceilingcost;
+                document.getElementById("ceilingamt").innerHTML = ceilingamt;
+                document.getElementById("spearcost").innerHTML = spearcost;
+                document.getElementById("spearamt").innerHTML = spearamt;
+                document.getElementById("monolithcost").innerHTML = monolithcost;
+                document.getElementById("monolithamt").innerHTML = monolithamt;
+                document.getElementById("gloopcost").innerHTML = gloopcost;
+                document.getElementById("gloopamt").innerHTML = gloopamt;
+                document.getElementById("magicost").innerHTML = magicost;
+                document.getElementById("magiamt").innerHTML = magiamt;
+                document.getElementById("slapcost").innerHTML = slapcost;
+                document.getElementById("slapamt").innerHTML = slapamt;
+                document.getElementById("polecost").innerHTML = polecost;
+                document.getElementById("poleamt").innerHTML = poleamt;
+                document.getElementById("clonecost").innerHTML = clonecost;
+                document.getElementById("cloneamt").innerHTML = cloneamt;
                 document.getElementById("gendoupgrade").innerHTML = gendoupgrade;
                 document.getElementById("pressednerve").innerHTML = pressednerve;
                 document.getElementById("kajiupgrade").innerHTML = kajiupgrade;
@@ -928,6 +1261,10 @@
                 document.getElementById("beforehsopital").innerHTML = beforehospital;
                 document.getElementById("pressedhospital").innerHTML = pressedhospital;
                 document.getElementById("kaworumult").innerHTML = kaworumult;
+                document.getElementById("asukaupgrade").innerHTML = asukaupgrade;
+                document.getElementById("beforepicture").innerHTML = beforepicture;
+                document.getElementById("pressedpicture").innerHTML = pressedpicture;
+                document.getElementById("asukamult").innerHTML = asukamult;
                 document.getElementById("gendoimage").innerHTML = gendoimage;
                 document.getElementById("gendopurchased").innerHTML = gendopurchased;
                 document.getElementById("kajipurchased").innerHTML = kajipurchased;
@@ -953,6 +1290,8 @@
     document.getElementById("misatopurchased").innerHTML = misatopurchased;
     document.getElementById("ritsukopurchased").innerHTML = ritsukopurchased;
     document.getElementById("kaworupurchased").innerHTML = kaworupurchased;
+    document.getElementById("splat").innerHTML = splat;
+ if(activethird === false){
     if(pressednerve === true){
         document.getElementById("gendoimg").style.display = "inline-block";
     }
@@ -971,7 +1310,11 @@
     if(pressedhospital === true){
         document.getElementById("kaworuimg").style.display = "inline-block";
     }
+    if(pressedpicture === true){
+        document.getElementById("asukaimg").style.display = "inline-block";
+    }
   }
+}
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");

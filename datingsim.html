@@ -7,8 +7,8 @@
         background-color: blue;
         height: 500px;
         width: 1000px;
-        left: 13%;
-        top: 8%;
+        left: 187px;
+        top: 63px;
         position:absolute;
         z-index: -2;
         }
@@ -16,8 +16,8 @@
           background-color: grey;
           height: 150px;
           width: 1000px;
-          left: 13%;
-          top: 64.6%;
+          left: 187px;
+          top: 413px;
           position: absolute;
           border-radius: 50px;
           z-index: +1;
@@ -26,23 +26,23 @@
         #thirdimpact{
           height: 500px;
           width: 1000px;
-          left: 13%;
-          top: 8%;
+          left: 187px;
+          top: 63px;
           position:absolute;
           z-index: -1;
         }
         #shinji{
           height: 500px;
           width: 275px;
-          left: 18%;
-          top: 8%;
+          left: 200px;
+          top: 63px;
           position:absolute;
         }
         #asuka{
           height: 475px;
           width: 325px;
-          left: 60%;
-          top: 10%;
+          left: 800px;
+          top: 88px;
           position:absolute;
           display: none;
         }
@@ -54,15 +54,10 @@
           position:absolute;
           display: none;
         }
-        #back{
-          position: absolute;
-          top: 90%;
-          left: 20%;
-        }
         #continue{
           position: absolute;
-          top: 90%;
-          left: 70%;
+          top: 575px;
+          left: 650px;
         }
         #texthead{
           position:absolute;
@@ -73,28 +68,39 @@
           position:absolute;
           left: 20px;
           display: none;
+          font-family: Georgia, 'Times New Roman', Times, serif;
         }
       </style>
   </head>
   <body>
 	<Div id="baseplate"></Div>
-  <div id="textbox"><h3 id="texthead">Shinji:</h3><br><br><div id="textbody"><span id="textchange">bruh bruh bruh</span></div></div>
+  <div id="textbox"><h3 id="texthead">Shinji:</h3><br><br><br>
+    <div id="textbody"><span id="textchange">bruh bruh bruh</span></div></div>
   <img id="shinji" src="https://www.pngkit.com/png/full/569-5694347_evangelion-evangelion-official-shinji-ikari-added-extra.png">
   <img id="asuka" src="/datingimages/Asuka.png">
   <img id="gendo" src="/datingimages/Gendo_Ikari.png">
   <img id="thirdimpact" src="https://wallpapercave.com/wp/wp2733018.jpg">
-  <button id="back">Back</button>
-  <button id="continue" onclick="next()">Continue</button>
+  <button id="continue" onclick="nexttext()">Continue</button>
   </body>
 </html>
 <script>
-  var shinji = false
-  var text1 = "what happened wheres my sandwwich shop"
-  function next(){
-    if(shinji = false){
-      shinji = true
+  var act1 = 0
+  var text1 = "what happened wheres my sandwich shop"
+  function nexttext(){
+    if(act1 === 0)
+    act1 = act1 + 1
       document.getElementById("textbody").style.display = "inline"
+      document.getElementById("textchange").style.display = "inline"
       document.getElementById("textchange").innerHTML = text1;
     }
-  }
+    
+    if(act1 === 1){
+      act1 = act1 + 1
+      text1= "i dont know"
+
+      document.getElementById("textchange").innerHTML = text1;
+
+      document.getElementById("asuka").style.display = "inline-block"
+      document.getElementById("shinji").style.display = "none";
+    }
 </script>
