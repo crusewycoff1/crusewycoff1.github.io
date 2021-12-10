@@ -59,12 +59,13 @@
           top: 575px;
           left: 650px;
         }
-        #texthead{
+        .texthead{
           position:absolute;
           left: 20px;
           color: white;
+          display: none;
         }
-        #textbody{
+        .textbody{
           position:absolute;
           left: 20px;
           display: none;
@@ -74,8 +75,13 @@
   </head>
   <body>
 	<Div id="baseplate"></Div>
-  <div id="textbox"><h3 id="texthead">Shinji:</h3><br><br><br>
-    <div id="textbody"><span id="textchange">bruh bruh bruh</span></div></div>
+  <div id="textbox">
+    <h3 class="texthead">Shinji:</h3><br><br>
+    <div class="textbody">cringe cringe cring</span></div>
+
+    <h3 class="texthead">Gendo:</h3><br><br>
+    <div class="textbody">Based ass Boy</span></div>
+  </div>
   <img id="shinji" src="https://www.pngkit.com/png/full/569-5694347_evangelion-evangelion-official-shinji-ikari-added-extra.png">
   <img id="asuka" src="/datingimages/Asuka.png">
   <img id="gendo" src="/datingimages/Gendo_Ikari.png">
@@ -84,23 +90,5 @@
   </body>
 </html>
 <script>
-  var act1 = 0
-  var text1 = "what happened wheres my sandwich shop"
-  function nexttext(){
-    if(act1 === 0)
-    act1 = act1 + 1
-      document.getElementById("textbody").style.display = "inline"
-      document.getElementById("textchange").style.display = "inline"
-      document.getElementById("textchange").innerHTML = text1;
-    }
-    
-    if(act1 === 1){
-      act1 = act1 + 1
-      text1= "i dont know"
 
-      document.getElementById("textchange").innerHTML = text1;
-
-      document.getElementById("asuka").style.display = "inline-block"
-      document.getElementById("shinji").style.display = "none";
-    }
 </script>
