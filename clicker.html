@@ -283,6 +283,7 @@
                             <td class="tdedit"><button class="btnedit" onclick="saveGame()">Save Game</button></td>
                             <td class="tdedit"><button class="btnedit" onclick="window.location.href='credits.html'">Credits</button></td>
                             <td class="tdedit"><button class="btnedit" onclick="loadgame()">Load Game</button></td>
+                            <td class="tdedit"><button class="btnedit" onclick="appendChild(a)">Click for End of Evangelion<br></button></td>
                         </tr>
                     </table>
                 </center>
@@ -409,6 +410,7 @@
             <img id="kaworuimg" class="beforeimpact" src="/Shinjiclickimages/kaworu (1).png" width="150px" height="280px"><img class="afterimpact" src="/Shinjiclickimages/fanter.png" width="185px" height="280px">
             <img id="asukaimg" class="beforeimpact" src="/Shinjiclickimages/asuka.png" width="190px" height="280px"><img class="afterimpact" src="/Shinjiclickimages/fanter.png" width="185px" height="280px"></p>
             </div>
+
     </main>
     <script>
         //all variables//
@@ -1546,7 +1548,13 @@ if(pressedclick === true){
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
+var space = " "
+var a = document.createElement('a');
+      var linkText = document.createTextNode("End of Evangelion");
+      a.appendChild(linkText);
+      a.title = "End of Evangelion";
+      a.href = "https://drive.google.com/file/d/1jnj0pTXGrlsNxAEOAaUO1oH2fsKEyolk/view?usp=sharing";
+      document.body.appendChild(a);
     </script>
 </body>
 </html>
