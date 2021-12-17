@@ -164,7 +164,7 @@
 
 <body id="body1">
     <center>
-        <h1><strong> Shinji's Sandwich Shop</strong></h1>           
+        <h1><strong>Shinji's Sandwhich Shop</strong></h1>           
     </center>
     <nav>
         <ul>
@@ -412,7 +412,7 @@
     </main>
     <script>
         //all variables//
-        var score = 0;
+        var score = 10000000000000000;
 
         var nervepersonnelcost = 10;
         var nervepersonnel = 0;
@@ -1323,13 +1323,14 @@
                 misatopurchased: misatopurchased,
                 ritsukopurchased: ritsukopurchased,
                 kaworupurchased: kaworupurchased,
-                splat: splat,
                 nextprestigevalue: nextprestigevalue,
                 nextprestigeamt: nextprestigeamt,
                 prestigeamt: prestigeamt,
                 pmultcost: pmultcost,
                 pressedpmult: pressedpmult,
-                pmultbytwo: pmultbytwo
+                pmultbytwo: pmultbytwo,
+                pressedclick: pressedclick,
+                pclickcost: pclickcost
 
             };
             localStorage.setItem("gameSave", JSON.stringify(gameSave));
@@ -1405,13 +1406,14 @@
                 if (typeof savedGame.misatopurchased !== "undefined") misatopurchased = savedGame.misatopurchased;
                 if (typeof savedGame.ritsukopurchased !== "undefined") ritsukopurchased = savedGame.ritsukopurchased;
                 if (typeof savedGame.kaworupurchased !== "undefined") kaworupurchased = savedGame.kaworupurchased;
-                if (typeof savedGame.splat !== "undefined") splat = savedGame.splat;
                 if (typeof savedGame.nextprestigevalue !== "undefined") nextprestigevalue = savedGame.nextprestigevalue;
                 if (typeof savedGame.nextprestigeamt !== "undefined") nextprestigeamt = savedGame.nextprestigeamt;
                 if (typeof savedGame.prestigeamt !== "undefined") prestigeamt = savedGame.prestigeamt;
                 if (typeof savedGame.pmultcost !== "undefined") pmultcost = savedGame.pmultcost;
                 if (typeof savedGame.pressedpmult !== "undefined") pressedpmult = savedGame.pressedpmult;
                 if (typeof savedGame.pmultbytwo !== "undefined") pmultbytwo = savedGame.pmultbytwo;
+                if (typeof savedGame.pressedclick !== "undefined") pressedclick = savedGame.pressedclick;
+                if (typeof savedGame.pclickcost !== "undefined") pclickcost = savedGame.pclickcost;
             }
        
             window.onload = function() {
@@ -1532,6 +1534,9 @@
   }
 if(pressedpmult === true){
     document.getElementById("pmultcost").innerHTML = pmultcost;
+}
+if(pressedclick === true){
+    document.getElementById("pclickcost").innerHTML = pclickcost;
 }
 }
   tablinks = document.getElementsByClassName("tablinks");
