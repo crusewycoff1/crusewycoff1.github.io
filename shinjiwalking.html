@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>shinji do be walkin doe</title>
+  <style>
+      #background{
+          height: 400px;
+          width: 1000px;
+          background-image: url('https://images.squarespace-cdn.com/content/v1/5aa96c579772aea9adaa2ef7/1582027985835-F9AG9K25W2N5O1KRW7DE/HospitalWaitingRooms_Bad2_220.jpg');
+          position:absolute;
+          z-index: -1;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-size: 100% 100%;
+      }
+      #hallway{
+          top: 105px;
+          height: 200px;
+          width: 1100px;
+          background-color: #bcb29b;
+          position:absolute;
+          z-index: -2;
+      }
+      #asuka{
+          z-index:1;
+          height: 100px;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          display: inline-block;
+      }
+      #asukarunning{
+          display: none;
+      }
+      #continue{
+          display: none;
+      }
+      #hallwaycont{
+          top: 105px;
+          height: 200px;
+          width: 100px;
+          background-color: #1e81b0;
+          position:absolute;
+          z-index: -2;
+          display: none;
+      }
+      #background2{
+          left: 105px;
+          height: 400px;
+          width: 1000px;
+          background-image: url("https://i.imgur.com/d0v4l8V.jpg");
+          position:absolute;
+          z-index: -1;
+          display: none;
+          background-size: 100% 100%;
+      }
+  </style>
+</head>
+<body>
+  <div id="background"></div><div id="hallway"></div><div id="hallwaycont"></div><div id="background2"></div>
+  <img id="asuka" src="datingimages/Asuka.png"><img id="asukarunning" src="https://i.imgur.com/PGEmC7l.gif"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <h1>Asuka's Revenge!!!</h1>
+  <div id="continue">press space to continue</div>
+</body>
+</html>
+<script>
+    var asuka = document.getElementById("asuka")
+    var asukax = 0 
+    var asukay = 70
+    var asukarunning = false
+    var background = 1000
+    var inbox1 = false
+    var inbox2 = false
+    var room1 = false
+
+    asuka.style.left = asukax + "px"
+    asuka.style.top = asukay + "px"
+    document.addEventListener("keydown", function(event) {
+        if(asukarunning === false){
+        document.getElementById("asuka").src="https://i.imgur.com/1rhrgkH.gif"
+        asukarunning = true
+        }
+        if(room1 === false){
+        //right//
+        if(event.which === 39){
+            if(asukax <= background - 68){
+                asukax = asukax + 10
+            }
+            if(asukax >= background - 68) {
+                if(asukax < 1100 - 68){
+                    if(asukay >= 100){
+                        if(asukay <= 200){
+                            asukax = asukax + 10
+                        }    
+                    }    
+                }  
+            }
+        }
+        //left//
+        if(event.which === 37){
+            if(asukax > 10){
+                asukax = asukax - 10
+            }
+        }
+        //up//
+        if(event.which === 38){
+            if(asukax <= background - 68){
+                if(asukay >= 10){
+                    asukay = asukay - 10
+                }    
+            }
+            if(asukax >= background - 68){
+                if(asukay >= 110){
+                    asukay = asukay - 10
+                }
+            }
+        }
+        //down//
+        if(event.which === 40){
+            if(asukax <= background - 68){
+                if(asukay < 300){
+                asukay = asukay + 10
+                }
+            }
+            if(asukax >= background - 68){
+                if(asukay < 200){
+                    asukay = asukay + 10
+                }
+            }
+        }
+        if(event.which === 32){
+            if(inbox1 === true){
+                document.getElementById("background").style.setProperty("display", "none");
+                document.getElementById("hallway").style.setProperty("display", "none");
+                document.getElementById("hallwaycont").style.setProperty("display", "inline-block");
+                document.getElementById("background2").style.setProperty("display", "inline-block");
+                asukax = 0 
+                asukay = 150
+                room1 = true
+            }
+        }
+        }
+                //SECOND ROOM//
+                if(room1 === true){
+        //right//
+        if(event.which === 39){
+            if(asukax <= 1100 - 68){
+                asukax = asukax + 10
+            }
+        }
+        //left//
+        if(event.which === 37){
+            if(asukax > 10){
+                asukax = asukax - 10
+            }
+        }
+        //up//
+        if(event.which === 38){
+            if(asukax <= 100){
+                if(asukay >= 120){
+                    asukay = asukay - 10
+                }    
+            }
+            if(asukax > 100){
+                if(asukay > 10){
+                    asukay = asukay - 10
+                }
+            }
+        }
+        //down//
+        if(event.which === 40){
+            if(asukax <= 100){
+                if(asukay < 200){
+                    asukay = asukay + 10
+                }
+            }
+            if(asukax > 100){
+                if(asukay < 300){
+                    asukay = asukay + 10
+                }
+            }
+        }
+        if(event.which === 32){
+            if(inbox2 === true){
+                document.getElementById("background").style.setProperty("display", "inline-block");
+                document.getElementById("hallway").style.setProperty("display", "inline-block");
+                document.getElementById("hallwaycont").style.setProperty("display", "none");
+                document.getElementById("background2").style.setProperty("display", "none");
+                asukax = 1020
+                asukay = 150
+                room1 = false
+                inbox2 = false
+            }
+        }
+    }
+           
+        asuka.style.left = asukax + "px"
+        asuka.style.top = asukay + "px"
+    })
+
+    document.addEventListener("keyup", function(event) {
+        document.getElementById("asuka").src="datingimages/Asuka.png"
+        asukarunning = false
+    })
+
+    setInterval(function () {
+    if(room1 === false){
+        if(asukax > 950){
+            document.getElementById("continue").style.setProperty("display", "inline-block");
+            inbox1 = true
+        }
+        else{
+            document.getElementById("continue").style.setProperty("display", "none");
+            inbox1 = false
+        }
+    }
+        }, 1) // 1000ms = 1 second
+    
+    setInterval(function () {
+    if(room1 === true){
+        if(asukax < 100){
+            document.getElementById("continue").style.setProperty("display", "inline-block");
+            inbox2 = true
+        }
+        else{
+            document.getElementById("continue").style.setProperty("display", "none");
+            inbox2 = false
+        }
+    }
+        }, 1) // 1000ms = 1 second
+
+    setInterval(function () {
+    if(room1 === true){
+        if(asukax >= 490){
+            if(asukax <= 630){
+                if(asukay <= 270){
+                    if(asukay >= 220){
+                        document.getElementById("continue").style.setProperty("display", "inline-block");
+                        infrontbed = true
+                    }
+                }
+            }
+        }
+        else{
+            document.getElementById("continue").style.setProperty("display", "none");
+            infrontbed = false
+        }
+    }
+        }, 1) // 1000ms = 1 second
+
+    
+</script>
