@@ -95,7 +95,7 @@
                     }    
                 }  
             }
-        }
+        } 
         //left//
         if(event.which === 37){
             if(asukax > 10){
@@ -218,11 +218,11 @@
     
     setInterval(function () {
     if(room1 === true){
-        if(asukax < 100){
+        if(asukax <= 100){
             document.getElementById("continue").style.setProperty("display", "inline-block");
             inbox2 = true
         }
-        else{
+        if(asukax >= 100){
             document.getElementById("continue").style.setProperty("display", "none");
             inbox2 = false
         }
@@ -238,12 +238,12 @@
                         document.getElementById("continue").style.setProperty("display", "inline-block");
                         infrontbed = true
                     }
+                    else{
+                        document.getElementById("continue").style.setProperty("display", "none");
+                        infrontbed = false
                 }
             }
         }
-        else{
-            document.getElementById("continue").style.setProperty("display", "none");
-            infrontbed = false
         }
     }
         }, 1) // 1000ms = 1 second
