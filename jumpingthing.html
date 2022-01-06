@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #shinji{
+        top: 110px;
+        left: 50px;
+        height: 200px;
+        position: absolute;
+      }
+      #border{
+        background-color: black;
+        width: 1300px;
+      }
+    </style>
+  </head>
+  <body>
+    <center><div id="border"><br><img id="halobk" src="Unused stuff/haloringbk.jpg" height="600"><br><br></div></center>
+      <img id="shinji" src="Unused stuff/halostill.png">
+  </body>
+</html>
+<script>
+    var shinji = document.getElementById("shinji")
+
+    var y = 430
+    var x = 200
+    var falling = false
+    var rising = false
+    var risevalue = 0
+
+    var goright = false
+    var goleft = false
+    var crouch = 1
+
+    var image = document.getElementById('shinji');
+
+    shinji.style.top = y + "px"
+    shinji.style.left = x + "px"
+
+    //KEYPRESSES//
+    document.addEventListener("keydown", function(event) {
+      if(event.which === 32){
+        if(falling === false){
+          rising = true
+        }  
+      }
+
+      if(event.which === 39){
+        if(goright === false){
+          goright = true
+          image.src = "Unused stuff/halorunningright.gif"
+        }
+      }
+      if(event.which === 37){
+        if(goleft === false){
+          goleft = true
+          image.src = "Unused stuff/halorunninggif.gif"
+        }
+      }
+      if(event.which === 38){
+          rising = true
+        }
+        if(event.which === 40){
+          crouch = 2
+        }
+      shinji.style.top = y + "px"
+    }, false);
+
+    //KEY UP PRESSES//
+    document.addEventListener("keyup", function(event) {
+      if(event.which === 39){
+        goright = false
+        if(goleft === false){
+          image.src = "Unused stuff/halostill.png"
+        }
+      }
+      if(event.which === 37){
+        goleft = false
+        if(goright === false){
+          image.src = "Unused stuff/halostillleft.png"
+        }
+      }
+      if(event.which === 40){
+          crouch = 1
+        }
+    })
+
+    //MOVEMENT FUNCTION//
+    setInterval(function () {
+      if(rising === true){
+        if (risevalue < 100){
+          y = y - 1
+          risevalue = risevalue + 1
+        }
+      }
+      if(risevalue === 100){
+        if(rising === true){
+          rising = false
+          falling = true
+        }
+      }
+        if(falling === true){
+          y = y + crouch
+        }  
+      if(y >= 430){
+        falling = false
+        risevalue = 0
+      }
+
+      if(goright === true){
+        x = x + 1
+      }
+      if(goleft === true){
+        x = x - 1
+      }
+      shinji.style.top = y + "px"
+      shinji.style.left = x + "px"
+    }, 1) // 1000ms = 1 second
+</script>

@@ -35,6 +35,9 @@
       #continue{
           display: none;
       }
+      #pickupmayo{
+          display: none;
+      }
       #hallwaycont{
           top: 105px;
           height: 200px;
@@ -54,13 +57,32 @@
           display: none;
           background-size: 100% 100%;
       }
+      #shinjiboss{
+          left: 105px;
+          height: 400px;
+          width: 1000px;
+          background-image: url(datingimages/shinjibed.jpeg);
+          position:absolute;
+          z-index: -1;
+          display: none;
+          background-size: 100% 100%;
+      }
+      #mayo{
+          z-index:1;
+          height: 100px;
+          position: absolute;
+          top: 110px;
+          left: 140px;
+          display: none; 
+      }
   </style>
 </head>
+<!--url("https://78.media.tumblr.com/1b253dae0f55871124159dcf81fd8eac/tumblr_mmfxka3T3X1s8i1jyo3_1280.png")-->
 <body>
-  <div id="background"></div><div id="hallway"></div><div id="hallwaycont"></div><div id="background2"></div>
-  <img id="asuka" src="datingimages/Asuka.png"><img id="asukarunning" src="https://i.imgur.com/PGEmC7l.gif"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div id="background"></div><div id="hallway"></div><div id="hallwaycont"></div><div id="background2"></div><div id="shinjiboss"></div>
+  <img id="asuka" src="datingimages/Asuka.png"><img id="mayo"src="https://asset-americas.unileversolutions.com/content/dam/unilever/hellmann_s_world/canada/pack_shot/68400662600-1887726-png.png.ulenscale.460x460.png"><img id="asukarunning" src="https://i.imgur.com/PGEmC7l.gif"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <h1>Asuka's Revenge!!!</h1>
-  <div id="continue">press space to continue</div>
+  <div id="continue">press space to continue</div><div id="pickupmayo">press space to pick up mayo</div>
 </body>
 </html>
 <script>
@@ -69,9 +91,17 @@
     var asukay = 70
     var asukarunning = false
     var background = 1000
+
     var inbox1 = false
     var inbox2 = false
-    var room1 = false
+    var infrontbed = false
+
+    var room1 = true
+    var room2 = false
+    var shinjibossroom = false
+
+    holdingmayo = false
+    mayohand = false
 
     asuka.style.left = asukax + "px"
     asuka.style.top = asukay + "px"
@@ -80,7 +110,15 @@
         document.getElementById("asuka").src="https://i.imgur.com/1rhrgkH.gif"
         asukarunning = true
         }
-        if(room1 === false){
+        if(shinjibossroom === true){
+            if(holdingmayo = false){
+                image.src = "datingimages/literalhand.png";
+            }
+        }
+        if(mayohand === true){
+            image.src = "datingimages/handwithmayo.png";
+        }
+        if(room1 === true){
         //right//
         if(event.which === 39){
             if(asukax <= background - 68){
@@ -128,6 +166,7 @@
                 }
             }
         }
+        //space button//
         if(event.which === 32){
             if(inbox1 === true){
                 document.getElementById("background").style.setProperty("display", "none");
@@ -136,12 +175,13 @@
                 document.getElementById("background2").style.setProperty("display", "inline-block");
                 asukax = 0 
                 asukay = 150
-                room1 = true
+                room1 = false
+                room2 = true
             }
         }
         }
                 //SECOND ROOM//
-                if(room1 === true){
+        if(room2 === true){
         //right//
         if(event.which === 39){
             if(asukax <= 1100 - 68){
@@ -159,7 +199,7 @@
             if(asukax <= 100){
                 if(asukay >= 120){
                     asukay = asukay - 10
-                }    
+                 }    
             }
             if(asukax > 100){
                 if(asukay > 10){
@@ -188,28 +228,98 @@
                 document.getElementById("background2").style.setProperty("display", "none");
                 asukax = 1020
                 asukay = 150
-                room1 = false
+                room1 = true
+                room2 = false
                 inbox2 = false
+            }
+            if(infrontbed === true){
+                document.getElementById("background").style.setProperty("display", "none");
+                document.getElementById("hallway").style.setProperty("display", "none");
+                document.getElementById("hallwaycont").style.setProperty("display", "none");
+                document.getElementById("background2").style.setProperty("display", "none");
+                document.getElementById("shinjiboss").style.setProperty("display", "inline-block");
+                shinjibossroom = true
+                image.src = "datingimages/literalhand.png";
+                asukax = 930
+                asukay = 300
+                room1 = false
+                room2 = false
+                inbox1 = false
+                inbox2 = false
+                infrontbed = false
+                document.getElementById("continue").style.setProperty("display", "none");
+                document.getElementById("mayo").style.setProperty("display", "inline-block");
             }
         }
     }
-           
+    //SHINJI BOSS ROOM//
+    if(shinjibossroom === true){
+        //right//
+        if(event.which === 39){
+            if(asukax <= background - 68){
+                asukax = asukax + 10
+            }
+        } 
+        //left//
+        if(event.which === 37){
+            if(asukax > 100){
+                asukax = asukax - 10
+            }
+        }
+        //up//
+        if(event.which === 38){
+            if(asukax <= background - 68){
+                if(asukay >= 10){
+                    asukay = asukay - 10
+                }    
+            }
+        }
+        //down//
+        if(event.which === 40){
+            if(asukax <= background - 68){
+                if(asukay < 300){
+                asukay = asukay + 10
+                }
+            }
+        }
+        //space button//
+        if(event.which === 32){
+            if(overmayo === true){
+                image.src = "datingimages/handwithmayo.png";
+                holdingmayo = true
+                mayohand = true
+                overmayo = false
+                document.getElementById("mayo").style.setProperty("display", "none");
+                document.getElementById("pickupmayo").style.setProperty("display", "none");
+            }
+        }
+        }  
         asuka.style.left = asukax + "px"
         asuka.style.top = asukay + "px"
     })
 
     document.addEventListener("keyup", function(event) {
+        if(shinjibossroom === false){
         document.getElementById("asuka").src="datingimages/Asuka.png"
         asukarunning = false
+        }
+        if(shinjibossroom === true){
+            if(mayohand === false){
+                image.src = "datingimages/literalhand.png";
+            }
+        }
+        if(mayohand === true){
+            image.src = "datingimages/handwithmayo.png";
+        }
     })
-
+    var image = document.getElementById('asuka');
     setInterval(function () {
-    if(room1 === false){
+    if(room1 === true){
         if(asukax > 950){
             document.getElementById("continue").style.setProperty("display", "inline-block");
             inbox1 = true
         }
-        else{
+        if(asukax < 950){
             document.getElementById("continue").style.setProperty("display", "none");
             inbox1 = false
         }
@@ -217,7 +327,7 @@
         }, 1) // 1000ms = 1 second
     
     setInterval(function () {
-    if(room1 === true){
+    if(room2 === true){
         if(asukax <= 100){
             document.getElementById("continue").style.setProperty("display", "inline-block");
             inbox2 = true
@@ -230,7 +340,7 @@
         }, 1) // 1000ms = 1 second
 
     setInterval(function () {
-    if(room1 === true){
+    if(room2 === true){
         if(asukax >= 490){
             if(asukax <= 630){
                 if(asukay <= 270){
@@ -246,6 +356,37 @@
         }
         }
     }
+        }, 1) // 1000ms = 1 second
+
+    setInterval(function () {
+    if(shinjibossroom === true){
+        if(mayohand === false){
+        if(asukay >= 70){
+                if(asukay <= 150){
+                    if(asukax <= 100){
+                        document.getElementById("pickupmayo").style.setProperty("display", "inline-block");
+                        overmayo = true
+                }
+            }
+        if(asukax > 100){
+            document.getElementById("pickupmayo").style.setProperty("display", "none");
+            overmayo = false
+        }
+        }
+        if(asukay < 70){
+            document.getElementById("pickupmayo").style.setProperty("display", "none");
+            overmayo = false
+        }
+        if(asuaky > 150){
+            document.getElementById("pickupmayo").style.setProperty("display", "none");
+            overmayo = false
+        }
+    }}
+        }, 1) // 1000ms = 1 second
+
+        setInterval(function () {
+            asuka.style.left = asukax + "px"
+            asuka.style.top = asukay + "px"
         }, 1) // 1000ms = 1 second
 
     
