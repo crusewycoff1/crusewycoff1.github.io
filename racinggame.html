@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+        #yourcar{
+          position: absolute;
+        }
+        body{
+          background-image: url("https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+        #finishline{
+          position: absolute;
+          left: 1100px;
+        }
+      </style>
+  </head>
+  <body>
+      <img id="yourcar" src="random/edp445.png" width="200"><img id="finishline" src="random/finishline.jpeg">
+  </body>
+</html>
+<script>
+  var yourcar= document.getElementById("yourcar")
+  var x = 0
+  var forward = 0
+  var moving = false
+
+  var friction = 0.3
+
+  //gain speed function//
+  document.addEventListener("keyup", function(event) {
+    if(event.which === 32){
+      moving = true
+      forward = forward + .4
+    }yourcar.style.left = x + "px"
+    })
+
+    //BRAKE FUNCTION//
+    document.addEventListener("keydown", function(event) {
+      if(event.which === 37){
+        if(forward > 0){
+          friction = friction + 1
+        }
+        if(friction > forward){
+          moving = false
+          friction = 0.3
+          forward = 0
+        }
+      }
+    }, false);
+
+    setInterval(function () {
+      if(moving === true){
+        x = x + forward
+        x = x - friction
+      }
+      if(forward < 0){
+        moving = false
+        forward = 0
+      }
+      yourcar.style.left = x + "px"
+    }, 100) // 1000ms = 1 second
+</script>
+
