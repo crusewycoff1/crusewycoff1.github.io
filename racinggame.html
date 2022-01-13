@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>CRUSE'S CRAZY KART RACING</title>
       <style>
         #yourcar{
           position: absolute;
+          width: 100px;
+          display: none;
+        }
+        #enemycar{
+          position: absolute;
+          left: 250px;
+          top: 200px;
+          width: 200px;
+          height: 300px;
+          display: none;
         }
         body{
-          background-image: url("https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg");
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: cover;
@@ -14,53 +24,221 @@
         #finishline{
           position: absolute;
           left: 1100px;
+          height: 700px;
+        }
+        #racingtrack{
+          position: absolute;
+          z-index: -1;
+          height: 500px;
+          left: 20%;
+          display: none;
+        }
+        #three{
+          height: 300px;
+          position: absolute;
+          left: 600px;
+          top: 100px;
+          display: none;
+        }
+        #two{
+          height: 300px;
+          position: absolute;
+          left: 600px;
+          top: 100px;
+          display: none;
+        }
+        #one{
+          height: 300px;
+          position: absolute;
+          left: 600px;
+          top: 100px;
+          display: none;
+        }
+        #GO{
+          height: 300px;
+          position: absolute;
+          left: 625px;
+          top: 100px;
+          display: none;
+        }
+        #menu{
+          height: 500px;
+          position: absolute;
+          display: inline-block;
+          z-index: -1;
+          left: 375px;
+        }
+        #startbutton{
+          z-index: 1;
+          left: 575px;
+          top: 350px;
+          position: absolute;
+        }
+        #img {
+          transition: all 0.2s;
+          -webkit-transition: all 0.2s;
+          -moz-transition: all 0.2s;
+        }
+        #img {
+          float: left;
+          filter: grayscale(100%);
+          -webkit-filter: grayscale(100%);
+          -moz-filter: grayscale(100%);
+        }
+        #img:hover {
+          filter: grayscale(0%);
+          -webkit-filter: grayscale(0%);
+          -moz-filter: grayscale(0%);
+          transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          -moz-transform: scale(1.1);
         }
       </style>
   </head>
   <body>
-      <img id="yourcar" src="random/edp445.png" width="200"><img id="finishline" src="random/finishline.jpeg">
+    <div><video  onload="playVid()" id="menu" autoplay loop>
+      <source src="racinggamestuff/Menu.mp4" type="video/mp4">
+      <source src="racinggamestuff/Menu.mp4" type="video/ogg">
+    </video>
+  <img id="startbutton" onclick="pressedstart()" src="racinggamestuff/Startbutton.gif"></div>
+    <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg">
+      <img id="yourcar" src="racinggamestuff/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png">
+      <img id="three" src="racinggamestuff/number3.png"><img id="two" src="racinggamestuff/number2.png"><img id="one" src="racinggamestuff/number1.png"><img id="GO" src="racinggamestuff/GO.png">
   </body>
 </html>
 <script>
-  var yourcar= document.getElementById("yourcar")
-  var x = 0
-  var forward = 0
-  var moving = false
+  var yourcar = document.getElementById("yourcar")
+  var enemycar = document.getElementById("enemycar")
+  var vid = document.getElementById("menu");
 
-  var friction = 0.3
+function playVid() {
+    vid.play();
+}
+
+  var x = 300
+  var y = 50
+  
+  var ex = 250
+  var ey = 200
+
+  var eforward = 0 
+  var efriction = 0
+
+  var forward = 0
+  var friction = 0
+
+  var start = false
+  var countdown = 5
+  var begin = false
+
+  //pressedstart//
+  function pressedstart() {
+    begin = true
+    document.getElementById("racingtrack").style.setProperty("display", "inline-block");
+    document.getElementById("yourcar").style.setProperty("display", "inline-block");
+    document.getElementById("enemycar").style.setProperty("display", "inline-block");
+    document.getElementById("startbutton").style.setProperty("display", "none");
+    document.getElementById("menu").style.setProperty("display", "none");
+  }
 
   //gain speed function//
   document.addEventListener("keyup", function(event) {
     if(event.which === 32){
-      moving = true
-      forward = forward + .4
+      if(start === true){
+        moving = true
+        forward = forward + 1.5
+      }
     }yourcar.style.left = x + "px"
     })
 
     //BRAKE FUNCTION//
     document.addEventListener("keydown", function(event) {
       if(event.which === 37){
-        if(forward > 0){
-          friction = friction + 1
-        }
-        if(friction > forward){
-          moving = false
-          friction = 0.3
-          forward = 0
+        if(begin = true){
+          if(start === true){
+            if(forward > 0){
+              friction = friction + 1
+            }
+            if(friction >= forward){
+              friction = 0.3
+              forward = 0
+            }
+          }
         }
       }
     }, false);
 
     setInterval(function () {
-      if(moving === true){
-        x = x + forward
-        x = x - friction
+      if(begin === true){
+        if(start === true){
+          if(x < 1150){
+            if(forward > 0){
+              x = x + forward
+              forward = forward - friction
+            }
+            if(forward < 0){
+              forward = 0
+            }
+          yourcar.style.left = x + "px"
+          yourcar.style.top = y + "px"
+          }
+        }
       }
-      if(forward < 0){
-        moving = false
-        forward = 0
-      }
-      yourcar.style.left = x + "px"
     }, 100) // 1000ms = 1 second
+
+    setInterval(function () {
+      if(begin === true){
+        if(start === true){
+          if(ex < 1150){
+            if(eforward >= 0){
+              eforward = eforward + 1
+              ex = ex + eforward
+              eforward = eforward - efriction
+            }
+            if(forward < 0){
+            eforward = 0
+            }
+            enemycar.style.left = ex + "px"
+          }
+        }
+      }
+    }, 100) // 1000ms = 1 second
+
+    //START FUNCTION//
+    setInterval(function () {
+      if(begin === true){
+        if(start === false){
+        countdown = countdown - 1
+        }
+        if(countdown <= 0){
+          start = true
+          countdown = 0
+        }
+      }
+    }, 1000) // 1000ms = 1 second
+
+      //START FUNCTION//
+      setInterval(function () {
+        if(countdown === 4){
+          document.getElementById("three").style.setProperty("display", "inline-block");
+        }
+        if(countdown === 3){
+          document.getElementById("three").style.setProperty("display", "none");
+          document.getElementById("two").style.setProperty("display", "inline-block");
+        }
+        if(countdown === 2){
+          document.getElementById("two").style.setProperty("display", "none");
+          document.getElementById("one").style.setProperty("display", "inline-block");
+        }
+        if(countdown === 1){
+          document.getElementById("one").style.setProperty("display", "none");
+          document.getElementById("GO").style.setProperty("display", "inline-block");
+        }
+        if(countdown === 0){
+          document.getElementById("GO").style.setProperty("display", "none");
+        }
+        yourcar.style.left = x + "px"
+        yourcar.style.top = y + "px"
+    }, 1) // 1000ms = 1 second
 </script>
 
