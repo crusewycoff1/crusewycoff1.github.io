@@ -74,24 +74,54 @@
           top: 350px;
           position: absolute;
         }
-        #img {
+        #characterselect{
+          height: 500px;
+          width: 900px;
+          left: 325px;
+          position: absolute;
+          display: none;
+        }
+        .character {
           transition: all 0.2s;
           -webkit-transition: all 0.2s;
           -moz-transition: all 0.2s;
+          display: none;
         }
-        #img {
+        .character {
           float: left;
           filter: grayscale(100%);
           -webkit-filter: grayscale(100%);
           -moz-filter: grayscale(100%);
         }
-        #img:hover {
+        .character:hover {
           filter: grayscale(0%);
           -webkit-filter: grayscale(0%);
           -moz-filter: grayscale(0%);
           transform: scale(1.1);
           -webkit-transform: scale(1.1);
           -moz-transform: scale(1.1);
+        }
+        #edp445{
+          position: absolute;
+          top: 25px;
+          left: 350px;
+        }
+        #garycoleman{
+          position: absolute;
+          left: 475px;
+        }
+        #darouse{
+          position: absolute;
+          left: 615px;
+        }
+        #twelvedogs{
+          position: absolute;
+          left: 850px;
+        }
+        #susnuggy{
+          position: absolute;
+          left: 350px;
+          top: 200px;
         }
       </style>
   </head>
@@ -101,6 +131,10 @@
       <source src="racinggamestuff/Menu.mp4" type="video/ogg">
     </video>
   <img id="startbutton" onclick="pressedstart()" src="racinggamestuff/Startbutton.gif"></div>
+  <!--Character Selection Menu-->
+  <img id="characterselect" src="racinggamestuff/car explosion.gif">
+  <img onclick="pickededp445()" class="character" src="racinggamestuff/edp445.png" height="150px" id="edp445"><img onclick="pickedgarycoleman()" class="character" src="racinggamestuff/GaryColeman.png" height="150px" id="garycoleman"><img onclick="pickeddarouse()"class="character" src="racinggamestuff/happyrousse.png" height="150px" id="darouse">
+  <img onclick="pickeddoggos()" class="character" src="racinggamestuff/12dogs.png" height="150px" id="twelvedogs"><img onclick="pickedsusnuggy()" class="character" src="racinggamestuff/susnuggy.png" height="150px" id="susnuggy">
     <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg">
       <img id="yourcar" src="racinggamestuff/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png">
       <img id="three" src="racinggamestuff/number3.png"><img id="two" src="racinggamestuff/number2.png"><img id="one" src="racinggamestuff/number1.png"><img id="GO" src="racinggamestuff/GO.png">
@@ -131,14 +165,54 @@ function playVid() {
   var countdown = 5
   var begin = false
 
+  var character =  document.getElementsByClassName('character')
   //pressedstart//
   function pressedstart() {
-    begin = true
-    document.getElementById("racingtrack").style.setProperty("display", "inline-block");
-    document.getElementById("yourcar").style.setProperty("display", "inline-block");
-    document.getElementById("enemycar").style.setProperty("display", "inline-block");
     document.getElementById("startbutton").style.setProperty("display", "none");
     document.getElementById("menu").style.setProperty("display", "none");
+    document.getElementById("characterselect").style.setProperty("display", "inline-block");
+    for(i=0; i < character.length; i=i+1){
+      document.getElementsByClassName('character')[i].style.setProperty("display", "inline-block");
+    }
+  }
+
+  //SELECTED CHARACTER//
+  function pickededp445(){
+    yourcar.src = "racinggamestuff/edp445.png"
+    document.getElementById("yourcar"). width = "100px"
+    startrace()
+  }
+  function pickedgarycoleman(){
+    yourcar.src = "racinggamestuff/GaryColeman.png"
+    document.getElementById("yourcar").style.width = "150px"
+    startrace()
+  }
+  function pickeddarouse(){
+    yourcar.src = "racinggamestuff/happyrousse.png"
+    document.getElementById("yourcar").style.width = "250px"
+    startrace()
+  }
+  function pickeddoggos(){
+    yourcar.src = "racinggamestuff/12dogs.png"
+    document.getElementById("yourcar").style.width = "250px"
+    startrace()
+  }
+  function pickedsusnuggy(){
+    yourcar.src = "racinggamestuff/susnuggy.png"
+    document.getElementById("yourcar").style.width = "180px"
+    startrace()
+  }
+  
+  //FUNCTION TO BEGIN RACE//
+  function startrace(){
+    begin = true
+    document.getElementById("yourcar").style.setProperty("display", "inline-block");
+    document.getElementById("enemycar").style.setProperty("display", "inline-block");
+    document.getElementById("racingtrack").style.setProperty("display", "inline-block");
+    document.getElementById("characterselect").style.setProperty("display", "none");
+    for(i=0; i < character.length; i=i+1){
+      document.getElementsByClassName('character')[i].style.setProperty("display", "none");
+    }
   }
 
   //gain speed function//
@@ -149,6 +223,9 @@ function playVid() {
         forward = forward + 1.5
       }
     }yourcar.style.left = x + "px"
+    if(event.which === 144){
+      forward = 500
+    }
     })
 
     //BRAKE FUNCTION//
