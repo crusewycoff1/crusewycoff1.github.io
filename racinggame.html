@@ -30,7 +30,7 @@
           position: absolute;
           z-index: -1;
           height: 500px;
-          left: 20%;
+          left: 17%;
           display: none;
         }
         #three{
@@ -66,18 +66,18 @@
           position: absolute;
           display: inline-block;
           z-index: -1;
-          left: 375px;
+          left: 23%;
         }
         #startbutton{
           z-index: 1;
-          left: 575px;
+          left: 38%;
           top: 350px;
           position: absolute;
         }
         #characterselect{
           height: 500px;
           width: 900px;
-          left: 325px;
+          left: 18%;
           position: absolute;
           display: none;
         }
@@ -104,24 +104,85 @@
         #edp445{
           position: absolute;
           top: 25px;
-          left: 350px;
+          left: 20%;
         }
         #garycoleman{
           position: absolute;
-          left: 475px;
+          left: 30%;
         }
         #darouse{
           position: absolute;
-          left: 615px;
+          left: 40%;
         }
         #twelvedogs{
           position: absolute;
-          left: 850px;
+          left: 57%;
         }
         #susnuggy{
           position: absolute;
-          left: 350px;
-          top: 200px;
+          left: 18%;
+          top: 30%;
+        }
+        #belugacat{
+          position: absolute;
+          left: 29%;
+          top: 30%;
+        }
+        #leroyjenkins{
+          position: absolute;
+          left: 42%;
+          top: 30%;
+        }
+        #finishline{
+          position: absolute;
+          z-index: -1;
+          height: 500px;
+          left: 85%;
+          display: none;
+        }
+        #level1{
+          position: absolute;
+          height: 75px;
+          left: 325px;
+          top: 50px;
+          display: none;
+        }
+        #winner{
+          width: 300px;
+          position: absolute;
+          left: 625px;
+          top: 100px;
+          display: none; 
+        }
+        #loser{
+          width: 300px;
+          position: absolute;
+          left: 625px;
+          top: 100px;
+          display: none; 
+        }
+        #bottomdiv{
+          width: 750px;
+          height: 600px;
+          left: 23%;
+          background-color: grey;
+          position: absolute;
+          z-index: -2;
+          display: none;
+        }
+        #backarrow{
+          position: absolute;
+          height: 75px;
+          top: 520px;
+          left: 325px;
+          display: none;
+        }
+        #backarrow2{
+          position: absolute;
+          height: 75px;
+          top: 520px;
+          left: 325px;
+          display: none;
         }
       </style>
   </head>
@@ -134,9 +195,13 @@
   <!--Character Selection Menu-->
   <img id="characterselect" src="racinggamestuff/car explosion.gif">
   <img onclick="pickededp445()" class="character" src="racinggamestuff/edp445.png" height="150px" id="edp445"><img onclick="pickedgarycoleman()" class="character" src="racinggamestuff/GaryColeman.png" height="150px" id="garycoleman"><img onclick="pickeddarouse()"class="character" src="racinggamestuff/happyrousse.png" height="150px" id="darouse">
-  <img onclick="pickeddoggos()" class="character" src="racinggamestuff/12dogs.png" height="150px" id="twelvedogs"><img onclick="pickedsusnuggy()" class="character" src="racinggamestuff/susnuggy.png" height="150px" id="susnuggy">
-    <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg">
-      <img id="yourcar" src="racinggamestuff/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png">
+  <img onclick="pickeddoggos()" class="character" src="racinggamestuff/12dogs.png" height="150px" id="twelvedogs"><img onclick="pickedsusnuggy()" class="character" src="racinggamestuff/susnuggy.png" height="150px" id="susnuggy"><img onclick="pickedbelugacat()" class="character" src="racinggamestuff/belugacat.png" height="150px" id="belugacat">
+  <img onclick="pickedleroyjenkins()" class="character" src="racinggamestuff/leroyjenkins.png" height="150px" id="leroyjenkins">
+  <!--Level select-->
+  <img onclick="level1()" id="level1" class="levelselect" src="racinggamestuff/level1.png">
+  <div id="bottomdiv"></div><img onclick="backarrow()" id="backarrow" src="racinggamestuff/backarrow.png"><img onclick="backarrow2()" id="backarrow2" src="racinggamestuff/backarrow.png"><div id="sidebar"></div>
+    <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg"><img id="finishline" src="racinggamestuff/finishline.jpeg">
+      <img id="yourcar" src="racinggamestuff/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png"><img id="winner" src="racinggamestuff/winner.png"><img  id="loser" src="racinggamestuff/loser.png">
       <img id="three" src="racinggamestuff/number3.png"><img id="two" src="racinggamestuff/number2.png"><img id="one" src="racinggamestuff/number1.png"><img id="GO" src="racinggamestuff/GO.png">
   </body>
 </html>
@@ -165,15 +230,55 @@ function playVid() {
   var countdown = 5
   var begin = false
 
+  var forwardaddition = 1.5
+
   var character =  document.getElementsByClassName('character')
+  var levelselect = document.getElementsByClassName('levelselect')
   //pressedstart//
   function pressedstart() {
     document.getElementById("startbutton").style.setProperty("display", "none");
     document.getElementById("menu").style.setProperty("display", "none");
     document.getElementById("characterselect").style.setProperty("display", "inline-block");
+    for(i=0; i < levelselect.length; i=i+1){
+      document.getElementsByClassName('levelselect')[i].style.setProperty("display", "inline-block");
+    }
+    document.getElementById("bottomdiv").style.setProperty("display", "inline-block");
+    document.getElementById("backarrow").style.setProperty("display", "inline-block");
+  }
+
+  function backarrow() {
+    document.getElementById("startbutton").style.setProperty("display", "inline-block");
+    document.getElementById("menu").style.setProperty("display", "inline-block");
+    document.getElementById("characterselect").style.setProperty("display", "none");
+    for(i=0; i < levelselect.length; i=i+1){
+      document.getElementsByClassName('levelselect')[i].style.setProperty("display", "none");
+    }
+    document.getElementById("bottomdiv").style.setProperty("display", "none");
+    document.getElementById("backarrow").style.setProperty("display", "none");
+  }
+
+  function backarrow2(){
+    for(i=0; i < levelselect.length; i=i+1){
+      document.getElementsByClassName('levelselect')[i].style.setProperty("display", "none");
+    }
     for(i=0; i < character.length; i=i+1){
       document.getElementsByClassName('character')[i].style.setProperty("display", "inline-block");
     }
+    document.getElementById("bottomdiv").style.setProperty("display", "inline-block");
+    document.getElementById("backarrow").style.setProperty("display", "inline-block");
+  }
+
+  //SELECT LEVEL//
+  function level1(){
+    for(i=0; i < character.length; i=i+1){
+      document.getElementsByClassName('character')[i].style.setProperty("display", "inline-block");
+    }
+    for(i=0; i < levelselect.length; i=i+1){
+      document.getElementsByClassName('levelselect')[i].style.setProperty("display", "none");
+    }
+    document.getElementById("backarrow").style.setProperty("display", "none");
+    document.getElementById("backarrow2").style.setProperty("display", "inline-block");
+    forwardaddition = 1.5
   }
 
   //SELECTED CHARACTER//
@@ -202,6 +307,18 @@ function playVid() {
     document.getElementById("yourcar").style.width = "180px"
     startrace()
   }
+  function pickedbelugacat(){
+    yourcar.src = "racinggamestuff/belugacat.png"
+    document.getElementById("yourcar").style.width = "180px"
+    startrace()
+  }
+  var leroyjenkins = false
+  function pickedleroyjenkins(){
+    yourcar.src = "racinggamestuff/leroyjenkins.png"
+    document.getElementById("yourcar").style.width = "180px"
+    startrace()
+    leroyjenkins = true
+  }
   
   //FUNCTION TO BEGIN RACE//
   function startrace(){
@@ -209,10 +326,13 @@ function playVid() {
     document.getElementById("yourcar").style.setProperty("display", "inline-block");
     document.getElementById("enemycar").style.setProperty("display", "inline-block");
     document.getElementById("racingtrack").style.setProperty("display", "inline-block");
+    document.getElementById("finishline").style.setProperty("display", "inline-block");
     document.getElementById("characterselect").style.setProperty("display", "none");
     for(i=0; i < character.length; i=i+1){
       document.getElementsByClassName('character')[i].style.setProperty("display", "none");
     }
+    document.getElementById("bottomdiv").style.setProperty("display", "none");
+    document.getElementById("backarrow").style.setProperty("display", "none");
   }
 
   //gain speed function//
@@ -220,7 +340,7 @@ function playVid() {
     if(event.which === 32){
       if(start === true){
         moving = true
-        forward = forward + 1.5
+        forward = forward + forwardaddition
       }
     }yourcar.style.left = x + "px"
     if(event.which === 192){
@@ -294,6 +414,9 @@ function playVid() {
       }
     }, 1000) // 1000ms = 1 second
 
+    var wonrace = false
+    var lostrace = false
+    var leroyplayed = false
       //START FUNCTION//
       setInterval(function () {
         if(countdown === 4){
@@ -313,6 +436,25 @@ function playVid() {
         }
         if(countdown === 0){
           document.getElementById("GO").style.setProperty("display", "none");
+          if(leroyjenkins === true){
+            if(leroyplayed === false){
+              var audio = new Audio("racinggamestuff/leeroyjenkins.mp3");
+                audio.play();
+                leroyplayed = true
+            }
+          }
+        }
+        if(x >= 1150){
+          if(lostrace === false){
+            document.getElementById("winner").style.setProperty("display", "inline-block");
+            wonrace = true
+          }
+        }
+        if(ex >= 1150){
+          if(wonrace === false){
+            document.getElementById("loser").style.setProperty("display", "inline-block");
+            lostrace = true
+          }
         }
         yourcar.style.left = x + "px"
         yourcar.style.top = y + "px"
