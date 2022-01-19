@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #btn{
+        background-color: red;
+      }
+      body{
+        font-family:  Comic Sans MS;
+        background-color: rgb(255, 210, 105);
+      }
+    </style>
+  </head>
+  <body>
+      <h1><center>Quadratic Formula Calculator!!!</center></h1>
+      <center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Quadratic_formula.svg/1280px-Quadratic_formula.svg.png" height="80px"></center><br><br>
+  <center><div>
+    Put in A: <input id="userInputA" type="text" name="testfield" /><br>
+    Put in B: <input id="userInputB" type="text" name="testfield" /><br>
+    Put in C: <input id="userInputC" type="text" name="testfield" /><br>
+    
+    <center><button id="btn" onclick="run()">Calculate!!!</button></center>
+    <center><span id="resultquad1">Results Here!!!</span><span id="resultquad2"></span></center>
+  </div></center>
+  </body>
+</html>
+<script>
+      var inputA = parseInt(document.getElementById('userInputA').value);
+      var inputB = parseInt(document.getElementById('userInputB').value);
+      var inputC = parseInt(document.getElementById('userInputC').value);
+
+    function run() {
+      var inputA = parseInt(document.getElementById('userInputA').value);
+      var inputB = parseInt(document.getElementById('userInputB').value);
+      var inputC = parseInt(document.getElementById('userInputC').value);
+
+      if(isNaN(inputB)){
+        inputB = 0
+      }
+      if(isNaN(inputC)){
+        inputC = 0
+      }
+      var topfrac1 = (inputB * -1) + Math.sqrt((inputB * inputB)-(4 * inputA * inputC))
+      var quadform1 = topfrac1 / (2 * inputA)
+
+      var topfrac2 = (inputB * -1) - Math.sqrt((inputB * inputB)-(4 * inputA * inputC))
+      var quadform2 = topfrac2 / (2 * inputA)
+      var nantest = (inputB * inputB)-(4 * inputA * inputC)
+      if(isNaN(inputA)){
+        document.getElementById('resultquad1').innerHTML = "You are Missing a number. Better put one in >:("
+        document.getElementById('resultquad2').innerHTML = ""
+      }
+      if(nantest >= 0){
+        if(quadform1 % 2 !== 0){
+          quadform1 = quadform1.toFixed(4)
+        }
+        if(quadform2 % 2 !== 0){
+          quadform2 = quadform2.toFixed(4)
+        }
+        document.getElementById('resultquad1').innerHTML = (quadform1 * -1) + ", "
+        document.getElementById('resultquad2').innerHTML = (quadform2 * -1)
+      }
+      if(nantest < 0){
+        document.getElementById('resultquad1').innerHTML = "No solution:("
+        document.getElementById('resultquad2').innerHTML = ""
+      }
+    }
+    var start = false
+      //Interval Functions//
+      setInterval(function () {
+          change()
+        }, 100) // 1000ms = 1 second
+
+    var button = document.getElementById('btn')
+    function change() {
+    var x = Math.floor(Math.random() * 256); // range is 0-255
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var thergb = "rgb(" + x + "," + y + "," + z + ")"; 
+    console.log(thergb);
+    btn.style.backgroundColor=thergb;
+}
+</script>
