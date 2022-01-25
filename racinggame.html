@@ -210,7 +210,7 @@
     <div><video  onload="playVid()" id="menu" autoplay loop>
       <source src="racinggamestuff/Menu.mp4" type="video/mp4">
       <source src="racinggamestuff/Menu.mp4" type="video/ogg">
-    </video><div id="test">0</div>
+    </video>
   <img id="startbutton" onclick="pressedstart()" src="racinggamestuff/Startbutton.gif"></div>
   <!--Character Selection Menu-->
   <img id="characterselect" src="racinggamestuff/car explosion.gif">
@@ -254,7 +254,7 @@ function playVid() {
   var forwardaddition = 1.5
   var eforwardaddition = 1
 
-  var score = 0
+  var money = 0
   var prize = 0
 
   var character =  document.getElementsByClassName('character')
@@ -524,8 +524,8 @@ function playVid() {
             document.getElementById("winner").style.setProperty("display", "inline-block");
             wonrace = true
             if(prizeobtained === false){
-              score = score + prize
-              document.getElementById("money").innerHTML = "$" + score;
+              money = money + prize
+              document.getElementById("money").innerHTML = "$" + money;
               prizeobtained = true
             }
           }
@@ -539,23 +539,23 @@ function playVid() {
         yourcar.style.left = x + "px"
         yourcar.style.top = y + "px"
     }, 1) // 1000ms = 1 second
-    document.getElementById("money").innerHTML = "$" + score;
+    document.getElementById("money").innerHTML = "$" + money;
 
     //SAVE GAME FUNCTION?//
     function saveGame() {
       var gameSave = {
-        score: score
+        money: money
       };
       localStorage.setItem("gameSave", JSON.stringify(gameSave));
     }
     function loadgame() { 
       var savedGame = JSON.parse(localStorage.getItem("gameSave"));
-      if (typeof savedGame.score !== "undefined") score = savedGame.score;
+      if (typeof savedGame.money !== "undefined") money = savedGame.money;
     }
 
     window.onload = function() {
       loadgame();
-      document.getElementById("money").innerHTML = "$" + score;
+      document.getElementById("money").innerHTML = "$" + money;
     }
 
     setInterval(function () {
