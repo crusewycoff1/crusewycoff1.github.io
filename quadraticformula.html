@@ -57,8 +57,8 @@
         if(quadform2 % 2 !== 0){
           quadform2 = quadform2.toFixed(4)
         }
-        document.getElementById('resultquad1').innerHTML = (quadform1 * -1) + ", "
-        document.getElementById('resultquad2').innerHTML = (quadform2 * -1)
+        document.getElementById('resultquad1').innerHTML = quadform1 + ", "
+        document.getElementById('resultquad2').innerHTML = quadform2
       }
       if(nantest < 0){
         document.getElementById('resultquad1').innerHTML = "No solution:("

@@ -170,7 +170,7 @@
         }
         #bottomdiv{
           width: 750px;
-          height: 600px;
+          height: 585px;
           left: 23%;
           background-color: grey;
           position: absolute;
@@ -180,20 +180,27 @@
         #backarrow{
           position: absolute;
           height: 75px;
-          top: 520px;
+          top: 526px;
           left: 325px;
           display: none;
         }
         #backarrow2{
           position: absolute;
           height: 75px;
-          top: 520px;
+          top: 526px;
+          left: 325px;
+          display: none;
+        }
+        #backarrow3{
+          position: absolute;
+          height: 75px;
+          top: 526px;
           left: 325px;
           display: none;
         }
         #money{
           position: absolute;
-          top: 550px;
+          top: 540px;
           left: 675px;
           display: none;
         }
@@ -203,7 +210,7 @@
     <div><video  onload="playVid()" id="menu" autoplay loop>
       <source src="racinggamestuff/Menu.mp4" type="video/mp4">
       <source src="racinggamestuff/Menu.mp4" type="video/ogg">
-    </video>
+    </video><div id="test">0</div>
   <img id="startbutton" onclick="pressedstart()" src="racinggamestuff/Startbutton.gif"></div>
   <!--Character Selection Menu-->
   <img id="characterselect" src="racinggamestuff/car explosion.gif">
@@ -213,7 +220,7 @@
   
   <!--Level select-->
   <img onclick="level1()" id="level1" class="levelselect" src="/racinggamestuff/numbers/number1.png"> <img onclick="level2()" id="level2" class="levelselect" src="/racinggamestuff/numbers/number2.png">
-  <div id="bottomdiv"></div><h1><span id="money">$0</span></h1><img onclick="backarrow()" id="backarrow" src="racinggamestuff/backarrow.png"><img onclick="backarrow2()" id="backarrow2" src="racinggamestuff/backarrow.png"><div id="sidebar"></div>
+  <div id="bottomdiv"></div><h1><span id="money">$0</span></h1><img onclick="backarrow()" id="backarrow" src="racinggamestuff/backarrow.png"><img onclick="backarrow2()" id="backarrow2" src="racinggamestuff/backarrow.png"><img onclick="backarrow3()" id="backarrow3" src="racinggamestuff/backarrow.png"><div id="sidebar"></div>
     <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg"><img id="finishline" src="racinggamestuff/finishline.jpeg">
       <img id="yourcar" src="racinggamestuff/racingimgs/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png"><img id="winner" src="racinggamestuff/winner.png"><img  id="loser" src="racinggamestuff/loser.png">
       <img id="three" src="racinggamestuff/number3.png"><img id="two" src="racinggamestuff/number2.png"><img id="one" src="racinggamestuff/number1.png"><img id="GO" src="racinggamestuff/GO.png">
@@ -265,6 +272,7 @@ function playVid() {
     document.getElementById("money").style.setProperty("display", "inline-block");
   }
 
+  //BACK ARROWS//
   function backarrow() {
     document.getElementById("startbutton").style.setProperty("display", "inline-block");
     document.getElementById("menu").style.setProperty("display", "inline-block");
@@ -289,11 +297,44 @@ function playVid() {
     document.getElementById("backarrow2").style.setProperty("display", "none");
   }
 
+  function backarrow3(){
+    begin = false
+    start = false
+    countdown = 5
+    x = 300
+    y = 50
+    ex = 250
+    ey = 200
+    eforward = 0 
+    forward = 0
+    wonrace = false
+    lostrace = false
+    leroyplayed = false
+    prizeobtained = false
+    for(i=0; i < levelselect.length; i=i+1){
+      document.getElementsByClassName('levelselect')[i].style.setProperty("display", "inline-block");
+    }
+    document.getElementById("backarrow").style.setProperty("display", "none");
+    document.getElementById("yourcar").style.setProperty("display", "none");
+    document.getElementById("enemycar").style.setProperty("display", "none");
+    document.getElementById("racingtrack").style.setProperty("display", "none");
+    document.getElementById("finishline").style.setProperty("display", "none");
+    document.getElementById("characterselect").style.setProperty("display", "inline-block");
+    document.getElementById("three").style.setProperty("display", "none");
+    document.getElementById("two").style.setProperty("display", "none");
+    document.getElementById("one").style.setProperty("display", "none");
+    document.getElementById("loser").style.setProperty("display", "none");
+    document.getElementById("winner").style.setProperty("display", "none");
+    yourcar.style.left = x + "px"
+    yourcar.style.top = y + "px"
+    enemycar.style.left = ex + "px"
+  }
+
   //SELECT LEVEL//
   function level1(){
     levelselection()
     enemycar.src = "racinggamestuff/racingimgs/dababy.png"
-    forwardaddition = 1.5
+    eforwardaddition = 1
     prize = 100
   }
   function level2(){
@@ -365,6 +406,7 @@ function playVid() {
     }
     document.getElementById("backarrow").style.setProperty("display", "none");
     document.getElementById("backarrow2").style.setProperty("display", "none");
+    document.getElementById("backarrow3").style.setProperty("display", "inline-block");
   }
 
   //gain speed function//
@@ -498,5 +540,27 @@ function playVid() {
         yourcar.style.top = y + "px"
     }, 1) // 1000ms = 1 second
     document.getElementById("money").innerHTML = "$" + score;
+
+    //SAVE GAME FUNCTION?//
+    function saveGame() {
+      var gameSave = {
+        score: score
+      };
+      localStorage.setItem("gameSave", JSON.stringify(gameSave));
+    }
+    function loadgame() { 
+      var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+      if (typeof savedGame.score !== "undefined") score = savedGame.score;
+    }
+
+    window.onload = function() {
+      loadgame();
+      document.getElementById("money").innerHTML = "$" + score;
+    }
+
+    setInterval(function () {
+      saveGame()
+      document.getElementById("test").innerHTML = eforwardaddition;
+    }, 1000) // 1000ms = 1 second
 </script>
 
