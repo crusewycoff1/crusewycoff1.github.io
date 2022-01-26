@@ -150,15 +150,71 @@
         #level1{
           position: absolute;
           height: 75px;
-          left: 325px;
+          left: 400px;
           top: 50px;
           display: none;
         }
         #level2{
           position: absolute;
           height: 75px;
-          left: 425px;
+          left: 525px;
           top: 50px;
+          display: none;
+        }
+        #level3{
+          position: absolute;
+          height: 75px;
+          left: 650px;
+          top: 50px;
+          display: none;
+        }
+        #level4{
+          position: absolute;
+          height: 75px;
+          left: 775px;
+          top: 50px;
+          display: none;
+        }
+        #level5{
+          position: absolute;
+          height: 75px;
+          left: 900px;
+          top: 50px;
+          display: none;
+        }
+        #level6{
+          position: absolute;
+          height: 75px;
+          left: 400px;
+          top: 150px;
+          display: none;
+        }
+        #level7{
+          position: absolute;
+          height: 75px;
+          left: 525px;
+          top: 150px;
+          display: none;
+        }
+        #level8{
+          position: absolute;
+          height: 75px;
+          left: 650px;
+          top: 150px;
+          display: none;
+        }
+        #level9{
+          position: absolute;
+          height: 75px;
+          left: 775px;
+          top: 150px;
+          display: none;
+        }
+        #level10{
+          position: absolute;
+          height: 75px;
+          left: 900px;
+          top: 150px;
           display: none;
         }
         #winner{
@@ -208,8 +264,26 @@
         #money{
           position: absolute;
           top: 540px;
-          left: 675px;
+          left: 600px;
           display: none;
+        }
+        #upgradebox{
+          position: absolute;
+          left: 810px;
+          top: 530px;
+          display: none;
+        }
+        #upgradespeed{
+          background-color: lightgrey; /* Green */
+          border: none;
+          padding: 6px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 13px;
+        }
+        #upgradespeed:hover{
+          background-color: rgb(171, 171, 171);
         }
       </style>
   </head>
@@ -226,8 +300,10 @@
   <img onclick="pickedleroyjenkins()" class="lockedcharacter" src="racinggamestuff/racingimgs/leroyjenkins.png" height="150px" id="leroyjenkins" title="LEEROYY JENKINSSSS: 100,000">
   
   <!--Level select-->
-  <img onclick="level1()" id="level1" class="levelselect" src="/racinggamestuff/numbers/number1.png"> <img onclick="level2()" id="level2" class="levelselect" src="/racinggamestuff/numbers/number2.png">
+  <img onclick="level1()" id="level1" class="levelselect" src="/racinggamestuff/numbers/number1.png"> <img onclick="level2()" id="level2" class="levelselect" src="/racinggamestuff/numbers/number2.png"><img onclick="level3()" id="level3" class="levelselect" src="/racinggamestuff/numbers/number3.png"><img onclick="level4()" id="level4" class="levelselect" src="/racinggamestuff/numbers/number4.png"><img onclick="level5()" id="level5" class="levelselect" src="/racinggamestuff/numbers/number5.png">
+  <img onclick="level6()" id="level6" class="levelselect" src="/racinggamestuff/numbers/number6.png"><img onclick="level7()" id="level7" class="levelselect" src="/racinggamestuff/numbers/number7.png"><img onclick="level8()" id="level8" class="levelselect" src="/racinggamestuff/numbers/number8.png"><img onclick="level9()" id="level9" class="levelselect" src="/racinggamestuff/numbers/number9.png"><img onclick="level10()" id="level10" class="levelselect" src="/racinggamestuff/numbers/number10.png">
   <div id="bottomdiv"></div><h1><span id="money">$0</span></h1><img onclick="backarrow()" id="backarrow" src="racinggamestuff/backarrow.png"><img onclick="backarrow2()" id="backarrow2" src="racinggamestuff/backarrow.png"><img onclick="backarrow3()" id="backarrow3" src="racinggamestuff/backarrow.png"><div id="sidebar"></div>
+  <div id="upgradebox"><button id="upgradespeed" onclick="upgradspeed()">Upgrade Engine Power</button> - $<span id="upgradespeedcost">200</span><br><center>Engine Power: <span id="mph">1</span></center><center>Speed: <span id="activespeed">0</span></center></div>
     <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg"><img id="finishline" src="racinggamestuff/finishline.jpeg">
       <img id="yourcar" src="racinggamestuff/racingimgs/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png"><img id="winner" src="racinggamestuff/winner.png"><img  id="loser" src="racinggamestuff/loser.png">
       <img id="three" src="racinggamestuff/number3.png"><img id="two" src="racinggamestuff/number2.png"><img id="one" src="racinggamestuff/number1.png"><img id="GO" src="racinggamestuff/GO.png">
@@ -258,14 +334,15 @@ function playVid() {
   var countdown = 5
   var begin = false
 
-  var forwardaddition = 1.5
+  var forwardaddition = 2
   var eforwardaddition = 1
 
   var money = 0
   var prize = 0
+  var upgradespeedcost = 200
 
-  var unlockedcharacter =  document.getElementsByClassName('unlockedcharacter')
-  var lockedcharacter =  document.getElementsByClassName('lockedcharacter')
+  var unlockedcharacter = document.getElementsByClassName('unlockedcharacter')
+  var lockedcharacter = document.getElementsByClassName('lockedcharacter')
   var levelselect = document.getElementsByClassName('levelselect')
   //pressedstart//
   function pressedstart() {
@@ -277,6 +354,7 @@ function playVid() {
     }
     document.getElementById("bottomdiv").style.setProperty("display", "inline-block");
     document.getElementById("backarrow").style.setProperty("display", "inline-block");
+    document.getElementById("upgradebox").style.setProperty("display", "inline-block");
     document.getElementById("money").style.setProperty("display", "inline-block");
   }
 
@@ -290,6 +368,7 @@ function playVid() {
     }
     document.getElementById("bottomdiv").style.setProperty("display", "none");
     document.getElementById("backarrow").style.setProperty("display", "none");
+    document.getElementById("upgradebox").style.setProperty("display", "none");
     document.getElementById("money").style.setProperty("display", "none");
   }
 
@@ -304,6 +383,8 @@ function playVid() {
       document.getElementsByClassName('lockedcharacter')[i].style.setProperty("display", "none");
     }
     document.getElementById("bottomdiv").style.setProperty("display", "inline-block");
+    document.getElementById("upgradebox").style.setProperty("display", "inline-block");
+    document.getElementById("upgradebox").style.setProperty("display", "inline-block");
     document.getElementById("backarrow").style.setProperty("display", "inline-block");
     document.getElementById("backarrow2").style.setProperty("display", "none");
   }
@@ -355,7 +436,31 @@ function playVid() {
     document.getElementById("enemycar").style.width = "250px"
     document.getElementById("enemycar").style.height = "250px"
     eforwardaddition = 2
+    prize = 200
+  }
+  function level3(){
+    levelselection()
+    enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
+    document.getElementById("enemycar").style.width = "250px"
+    document.getElementById("enemycar").style.height = "250px"
+    eforwardaddition = 3
     prize = 300
+  }
+  function level4(){
+    levelselection()
+    enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
+    document.getElementById("enemycar").style.width = "250px"
+    document.getElementById("enemycar").style.height = "250px"
+    eforwardaddition = 4
+    prize = 400
+  }
+  function level5(){
+    levelselection()
+    enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
+    document.getElementById("enemycar").style.width = "250px"
+    document.getElementById("enemycar").style.height = "250px"
+    eforwardaddition = 5
+    prize = 500
   }
 
   function levelselection() {
@@ -396,7 +501,6 @@ function playVid() {
     if(purchasedgary === true){
       yourcar.src = "racinggamestuff/racingimgs/GaryColeman.png"
       document.getElementById("yourcar").style.width = "150px"
-      forwardaddition = 2.4
       startrace()
     }
     if(purchasedgary === false){
@@ -414,7 +518,6 @@ function playVid() {
   function pickeddarouse(){
     if(purchaseddarouse === true){
       yourcar.src = "racinggamestuff/racingimgs/happyrousse.png"
-      forwardaddition = 3.3
       document.getElementById("yourcar").style.width = "250px"
       startrace()
     }
@@ -433,7 +536,6 @@ function playVid() {
   function pickeddoggos(){
     if(purchaseddoggos === true){
       yourcar.src = "racinggamestuff/racingimgs/12dogs.png"
-      forwardaddition = 4.4
       document.getElementById("yourcar").style.width = "250px"
       startrace()
     }
@@ -453,7 +555,6 @@ function playVid() {
     if(purchasedsusnuggy === true){
       yourcar.src = "racinggamestuff/racingimgs/susnuggy.png"
       document.getElementById("yourcar").style.width = "180px"
-      forwardaddition = 5.3
       startrace()
     }
     if(purchasedsusnuggy === false){
@@ -472,7 +573,6 @@ function playVid() {
     if(purchasedbeluga === true){
       yourcar.src = "racinggamestuff/racingimgs/belugacat.png"
       document.getElementById("yourcar").style.width = "180px"
-      forwardaddition = 6.2
       startrace()
     }
     if(purchasedbeluga === false){
@@ -505,6 +605,18 @@ function playVid() {
         leroyclass.classList.add("unlockedcharacter");
         leroyclass.title = "LEEROYY JENKINSSSS: Owned"
       }
+    }
+  }
+
+  function upgradspeed(){
+    if(money >= upgradespeedcost){
+      money = money - upgradespeedcost
+      forwardaddition = forwardaddition + 1
+      upgradespeedcost = upgradespeedcost * 2
+      document.getElementById("upgradespeedcost").innerHTML = upgradespeedcost;
+      document.getElementById("mph").innerHTML = forwardaddition;
+      document.getElementById("money").innerHTML = "$" + money;
+      document.getElementById("activespeed").innerHTML = forward;
     }
   }
   
@@ -556,7 +668,7 @@ function playVid() {
         }
       }
       if(event.which === 220){
-        money = money + 100
+        money = money + 100000000
         document.getElementById("money").innerHTML = "$" + money;
       }
     }, false);
@@ -672,7 +784,9 @@ function playVid() {
         purchaseddoggos: purchaseddoggos,
         purchasedbeluga: purchasedbeluga,
         purchasedsusnuggy: purchasedsusnuggy,
-        purchasedleroy: purchasedleroy
+        purchasedleroy: purchasedleroy,
+        forwardaddition: forwardaddition,
+        upgradespeedcost: upgradespeedcost
       };
       localStorage.setItem("gameSave", JSON.stringify(gameSave));
     }
@@ -686,11 +800,15 @@ function playVid() {
       if (typeof savedGame.purchasedbeluga !== "undefined") purchasedbeluga = savedGame.purchasedbeluga;
       if (typeof savedGame.purchasedsusnuggy !== "undefined") purchasedsusnuggy = savedGame.purchasedsusnuggy;
       if (typeof savedGame.purchasedleroy !== "undefined") purchasedleroy = savedGame.purchasedleroy;
+      if (typeof savedGame.forwardaddition !== "undefined") forwardaddition = savedGame.forwardaddition;
+      if (typeof savedGame.upgradespeedcost !== "undefined") upgradespeedcost = savedGame.upgradespeedcost;
     }
 
     window.onload = function() {
       loadgame();
       document.getElementById("money").innerHTML = "$" + money;
+      document.getElementById("mph").innerHTML = forwardaddition;
+      document.getElementById("upgradespeedcost").innerHTML = upgradespeedcost;
       if(purchasedgary === true){
         garyclass.classList.remove("lockedcharacter");
         garyclass.classList.add("unlockedcharacter");
@@ -725,6 +843,9 @@ function playVid() {
 
     setInterval(function () {
       saveGame()
-    }, 10000) // 1000ms = 1 second
+    }, 1000) // 1000ms = 1 second
+    setInterval(function () {
+      document.getElementById("activespeed").innerHTML = Math.round(forward);
+    }, 1) // 1000ms = 1 second
 </script>
 
