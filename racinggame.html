@@ -383,6 +383,9 @@ function playVid() {
   var garyclass = document.getElementById("garycoleman");
   var darouseclass = document.getElementById("darouse");
   var doggoclass = document.getElementById("twelvedogs");
+  var nuggyclass = document.getElementById("susnuggy");
+  var belugaclass = document.getElementById("belugacat");
+  var leroyclass = document.getElementById("leroyjenkins");
 
   function pickededp445(){
     yourcar.src = "racinggamestuff/racingimgs/edp445.png"
@@ -399,15 +402,11 @@ function playVid() {
     if(purchasedgary === false){
       if(money >= 199){
         money = money - 200
-        forwardaddition = 2.4
         purchasedgary = true
-        yourcar.src = "racinggamestuff/racingimgs/GaryColeman.png"
-        document.getElementById("yourcar").style.width = "150px"
-        document.getElementById("money").innerHTML = "$" + money;
-        startrace()
         garyclass.classList.remove("lockedcharacter");
         garyclass.classList.add("unlockedcharacter");
         garyclass.title = "Gary Coleman: Owned"
+        document.getElementById("money").innerHTML = "$" + money;
       }
     }
 
@@ -422,12 +421,9 @@ function playVid() {
     if(purchaseddarouse === false){
       if(money >= 999){
         money = money - 1000
-        forwardaddition = 3.3
         purchaseddarouse = true
-        yourcar.src = "racinggamestuff/racingimgs/happyrousse.png"
         document.getElementById("yourcar").style.width = "250px"
         document.getElementById("money").innerHTML = "$" + money;
-        startrace()
         darouseclass.classList.remove("lockedcharacter");
         darouseclass.classList.add("unlockedcharacter");
         darouseclass.title = "Darouse: Owned"
@@ -444,12 +440,9 @@ function playVid() {
     if(purchaseddoggos === false){
       if(money >= 4999){
         money = money - 5000
-        forwardaddition = 4.4
         purchaseddoggos = true
-        yourcar.src = "racinggamestuff/racingimgs/12dogs.png"
         document.getElementById("yourcar").style.width = "250px"
         document.getElementById("money").innerHTML = "$" + money;
-        startrace()
         doggoclass.classList.remove("lockedcharacter");
         doggoclass.classList.add("unlockedcharacter");
         doggoclass.title = "Twleve Dogs: Owned"
@@ -460,15 +453,39 @@ function playVid() {
     if(purchasedsusnuggy === true){
       yourcar.src = "racinggamestuff/racingimgs/susnuggy.png"
       document.getElementById("yourcar").style.width = "180px"
+      forwardaddition = 5.3
       startrace()
+    }
+    if(purchasedsusnuggy === false){
+      if(money >= 9999){
+        money = money - 10000
+        purchasedsusnuggy = true
+        document.getElementById("yourcar").style.width = "250px"
+        document.getElementById("money").innerHTML = "$" + money;
+        nuggyclass.classList.remove("lockedcharacter");
+        nuggyclass.classList.add("unlockedcharacter");
+        nuggyclass.title = "Sus Nuggy: Owned"
+      }
     }
   }
   function pickedbelugacat(){
     if(purchasedbeluga === true){
       yourcar.src = "racinggamestuff/racingimgs/belugacat.png"
       document.getElementById("yourcar").style.width = "180px"
+      forwardaddition = 6.2
       startrace()
-    }  
+    }
+    if(purchasedbeluga === false){
+      if(money >= 49999){
+        money = money - 50000
+        purchasedbeluga = true
+        document.getElementById("yourcar").style.width = "250px"
+        document.getElementById("money").innerHTML = "$" + money;
+        belugaclass.classList.remove("lockedcharacter");
+        belugaclass.classList.add("unlockedcharacter");
+        belugaclass.title = "Beluga Cat: Owned"
+      }
+    }
   }
   var leroyjenkins = false
   function pickedleroyjenkins(){
@@ -477,6 +494,17 @@ function playVid() {
       document.getElementById("yourcar").style.width = "180px"
       startrace()
       leroyjenkins = true
+    }
+    if(purchasedleroy === false){
+      if(money >= 99999){
+        money = money - 100000
+        purchasedleroy = true
+        document.getElementById("yourcar").style.width = "250px"
+        document.getElementById("money").innerHTML = "$" + money;
+        leroyclass.classList.remove("lockedcharacter");
+        leroyclass.classList.add("unlockedcharacter");
+        leroyclass.title = "LEEROYY JENKINSSSS: Owned"
+      }
     }
   }
   
@@ -526,6 +554,10 @@ function playVid() {
             }
           }
         }
+      }
+      if(event.which === 220){
+        money = money + 100
+        document.getElementById("money").innerHTML = "$" + money;
       }
     }, false);
 
@@ -650,6 +682,10 @@ function playVid() {
       if (typeof savedGame.money !== "undefined") money = savedGame.money;
       if (typeof savedGame.purchasedgary !== "undefined") purchasedgary = savedGame.purchasedgary;
       if (typeof savedGame.purchaseddarouse !== "undefined") purchaseddarouse = savedGame.purchaseddarouse;
+      if (typeof savedGame.purchaseddoggos !== "undefined") purchaseddoggos = savedGame.purchaseddoggos;
+      if (typeof savedGame.purchasedbeluga !== "undefined") purchasedbeluga = savedGame.purchasedbeluga;
+      if (typeof savedGame.purchasedsusnuggy !== "undefined") purchasedsusnuggy = savedGame.purchasedsusnuggy;
+      if (typeof savedGame.purchasedleroy !== "undefined") purchasedleroy = savedGame.purchasedleroy;
     }
 
     window.onload = function() {
@@ -669,6 +705,21 @@ function playVid() {
         doggoclass.classList.remove("lockedcharacter");
         doggoclass.classList.add("unlockedcharacter");
         doggoclass.title = "Twelve Dogs: Owned"
+      }
+      if(purchasedbeluga === true){
+        belugaclass.classList.remove("lockedcharacter");
+        belugaclass.classList.add("unlockedcharacter");
+        belugaclass.title = "Beluga Cat: Owned"
+      }
+      if(purchasedsusnuggy === true){
+        nuggyclass.classList.remove("lockedcharacter");
+        nuggyclass.classList.add("unlockedcharacter");
+        nuggyclass.title = "Sus Nuggy: Owned"
+      }
+      if(purchasedleroy === true){
+        leroyclass.classList.remove("lockedcharacter");
+        leroyclass.classList.add("unlockedcharacter");
+        leroyclass.title = "LEEROYY JENKINSSSS: Owned"
       }
     }
 
