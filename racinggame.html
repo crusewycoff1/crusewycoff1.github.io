@@ -11,7 +11,7 @@
         #enemycar{
           position: absolute;
           left: 250px;
-          top: 200px;
+          top: 220px;
           width: 200px;
           height: 300px;
           display: none;
@@ -81,25 +81,32 @@
           position: absolute;
           display: none;
         }
-        .character {
+        .unlockedcharacter {
           transition: all 0.2s;
           -webkit-transition: all 0.2s;
           -moz-transition: all 0.2s;
           display: none;
         }
-        .character {
+        .unlockedcharacter {
           float: left;
           filter: grayscale(100%);
           -webkit-filter: grayscale(100%);
           -moz-filter: grayscale(100%);
         }
-        .character:hover {
+        .unlockedcharacter:hover {
           filter: grayscale(0%);
           -webkit-filter: grayscale(0%);
           -moz-filter: grayscale(0%);
           transform: scale(1.1);
           -webkit-transform: scale(1.1);
           -moz-transform: scale(1.1);
+        }
+        .lockedcharacter {
+          float: left;
+          filter: grayscale(100%);
+          -webkit-filter: grayscale(100%);
+          -moz-filter: grayscale(100%);
+          display: none;
         }
         #edp445{
           position: absolute;
@@ -214,9 +221,9 @@
   <img id="startbutton" onclick="pressedstart()" src="racinggamestuff/Startbutton.gif"></div>
   <!--Character Selection Menu-->
   <img id="characterselect" src="racinggamestuff/car explosion.gif">
-  <img onclick="pickededp445()" class="character" src="racinggamestuff/racingimgs/edp445.png" height="150px" id="edp445"><img onclick="pickedgarycoleman()" class="character" src="racinggamestuff/racingimgs/GaryColeman.png" height="150px" id="garycoleman"><img onclick="pickeddarouse()"class="character" src="racinggamestuff/racingimgs/happyrousse.png" height="150px" id="darouse">
-  <img onclick="pickeddoggos()" class="character" src="racinggamestuff/racingimgs/12dogs.png" height="150px" id="twelvedogs"><img onclick="pickedsusnuggy()" class="character" src="racinggamestuff/racingimgs/susnuggy.png" height="150px" id="susnuggy"><img onclick="pickedbelugacat()" class="character" src="racinggamestuff/racingimgs/belugacat.png" height="150px" id="belugacat">
-  <img onclick="pickedleroyjenkins()" class="character" src="racinggamestuff/racingimgs/leroyjenkins.png" height="150px" id="leroyjenkins">
+  <img onclick="pickededp445()" class="unlockedcharacter" src="racinggamestuff/racingimgs/edp445.png" height="150px" id="edp445"><img onclick="pickedgarycoleman()" class="lockedcharacter" src="racinggamestuff/racingimgs/GaryColeman.png" height="150px" id="garycoleman" title="Gary Coleman: $200"><img onclick="pickeddarouse()"class="lockedcharacter" src="racinggamestuff/racingimgs/happyrousse.png" height="150px" id="darouse" title="Darouse: $1000">
+  <img onclick="pickeddoggos()" class="lockedcharacter" src="racinggamestuff/racingimgs/12dogs.png" height="150px" id="twelvedogs" title="Twelve Dogs: $5,000"><img onclick="pickedsusnuggy()" class="lockedcharacter" src="racinggamestuff/racingimgs/susnuggy.png" height="150px" id="susnuggy" title="Sus Nuggy: $10,000"><img onclick="pickedbelugacat()" class="lockedcharacter" src="racinggamestuff/racingimgs/belugacat.png" height="150px" id="belugacat" title="Beluga Cat: $50,000">
+  <img onclick="pickedleroyjenkins()" class="lockedcharacter" src="racinggamestuff/racingimgs/leroyjenkins.png" height="150px" id="leroyjenkins" title="LEEROYY JENKINSSSS: 100,000">
   
   <!--Level select-->
   <img onclick="level1()" id="level1" class="levelselect" src="/racinggamestuff/numbers/number1.png"> <img onclick="level2()" id="level2" class="levelselect" src="/racinggamestuff/numbers/number2.png">
@@ -242,10 +249,10 @@ function playVid() {
   var ey = 200
 
   var eforward = 0 
-  var efriction = 0
+  var efriction = 0.3
 
   var forward = 0
-  var friction = 0
+  var friction = 0.3
 
   var start = false
   var countdown = 5
@@ -257,7 +264,8 @@ function playVid() {
   var money = 0
   var prize = 0
 
-  var character =  document.getElementsByClassName('character')
+  var unlockedcharacter =  document.getElementsByClassName('unlockedcharacter')
+  var lockedcharacter =  document.getElementsByClassName('lockedcharacter')
   var levelselect = document.getElementsByClassName('levelselect')
   //pressedstart//
   function pressedstart() {
@@ -289,8 +297,11 @@ function playVid() {
     for(i=0; i < levelselect.length; i=i+1){
       document.getElementsByClassName('levelselect')[i].style.setProperty("display", "inline-block");
     }
-    for(i=0; i < character.length; i=i+1){
-      document.getElementsByClassName('character')[i].style.setProperty("display", "none");
+    for(i=0; i < unlockedcharacter.length; i=i+1){
+      document.getElementsByClassName('unlockedcharacter')[i].style.setProperty("display", "none");
+    }
+    for(i=0; i < lockedcharacter.length; i=i+1){
+      document.getElementsByClassName('lockedcharacter')[i].style.setProperty("display", "none");
     }
     document.getElementById("bottomdiv").style.setProperty("display", "inline-block");
     document.getElementById("backarrow").style.setProperty("display", "inline-block");
@@ -304,7 +315,7 @@ function playVid() {
     x = 300
     y = 50
     ex = 250
-    ey = 200
+    ey = 220
     eforward = 0 
     forward = 0
     wonrace = false
@@ -314,7 +325,8 @@ function playVid() {
     for(i=0; i < levelselect.length; i=i+1){
       document.getElementsByClassName('levelselect')[i].style.setProperty("display", "inline-block");
     }
-    document.getElementById("backarrow").style.setProperty("display", "none");
+    document.getElementById("backarrow").style.setProperty("display", "inline-block");
+    document.getElementById("backarrow3").style.setProperty("display", "none");
     document.getElementById("yourcar").style.setProperty("display", "none");
     document.getElementById("enemycar").style.setProperty("display", "none");
     document.getElementById("racingtrack").style.setProperty("display", "none");
@@ -334,18 +346,24 @@ function playVid() {
   function level1(){
     levelselection()
     enemycar.src = "racinggamestuff/racingimgs/dababy.png"
-    eforwardaddition = 1
+    eforwardaddition = .9
     prize = 100
   }
   function level2(){
     levelselection()
     enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
+    document.getElementById("enemycar").style.width = "250px"
+    document.getElementById("enemycar").style.height = "250px"
     eforwardaddition = 2
+    prize = 300
   }
 
   function levelselection() {
-    for(i=0; i < character.length; i=i+1){
-      document.getElementsByClassName('character')[i].style.setProperty("display", "inline-block");
+    for(i=0; i < unlockedcharacter.length; i=i+1){
+      document.getElementsByClassName('unlockedcharacter')[i].style.setProperty("display", "inline-block");
+    }
+    for(i=0; i < lockedcharacter.length; i=i+1){
+      document.getElementsByClassName('lockedcharacter')[i].style.setProperty("display", "inline-block");
     }
     for(i=0; i < levelselect.length; i=i+1){
       document.getElementsByClassName('levelselect')[i].style.setProperty("display", "none");
@@ -355,42 +373,111 @@ function playVid() {
   }
 
   //SELECTED CHARACTER//
+  var purchasedgary = false
+  var purchaseddarouse = false
+  var purchaseddoggos = false
+  var purchasedbeluga = false
+  var purchasedsusnuggy = false
+  var purchasedleroy = false
+
+  var garyclass = document.getElementById("garycoleman");
+  var darouseclass = document.getElementById("darouse");
+  var doggoclass = document.getElementById("twelvedogs");
+
   function pickededp445(){
     yourcar.src = "racinggamestuff/racingimgs/edp445.png"
     document.getElementById("yourcar"). width = "100px"
     startrace()
   }
   function pickedgarycoleman(){
-    yourcar.src = "racinggamestuff/racingimgs/GaryColeman.png"
-    document.getElementById("yourcar").style.width = "150px"
-    startrace()
+    if(purchasedgary === true){
+      yourcar.src = "racinggamestuff/racingimgs/GaryColeman.png"
+      document.getElementById("yourcar").style.width = "150px"
+      forwardaddition = 2.4
+      startrace()
+    }
+    if(purchasedgary === false){
+      if(money >= 199){
+        money = money - 200
+        forwardaddition = 2.4
+        purchasedgary = true
+        yourcar.src = "racinggamestuff/racingimgs/GaryColeman.png"
+        document.getElementById("yourcar").style.width = "150px"
+        document.getElementById("money").innerHTML = "$" + money;
+        startrace()
+        garyclass.classList.remove("lockedcharacter");
+        garyclass.classList.add("unlockedcharacter");
+        garyclass.title = "Gary Coleman: Owned"
+      }
+    }
+
   }
   function pickeddarouse(){
-    yourcar.src = "racinggamestuff/racingimgs/happyrousse.png"
-    document.getElementById("yourcar").style.width = "250px"
-    startrace()
+    if(purchaseddarouse === true){
+      yourcar.src = "racinggamestuff/racingimgs/happyrousse.png"
+      forwardaddition = 3.3
+      document.getElementById("yourcar").style.width = "250px"
+      startrace()
+    }
+    if(purchaseddarouse === false){
+      if(money >= 999){
+        money = money - 1000
+        forwardaddition = 3.3
+        purchaseddarouse = true
+        yourcar.src = "racinggamestuff/racingimgs/happyrousse.png"
+        document.getElementById("yourcar").style.width = "250px"
+        document.getElementById("money").innerHTML = "$" + money;
+        startrace()
+        darouseclass.classList.remove("lockedcharacter");
+        darouseclass.classList.add("unlockedcharacter");
+        darouseclass.title = "Darouse: Owned"
+      }
+    }
   }
   function pickeddoggos(){
-    yourcar.src = "racinggamestuff/racingimgs/12dogs.png"
-    document.getElementById("yourcar").style.width = "250px"
-    startrace()
+    if(purchaseddoggos === true){
+      yourcar.src = "racinggamestuff/racingimgs/12dogs.png"
+      forwardaddition = 4.4
+      document.getElementById("yourcar").style.width = "250px"
+      startrace()
+    }
+    if(purchaseddoggos === false){
+      if(money >= 4999){
+        money = money - 5000
+        forwardaddition = 4.4
+        purchaseddoggos = true
+        yourcar.src = "racinggamestuff/racingimgs/12dogs.png"
+        document.getElementById("yourcar").style.width = "250px"
+        document.getElementById("money").innerHTML = "$" + money;
+        startrace()
+        doggoclass.classList.remove("lockedcharacter");
+        doggoclass.classList.add("unlockedcharacter");
+        doggoclass.title = "Twleve Dogs: Owned"
+      }
+    }
   }
   function pickedsusnuggy(){
-    yourcar.src = "racinggamestuff/racingimgs/susnuggy.png"
-    document.getElementById("yourcar").style.width = "180px"
-    startrace()
+    if(purchasedsusnuggy === true){
+      yourcar.src = "racinggamestuff/racingimgs/susnuggy.png"
+      document.getElementById("yourcar").style.width = "180px"
+      startrace()
+    }
   }
   function pickedbelugacat(){
-    yourcar.src = "racinggamestuff/racingimgs/belugacat.png"
-    document.getElementById("yourcar").style.width = "180px"
-    startrace()
+    if(purchasedbeluga === true){
+      yourcar.src = "racinggamestuff/racingimgs/belugacat.png"
+      document.getElementById("yourcar").style.width = "180px"
+      startrace()
+    }  
   }
   var leroyjenkins = false
   function pickedleroyjenkins(){
-    yourcar.src = "racinggamestuff/racingimgs/leroyjenkins.png"
-    document.getElementById("yourcar").style.width = "180px"
-    startrace()
-    leroyjenkins = true
+    if(purchasedleroy === true){
+      yourcar.src = "racinggamestuff/racingimgs/leroyjenkins.png"
+      document.getElementById("yourcar").style.width = "180px"
+      startrace()
+      leroyjenkins = true
+    }
   }
   
   //FUNCTION TO BEGIN RACE//
@@ -401,8 +488,11 @@ function playVid() {
     document.getElementById("racingtrack").style.setProperty("display", "inline-block");
     document.getElementById("finishline").style.setProperty("display", "inline-block");
     document.getElementById("characterselect").style.setProperty("display", "none");
-    for(i=0; i < character.length; i=i+1){
-      document.getElementsByClassName('character')[i].style.setProperty("display", "none");
+    for(i=0; i < unlockedcharacter.length; i=i+1){
+      document.getElementsByClassName('unlockedcharacter')[i].style.setProperty("display", "none");
+    }
+    for(i=0; i < lockedcharacter.length; i=i+1){
+      document.getElementsByClassName('lockedcharacter')[i].style.setProperty("display", "none");
     }
     document.getElementById("backarrow").style.setProperty("display", "none");
     document.getElementById("backarrow2").style.setProperty("display", "none");
@@ -544,23 +634,46 @@ function playVid() {
     //SAVE GAME FUNCTION?//
     function saveGame() {
       var gameSave = {
-        money: money
+        money: money,
+        purchasedgary: purchasedgary,
+        purchaseddarouse: purchaseddarouse,
+        purchaseddoggos: purchaseddoggos,
+        purchasedbeluga: purchasedbeluga,
+        purchasedsusnuggy: purchasedsusnuggy,
+        purchasedleroy: purchasedleroy
       };
       localStorage.setItem("gameSave", JSON.stringify(gameSave));
     }
+
     function loadgame() { 
       var savedGame = JSON.parse(localStorage.getItem("gameSave"));
       if (typeof savedGame.money !== "undefined") money = savedGame.money;
+      if (typeof savedGame.purchasedgary !== "undefined") purchasedgary = savedGame.purchasedgary;
+      if (typeof savedGame.purchaseddarouse !== "undefined") purchaseddarouse = savedGame.purchaseddarouse;
     }
 
     window.onload = function() {
       loadgame();
       document.getElementById("money").innerHTML = "$" + money;
+      if(purchasedgary === true){
+        garyclass.classList.remove("lockedcharacter");
+        garyclass.classList.add("unlockedcharacter");
+        garyclass.title = "Gary Coleman: Owned"
+      }
+      if(purchaseddarouse === true){
+        darouseclass.classList.remove("lockedcharacter");
+        darouseclass.classList.add("unlockedcharacter");
+        darouseclass.title = "Darouse: Owned"
+      }
+      if(purchaseddoggos === true){
+        doggoclass.classList.remove("lockedcharacter");
+        doggoclass.classList.add("unlockedcharacter");
+        doggoclass.title = "Twelve Dogs: Owned"
+      }
     }
 
     setInterval(function () {
       saveGame()
-      document.getElementById("test").innerHTML = eforwardaddition;
-    }, 1000) // 1000ms = 1 second
+    }, 10000) // 1000ms = 1 second
 </script>
 
