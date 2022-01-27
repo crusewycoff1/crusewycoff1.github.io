@@ -30,7 +30,7 @@
           position: absolute;
           z-index: -1;
           height: 500px;
-          left: 17%;
+          left: 210px;
           display: none;
         }
         #three{
@@ -66,18 +66,18 @@
           position: absolute;
           display: inline-block;
           z-index: -1;
-          left: 23%;
+          left: 310px;
         }
         #startbutton{
           z-index: 1;
-          left: 38%;
+          left: 520px;
           top: 350px;
           position: absolute;
         }
         #characterselect{
           height: 500px;
           width: 900px;
-          left: 18%;
+          left: 230px;
           position: absolute;
           display: none;
         }
@@ -111,40 +111,40 @@
         #edp445{
           position: absolute;
           top: 25px;
-          left: 20%;
+          left: 275px;
         }
         #garycoleman{
           position: absolute;
-          left: 30%;
+          left: 400px;
         }
         #darouse{
           position: absolute;
-          left: 40%;
+          left: 525px;
         }
         #twelvedogs{
           position: absolute;
-          left: 57%;
+          left: 750px;
         }
         #susnuggy{
           position: absolute;
-          left: 18%;
-          top: 30%;
+          left: 260px;
+          top: 190px;
         }
         #belugacat{
           position: absolute;
-          left: 29%;
-          top: 30%;
+          left: 400px;
+          top: 190px;
         }
         #leroyjenkins{
           position: absolute;
-          left: 42%;
-          top: 30%;
+          left: 565px;
+          top: 190px;
         }
         #finishline{
           position: absolute;
           z-index: -1;
           height: 500px;
-          left: 85%;
+          left: 1150px;
           display: none;
         }
         #level1{
@@ -220,21 +220,21 @@
         #winner{
           width: 300px;
           position: absolute;
-          left: 625px;
+          left: 550px;
           top: 100px;
           display: none; 
         }
         #loser{
           width: 300px;
           position: absolute;
-          left: 625px;
+          left: 550px;
           top: 100px;
           display: none; 
         }
         #bottomdiv{
           width: 750px;
           height: 585px;
-          left: 23%;
+          left: 210px;
           background-color: grey;
           position: absolute;
           z-index: -2;
@@ -274,7 +274,7 @@
           display: none;
         }
         #upgradespeed{
-          background-color: lightgrey; /* Green */
+          background-color: lightgrey;
           border: none;
           padding: 6px 20px;
           text-align: center;
@@ -287,7 +287,7 @@
         }
       </style>
   </head>
-  <body>
+  <body><!--ONI PLAYS-->
     <div><video  onload="playVid()" id="menu" autoplay loop>
       <source src="racinggamestuff/Menu.mp4" type="video/mp4">
       <source src="racinggamestuff/Menu.mp4" type="video/ogg">
@@ -334,7 +334,7 @@ function playVid() {
   var countdown = 5
   var begin = false
 
-  var forwardaddition = 2
+  var forwardaddition = 1
   var eforwardaddition = 1
 
   var money = 0
@@ -396,7 +396,7 @@ function playVid() {
     x = 300
     y = 50
     ex = 250
-    ey = 220
+    ey = 240
     eforward = 0 
     forward = 0
     wonrace = false
@@ -427,7 +427,7 @@ function playVid() {
   function level1(){
     levelselection()
     enemycar.src = "racinggamestuff/racingimgs/dababy.png"
-    eforwardaddition = .9
+    eforwardaddition = .5
     prize = 100
   }
   function level2(){
@@ -435,22 +435,28 @@ function playVid() {
     enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
     document.getElementById("enemycar").style.width = "250px"
     document.getElementById("enemycar").style.height = "250px"
+    ey = 240
+    enemycar.style.top = ey + "px"
     eforwardaddition = 2
     prize = 200
   }
   function level3(){
     levelselection()
-    enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
-    document.getElementById("enemycar").style.width = "250px"
-    document.getElementById("enemycar").style.height = "250px"
+    enemycar.src = "racinggamestuff/racingimgs/boredape.png"
+    document.getElementById("enemycar").style.width = "190px"
+    document.getElementById("enemycar").style.height = "190px"
+    ey = 280
+    enemycar.style.top = ey + "px"
     eforwardaddition = 3
     prize = 300
   }
   function level4(){
     levelselection()
-    enemycar.src = "racinggamestuff/racingimgs/shrimp.png"
+    enemycar.src = "racinggamestuff/racingimgs/leninhead.png"
     document.getElementById("enemycar").style.width = "250px"
     document.getElementById("enemycar").style.height = "250px"
+    ey = 260
+    enemycar.style.top = ey + "px"
     eforwardaddition = 4
     prize = 400
   }
@@ -843,7 +849,7 @@ function playVid() {
 
     setInterval(function () {
       saveGame()
-    }, 1000) // 1000ms = 1 second
+    }, 10000) // 1000ms = 1 second
     setInterval(function () {
       document.getElementById("activespeed").innerHTML = Math.round(forward);
     }, 1) // 1000ms = 1 second
