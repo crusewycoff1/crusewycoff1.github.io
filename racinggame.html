@@ -285,6 +285,13 @@
         #upgradespeed:hover{
           background-color: rgb(171, 171, 171);
         }
+        #eyeofcthulu{
+          position: absolute;
+          height: 75px;
+          top: 425px;
+          left: 215px;
+          display: none;
+        }
       </style>
   </head>
   <body><!--ONI PLAYS-->
@@ -304,7 +311,7 @@
   <img onclick="level6()" id="level6" class="levelselect" src="/racinggamestuff/numbers/number6.png"><img onclick="level7()" id="level7" class="levelselect" src="/racinggamestuff/numbers/number7.png"><img onclick="level8()" id="level8" class="levelselect" src="/racinggamestuff/numbers/number8.png"><img onclick="level9()" id="level9" class="levelselect" src="/racinggamestuff/numbers/number9.png"><img onclick="level10()" id="level10" class="levelselect" src="/racinggamestuff/numbers/number10.png">
   <div id="bottomdiv"></div><h1><span id="money">$0</span></h1><img onclick="backarrow()" id="backarrow" src="racinggamestuff/backarrow.png"><img onclick="backarrow2()" id="backarrow2" src="racinggamestuff/backarrow.png"><img onclick="backarrow3()" id="backarrow3" src="racinggamestuff/backarrow.png"><div id="sidebar"></div>
   <div id="upgradebox"><button id="upgradespeed" onclick="upgradspeed()">Upgrade Engine Power</button> - $<span id="upgradespeedcost">200</span><br><center>Engine Power: <span id="mph">1</span></center><center>Speed: <span id="activespeed">0</span></center></div>
-    <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg"><img id="finishline" src="racinggamestuff/finishline.jpeg">
+    <img id="racingtrack" src="https://t3.ftcdn.net/jpg/04/45/14/18/360_F_445141888_YJ8ypPK8Rj1PJe9ScCGu7Ua2agZyEuWL.jpg"><img id="finishline" src="racinggamestuff/finishline.jpeg"><img id="eyeofcthulu" src="racinggamestuff/ahorriblechill.png">
       <img id="yourcar" src="racinggamestuff/racingimgs/edp445.png"><img id="enemycar" src="racinggamestuff/dababy.png"><img id="winner" src="racinggamestuff/winner.png"><img  id="loser" src="racinggamestuff/loser.png">
       <img id="three" src="racinggamestuff/number3.png"><img id="two" src="racinggamestuff/number2.png"><img id="one" src="racinggamestuff/number1.png"><img id="GO" src="racinggamestuff/GO.png">
   </body>
@@ -403,6 +410,7 @@ function playVid() {
     lostrace = false
     leroyplayed = false
     prizeobtained = false
+    eyeofcthulu = false
     for(i=0; i < levelselect.length; i=i+1){
       document.getElementsByClassName('levelselect')[i].style.setProperty("display", "inline-block");
     }
@@ -416,8 +424,10 @@ function playVid() {
     document.getElementById("three").style.setProperty("display", "none");
     document.getElementById("two").style.setProperty("display", "none");
     document.getElementById("one").style.setProperty("display", "none");
-    document.getElementById("loser").style.setProperty("display", "none");
+    document.getElementById("one").style.setProperty("display", "none");
+    document.getElementById("GO").style.setProperty("display", "none");
     document.getElementById("winner").style.setProperty("display", "none");
+    document.getElementById("eyeofcthulu").style.setProperty("display", "none");
     yourcar.style.left = x + "px"
     yourcar.style.top = y + "px"
     enemycar.style.left = ex + "px"
@@ -463,12 +473,55 @@ function playVid() {
   function level5(){
     levelselection()
     enemycar.src = "racinggamestuff/racingimgs/troybarnes.png"
-    document.getElementById("enemycar").style.width = "250px"
-    document.getElementById("enemycar").style.height = "250px"
+    document.getElementById("enemycar").style.width = "210px"
+    document.getElementById("enemycar").style.height = "210px"
+    ey = 260
+    enemycar.style.top = ey + "px"
     eforwardaddition = 5
     prize = 500
   }
-
+  function level6(){
+    levelselection()
+    enemycar.src = "https://i.imgur.com/1rhrgkH.gif"
+    document.getElementById("enemycar").style.width = "150px"
+    document.getElementById("enemycar").style.height = "210px"
+    ey = 260
+    enemycar.style.top = ey + "px"
+    eforwardaddition = 6
+    prize = 600
+  }
+  function level7(){
+    levelselection()
+    enemycar.src = "Unused stuff/halorunningright.gif"
+    document.getElementById("enemycar").style.width = "150px"
+    document.getElementById("enemycar").style.height = "210px"
+    ey = 260
+    enemycar.style.top = ey + "px"
+    eforwardaddition = 7
+    prize = 700
+  }
+  function level8(){
+    levelselection()
+    enemycar.src = "racinggamestuff/racingimgs/purpleguy.gif"
+    document.getElementById("enemycar").style.width = "180px"
+    document.getElementById("enemycar").style.height = "210px"
+    ey = 260
+    enemycar.style.top = ey + "px"
+    eforwardaddition = 8
+    prize = 800
+  }
+  function level9(){
+    levelselection()
+    enemycar.src = "racinggamestuff/racingimgs/eyeofcthulu.gif"
+    document.getElementById("enemycar").style.width = "180px"
+    document.getElementById("enemycar").style.height = "150px"
+    ey = 300
+    enemycar.style.top = ey + "px"
+    eforwardaddition = 9
+    prize = 900
+    eyeofcthulu = true
+  }
+  var eyeofcthulu = false
   function levelselection() {
     for(i=0; i < unlockedcharacter.length; i=i+1){
       document.getElementsByClassName('unlockedcharacter')[i].style.setProperty("display", "inline-block");
@@ -643,6 +696,9 @@ function playVid() {
     document.getElementById("backarrow").style.setProperty("display", "none");
     document.getElementById("backarrow2").style.setProperty("display", "none");
     document.getElementById("backarrow3").style.setProperty("display", "inline-block");
+    if(eyeofcthulu === true){
+      document.getElementById("eyeofcthulu").style.setProperty("display", "inline-block");
+    }
   }
 
   //gain speed function//
