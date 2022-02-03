@@ -89,6 +89,8 @@
               left: 525px;
               top: 200px;
               display: none;
+              border-style: solid;
+              border-radius: 50px;
           }
           #loser{
               position: absolute;
@@ -99,6 +101,8 @@
               left: 525px;
               top: 200px;
               display: none;
+              border-style: solid;
+              border-radius: 50px;
           }
           #draw{
               position: absolute;
@@ -109,6 +113,8 @@
               left: 525px;
               top: 200px;
               display: none;
+              border-style: solid;
+              border-radius: 50px;
           }
       </style>
   </head>
@@ -215,7 +221,7 @@
             }
         }
         if(randomnumber === 5){
-            if(pkmiddlemiddle === false && pkmiddlemiddle === false){
+            if(pkmiddlemiddle === false && rpkmiddlemiddle === false){
                 middlemiddleimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
                 rpkmiddlemiddle = true
                 return robopicked = true
@@ -225,7 +231,7 @@
             }
         }
         if(randomnumber === 6){
-            if(pkmiddleright === false && pkmiddleright === false){
+            if(pkmiddleright === false && rpkmiddleright === false){
                 middlerightimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
                 rpkmiddleright = true
                 return robopicked = true
@@ -411,7 +417,11 @@ setInterval(winner, 1)
         if(rpktopright === true && rpkmiddlemiddle === true && rpkbottomleft === true){
            lostgame();
         }
-        //Do if (pktopright || rpktopright && pktopleft || rpktopright) for all of the variables and have fun 
+        if((pktopleft === true || rpktopleft === true) && (pktopmiddle === true|| rpktopmiddle === true) && (pktopright === true || rpktopright === true) && (pkmiddleleft === true || rpkmiddleleft === true) && (pkmiddlemiddle === true || rpkmiddlemiddle) && (pkmiddleright === true || rpkmiddleright === true) && (pkbottomleft === true || rpkbottomleft === true) && (pkbottommiddle === true || rpkbottommiddle) && (pkbottomright === true || rpkbottomright === true)){
+            if(finish === false){
+                draw.style.display = "inline-block"
+            }
+        }
     }
 
     function wongame(){
