@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+          #canvas{
+              border-style: solid;
+          }
+      </style>
+  </head>
+  <body>
+      <canvas id="canvas" width="560" height="550"><img id="cat" src="catfolder/4dabloons.jpeg" width="50px" height="50px"></canvas>
+      <div id="display"><span id="x">0</span> and <span id="y">0</span></div>
+  </body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    var x = 0
+    var y = 0
+    var speed = 1
+    var yspeed = 1
+    //cat Image stuff//
+    var img = document.getElementById("cat");
+    ctx.drawImage(img, 10, 10);
+
+    
+    /*document.addEventListener("keydown", function (event) {
+        ctx.clearRect(x,y,10,10)
+        if(event.which === 39){
+             x = x + 10
+        }
+        if(event.which ===  37){
+                x = x - 10
+        }        
+        if(event.which ===  38){
+                y = y - 10
+        }
+        if(event.which ===  40){
+            y = y + 10
+        }
+        ctx.fillRect(x,y,10,10)
+        document.getElementById("x").innerHTML = x
+        document.getElementById("y").innerHTML = y
+    },false);
+*/
+    ctx.fillStyle = "#9932CC";
+
+    setInterval(bounce, 1)
+    function bounce() {
+        ctx.clearRect(x,y,10,10)
+        x = x + speed
+        y = y + yspeed
+        if(x >= 550){
+            speed = speed * -1
+        }
+        if(x <= 0){
+            speed = speed * -1
+        }
+        if(y >= 540){
+            yspeed = yspeed * -1
+        }
+        if(y <= 0){
+            yspeed = yspeed * -1
+        }
+        document.getElementById("x").innerHTML = x
+        document.getElementById("y").innerHTML = y
+        ctx.fillRect(x,y,10,10)
+    }
+</script>

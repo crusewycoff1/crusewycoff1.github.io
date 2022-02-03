@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+          #background{
+              height: 500px;
+              width: 500px;
+              position: absolute;
+              left: 350px;
+          }
+          #topleft{
+              position: absolute;
+              background-color: white;
+              width: 175px;
+              height: 175px;
+              left: 365px;
+              top: 25px;
+          }
+          #topmiddle{
+              position: absolute;
+              background-color: white;
+              width: 150px;
+              height: 175px;
+              left: 576px;
+              top: 25px;
+          }
+          #topright{
+              position: absolute;
+              background-color: white;
+              width: 175px;
+              height: 175px;
+              left: 762px;
+              top: 25px;
+          }
+          #middleleft{
+              position: absolute;
+              background-color: white;
+              width: 175px;
+              height: 155px;
+              left: 365px;
+              top: 235px;
+          }
+          #middlemiddle{
+              position: absolute;
+              background-color: white;
+              width: 155px;
+              height: 155px;
+              left: 574px;
+              top: 235px;
+          }
+          #middleright{
+              position: absolute;
+              background-color: white;
+              width: 175px;
+              height: 155px;
+              left: 762px;
+              top: 235px;
+          }
+          #bottomleft{
+              position: absolute;
+              background-color: white;
+              width: 175px;
+              height: 175px;
+              left: 365px;
+              top: 425px;
+          }
+          #bottommiddle{
+              position: absolute;
+              background-color: white;
+              width: 155px;
+              height: 175px;
+              left: 573px;
+              top: 425px;
+          }
+          #bottomright{
+              position: absolute;
+              background-color: white;
+              width: 175px;
+              height: 175px;
+              left: 762px;
+              top: 425px;
+          }
+          #winner{
+              position: absolute;
+              z-index: 3;
+              background-color: limegreen;
+              height: 150px;
+              width: 250px;
+              left: 525px;
+              top: 200px;
+              display: none;
+          }
+          #loser{
+              position: absolute;
+              z-index: 3;
+              background-color: red;
+              height: 150px;
+              width: 250px;
+              left: 525px;
+              top: 200px;
+              display: none;
+          }
+          #draw{
+              position: absolute;
+              z-index: 3;
+              background-color: rgb(242, 255, 66);
+              height: 150px;
+              width: 250px;
+              left: 525px;
+              top: 200px;
+              display: none;
+          }
+      </style>
+  </head>
+  <body>
+      <div id="winner"><center><h1>YOU WON!!!:)</h1><br><button onclick="playagain()">Play Again?</button></center></div>
+      <div id="loser"><center><h1>You Lose :(</h1><br><button onclick="playagain()">Play Again?</button></center></div>
+      <div id="draw"><center><h1>Draw :|</h1><br><button onclick="playagain()">Play Again?</button></center></div>
+      <div id="background"><img id="board" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Tic-tac-toe.png"></div><div><span id="testnumber"></span></div>
+
+      <div id="topleft" onclick="topleft()"><img id="topleftimg" src="" height="150px"></div><div id="topmiddle" onclick="topmiddle()"><img id="topmiddleimg" src="" height="150px" ></div><div id="topright" onclick="topright()"><img id="toprightimg" src="" height="150px"></div>
+      <div id="middleleft" onclick="middleleft()"><img id="middleleftimg" src="" height="150px"></div><div id="middlemiddle" onclick="middlemiddle()"><img id="middlemiddleimg" src="" height="150px"></div><div id="middleright" onclick="middleright()"><img id="middlerightimg" src="" height="150px"></div>
+      <div id="bottomleft" onclick="bottomleft()"><img id="bottomleftimg" src="" height="150px"></div><div id="bottommiddle" onclick="bottommiddle()"><img id="bottommiddleimg" src="" height="150px"></div><div id="bottomright" onclick="bottomright()"><img id="bottomrightimg" src="" height="150px"></div>
+  </body>
+</html>
+<script>
+    var randomnumber = 0
+    var min = 1
+    var max = 10
+
+    var pktopleft = false
+    var pktopmiddle = false
+    var pktopright = false
+    var pkmiddleleft = false
+    var pkmiddlemiddle = false
+    var pkmiddleright = false
+    var pkbottomleft = false
+    var pkbottommiddle = false
+    var pkbottomright = false
+
+    var rpktopleft = false
+    var rpktopmiddle = false
+    var rpktopright = false
+    var rpkmiddleleft = false
+    var rpkmiddlemiddle = false
+    var rpkmiddleright = false
+    var rpkbottomleft = false
+    var rpkbottommiddle = false
+    var rpkbottomright = false
+
+    var robopicked = true
+
+    function randomnumbergenerator(){
+        randomnumber = Math.floor(Math.random() * (max - min) ) + min;
+        document.getElementById("testnumber").innerHTML = randomnumber
+        starttimer = true
+        delay()
+    }
+
+    var time = 0
+    var starttimer = false
+    setInterval(delay, 1000)
+    function delay() {
+        if(starttimer === true){
+            time = time + 1
+            if(time === 3){
+                starttimer = false
+                time = 0
+                robotenemy()
+            }
+        }
+    }
+
+    var finished = false
+    function robotenemy(){
+        if(finished === false){
+        if(randomnumber === 1){
+            if(pktopleft === false && rpktopleft === false){
+                topleftimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpktopleft = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 2){
+            if(pktopmiddle === false && rpktopmiddle === false){
+                topmiddleimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpktopmiddle = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 3){
+            if(pktopright === false && rpktopright === false){
+                toprightimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpktopright = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 4){
+            if(pkmiddleleft === false && rpkmiddleleft === false){
+                middleleftimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpkmiddleleft = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 5){
+            if(pkmiddlemiddle === false && pkmiddlemiddle === false){
+                middlemiddleimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpkmiddlemiddle = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 6){
+            if(pkmiddleright === false && pkmiddleright === false){
+                middlerightimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpkmiddleright = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 7){
+            if(pkbottomleft === false && rpkbottomleft === false){
+                bottomleftimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpkbottomleft = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 8){
+            if(pkbottommiddle === false && rpkbottommiddle === false){
+                bottommiddleimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpkbottommiddle = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+        if(randomnumber === 9){
+            if(pkbottomright === false && rpkbottomright === false){
+                bottomrightimg.src = "https://upload.wikimedia.org/wikipedia/commons/2/2d/O-Jolle_insigna.png"
+                rpkbottomright = true
+                return robopicked = true
+            }
+            else{
+                randomnumbergenerator();
+            }
+        }
+    }
+    }
+
+    function topleft(){
+        if(pktopleft === false && rpktopleft === false){
+            if(robopicked === true){
+                topleftimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pktopleft = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function topmiddle(){
+        if(pktopmiddle === false && rpktopmiddle === false){
+            if(robopicked === true){
+                topmiddleimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png" 
+                pktopmiddle = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function topright(){
+        if(pktopright === false && rpktopright === false){
+            if(robopicked === true){
+                toprightimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pktopright = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function middleleft(){
+        if(pkmiddleleft === false && rpkmiddleleft === false){
+            if(robopicked === true){
+                middleleftimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pkmiddleleft = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function middlemiddle(){
+        if(pkmiddlemiddle === false && rpkmiddlemiddle === false){
+            if(robopicked === true){
+                middlemiddleimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pkmiddlemiddle = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function middleright(){
+        if(pkmiddleright === false && rpkmiddleright === false){
+            if(robopicked === true){
+                middlerightimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pkmiddleright = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function bottomleft(){
+        if(pkbottomleft === false && rpkbottomleft === false){
+            if(robopicked === true){
+                bottomleftimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png" 
+                pkbottomleft = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function bottommiddle(){
+        if(pkbottommiddle === false && rpkbottommiddle === false){
+            if(robopicked === true){
+                bottommiddleimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pkbottommiddle = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+    function bottomright(){
+        if(pkbottomright === false && rpkbottomright === false){
+            if(robopicked === true){
+                bottomrightimg.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+                pkbottomright = true
+                robopicked = false
+                randomnumbergenerator();
+            }
+        }
+    }
+setInterval(winner, 1)
+    var nwinner = document.getElementById("winner")
+    var loser = document.getElementById("loser")
+    var draw = document.getElementById("draw")
+    function winner(){
+        if(pktopleft === true && pkmiddleleft === true && pkbottomleft === true){
+            wongame();
+        }
+        if(pktopmiddle === true && pkmiddlemiddle === true && pkbottommiddle === true){
+            wongame();
+        }
+        if(pktopright === true && pkmiddleright === true && pkbottomright === true){
+            wongame();
+        }
+        if(pktopright === true && pktopmiddle === true && pktopleft === true){
+            wongame();
+        }
+        if(pkmiddleright === true && pkmiddlemiddle === true && pkmiddleleft === true){
+            wongame();
+        }
+        if(pkbottomright === true && pkbottommiddle === true && pkbottomleft === true){
+            wongame();
+        }
+        if(pktopleft === true && pkmiddlemiddle === true && pkbottomright === true){
+            wongame();
+        }
+        if(pktopright === true && pkmiddlemiddle === true && pkbottomleft === true){
+            wongame();
+        }
+        //Bot winning mechanism//
+        if(rpktopleft === true && rpkmiddleleft === true && rpkbottomleft === true){
+           lostgame();
+        }
+        if(rpktopmiddle === true && rpkmiddlemiddle === true && rpkbottommiddle === true){
+           lostgame();
+        }
+        if(rpktopright === true && rpkmiddleright === true && rpkbottomright === true){
+           lostgame();
+        }
+        if(rpktopright === true && rpktopmiddle === true && rpktopleft === true){
+           lostgame();
+        }
+        if(rpkmiddleright === true && rpkmiddlemiddle === true && rpkmiddleleft === true){
+           lostgame();
+        }
+        if(rpkbottomright === true && rpkbottommiddle === true && rpkbottomleft === true){
+           lostgame();
+        }
+        if(rpktopleft === true && rpkmiddlemiddle === true && rpkbottomright === true){
+           lostgame();
+        }
+        if(rpktopright === true && rpkmiddlemiddle === true && rpkbottomleft === true){
+           lostgame();
+        }
+        //Do if (pktopright || rpktopright && pktopleft || rpktopright) for all of the variables and have fun 
+    }
+
+    function wongame(){
+        nwinner.style.display = "inline-block"
+        finish = true
+    }
+    function lostgame(){
+        loser.style.display = "inline-block"
+        finish = true
+    }
+
+    function playagain(){
+        location.reload()
+    }
+
+</script>
