@@ -74,6 +74,11 @@
         ctx.arc(x,y,50,0,2*Math.PI)
         ctx.fill()
         i = i + 1
-        ctx.fillStyle= "hsl( "+ Math.random()*360 +", 100%, 50%)"
+        ctx.fillStyle= "hsl( "+ i +", 100%, 50%)"
+    }
+    document.addEventListener("click", addtoi)
+
+    function addtoi(){
+        i = Math.random() * 360
     }
 </script>
