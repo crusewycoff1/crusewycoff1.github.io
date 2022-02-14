@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #fishingbackground{
+        height: 400px;
+        width: 600px;
+        left: 320px;
+        top: 10px;
+        background-color: rgb(134, 134, 221);
+        background-image: url("catemotions/seaweed.gif"), url("catemotions/water.gif");
+        background-position: bottom;
+        background-size: 50px 100px, cover;
+        background-repeat: repeat-x, no-repeat;
+        position: absolute;
+        border-style: solid;
+        border-radius: 10%;
+        border-width: 10px;
+      }
+      #outsideborder{
+        height: 400px;
+        width: 600px;
+        left: 320px;
+        top: 10px;
+        position: absolute;
+        border-style: solid;
+        border-radius: 10%;
+        border-width: 10px;
+        z-index: 3;
+      }
+      #outsideborder2{
+        height: 405px;
+        width: 605px;
+        left: 310px;
+        top: 0px;
+        position: absolute;
+        border-style: solid;
+        border-radius: 10%;
+        border-width: 20px;
+        border-color: white;
+        z-index: 2;
+      }
+      #fishingline{
+        background-color: green;
+        position: absolute;
+        z-index: 1;
+        width: 70px;
+        height: 70px;
+        opacity: .5 ;
+        left: 590px;
+        top: 180px;
+      }
+      #fish{
+        position: absolute;
+        z-index: 1;
+        height: 40px;
+      }
+      #progressbar{
+        border-style: solid;
+        height: 400px;
+        width: 50px;
+      }
+      #yourprogress{
+        width: 50px;
+        height: 0%;
+        background-color: lawngreen;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="fish" src="https://www.seekpng.com/png/full/123-1238243_fish-clipart-blue-blue-fish-clipart.png">
+    <div id="outsideborder"></div><div id="outsideborder2"></div><div id="fishingbackground"></div>
+    <div id="fishingline"></div>
+    <div><span id="playerx"></span> and <span id="playery"></span></span></div>
+    <div id="progressbar"><div id="yourprogress"></div></div>
+
+  </body>
+</html>
+<script>
+  var x = 590
+  var y = 180
+  var line = document.getElementById("fishingline")
+  var fish = document.getElementById("fish")
+  var xfish = Math.round(Math.random() *(860 - 330) + 330)
+  var yfish = Math.round(Math.random() *(350 - 20) + 20)
+
+  var moveright = false
+  var moveleft = false
+  var moveup = false
+  var movedown = false
+
+  function moveline(){
+    document.addEventListener("keydown", function(event) {
+      if(event.which === 39){
+        moveright = true
+      }
+      if(event.which === 37){
+        moveleft = true
+      }
+      if(event.which === 38){
+        moveup = true
+      }
+      if(event.which === 40){
+        movedown = true
+      }
+    }, false);
+  }
+
+  function stopline(){
+    document.addEventListener("keyup", function(event) {
+      if(event.which === 39){
+        moveright = false
+      }
+      if(event.which === 37){
+        moveleft = false
+      }
+      if(event.which === 38){
+        moveup = false
+      }
+      if(event.which === 40){
+        movedown = false
+      }
+    })
+  }
+  setInterval(function() {
+    moveline()
+    stopline()
+    if(moveright === true){
+      if(x <= 860){
+        x = x + 2
+      }
+    }
+    if(moveleft === true){
+      if(x >= 330){
+        x = x - 2
+      }
+    }
+    if(moveup === true){
+      if(y >= 20){
+        y = y - 2
+      }
+    }
+    if(movedown === true){
+      if(y <= 350){
+        y = y + 2
+      }
+    }
+    line.style.left = x + "px"
+    line.style.top = y + "px"
+    fish.style.left = xfish + "px"
+    fish.style.top = yfish + "px"
+    document.getElementById("playerx").innerHTML = xfish
+    document.getElementById("playery").innerHTML = yfish
+  }, 1);
+
+  var fishmovementx = 0
+  var fishmovementy = 0
+  setInterval(function() {
+    if(xfish <= 860 && xfish >= 330){
+        xfish = xfish + fishmovementx
+    }
+    if(yfish <= 380 && yfish >= 20){
+      yfish = yfish + fishmovementy
+    }
+    if(yfish < 20){
+      yfish = yfish + 10
+      fishmovementx = 0
+      fishmovementy = 0
+    }
+    if(yfish > 380){
+      yfish = yfish - 10
+      fishmovementx = 0
+      fishmovementy = 0
+    }
+    if(xfish < 330){
+      xfish = xfish + 10
+      fishmovementx = 0
+      fishmovementy = 0
+    }
+    if(xfish > 860){
+      xfish = xfish - 10
+      fishmovementx = 0
+      fishmovementy = 0
+    }
+  }, 1);
+
+  setInterval(function() {
+    fishmovementx = Math.round(Math.random()*6 - 3)
+    fishmovementy = Math.round(Math.random()*6 - 3)
+  }, 1000);
+
+  //MAKE IT SO the function looks like this math.random()*1 -1 or something so the only variables are -1 0 1 and then have the fish have a set speed so then it will only move and not get stuck
+  var progress = 0
+  var yourprogress = document.getElementById("yourprogress");
+  setInterval(function() {
+    if(x >= xfish + 50 && x <= xfish){
+      if(progress <= 99){
+        progress = progress + 1
+      }
+    }
+    else{
+      progress = progress - .5
+    }
+    yourprogress.style.height = progress + "%"
+  }, 10);
+</script>
