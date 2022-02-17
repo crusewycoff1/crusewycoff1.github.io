@@ -65,9 +65,19 @@
         height: 0%;
         background-color: lawngreen;
       }
+      #caught{
+        position: absolute;
+        z-index: 12;
+        color: yellow;
+        font-family: "Comic Sans MS";
+        left: 425px;
+        top: 150px;
+        display: none;
+      }
     </style>
   </head>
   <body>
+    <div id="caught"><h1>YOU CAUGHT DA FISH!!!</h1></div>
     <img id="fish" src="https://www.seekpng.com/png/full/123-1238243_fish-clipart-blue-blue-fish-clipart.png">
     <div id="outsideborder"></div><div id="outsideborder2"></div><div id="fishingbackground"></div>
     <div id="fishingline"></div>
@@ -185,21 +195,24 @@
   }, 1);
 
   setInterval(function() {
-    fishmovementx = Math.round(Math.random()*6 - 3)
-    fishmovementy = Math.round(Math.random()*6 - 3)
+    fishmovementx = Math.round(Math.random()*4 - 2)
+    fishmovementy = Math.round(Math.random()*4 - 2)
   }, 1000);
 
   //MAKE IT SO the function looks like this math.random()*1 -1 or something so the only variables are -1 0 1 and then have the fish have a set speed so then it will only move and not get stuck
   var progress = 0
   var yourprogress = document.getElementById("yourprogress");
   setInterval(function() {
-    if(x >= xfish + 50 && x <= xfish){
+    if((x > xfish + 50) && (x + 50 < xfish) && (y > yfish - 50) && (y - 50 < yfish)){
       if(progress <= 99){
         progress = progress + 1
+        if(progress === 99){
+          document.getElementById("caught").style.setProperty("display", "inline-block");
+        }
       }
     }
     else{
-      progress = progress - .5
+      progress = progress - 1
     }
     yourprogress.style.height = progress + "%"
   }, 10);
