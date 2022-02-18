@@ -55,8 +55,8 @@
         ctx.clearRect(0,0,10000,10000)
         for(i=0;i < x.length; i=i+1){
             for(j=-1; j < x.length; j=j+1){
-                if(x[i] === x[j]){
-                    if(y[i] === y[j]){
+                if(i !== j){
+                    if(x[i] === x[j]){
                         speed[i] = -speed[j]
                         yspeed[i] = -yspeed[j]
                     }
