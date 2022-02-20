@@ -94,10 +94,76 @@
         top: 100px;
         display: none;
       }
+      #antinname{
+        position: absolute;
+        width: 125px;
+        height: 10px;
+        left: 400px;
+        top: 60px;
+        z-index: 5;
+        display: none;
+      }
+      #antinhealthbar{
+        position: absolute;
+        width: 125px;
+        height: 10px;
+        border-style: solid;
+        left: 400px;
+        top: 80px;
+        z-index: 5;
+        display: none;
+      }
+      #antinhealth{
+        width: 100%;
+        height: 10px;
+        background-color: lawngreen;
+      }
+      #antinhealthnumeral{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 535px;
+        top: 80px;
+        z-index: 5;
+        display: none;
+      }
       #bartosh{
         left: 300px;
         top:300px;
         filter: saturate(25%);
+        display: none;
+      }
+      #bartoshname{
+        position: absolute;
+        width: 125px;
+        height: 10px;
+        left: 300px;
+        top: 260px;
+        z-index: 5;
+        display: none;
+      }
+      #bartoshhealthbar{
+        position: absolute;
+        width: 125px;
+        height: 10px;
+        border-style: solid;
+        left: 300px;
+        top: 280px;
+        z-index: 5;
+        display: none;
+      }
+      #bartoshhealth{
+        width: 100%;
+        height: 10px;
+        background-color: lawngreen;
+      }
+      #bartoshhealthnumeral{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 435px;
+        top: 280px;
+        z-index: 5;
         display: none;
       }
       .enemy{
@@ -157,7 +223,7 @@
         width: 20px;
         height: 20px;
         left: 935px;
-        top: 75px;
+        top: 80px;
         z-index: 5;
         display: none;
       }
@@ -203,7 +269,7 @@
         width: 20px;
         height: 20px;
         left: 1035px;
-        top: 275px;
+        top: 280px;
         z-index: 5;
         display: none;
       }
@@ -252,6 +318,24 @@
       .bartoshweapons:hover{
         color: red;
       }
+      #pickanenemy{
+        position: absolute;
+        left: 750px;
+        top: 450px;
+        display: none;
+      }
+      #topenemyattackdiv{
+        position: absolute;
+        left: 400px;
+        top: 435px;
+        display: none;
+      }
+      #bottomenemyattackdiv{
+        position: absolute;
+        left: 400px;
+        top: 435px;
+        display: none;
+      }
     </style>
   </head>
   <body>
@@ -263,7 +347,11 @@
 
     <img id="openingsidearrow" onclick="nexttext()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAflBMVEUAAAD////e3t7j4+Pb29umpqbw8PCXl5csLCz5+fkQEBAWFhZiYmKfn59aWlqcnJyRkZEICAiLi4vo6OhqamocHByGhoYUFBSAgIBTU1NCQkJKSkpxcXFoaGjt7e0+Pj7KysqwsLAlJSU1NTV4eHi+vr6tra03NzfU1NQuLi4uNX0gAAAEW0lEQVR4nO3di1LiQBAF0B5dIiiiqICC4vv1/z/oo2prWTNAJrk4t29yP8DKqe4wMZl0zIAZIv8YY+7CNPch7DZvIWgT98JXznIfxs4y2Q9Bmtj/CwzhNPex7CT98xCkie9FWM1B7uOBZ/4/UI+4+AlUI84HJaAWcRHxSRFHsQoqEdcCVYijtT4R4sUmoALxejMwhJPcR9gwW4HeiRWAvolPVYCeiRWBfomVWtQz8bI60OeiMU0BeqziWRrQHzEZ6I14mg70RTyoA/RErAn0QzypC/RCPK4P9LEu9poAPRAbAvmJL02B7EQAkJt4jwAyE0FAXiIMyEp8xgFJiUukkPIR6mx/+3EnhPFZ/wRLZKzikT6xBVWc7OkT9as4O99+3M6Jh/pVPMKei4zrIriKjETwukhJxDYq45Zb8LrIWMUWXIbPWlBFfSJ40WD8uQETL3N7IhljG5WRCF40WtCojMQWXN3M/kCJjOcieF1kJHaLRmqecnsiOWxBo7agithzkZKIXTQYiUf6xLF+o4IXjevcnkjG2EalJLagii0g6jcq+J8pRiL4Au4itycSMPEmtycWbKMyEsHXqIyNavrnInjRYBzM1AIi+D4q488N+Fk/YxXB6yIjEfzYhpGIvT010CeGUW5PJC0ggjdrMjYqeLMmZRWxxKvcnkj6+ufiA7SKA0pieZZbEyJjo2KryHkuQt+ZoqxiX79RH7HERW5PJLdQYtAnUjZqdD5mfSJjFUtDXPWIC/0qXiGFoWAkbpyTmZzBPLcnEiwxMBJvoELKRk2Y1OeVeA8l7uXmlINt0+Vrbk8pQyiw4ANeYRf9x9yeUrBXNQUfEHvxvbzN7Skl8nmBBin4gK/Y/y0IgdhzkA+IvVNT8F2RPmJvKPIBwbcT+YDYG/uEl9t97MMZPiD4uQUhEPsjQwjEtijfrWDsM2D5ChI+O5yoPznE7qchfIYPnmJDWEH17UJYIOHexAf1PW3gPcJ8LSq/zxs8LYNvrz74ZQTCCqq3KHjzM997T+DXEPiA8q9Ygjev81UQvA7yveoMPgf5gOB1kA8Inm9CCFQfpgR+NZYQKF9B9cF04DlRfEDwHAVCoHqLgi+2+aaYygPBywQfUH6WMPiuGiEQu0zwAeU/ySL/WR39D3l0wKTwtSh4LhvfVy3B/9F3wN8PFsj3zfXxmzjQsMCuRX8/XYsm5Tg3p5wO2AHJgXcdsAOupJebU4488LkDOgdaTx0IJXICgURWIIzICzR7UQdCiNxAQKOyAxsT+YENiR6AjYg+gGYndYEvuY+8cmoS/QDNDtSBtYi+gGan6sBkopdf0dVMU4CEN50q5FIdmED0CqxM9AusOKrT44/Mv1Qgeq7gV7YSvQPNLtSBW4YfKwDNhuvHBWoAP6u4jqgCXDtrXQe4ZrasEvCziuWxgVrASBXVgGa3A3Hgj8+sKALN5ktx4MogXcLNeKBMCukKfuV7FKsy8JuoDTR7J3zzxewDNM5eLLDiMr0AAAAASUVORK5CYII=">
     <img id="antin" class="ukraniansoldier" src="https://www.pngitem.com/pimgs/m/377-3778037_pixel-art-ww2-soldiers-png-download-tf2-soldier.png">
+      <div id="antinname"><center>Kapt. Antin</center></div>
+      <div id="antinhealthbar"><div id="antinhealth"></div></div><div id="antinhealthnumeral"></div>
     <img id="bartosh" class="ukraniansoldier" src="https://www.pngitem.com/pimgs/m/377-3778037_pixel-art-ww2-soldiers-png-download-tf2-soldier.png">
+      <div id="bartoshname"><center>LT. Bartosh</center></div>
+      <div id="bartoshhealthbar"><div id="bartoshhealth"></div></div><div id="bartoshhealthnumeral"></div>
     <img id="enemy1" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"><img id="enemy2" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png">
     <div id="battlebar">
       <h2><span id="antinbattleid" onclick="antinbattleop()">ㅤㅤㅤKapt. Antin</span></h2>
@@ -282,7 +370,11 @@
 
     <div id="bottomenemy" onclick="chosebottomenemy()"></div></div><div id="bottomhealthnumeral"></div>
     <div id="bottomenemyhealthbar"><div id="bottomenemyhealth"></div></div><div id="bottomenemyname"></div>
-    <div id="attackbutton" onclick="beginoffensive()"><h2>ATTACK!</h2></div>
+    <div id="attackbutton"><h2 onclick="beginoffensive()">ATTACK!</h2></div>
+
+    <div id="pickanenemy"><center><h2>￪<br>Pick an Enemy to Attack!</h2></center></div>
+    <div id="topenemyattackdiv"><h2>Top Enemy did <span id="topenemyattack"></span> damage</h2></div>
+    <div id="bottomenemyattackdiv"><h2>Bottom Enemy did <span id="bottomenemyattack"></span> damage</h2></div>
     <div id="textbox"><h2><span id="innertext"></span></h2><br><br><br><span id="presscontinue">Press Space to Continue</span></div>
       <!--cruse is a stupid gay boy who loves other stupid gay boys <3 <3 <3-->
   </body>
@@ -480,7 +572,8 @@
   var bartoshhealth = 25
   var enemyname = ["Mutant Squirrel","Russian soldier"]
   var enemyhealth = [20, 50]
-  var enemyattack = [Math.round(Math.random()*2)+2,Math.round(Math.random()*6+4)]
+  var enemyattackrange = [2, 6]
+  var enemyattackaddition = [2, 4]
 
   var topenemyhealth = 0
   var bottomenemyhealth = 0
@@ -499,6 +592,12 @@
     document.getElementById("bottomenemyhealthbar").style.setProperty("display", "inline-block");
     document.getElementById("tophealthnumeral").style.setProperty("display", "inline-block");
     document.getElementById("bottomhealthnumeral").style.setProperty("display", "inline-block");
+    document.getElementById("antinname").style.setProperty("display", "inline-block");
+    document.getElementById("bartoshname").style.setProperty("display", "inline-block");
+    document.getElementById("antinhealthbar").style.setProperty("display", "inline-block");
+    document.getElementById("bartoshhealthbar").style.setProperty("display", "inline-block");
+    document.getElementById("antinhealthnumeral").style.setProperty("display", "inline-block");
+    document.getElementById("bartoshhealthnumeral").style.setProperty("display", "inline-block");
     document.getElementById("enemy1").src = "https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"
     document.getElementById("enemy2").src = "https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"
     document.getElementById("battlebar").style.setProperty("display", "inline-block");
@@ -509,6 +608,8 @@
     document.getElementById("bottomenemyname").innerHTML = enemyname[0];
     document.getElementById("tophealthnumeral").innerHTML = topenemyhealth;
     document.getElementById("bottomhealthnumeral").innerHTML = bottomenemyhealth;
+    document.getElementById("antinhealthnumeral").innerHTML = antinhealth;
+    document.getElementById("bartoshhealthnumeral").innerHTML = bartoshhealth;
   }
 
   //antin category
@@ -516,11 +617,16 @@
   var bartoshweapons= document.getElementsByClassName('bartoshweapons')
   var pickedantinweapon = false
   var antiweaponchoice = 0
+
+  var pickedak47 = false
   var pickedgrenade = false
-  var pickeddefense = true
+  var pickeddefense = false
 
   var pickedbartoshweapon = false
   var bartoshweaponchoice = 0
+
+  var pickedfort17 = false
+  var pickedmachete = false
   function antinbattleop(){
     if(pickedantinweapon === false){
       document.getElementById("antinbattleid").style.setProperty("display", "none");
@@ -536,26 +642,34 @@
     for(i=0; i < antinweapons.length; i=i+1){
       document.getElementsByClassName('antinweapons')[i].style.setProperty("display", "none");
     }
+    document.getElementById("pickanenemy").style.setProperty("display", "none");
     attackappear();
   }
   function useak47(){
-    document.getElementById("antinbattleid").style.color = "red"
-    pickedantinweapon = true
-    antinweapon = Math.round(Math.random()*4 +3)
-    antinback();
+    if(pickedantinweapon === false){
+      document.getElementById("useak47").style.color = "red"
+      document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+      pickedantinweapon = true
+      pickedak47 = true
+      antinweapon = Math.round(Math.random()*4 +3)
+    }
   }
   function usegrenade(){
-    document.getElementById("antinbattleid").style.color = "red"
-    pickedantinweapon = true
-    pickedgrenade = true
-    antinweapon = Math.round(Math.random()*1 +2)
-    antinback();
+    if(pickedantinweapon === false){
+      document.getElementById("usegrenade").style.color = "red"
+      document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+      pickedantinweapon = true
+      pickedgrenade = true
+      antinweapon = Math.round(Math.random()*1 +2)
+    } 
   }
   function adefense(){
-    document.getElementById("antinbattleid").style.color = "red"
-    pickedantinweapon = true
-    pickeddefense = true
-    antinback();
+    if(pickedantinweapon === false){
+      document.getElementById("adefense").style.color = "red"
+      document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+      pickedantinweapon = true
+      pickeddefense = true
+    }
   }
 
   //bartosh category
@@ -574,26 +688,26 @@
     for(i=0; i < bartoshweapons.length; i=i+1){
       document.getElementsByClassName('bartoshweapons')[i].style.setProperty("display", "none");
     }
+    document.getElementById("pickanenemy").style.setProperty("display", "none");
     attackappear();
   }
   function usefort17(){
-    document.getElementById("bartoshbattleid").style.color = "red"
-    pickedbartoshweapon = true
-    bartoshweaponchoice = Math.round(Math.random()*1 + 4)
-    bartoshback();
-  }
-  function usefort17(){
-    document.getElementById("bartoshbattleid").style.color = "red"
-    pickedbartoshweapon = true
-    bartoshweaponchoice = Math.round(Math.random()*1 + 4)
-    bartoshback();
+    if(pickedbartoshweapon === false){
+      document.getElementById("usefort17").style.color = "red"
+      document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+      pickedbartoshweapon = true
+      pickedfort17 = true
+      bartoshweaponchoice = Math.round(Math.random()*1 + 4)
+    }
   }
   function usemachete(){
-    
-    document.getElementById("bartoshbattleid").style.color = "red"
-    pickedbartoshweapon = true
-    bartoshweaponchoice = Math.round(Math.random()*1 + 2)
-    bartoshback();
+    if(pickedbartoshweapon === false){
+      document.getElementById("usemachete").style.color = "red"
+      document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+      pickedbartoshweapon = true
+      pickedmachete = true
+      bartoshweaponchoice = Math.round(Math.random()*1 + 2)
+    }
   }
   function attackappear(){
     if(pickedbartoshweapon === true){
@@ -601,6 +715,218 @@
         document.getElementById("attackbutton").style.setProperty("display", "inline-block");
       }
     }
+  }
+
+  //Choose The Enemy Function//
+  var antinattckenemy = false
+  var bartoshattckenemy = false
+  function chosetopenemy(){
+    if(pickedantinweapon === true){
+      if(pickedak47 === true){
+        if(antinattckenemy === false){
+          antinback();
+          antinattckenemy = true
+          topenemyhealth = topenemyhealth - antinweapon
+          document.getElementById("antinbattleid").style.color = "red"
+        }
+      }
+      if(pickedgrenade === true){
+        if(antinattckenemy === false){
+          antinback();
+          antinattckenemy = true
+          topenemyhealth = topenemyhealth - antinweapon
+          bottomenemyhealth = bottomenemyhealth - antinweapon
+          document.getElementById("antinbattleid").style.color = "red"
+        }
+      }
+      if(pickeddefense === true){
+        if(antinattckenemy === false){
+          antinback();
+          antinattckenemy = true
+          document.getElementById("antinbattleid").style.color = "red"
+        }
+      }
+    }
+    if(pickedbartoshweapon === true){
+      if(pickedfort17 === true){
+        if(bartoshattckenemy === false){
+          bartoshback();
+          bartoshattckenemy = true
+          topenemyhealth = topenemyhealth - bartoshweaponchoice
+          document.getElementById("bartoshbattleid").style.color = "red"
+        }
+      }
+      if(pickedmachete === true){
+        if(bartoshattckenemy === false){
+          bartoshback();
+          bartoshattckenemy = true
+          topenemyhealth = topenemyhealth - bartoshweaponchoice
+          document.getElementById("bartoshbattleid").style.color = "red"
+        }
+      }
+    }
+  }
+  function chosebottomenemy(){
+    if(pickedantinweapon === true){
+      if(pickedak47 === true){
+        if(antinattckenemy === false){
+          antinback();
+          antinattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - antinweapon
+          document.getElementById("antinbattleid").style.color = "red"
+        }
+      }
+      if(pickedgrenade === true){
+        if(antinattckenemy === false){
+          antinback();
+          antinattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - antinweapon
+          document.getElementById("antinbattleid").style.color = "red"
+        }
+      }
+      if(pickeddefense === true){
+        if(antinattckenemy === true){
+          antinback();
+          antinattckenemy = true
+          document.getElementById("antinbattleid").style.color = "red"
+        }
+      }
+    }
+    if(pickedbartoshweapon === true){
+      if(pickedfort17 === true){
+        if(bartoshattckenemy === false){
+          bartoshback();
+          bartoshattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - bartoshweaponchoice
+          document.getElementById("bartoshbattleid").style.color = "red"
+        }
+      }
+      if(pickedmachete === true){
+        if(bartoshattckenemy === false){
+          bartoshback();
+          bartoshattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - bartoshweaponchoice
+          document.getElementById("bartoshbattleid").style.color = "red"
+        }
+      }
+    }
+  }
+  var topdead = false
+  var bottomdead = false
+  var firstbattlewon = false
+  function beginoffensive(){
+    if(topenemyhealth <= 0){
+      topdead = true
+      document.getElementById("enemy1").style.setProperty("display", "none");
+      document.getElementById("topenemyhealth").style.width = 0 + "%"
+      document.getElementById("tophealthnumeral").innerHTML = 0
+      document.getElementById("topenemy").style.setProperty("display", "none");
+      document.getElementById("topenemyname").style.setProperty("display", "none");
+      document.getElementById("topenemyhealthbar").style.setProperty("display", "none");
+      document.getElementById("tophealthnumeral").style.setProperty("display", "none");
+    }
+    if(bottomenemyhealth <= 0){
+      bottomdead = true
+      document.getElementById("enemy2").style.setProperty("display", "none");
+      document.getElementById("bottomenemyhealth").style.width = 0 + "%"
+      document.getElementById("bottomhealthnumeral").innerHTML = 0
+      document.getElementById("bottomenemy").style.setProperty("display", "none");
+      document.getElementById("bottomenemyname").style.setProperty("display", "none");    
+      document.getElementById("bottomenemyhealthbar").style.setProperty("display", "none");    
+      document.getElementById("bottomhealthnumeral").style.setProperty("display", "none");
+    }
+    if(topdead === true){
+      if(bottomdead === true){
+        firstbattlewon = true
+      }
+    }
+    if(topdead === false){
+      document.getElementById("tophealthnumeral").innerHTML = topenemyhealth;
+      document.getElementById("topenemyhealth").style.width = (topenemyhealth * 5) + "%"
+    }
+    if(bottomdead === false){
+      document.getElementById("bottomhealthnumeral").innerHTML = bottomenemyhealth;
+      document.getElementById("bottomenemyhealth").style.width = (bottomenemyhealth * 5) + "%"
+    }
+    document.getElementById("attackbutton").style.setProperty("display", "none");
+    document.getElementById("antinbattleid").style.setProperty("display", "none");
+    document.getElementById("bartoshbattleid").style.setProperty("display", "none");
+    if(topdead === false){
+      setTimeout(topenemyattacks, 1000);
+    }
+    if(topdead === true){
+      if(bottomdead === false){
+        setTimeout(bottomenemyattacks, 1000);
+      }
+    }
+  }
+  topenemyattack
+  function topenemyattacks(){
+    var pickcharacter = Math.round(Math.random()*100 )
+    if(pickcharacter % 2 === 0){
+      if(pickeddefense === false){
+        var enemydamage = (Math.round(Math.random()*enemyattackrange[0] + enemyattackaddition[0]))
+        antinhealth = antinhealth - enemydamage
+        document.getElementById("antinhealth").style.width = (antinhealth * 4) + "%"
+        document.getElementById("antinhealthnumeral").innerHTML = antinhealth;
+        document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
+        document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to Kapt. Antin";
+      }
+    }
+    if(pickcharacter % 2 !== 0){
+      var enemydamage = (Math.round(Math.random()*enemyattackrange[0] + enemyattackaddition[0]))
+      bartoshhealth = bartoshhealth - enemydamage
+      document.getElementById("bartoshhealthnumeral").innerHTML = bartoshhealth;
+      document.getElementById("bartoshhealth").style.width = (bartoshhealth * 4) + "%"
+      document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
+      document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to LT. Bartosh";
+    }
+    setTimeout(bottomenemyattacks, 3000);
+  }
+  function bottomenemyattacks(){
+    var pickcharacter = Math.round(Math.random()*100 )
+    if(pickcharacter % 2 === 0){
+      var enemydamage = (Math.round(Math.random()*enemyattackrange[0] + enemyattackaddition[0]))
+      antinhealth = antinhealth - enemydamage
+      document.getElementById("antinhealth").style.width = (antinhealth * 4) + "%"
+      document.getElementById("antinhealthnumeral").innerHTML = antinhealth;
+      document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
+      document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
+      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to Kapt. Antin";
+    }
+    if(pickcharacter % 2 !== 0){
+      var enemydamage = (Math.round(Math.random()*enemyattackrange[0] + enemyattackaddition[0]))
+      bartoshhealth = bartoshhealth - enemydamage
+      document.getElementById("bartoshhealthnumeral").innerHTML = bartoshhealth;
+      document.getElementById("bartoshhealth").style.width = (bartoshhealth * 4) + "%"
+      document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
+      document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
+      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to LT. Bartosh";
+    }
+    setTimeout(refreshcycle, 3000);
+  }
+  function refreshcycle(){
+    document.getElementById("antinbattleid").style.setProperty("display", "inline-block");
+    document.getElementById("bartoshbattleid").style.setProperty("display", "inline-block");
+    document.getElementById("bottomenemyattackdiv").style.setProperty("display", "none");
+    document.getElementById("antinbattleid").style.color = "black"
+    document.getElementById("bartoshbattleid").style.color = "black"
+    document.getElementById("useak47").style.color = "black"
+    document.getElementById("usegrenade").style.color = "black"
+    document.getElementById("adefense").style.color = "black"
+    document.getElementById("usefort17").style.color = "black"
+    document.getElementById("usemachete").style.color = "black"
+    antinattckenemy = false
+    bartoshattckenemy = false
+    pickedantinweapon = false
+    antiweaponchoice = 0
+    pickedak47 = false
+    pickedgrenade = false
+    pickeddefense = false
+    pickedbartoshweapon = false
+    bartoshweaponchoice = 0
+    pickedfort17 = false
+    pickedmachete = false
   }
 
   function saveGame() {
@@ -626,9 +952,4 @@
   setInterval(function () {
     saveGame();
   }, 10000) // 1000ms = 1 second
-
-  function beginoffensive(){
-
-  }
-
 </script>

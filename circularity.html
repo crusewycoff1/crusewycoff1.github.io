@@ -56,7 +56,7 @@
         for(i=0;i < x.length; i=i+1){
             for(j=-1; j < x.length; j=j+1){
                 if(i !== j){
-                    if(x[i] === x[j]){
+                    if(Math.sqrt(((x[i]-x[j])(x[i]-x[j]))+((y[i]-y[j])(y[i]-y[j])))>= 100){
                         speed[i] = -speed[j]
                         yspeed[i] = -yspeed[j]
                     }
