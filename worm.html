@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+          #background{
+              background-color: black;
+              position: absolute;
+              left: 275px;
+              height: 500px;
+              width: 600px;
+              color: white;
+          }
+          #sidebar{
+              border-style: solid;
+              position: absolute;
+              left: 875px;
+              height: 495px;
+              width: 200px;
+              overflow-y:scroll;
+          }
+          #appear{
+              display: none;
+          }
+          #replay{
+              display: none;
+          }
+          #dead{
+              display: none;
+          }
+          #foodamount{
+              display: none;
+          }
+          #repramount{
+              display: none;
+          }
+          #deadbox{
+              display: none;
+          }
+          #buttons{
+              position: absolute;
+              top: 510px;
+              left: 450px;
+          }
+      </style>
+  </head>
+  <body>
+    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/fbWhnPx5S8A?start=0&amp;end=563autoplay=1" frameborder="0" allow='autoplay' allowfullscreen></iframe>-->
+    <div id="background"><center><span id="appear"><h1><br><br><br><br>You Cannot Move<br>You are a Worm</h1></span><h1><span id="dead"><br><br><br><br>You have Died<br></span></h1><span id="foodamount"></span> <span id="repramount"></span><br><br><button id="replay" onclick="replay()">Try again?</button></span></h1></center></div>
+    <div id="sidebar"></div>
+    <div id="buttons"><button id="eat" onclick="eat()">Eat Worm Food</button> <button id="reproduce" onclick="reproduce()">Reproduce like a Worm</button></div>
+  </body>
+</html>
+<script>
+    var gameover = false
+    document.addEventListener("keydown", function(event) {
+        if(gameover === false){
+            document.getElementById("appear").style.setProperty("display", "inline-block");
+            setTimeout(disappear, 2000);
+        }
+    }, false);
+
+    function disappear(){
+        document.getElementById("appear").style.setProperty("display", "none");
+    }
+    
+    function dead(){
+        gameover = true
+        document.getElementById("appear").style.setProperty("display", "none");
+        document.getElementById("dead").style.setProperty("display", "inline-block");
+        document.getElementById("foodamount").style.setProperty("display", "inline-block");
+        document.getElementById("repramount").style.setProperty("display", "inline-block");
+        document.getElementById("replay").style.setProperty("display", "inline-block");
+        document.getElementById("foodamount").innerHTML = "You ate food " + foodamount + " times and "
+        document.getElementById("repramount").innerHTML = " reproduced " + repramount + " times."
+    }
+    var eatfood = ""
+    var foodamount = 0
+    function eat(){
+        if(gameover === false){
+            eatfood = document.getElementById("sidebar").innerHTML
+            foodamount = foodamount + 1
+            document.getElementById("sidebar").innerHTML = "As a worm, you ate food" + "<br>" + eatfood
+        }
+    }
+    var vreproduce = ""
+    var repramount = 0
+    function reproduce(){
+        if(gameover === false){
+            vreproduce = document.getElementById("sidebar").innerHTML
+            repramount = repramount + 1
+            document.getElementById("sidebar").innerHTML = "As a worm, you reproduced" + "<br>" + vreproduce
+        }
+    }
+    function replay(){
+        location.reload();
+    }
+    window.onload = function () {
+        setTimeout(dead, 30000);
+        setTimeout(playvoices, 3000);
+    }
+    function playvoices(){
+        var audio = new Audio('Unused stuff/muffled voices.mp3');
+        audio.play();
+    }
+</script>

@@ -16,11 +16,11 @@
 <script>
     var canvas = document.getElementById("canvas")
     var ctx = canvas.getContext("2d")
-    var inputspeed = parseInt(document.getElementById('userInputA').value);
-    var x = [Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51]
-    var y = [Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51]
-    var speed = [1 , .5, 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2]
-    var yspeed = [1, .5 , 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2]
+    var inputspeed = 1
+    var x = [Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51, Math.random()*1000+ 51, Math.random()*1000+51]
+    var y = [Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51, Math.random()*449+ 51, Math.random()*449+51]
+    var speed = [1 , .5, 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2]
+    var yspeed = [1, .5 , 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2, 1, .5 , 2, 1.5, .9, .2, 1 , .5, 2, 1.5, .9, .2]
     var color = 0
     //cat Image stuff//
     var img = document.getElementById("cat");
@@ -51,14 +51,17 @@
     
     setInterval(bounce, 1)
     function bounce() {
-        inputspeed = parseInt(document.getElementById('userInputA').value);
         ctx.clearRect(0,0,10000,10000)
         for(i=0;i < x.length; i=i+1){
             for(j=-1; j < x.length; j=j+1){
                 if(i !== j){
-                    if(Math.sqrt(((x[i]-x[j])(x[i]-x[j]))+((y[i]-y[j])(y[i]-y[j])))>= 100){
-                        speed[i] = -speed[j]
-                        yspeed[i] = -yspeed[j]
+                    if(Math.sqrt(((x[i]-x[j]) * (x[i]-x[j]))+((y[i]-y[j]) * (y[i]-y[j]))) <= 100){
+                        var tempspeed1 = speed[i]
+                        var tempspeed2 = yspeed[i]
+                        speed[i] = speed[j]
+                        yspeed[i] = yspeed[j]
+                        speed[j] = tempspeed1
+                        yspeed[j] = tempspeed2
                     }
                 }
             }
