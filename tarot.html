@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+          #background{
+              position: absolute;
+              width: 950px;
+              height: 600px;
+              background-color: black;
+              left: 225px;
+              top: 20px;
+              color: white;
+          }
+          #carddeck{
+              position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              background-image: url("https://opengameart.org/sites/default/files/card%20back%20red.png");
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+              border-radius: 15px;
+              left: 920px;
+              top: 225px;
+              display: none;
+          }
+          #firstcard{
+              position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 540px;
+              top: 420px;
+              background-color: white;
+              display: none;
+          }
+          #secondcard{
+              position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              background-color: white;
+              border-radius: 15px;
+              left: 700px;
+              top: 420px;
+              display: none;
+          }
+          #thirdcard{
+              position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 860px;
+              top: 420px;
+              background-color: white;
+              display: none;
+          }
+          #fourthcard{
+              position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 1020px;
+              top: 420px;
+              background-color: white;
+              display: none;
+          }
+          #fifthcard{
+              position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 1180px;
+              top: 425px;
+              background-color: white;
+              display: none;
+          }
+          #enemyfirstcard{
+            position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 540px;
+              top: 30px;
+              background-color: white;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              display: none;
+          }
+          #enemy1cardback{
+              position: absolute;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: -2px;
+              top: -2px;
+          }
+          #enemysecondcard{
+            position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 700px;
+              top: 30px;
+              background-color: white;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              display: none;
+          }
+          #enemy2cardback{
+              position: absolute;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: -2px;
+              top: -2px;
+          }
+          #enemythirdcard{
+            position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 380px;
+              top: 25px;
+              background-color: white;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              display: none;
+          }
+          #enemy3cardback{
+              position: absolute;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: -2px;
+              top: -2px;
+          }
+          #enemyfourthcard{
+            position: absolute;
+              z-index: 2;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: 250px;
+              top: 25px;
+              background-color: white;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              display: none;
+          }
+          #enemy4cardback{
+              position: absolute;
+              width: 125px;
+              height: 180px;
+              border-style: solid;
+              border-radius: 15px;
+              left: -2px;
+              top: -2px;
+          }
+          #hitme{
+              background-color: lightgray;
+              color: black;
+              width: 100px;
+              height: 50px;
+              position: absolute;
+              top: 430px;
+              left: 100px;
+              font-size: 15px;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              display: none;
+          }
+          #hitme:hover{
+              background-color: darkgrey;
+          }
+          #yourscorebox{
+              position: absolute;
+              top: 350px;
+              left: 75px;
+              color: black;
+          }
+          #hold{
+              background-color: lightgray;
+              color: black;
+              width: 100px;
+              height: 50px;
+              position: absolute;
+              top: 500px;
+              left: 100px;
+              font-size: 15px;
+              -webkit-touch-callout: none;
+              -webkit-user-select: none;
+              -khtml-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+              display: none;
+          }
+          #hold:hover{
+              background-color: darkgray;
+          }
+          #youwon{
+              position: absolute;
+              height: 300px;
+              width: 300px;
+              background-color: yellow;
+              border-style: solid;
+              border-radius: 30px;
+              border-width: 5px;
+              left: 550px;
+              top: 150px;
+              display: none;
+              z-index: 10;
+          }
+          #youlose{
+              position: absolute;
+              height: 300px;
+              width: 300px;
+              background-color: purple;
+              border-style: solid;
+              border-radius: 30px;
+              border-width: 5px;
+              left: 550px;
+              top: 150px;
+              display: none;
+              z-index: 1000;
+          }
+          #youdraw{
+              position: absolute;
+              height: 300px;
+              width: 300px;
+              background-color: red;
+              border-style: solid;
+              border-radius: 30px;
+              border-width: 5px;
+              left: 550px;
+              top: 150px;
+              display: none;
+              z-index: 1000;
+          }
+          #youbust{
+              position: absolute;
+              height: 300px;
+              width: 300px;
+              background-color: red;
+              border-style: solid;
+              border-radius: 30px;
+              border-width: 5px;
+              left: 550px;
+              top: 150px;
+              display: none;
+              z-index: 1000;
+          }
+          #firstace1{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              left: 30px;
+              display: none;
+              z-index: 10;
+          }
+          #firstace1:hover{
+              background-color: darkgrey;
+          }
+          #firstace11{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              top: 117px;
+              left: 75px;
+              display: none;
+              z-index: 10;
+          }
+          #firstace11:hover{
+              background-color: darkgrey;
+          }
+          #or1{
+              display: none;
+          }
+          #secondace1{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              left: 30px;
+              display: none;
+              z-index: 10;
+          }
+          #secondace1:hover{
+              background-color: darkgrey;
+          }
+          #secondace11{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              top: 117px;
+              left: 75px;
+              display: none;
+              z-index: 10;
+          }
+          #secondace11:hover{
+              background-color: darkgrey;
+          }
+          #or2{
+              display: none;
+          }
+          #thirdace1{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              left: 30px;
+              display: none;
+              z-index: 10;
+          }
+          #thirdace1:hover{
+              background-color: darkgrey;
+          }
+          #thirdace11{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              top: 117px;
+              left: 75px;
+              display: none;
+              z-index: 10;
+          }
+          #thirdace11:hover{
+              background-color: darkgrey;
+          }
+          #or3{
+              display: none;
+          }
+          #fourthace1{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              left: 30px;
+              display: none;
+              z-index: 10;
+          }
+          #fourthace1:hover{
+              background-color: darkgrey;
+          }
+          #fourthace11{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              top: 117px;
+              left: 75px;
+              display: none;
+              z-index: 10;
+          }
+          #fourthace11:hover{
+              background-color: darkgrey;
+          }
+          #or4{
+              display: none;
+          }
+          #fifthace1{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              left: 30px;
+              display: none;
+              z-index: 10;
+          }
+          #fifthace1:hover{
+              background-color: darkgrey;
+          }
+          #fifthace11{
+              background-color: lightgrey;
+              width: 20px;
+              position: absolute;
+              top: 117px;
+              left: 75px;
+              display: none;
+              z-index: 10;
+          }
+          #ifthace11:hover{
+              background-color: darkgrey;
+          }
+          #or5{
+              display: none;
+          }
+          #rulesbox{
+              width: 200px;
+              background-color: grey;
+              position: absolute;
+              top: 20px;
+              display: none;
+          }
+      </style>
+  </head>
+  <body>
+      <div id="background">
+          <center>
+              <br><h1><span id="title" onclick="shuffledeck()">Black Jack</span></h1>
+              <br><br><br><br><br><br><br><br><br><br><br><br><br>
+              <h2 onclick="beginplaying()"><span id="begin">Begin</span></h2><br>
+              <h2 onclick="rules()"><span id="rules">Rules</span></h2>
+              <div id="yourscorebox"><h2>Your Score: <span id="yourscore"></span></h2></div>
+              <div id="hitme" onclick="hitme()"><strong><h3>Hit Me</h3></strong></div>
+              <div id="hold" onclick="hold()"><strong><h3>Hold</h3></strong></div>
+        </center>
+    </div>
+    <div id="rulesbox">1. You are trying to get your score to 21.<br><br> 2. Each numbercard is worth the amount on the card, face cards are worth 10, and Aces are worth either 1 or 11(you get to pick).<br><br>3.When you click hit me, you get another card that will add to your score, but you dont want to go over 21 or else you lose<br><br>4. By clicking hold, your turn is over and your score is final.<br><br> 5. You want your score to be higher than your opponent, so try to get as close as you can to 21</div>
+    <div id="enemyfirstcard"><img id="enemy1cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemyfirstcardnumber"></span></h1></center></div>
+    <div id="enemysecondcard"><img id="enemy2cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemysecondcardnumber"></span></h1></center></div>
+    <div id="enemythirdcard"><img id="enemy3cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemythirdcardnumber"></span></h1></center></div>
+    <div id="enemyfourthcard"><img id="enemy4cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemyfourthcardnumber"></span></h1></center></div>
+    <div id="carddeck"></div>
+    <div id="firstcard"><br><br><center><h1><span id="firstcardnumber"></span></h1><div id="firstace1" onclick="addone()"><strong>1</strong></div><span id="or1"> or </span><div id="firstace11" onclick="addeleven()"><strong>11</strong></div></center></div>
+    <div id="secondcard"><br><br><center><h1><span id="secondcardnumber"></span></h1><div id="secondace1" onclick="addone()"><strong>1</strong></div><span id="or2"> or </span><div id="secondace11" onclick="addeleven()"><strong>11</strong></div></center></div>
+    <div id="thirdcard"><br><br><center><h1><span id="thirdcardnumber"></span></h1><div id="thirdace1" onclick="addone()"><strong>1</strong></div><span id="or3"> or </span><div id="thirdace11" onclick="addeleven()"><strong>11</strong></div></center></div>
+    <div id="fourthcard"><br><br><center><h1><span id="fourthcardnumber"></span></h1><div id="fourthace1" onclick="addone()"><strong>1</strong></div><span id="or4"> or </span><div id="fourthace11" onclick="addeleven()"><strong>11</strong></div></center></div>
+    <div id="fifthcard"><br><br><center><h1><span id="fifthcardnumber"></span></h1><div id="fifthace1" onclick="addone()"><strong>1</strong></div><span id="or5"> or </span><div id="fifthace11" onclick="addeleven()"><strong>11</strong></div></center></div>
+    <div id="youwon"><br><center><h1>YOU WON!!!</h1><img src="https://www.seekpng.com/png/full/59-594947_stacks-of-poker-chips-png-poker-chips-transparent.png" height="150px"><br><button id="woncontinuebtton" onclick="replay()">Play Again?</button></center></div>
+    <div id="youlose"><br><center><h1>You Lose :(</h1><img src="https://cdn.pixabay.com/photo/2019/06/29/09/14/mental-illness-4305755_1280.png" height="150px"><br><button onclick="replay()">Play Again?</button></center></div>
+    <div id="youbust"><br><center><h1>You BUSTED</h1><img src="http://assets.stickpng.com/thumbs/5aa25f7e9fc609199d0ff1c1.png" height="150px"><br><button onclick="replay()">Play Again?</button></center></div>
+    <div id="youdraw"><br><center><h1>Tie (House Wins)</h1><img src="https://objectivetrade.com/bl-content/uploads/pages/f3aa604ee974d92887e8940505e5f94d/wallst-fatcat.png" height="150px"><br><button onclick="replay()">Play Again?</button></center></div>
+  </body>
+</html>
+<script>
+    var deckofcards = []
+    var yourscore = 0
+    var enemyscore = 0
+    var bust = false
+    var beganplaying = false
+    var firstcardmoved = false
+    var secondcardmoved = false
+    var enemysecondcardmoved = false
+
+    function rules(){
+        document.getElementById("rulesbox").style.setProperty("display", "inline-block");
+    }
+
+    function beginplaying(){
+        firstcardid.style.left = firstcardx + "px"
+        firstcardid.style.top = firstcardy + "px"
+        enemyfirstcardid.style.left = enemyfirstcardx + "px"
+        enemyfirstcardid.style.top = enemyfirstcardy + "px"
+        secondcardid.style.left = secondcardx + "px"
+        secondcardid.style.top = secondcardy + "px"
+        enemysecondcardid.style.left = enemysecondcardx + "px"
+        enemysecondcardid.style.top = enemysecondcardy + "px"
+        thirdcardid.style.left = thirdcardx + "px"
+        thirdcardid.style.top = thirdcardy + "px"
+        fourthcardid.style.left = fourthcardx + "px"
+        fourthcardid.style.top = fourthcardy + "px"
+        fifthcardid.style.left = fifthcardx + "px"
+        fifthcardid.style.top = fifthcardy + "px"
+        enemythirdcardid.style.left = enemythirdcardx + "px"
+        enemythirdcardid.style.top = enemythirdcardy + "px"
+        enemyfourthcardid.style.left = enemyfourthcardx + "px"
+        enemyfourthcardid.style.top = enemyfourthcardy + "px"
+        document.getElementById("title").style.setProperty("display", "none");
+        document.getElementById("begin").style.setProperty("display", "none");
+        document.getElementById("rules").style.setProperty("display", "none");
+        document.getElementById("carddeck").style.setProperty("display", "inline-block");
+        document.getElementById("firstcard").style.setProperty("display", "inline-block");
+        document.getElementById("secondcard").style.setProperty("display", "inline-block");
+        document.getElementById("enemyfirstcard").style.setProperty("display", "inline-block");
+        document.getElementById("enemysecondcard").style.setProperty("display", "inline-block");
+        document.getElementById("hitme").style.setProperty("display", "inline-block");
+        document.getElementById("hold").style.setProperty("display", "inline-block");
+        document.getElementById("background").style.backgroundColor = "green"
+        shuffledeck();
+        movefirstcard();
+        beganplaying = true
+        setTimeout(enemyfirstcardtf, 250);
+    }
+    function enemyfirstcardtf(){
+        firstcardmoved = true
+        setTimeout(secondcardtf, 250);
+    }
+    function secondcardtf(){
+        secondcardmoved = true
+        setTimeout(enemysecondcardtf, 250);
+    }
+    function enemysecondcardtf(){
+        enemysecondcardmoved = true
+    }
+
+    function shuffledeck(){
+        deckofcards = []
+        for(i = 0; i < 13; i = i + 1){
+            deckofcards[i] = Math.round(Math.random()* 12)
+            for(j = 0; j < 16; j = j + 1){
+                if(i !== j){
+                    if(deckofcards[i] === deckofcards[j]){
+                        while(deckofcards[i] === deckofcards[j]){
+                            deckofcards[i] = Math.round(Math.random()* 12)
+                        }
+                    }
+                }
+            }
+        }
+        assignyourcards();
+    }
+    function assignyourcards(){
+        if(deckofcards[0] === 0){
+            document.getElementById("firstcardnumber").innerHTML = "2"
+            yourscore = 2
+        }
+        if(deckofcards[0] === 1){
+            document.getElementById("firstcardnumber").innerHTML = "3"
+            yourscore = 3
+        }
+        if(deckofcards[0] === 2){
+            document.getElementById("firstcardnumber").innerHTML = "4"
+            yourscore = 4
+        }
+        if(deckofcards[0] === 3){
+            document.getElementById("firstcardnumber").innerHTML = "5"
+            yourscore = 5
+        }
+        if(deckofcards[0] === 4){
+            document.getElementById("firstcardnumber").innerHTML = "6"
+            yourscore = 6
+        }
+        if(deckofcards[0] === 5){
+            document.getElementById("firstcardnumber").innerHTML = "7"
+            yourscore = 7
+        }
+        if(deckofcards[0] === 6){
+            document.getElementById("firstcardnumber").innerHTML = "8"
+            yourscore = 8
+        }
+        if(deckofcards[0] === 7){
+            document.getElementById("firstcardnumber").innerHTML = "9"
+            yourscore = 9
+        }
+        if(deckofcards[0] === 8){
+            document.getElementById("firstcardnumber").innerHTML = "10"
+            yourscore = 10
+        }
+        if(deckofcards[0] === 9){
+            document.getElementById("firstcardnumber").innerHTML = "J"
+            yourscore = 10
+        }
+        if(deckofcards[0] === 10){
+            document.getElementById("firstcardnumber").innerHTML = "Q"
+            yourscore = 10
+        }
+        if(deckofcards[0] === 11){
+            document.getElementById("firstcardnumber").innerHTML = "K"
+            yourscore = 10
+        }
+        if(deckofcards[0] === 12){
+            document.getElementById("firstcardnumber").innerHTML = "A"
+            yourscore = 0
+            document.getElementById("firstace1").style.setProperty("display", "inline-block");
+            document.getElementById("firstace11").style.setProperty("display", "inline-block");
+            document.getElementById("or1").style.setProperty("display", "inline-block");
+        }
+        if(deckofcards[2] === 0){
+            document.getElementById("secondcardnumber").innerHTML = "2"
+            yourscore = yourscore + 2
+        }
+        if(deckofcards[2] === 1){
+            document.getElementById("secondcardnumber").innerHTML = "3"
+            yourscore = yourscore + 3
+        }
+        if(deckofcards[2] === 2){
+            document.getElementById("secondcardnumber").innerHTML = "4"
+            yourscore = yourscore + 4
+        }
+        if(deckofcards[2] === 3){
+            document.getElementById("secondcardnumber").innerHTML = "5"
+            yourscore = yourscore + 5
+        }
+        if(deckofcards[2] === 4){
+            document.getElementById("secondcardnumber").innerHTML = "6"
+            yourscore = yourscore + 6
+        }
+        if(deckofcards[2] === 5){
+            document.getElementById("secondcardnumber").innerHTML = "7"
+            yourscore = yourscore + 7
+        }
+        if(deckofcards[2] === 6){
+            document.getElementById("secondcardnumber").innerHTML = "8"
+            yourscore = yourscore + 8
+        }
+        if(deckofcards[2] === 7){
+            document.getElementById("secondcardnumber").innerHTML = "9"
+            yourscore = yourscore + 9
+        }
+        if(deckofcards[2] === 8){
+            document.getElementById("secondcardnumber").innerHTML = "10"
+            yourscore = yourscore + 10
+        }
+        if(deckofcards[2] === 9){
+            document.getElementById("secondcardnumber").innerHTML = "J"
+            yourscore = yourscore + 10
+        }
+        if(deckofcards[2] === 10){
+            document.getElementById("secondcardnumber").innerHTML = "Q"
+            yourscore = yourscore + 10
+        }
+        if(deckofcards[2] === 11){
+            document.getElementById("secondcardnumber").innerHTML = "K"
+            yourscore = yourscore + 10
+        }
+        if(deckofcards[2] === 12){
+            document.getElementById("secondcardnumber").innerHTML = "A"
+            yourscore = yourscore + 0
+            document.getElementById("secondace1").style.setProperty("display", "inline-block");
+            document.getElementById("secondace11").style.setProperty("display", "inline-block");
+            document.getElementById("or2").style.setProperty("display", "inline-block");
+        }
+        document.getElementById("yourscore").innerHTML = yourscore
+        assignenemycards();
+    }
+    function addone(){
+        yourscore = yourscore + 1
+        document.getElementById("firstace1").style.setProperty("display", "none");
+        document.getElementById("firstace11").style.setProperty("display", "none");
+        document.getElementById("or1").style.setProperty("display", "none");
+        document.getElementById("secondace1").style.setProperty("display", "none");
+        document.getElementById("secondace11").style.setProperty("display", "none");
+        document.getElementById("or2").style.setProperty("display", "none");
+        document.getElementById("thirdace1").style.setProperty("display", "none");
+        document.getElementById("thirdace11").style.setProperty("display", "none");
+        document.getElementById("or3").style.setProperty("display", "none");
+        document.getElementById("fourthace1").style.setProperty("display", "none");
+        document.getElementById("fourthace11").style.setProperty("display", "none");
+        document.getElementById("or4").style.setProperty("display", "none");
+        document.getElementById("yourscore").innerHTML = yourscore
+        if(yourscore > 21){
+            bust = true
+            document.getElementById("youbust").style.setProperty("display", "inline-block");
+        }
+    }
+    function addeleven(){
+        yourscore = yourscore + 11
+        document.getElementById("firstace1").style.setProperty("display", "none");
+        document.getElementById("firstace11").style.setProperty("display", "none");
+        document.getElementById("or1").style.setProperty("display", "none");
+        document.getElementById("secondace1").style.setProperty("display", "none");
+        document.getElementById("secondace11").style.setProperty("display", "none");
+        document.getElementById("or2").style.setProperty("display", "none");
+        document.getElementById("thirdace1").style.setProperty("display", "none");
+        document.getElementById("thirdace11").style.setProperty("display", "none");
+        document.getElementById("or3").style.setProperty("display", "none");
+        document.getElementById("fourthace1").style.setProperty("display", "none");
+        document.getElementById("fourthace11").style.setProperty("display", "none");
+        document.getElementById("or4").style.setProperty("display", "none");
+        document.getElementById("yourscore").innerHTML = yourscore
+        if(yourscore > 21){
+            bust = true
+            document.getElementById("youbust").style.setProperty("display", "inline-block");
+        }
+    }
+    function assignenemycards(){
+        if(deckofcards[1] === 0){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "2"
+            enemyscore = 2
+        }
+        if(deckofcards[1] === 1){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "3"
+            enemyscore = 3
+        }
+        if(deckofcards[1] === 2){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "4"
+            enemyscore = 4
+        }
+        if(deckofcards[1] === 3){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "5"
+            enemyscore = 5
+        }
+        if(deckofcards[1] === 4){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "6"
+            enemyscore = 6
+        }
+        if(deckofcards[1] === 5){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "7"
+            enemyscore = 7
+        }
+        if(deckofcards[1] === 6){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "8"
+            enemyscore = 8
+        }
+        if(deckofcards[1] === 7){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "9"
+            enemyscore = 7
+        }
+        if(deckofcards[1] === 8){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "10"
+            enemyscore = 10
+        }
+        if(deckofcards[1] === 9){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "J"
+            enemyscore = 10
+        }
+        if(deckofcards[1] === 10){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "Q"
+            enemyscore = 10
+        }
+        if(deckofcards[1] === 11){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "K"
+            enemyscore = 10
+        }
+        if(deckofcards[1] === 12){
+            document.getElementById("enemyfirstcardnumber").innerHTML = "A"
+            enemyscore = 11
+        }
+        if(deckofcards[3] === 0){
+            document.getElementById("enemysecondcardnumber").innerHTML = "2"
+            enemyscore = enemyscore + 2
+        }
+        if(deckofcards[3] === 1){
+            document.getElementById("enemysecondcardnumber").innerHTML = "3"
+            enemyscore = enemyscore + 3
+        }
+        if(deckofcards[3] === 2){
+            document.getElementById("enemysecondcardnumber").innerHTML = "4"
+            enemyscore = enemyscore + 4
+        }
+        if(deckofcards[3] === 3){
+            document.getElementById("enemysecondcardnumber").innerHTML = "5"
+            enemyscore = enemyscore + 5
+        }
+        if(deckofcards[3] === 4){
+            document.getElementById("enemysecondcardnumber").innerHTML = "6"
+            enemyscore = enemyscore + 6
+        }
+        if(deckofcards[3] === 5){
+            document.getElementById("enemysecondcardnumber").innerHTML = "7"
+            enemyscore = enemyscore + 7
+        }
+        if(deckofcards[3] === 6){
+            document.getElementById("enemysecondcardnumber").innerHTML = "8"
+            enemyscore = enemyscore + 8
+        }
+        if(deckofcards[3] === 7){
+            document.getElementById("enemysecondcardnumber").innerHTML = "9"
+            enemyscore = enemyscore + 9
+        }
+        if(deckofcards[3] === 8){
+            document.getElementById("enemysecondcardnumber").innerHTML = "10"
+            enemyscore = enemyscore + 10
+        }
+        if(deckofcards[3] === 9){
+            document.getElementById("enemysecondcardnumber").innerHTML = "J"
+            enemyscore = enemyscore + 10
+        }
+        if(deckofcards[3] === 10){
+            document.getElementById("enemysecondcardnumber").innerHTML = "Q"
+            enemyscore = enemyscore + 10
+        }
+        if(deckofcards[3] === 11){
+            document.getElementById("enemysecondcardnumber").innerHTML = "K"
+            enemyscore = enemyscore + 10
+        }
+        if(deckofcards[3] === 12){
+            document.getElementById("enemysecondcardnumber").innerHTML = "A"
+            enemyscore = enemyscore + 11
+        }
+    }
+    var thridcardactive = false
+    var fourthcardactive = false
+    var fifthcardactive = false
+    function hitme(){
+        if(win === false){
+            if(fourthcardactive === true){
+            if(fifthcardactive === false){
+                document.getElementById("fifthcard").style.setProperty("display", "inline-block");
+             if(deckofcards[6] === 0){
+                document.getElementById("fifthcardnumber").innerHTML = "2"
+                yourscore = yourscore + 2
+            }
+            if(deckofcards[6] === 1){
+                document.getElementById("fifthcardnumber").innerHTML = "3"
+                yourscore = yourscore + 3
+            }
+            if(deckofcards[6] === 2){
+                document.getElementById("fifthcardnumber").innerHTML = "4"
+                yourscore = yourscore + 4
+            }
+            if(deckofcards[6] === 3){
+                document.getElementById("fifthcardnumber").innerHTML = "5"
+                yourscore = yourscore + 5
+            }
+            if(deckofcards[6] === 4){
+                document.getElementById("fifthcardnumber").innerHTML = "6"
+                yourscore = yourscore + 6
+            }
+            if(deckofcards[6] === 5){
+                document.getElementById("fifthcardnumber").innerHTML = "7"
+                yourscore = yourscore + 7
+            }
+            if(deckofcards[6] === 6){
+                document.getElementById("fifthcardnumber").innerHTML = "8"
+                yourscore = yourscore + 8
+            }
+            if(deckofcards[6] === 7){
+                document.getElementById("fifthcardnumber").innerHTML = "9"
+                yourscore = yourscore + 9
+            }
+            if(deckofcards[6] === 8){
+                document.getElementById("fifthcardnumber").innerHTML = "10"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[6] === 9){
+                document.getElementById("fifthcardnumber").innerHTML = "J"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[6] === 10){
+                document.getElementById("fifthcardnumber").innerHTML = "Q"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[6] === 11){
+                document.getElementById("fifthcardnumber").innerHTML = "K"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[6] === 12){
+                document.getElementById("fifthcardnumber").innerHTML = "A"
+                yourscore = yourscore + 0
+                document.getElementById("fifthace1").style.setProperty("display", "inline-block");
+                document.getElementById("fifthace11").style.setProperty("display", "inline-block");
+                document.getElementById("or4").style.setProperty("display", "inline-block");
+            }
+            fifthcardactive = true
+        }
+        }
+            if(thridcardactive === true){
+            if(fourthcardactive === false){
+                document.getElementById("fourthcard").style.setProperty("display", "inline-block");
+             if(deckofcards[5] === 0){
+                document.getElementById("fourthcardnumber").innerHTML = "2"
+                yourscore = yourscore + 2
+            }
+            if(deckofcards[5] === 1){
+                document.getElementById("fourthcardnumber").innerHTML = "3"
+                yourscore = yourscore + 3
+            }
+            if(deckofcards[5] === 2){
+                document.getElementById("fourthcardnumber").innerHTML = "4"
+                yourscore = yourscore + 4
+            }
+            if(deckofcards[5] === 3){
+                document.getElementById("fourthcardnumber").innerHTML = "5"
+                yourscore = yourscore + 5
+            }
+            if(deckofcards[5] === 4){
+                document.getElementById("fourthcardnumber").innerHTML = "6"
+                yourscore = yourscore + 6
+            }
+            if(deckofcards[5] === 5){
+                document.getElementById("fourthcardnumber").innerHTML = "7"
+                yourscore = yourscore + 7
+            }
+            if(deckofcards[5] === 6){
+                document.getElementById("fourthcardnumber").innerHTML = "8"
+                yourscore = yourscore + 8
+            }
+            if(deckofcards[5] === 7){
+                document.getElementById("fourthcardnumber").innerHTML = "9"
+                yourscore = yourscore + 9
+            }
+            if(deckofcards[5] === 8){
+                document.getElementById("fourthcardnumber").innerHTML = "10"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[5] === 9){
+                document.getElementById("fourthcardnumber").innerHTML = "J"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[5] === 10){
+                document.getElementById("fourthcardnumber").innerHTML = "Q"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[5] === 11){
+                document.getElementById("fourthcardnumber").innerHTML = "K"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[5] === 12){
+                document.getElementById("fourthcardnumber").innerHTML = "A"
+                yourscore = yourscore + 0
+                document.getElementById("fourthace1").style.setProperty("display", "inline-block");
+                document.getElementById("fourthace11").style.setProperty("display", "inline-block");
+                document.getElementById("or4").style.setProperty("display", "inline-block");
+            }
+            fourthcardactive = true
+        }
+        }
+        if(thridcardactive === false){
+            document.getElementById("thirdcard").style.setProperty("display", "inline-block");
+            if(deckofcards[4] === 0){
+                document.getElementById("thirdcardnumber").innerHTML = "2"
+                yourscore = yourscore + 2
+            }
+            if(deckofcards[4] === 1){
+                document.getElementById("thirdcardnumber").innerHTML = "3"
+                yourscore = yourscore + 3
+            }
+            if(deckofcards[4] === 2){
+                document.getElementById("thirdcardnumber").innerHTML = "4"
+                yourscore = yourscore + 4
+            }
+            if(deckofcards[4] === 3){
+                document.getElementById("thirdcardnumber").innerHTML = "5"
+                yourscore = yourscore + 5
+            }
+            if(deckofcards[4] === 4){
+                document.getElementById("thirdcardnumber").innerHTML = "6"
+                yourscore = yourscore + 6
+            }
+            if(deckofcards[4] === 5){
+                document.getElementById("thirdcardnumber").innerHTML = "7"
+                yourscore = yourscore + 7
+            }
+            if(deckofcards[4] === 6){
+                document.getElementById("thirdcardnumber").innerHTML = "8"
+                yourscore = yourscore + 8
+            }
+            if(deckofcards[4] === 7){
+                document.getElementById("thirdcardnumber").innerHTML = "9"
+                yourscore = yourscore + 9
+            }
+            if(deckofcards[4] === 8){
+                document.getElementById("thirdcardnumber").innerHTML = "10"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[4] === 9){
+                document.getElementById("thirdcardnumber").innerHTML = "J"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[4] === 10){
+                document.getElementById("thirdcardnumber").innerHTML = "Q"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[4] === 11){
+                document.getElementById("thirdcardnumber").innerHTML = "K"
+                yourscore = yourscore + 10
+            }
+            if(deckofcards[4] === 12){
+                document.getElementById("thirdcardnumber").innerHTML = "A"
+                yourscore = yourscore + 0
+            document.getElementById("thirdace1").style.setProperty("display", "inline-block");
+            document.getElementById("thirdace11").style.setProperty("display", "inline-block");
+            document.getElementById("or3").style.setProperty("display", "inline-block");
+            }
+            thridcardactive = true
+        }
+        if(yourscore > 21){
+            bust = true
+            document.getElementById("youbust").style.setProperty("display", "inline-block");
+        }
+        document.getElementById("yourscore").innerHTML = yourscore
+        }
+    }
+    function hold(){
+        win = true
+        enemydrawthird();
+    }
+    var enemythirdcardmoved = false
+    var enemyfourthcardmoved = false
+    function enemydrawthird(){
+        if(enemyscore < 15){
+            document.getElementById("enemythirdcard").style.setProperty("display", "inline-block");
+            if(deckofcards[7] === 0){
+                document.getElementById("enemythirdcardnumber").innerHTML = "2"
+                enemyscore = enemyscore + 2
+            }
+            if(deckofcards[7] === 1){
+                document.getElementById("enemythirdcardnumber").innerHTML = "3"
+                enemyscore = enemyscore + 3
+            }
+            if(deckofcards[7] === 2){
+                document.getElementById("enemythirdcardnumber").innerHTML = "4"
+                enemyscore = enemyscore + 4
+            }
+            if(deckofcards[7] === 3){
+                document.getElementById("enemythirdcardnumber").innerHTML = "5"
+                enemyscore = enemyscore + 5
+            }
+            if(deckofcards[7] === 4){
+                document.getElementById("enemythirdcardnumber").innerHTML = "6"
+                enemyscore = enemyscore + 6
+            }
+            if(deckofcards[7] === 5){
+                document.getElementById("enemythirdcardnumber").innerHTML = "7"
+                enemyscore = enemyscore + 7
+            }
+            if(deckofcards[7] === 6){
+                document.getElementById("enemythirdcardnumber").innerHTML = "8"
+                enemyscore = enemyscore + 8
+            }
+            if(deckofcards[7] === 7){
+                document.getElementById("enemythirdcardnumber").innerHTML = "9"
+                enemyscore = enemyscore + 9
+            }
+            if(deckofcards[7] === 8){
+                document.getElementById("enemythirdcardnumber").innerHTML = "10"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[7] === 9){
+                document.getElementById("enemythirdcardnumber").innerHTML = "J"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[7] === 10){
+                document.getElementById("enemythirdcardnumber").innerHTML = "Q"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[7] === 11){
+                document.getElementById("enemythirdcardnumber").innerHTML = "K"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[7] === 12){
+                document.getElementById("enemythirdcardnumber").innerHTML = "A"
+                enemyscore = enemyscore + 11
+            }
+            enemythirdcardmoved = true
+            setTimeout(enemydrawfourth, 1000)
+        }
+        else{
+            finish();
+        }
+    }
+    function enemydrawfourth(){
+        if(enemyscore < 15){
+            document.getElementById("enemyfourthcard").style.setProperty("display", "inline-block");
+            if(deckofcards[8] === 0){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "2"
+                enemyscore = enemyscore + 2
+            }
+            if(deckofcards[8] === 1){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "3"
+                enemyscore = enemyscore + 3
+            }
+            if(deckofcards[8] === 2){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "4"
+                enemyscore = enemyscore + 4
+            }
+            if(deckofcards[8] === 3){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "5"
+                enemyscore = enemyscore + 5
+            }
+            if(deckofcards[8] === 4){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "6"
+                enemyscore = enemyscore + 6
+            }
+            if(deckofcards[8] === 5){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "7"
+                enemyscore = enemyscore + 7
+            }
+            if(deckofcards[8] === 6){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "8"
+                enemyscore = enemyscore + 8
+            }
+            if(deckofcards[8] === 7){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "9"
+                enemyscore = enemyscore + 9
+            }
+            if(deckofcards[8] === 8){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "10"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[8] === 9){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "J"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[8] === 10){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "Q"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[8] === 11){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "K"
+                enemyscore = enemyscore + 10
+            }
+            if(deckofcards[8] === 12){
+                document.getElementById("enemyfourthcardnumber").innerHTML = "A"
+                enemyscore = enemyscore + 11
+            }
+            enemyfourthcardmoved = true
+            setTimeout(finish, 1000)
+        }
+        else{
+            finish();
+        }
+    }
+
+    var win = false
+    var enemybust = false
+    function finish(){
+        document.getElementById("enemy1cardback").style.setProperty("display", "none");
+        document.getElementById("enemy2cardback").style.setProperty("display", "none");
+        document.getElementById("enemy3cardback").style.setProperty("display", "none");
+        document.getElementById("enemy4cardback").style.setProperty("display", "none");
+        if(bust === false){
+            if(enemyscore > 21){
+                document.getElementById("youwon").style.setProperty("display", "inline-block");
+                win = true
+                enemybust = true
+            }
+            document.getElementById("enemy1cardback").style.setProperty("display", "none");
+            document.getElementById("enemy2cardback").style.setProperty("display", "none");
+            document.getElementById("enemy3cardback").style.setProperty("display", "none");
+            document.getElementById("enemy4cardback").style.setProperty("display", "none");
+            if(enemybust === false){
+                if(yourscore < enemyscore){
+                    document.getElementById("youlose").style.setProperty("display", "inline-block");
+                }
+                if(yourscore > enemyscore){
+                    document.getElementById("youwon").style.setProperty("display", "inline-block");
+                    win = true
+                }
+                if(yourscore === enemyscore){
+                    document.getElementById("youdraw").style.setProperty("display", "inline-block");
+                    win = true
+                }
+            }
+        }
+    }
+
+    setInterval(movefirstcard, 10)
+    var firstcardx = 920
+    var firstcardy = 225
+    var firstcardid = document.getElementById("firstcard")
+    function movefirstcard(){
+        if(beganplaying === true){
+            if(firstcardx > 540){
+                firstcardx = firstcardx - 10
+            }
+            if(firstcardy < 420){
+                firstcardy = firstcardy + 10
+            }
+            firstcardid.style.left = firstcardx + "px"
+            firstcardid.style.top = firstcardy + "px"
+        }
+    }
+    setInterval(moveenemyfirstcard, 10)
+    var enemyfirstcardx = 920
+    var enemyfirstcardy = 225
+    var enemyfirstcardid = document.getElementById("enemyfirstcard")
+    function moveenemyfirstcard(){
+        if(firstcardmoved === true){
+            if(enemyfirstcardx > 540){
+                enemyfirstcardx = enemyfirstcardx - 10
+            }
+            if(enemyfirstcardy > 30){
+                enemyfirstcardy = enemyfirstcardy - 10
+            }
+            enemyfirstcardid.style.left = enemyfirstcardx + "px"
+            enemyfirstcardid.style.top = enemyfirstcardy + "px"
+        }
+    }
+    setInterval(movesecondcard, 10)
+    var secondcardx = 920
+    var secondcardy = 225
+    var secondcardid = document.getElementById("secondcard")
+    function movesecondcard(){
+        if(secondcardmoved === true){
+            if(secondcardx > 700){
+                secondcardx = secondcardx - 10
+            }
+            if(secondcardy < 420){
+                secondcardy = secondcardy + 10
+            }
+            secondcardid.style.left = secondcardx + "px"
+            secondcardid.style.top = secondcardy + "px"
+        }
+    }
+    setInterval(moveenemysecondcard, 10)
+    var enemysecondcardx = 920
+    var enemysecondcardy = 225
+    var enemysecondcardid = document.getElementById("enemysecondcard")
+    function moveenemysecondcard(){
+        if(enemysecondcardmoved === true){
+            if(enemysecondcardx > 700){
+                enemysecondcardx = enemysecondcardx - 10
+            }
+            if(enemysecondcardy > 30){
+                enemysecondcardy = enemysecondcardy - 10
+            }
+            enemysecondcardid.style.left = enemysecondcardx + "px"
+            enemysecondcardid.style.top = enemysecondcardy + "px"
+        }
+    }
+    setInterval(movethirdcard, 10)
+    var thirdcardx = 920
+    var thirdcardy = 225
+    var thirdcardid = document.getElementById("thirdcard")
+    function movethirdcard(){
+        if(thridcardactive === true){
+            if(thirdcardx > 860){
+                thirdcardx = thirdcardx - 10
+            }
+            if(thirdcardy < 420){
+                thirdcardy = thirdcardy + 10
+            }
+            thirdcardid.style.left = thirdcardx + "px"
+            thirdcardid.style.top = thirdcardy + "px"
+        }
+    }
+    setInterval(movefourthcard, 10)
+    var fourthcardx = 920
+    var fourthcardy = 225
+    var fourthcardid = document.getElementById("fourthcard")
+    function movefourthcard(){
+        if(fourthcardactive === true){
+            if(fourthcardx < 1020){
+                fourthcardx = fourthcardx + 10
+            }
+            if(fourthcardy < 420){
+                fourthcardy = fourthcardy + 10
+            }
+            fourthcardid.style.left = fourthcardx + "px"
+            fourthcardid.style.top = fourthcardy + "px"
+        }
+    }
+    setInterval(movefifthcard, 10)
+    var fifthcardx = 920
+    var fifthcardy = 225
+    var fifthcardid = document.getElementById("fifthcard")
+    function movefifthcard(){
+        if(fifthcardactive === true){
+            if(fifthcardx < 1180){
+                fifthcardx = fifthcardx + 10
+            }
+            if(fifthcardy < 420){
+                fifthcardy = fifthcardy + 10
+            }
+            fifthcardid.style.left = fifthcardx + "px"
+            fifthcardid.style.top = fifthcardy + "px"
+        }
+    }
+    setInterval(moveenemythirdcard, 10)
+    var enemythirdcardx = 920
+    var enemythirdcardy = 225
+    var enemythirdcardid = document.getElementById("enemythirdcard")
+    function moveenemythirdcard(){
+        if(enemythirdcardmoved === true){
+            if(enemythirdcardx > 380){
+                enemythirdcardx = enemythirdcardx - 10
+            }
+            if(enemythirdcardy > 25){
+                enemythirdcardy = enemythirdcardy - 10
+            }
+            enemythirdcardid.style.left = enemythirdcardx + "px"
+            enemythirdcardid.style.top = enemythirdcardy + "px"
+        }
+    }
+    setInterval(moveenemyfourthcard, 10)
+    var enemyfourthcardx = 920
+    var enemyfourthcardy = 225
+    var enemyfourthcardid = document.getElementById("enemyfourthcard")
+    function moveenemyfourthcard(){
+        if(enemyfourthcardmoved === true){
+            if(enemyfourthcardx > 230){
+                enemyfourthcardx = enemyfourthcardx - 10
+            }
+            if(enemyfourthcardy > 25){
+                enemyfourthcardy = enemyfourthcardy - 10
+            }
+            enemyfourthcardid.style.left = enemyfourthcardx + "px"
+            enemyfourthcardid.style.top = enemyfourthcardy + "px"
+        }
+    }
+
+    setInterval(function () {
+    change()
+  }, 100) // 1000ms = 1 second 
+  var btn = document.getElementById('woncontinuebtton')
+  function change() {
+    var x = Math.floor(Math.random() * 256); // range is 0-255
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var thergb = "rgb(" + x + "," + y + "," + z + ")";
+    //console.log(thergb);
+    btn.style.backgroundColor = thergb;
+  }
+
+  window.onload = function() {
+    var reloading = sessionStorage.getItem("reloading");
+    if (reloading) {
+        sessionStorage.removeItem("reloading");
+        beginplaying();
+    }
+}
+
+function replay() {
+    sessionStorage.setItem("reloading", "true");
+    document.location.reload();
+}
+
+</script>

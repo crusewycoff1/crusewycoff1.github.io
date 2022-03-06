@@ -104,13 +104,13 @@
       height: 125px;
     }
 
-    #shinji {
-      left: 425px;
+    #glib {
+      left: 400px;
       top: 100px;
       display: none;
     }
 
-    #shinjiname {
+    #glibname {
       position: absolute;
       width: 125px;
       height: 10px;
@@ -120,7 +120,7 @@
       display: none;
     }
 
-    #shinjihealthbar {
+    #glibhealthbar {
       position: absolute;
       width: 125px;
       height: 10px;
@@ -131,13 +131,13 @@
       display: none;
     }
 
-    #shinjihealth {
+    #glibhealth {
       width: 100%;
       height: 10px;
       background-color: lawngreen;
     }
 
-    #shinjihealthnumeral {
+    #glibhealthnumeral {
       position: absolute;
       width: 20px;
       height: 20px;
@@ -147,13 +147,13 @@
       display: none;
     }
 
-    #kaworu {
-      left: 325px;
+    #blorp {
+      left: 300px;
       top: 300px;
       display: none;
     }
 
-    #kaworuname {
+    #blorpname {
       position: absolute;
       width: 125px;
       height: 10px;
@@ -163,7 +163,7 @@
       display: none;
     }
 
-    #kaworuhealthbar {
+    #blorphealthbar {
       position: absolute;
       width: 125px;
       height: 10px;
@@ -174,13 +174,13 @@
       display: none;
     }
 
-    #kaworuhealth {
+    #blorphealth {
       width: 100%;
       height: 10px;
       background-color: lawngreen;
     }
 
-    #kaworuhealthnumeral {
+    #blorphealthnumeral {
       position: absolute;
       width: 20px;
       height: 20px;
@@ -197,13 +197,13 @@
     }
 
     #enemy2 {
-      left: 925px;
+      left: 900px;
       top: 300px;
       display: none;
     }
 
     #enemy1 {
-      left: 825px;
+      left: 800px;
       top: 100px;
       display: none;
     }
@@ -338,31 +338,31 @@
       color: red;
     }
 
-    #shinjibattleid {
+    #glibbattleid {
       color: black;
     }
 
-    #shinjibattleid:hover {
+    #glibbattleid:hover {
       color: red;
     }
 
-    #kaworubattleid:hover {
+    #blorpbattleid:hover {
       color: red;
     }
 
-    .shinjiweapons {
+    .glibweapons {
       display: none;
     }
 
-    .shinjiweapons:hover {
+    .glibweapons:hover {
       color: red;
     }
 
-    .kaworuweapons {
+    .blorpweapons {
       display: none;
     }
 
-    .kaworuweapons:hover {
+    .blorpweapons:hover {
       color: red;
     }
 
@@ -407,7 +407,7 @@
       background-color: rgb(214, 87, 208);
       left: 525px;
       top: 135px;
-      background-image: url("thefront/shinjichair.png");
+      background-image: url("thefront/glibchair.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: 200px;
@@ -424,12 +424,12 @@
       background-color: green;
     }
 
-    #shinjimovable {
+    #glibmovable {
       height: 150px;
       position: absolute;
     }
 
-    #kaworumovable {
+    #blorpmovable {
       height: 150px;
       position: absolute;
     }
@@ -461,7 +461,7 @@
 <body>
   <div id="title"><br><br>
     <center>
-      <h1>The Reipacolypse</h1><br><br>
+      <h1>Glib's Adventure</h1><br><br>
       <h2><span id="start" onclick="startgame()">New Game</span></h2><br>
       <h2><span id="continue" onclick="savedcontinue()">Continue</span></h2>
     </center>
@@ -472,13 +472,13 @@
   <div id="openingtext1">
     <center>
       <h1>The activation of the Third Impact<br>ravaged the globe, destroying anything man-made<br>and killing all
-        living creatures.<br>The only things remaining were Shinji,<br>Asuka, Kaworu, and the Rei clones.<br></h1>
+        living creatures.<br>The only things remaining were glib,<br>Asuka, blorp, and the Rei clones.<br></h1>
     </center>
   </div>
   <div id="openingtext2">
     <center>
-      <h1>When the NRO (New Rei Order)<br>took charge of the world, Asuka<br>went missing leaving Shinji and
-        Kaworu<br>alone on the foever scarred Earth</h1>
+      <h1>When the NRO (New Rei Order)<br>took charge of the world, Asuka<br>went missing leaving glib and
+        blorp<br>alone on the foever scarred Earth</h1>
     </center>
   </div>
   <div id="openingtext3">
@@ -489,38 +489,37 @@
 
   <img id="openingsidearrow" onclick="nexttext()"
     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAflBMVEUAAAD////e3t7j4+Pb29umpqbw8PCXl5csLCz5+fkQEBAWFhZiYmKfn59aWlqcnJyRkZEICAiLi4vo6OhqamocHByGhoYUFBSAgIBTU1NCQkJKSkpxcXFoaGjt7e0+Pj7KysqwsLAlJSU1NTV4eHi+vr6tra03NzfU1NQuLi4uNX0gAAAEW0lEQVR4nO3di1LiQBAF0B5dIiiiqICC4vv1/z/oo2prWTNAJrk4t29yP8DKqe4wMZl0zIAZIv8YY+7CNPch7DZvIWgT98JXznIfxs4y2Q9Bmtj/CwzhNPex7CT98xCkie9FWM1B7uOBZ/4/UI+4+AlUI84HJaAWcRHxSRFHsQoqEdcCVYijtT4R4sUmoALxejMwhJPcR9gwW4HeiRWAvolPVYCeiRWBfomVWtQz8bI60OeiMU0BeqziWRrQHzEZ6I14mg70RTyoA/RErAn0QzypC/RCPK4P9LEu9poAPRAbAvmJL02B7EQAkJt4jwAyE0FAXiIMyEp8xgFJiUukkPIR6mx/+3EnhPFZ/wRLZKzikT6xBVWc7OkT9as4O99+3M6Jh/pVPMKei4zrIriKjETwukhJxDYq45Zb8LrIWMUWXIbPWlBFfSJ40WD8uQETL3N7IhljG5WRCF40WtCojMQWXN3M/kCJjOcieF1kJHaLRmqecnsiOWxBo7agithzkZKIXTQYiUf6xLF+o4IXjevcnkjG2EalJLagii0g6jcq+J8pRiL4Au4itycSMPEmtycWbKMyEsHXqIyNavrnInjRYBzM1AIi+D4q488N+Fk/YxXB6yIjEfzYhpGIvT010CeGUW5PJC0ggjdrMjYqeLMmZRWxxKvcnkj6+ufiA7SKA0pieZZbEyJjo2KryHkuQt+ZoqxiX79RH7HERW5PJLdQYtAnUjZqdD5mfSJjFUtDXPWIC/0qXiGFoWAkbpyTmZzBPLcnEiwxMBJvoELKRk2Y1OeVeA8l7uXmlINt0+Vrbk8pQyiw4ANeYRf9x9yeUrBXNQUfEHvxvbzN7Skl8nmBBin4gK/Y/y0IgdhzkA+IvVNT8F2RPmJvKPIBwbcT+YDYG/uEl9t97MMZPiD4uQUhEPsjQwjEtijfrWDsM2D5ChI+O5yoPznE7qchfIYPnmJDWEH17UJYIOHexAf1PW3gPcJ8LSq/zxs8LYNvrz74ZQTCCqq3KHjzM997T+DXEPiA8q9Ygjev81UQvA7yveoMPgf5gOB1kA8Inm9CCFQfpgR+NZYQKF9B9cF04DlRfEDwHAVCoHqLgi+2+aaYygPBywQfUH6WMPiuGiEQu0zwAeU/ySL/WR39D3l0wKTwtSh4LhvfVy3B/9F3wN8PFsj3zfXxmzjQsMCuRX8/XYsm5Tg3p5wO2AHJgXcdsAOupJebU4488LkDOgdaTx0IJXICgURWIIzICzR7UQdCiNxAQKOyAxsT+YENiR6AjYg+gGYndYEvuY+8cmoS/QDNDtSBtYi+gGan6sBkopdf0dVMU4CEN50q5FIdmED0CqxM9AusOKrT44/Mv1Qgeq7gV7YSvQPNLtSBW4YfKwDNhuvHBWoAP6u4jqgCXDtrXQe4ZrasEvCziuWxgVrASBXVgGa3A3Hgj8+sKALN5ktx4MogXcLNeKBMCukKfuV7FKsy8JuoDTR7J3zzxewDNM5eLLDiMr0AAAAASUVORK5CYII=">
-  <img id="shinji" class="ukraniansoldier" src="thefront/Shinjipix.png">
-  <div id="shinjiname">
-    <center>Shinji</center>
+  <img id="glib" class="ukraniansoldier" src="thefront/glib.gif">
+  <div id="glibname">
+    <center>Glib</center>
   </div>
-  <div id="shinjihealthbar">
-    <div id="shinjihealth"></div>
+  <div id="glibhealthbar">
+    <div id="glibhealth"></div>
   </div>
-  <div id="shinjihealthnumeral"></div>
-  <img id="kaworu" class="ukraniansoldier" src="thefront/Kaworupix.png">
-  <div id="kaworuname">
-    <center>Kaworu</center>
+  <div id="glibhealthnumeral"></div>
+  <img id="blorp" class="ukraniansoldier" src="thefront/blorp.gif">
+  <div id="blorpname">
+    <center>Blorp</center>
   </div>
-  <div id="kaworuhealthbar">
-    <div id="kaworuhealth"></div>
+  <div id="blorphealthbar">
+    <div id="blorphealth"></div>
   </div>
-  <div id="kaworuhealthnumeral"></div>
-  <img id="enemy1" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"><img id="enemy2"
-    class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png">
+  <div id="blorphealthnumeral"></div>
+  <img id="enemy1" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"><img id="enemy2" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png">
   <div id="battlebar">
-    <h2><span id="shinjibattleid" onclick="shinjibattleop()">ㅤㅤㅤShinji</span></h2>
-    <h2><span id="kaworubattleid" onclick="kaworubattleop()">ㅤㅤㅤKaworu</span></h2>
+    <h2><span id="glibbattleid" onclick="glibbattleop()">ㅤㅤㅤGlib</span></h2>
+    <h2><span id="blorpbattleid" onclick="blorpbattleop()">ㅤㅤㅤBlorp</span></h2>
 
-    <h2><span id="useak47" class="shinjiweapons" onclick="useak47()">ㅤㅤㅤPellet Rifle: 3-7 Damage</span><span
-        id="adefense" class="shinjiweapons" onclick="adefense()">ㅤㅤㅤ</span></h2>
-    <h2><span id="usegrenade" class="shinjiweapons" onclick="usegrenade()">ㅤㅤㅤGrenade: 2-3 Splash</span>
-      <br class="shinjiweapons"><strong><span id="backarrow" class="shinjiweapons"
-          onclick="shinjiback()">ㅤ❮</span></strong>
+    <h2><span id="useak47" class="glibweapons" onclick="useak47()">ㅤㅤㅤPellet Rifle: 3-7 Damage</span><span
+        id="adefense" class="glibweapons" onclick="adefense()">ㅤㅤㅤ</span></h2>
+    <h2><span id="usegrenade" class="glibweapons" onclick="usegrenade()">ㅤㅤㅤGrenade: 2-3 Splash</span>
+      <br class="glibweapons"><strong><span id="backarrow" class="glibweapons"
+          onclick="glibback()">ㅤ❮</span></strong>
     </h2>
 
-    <h2><span id="usefort17" class="kaworuweapons" onclick="usefort17()">ㅤㅤㅤPistol: 4-5 Damage</span></h2>
-    <h2><span id="usemachete" class="kaworuweapons" onclick="usemachete()">ㅤㅤㅤLight Knife: 2-3 Damage</span>
-      <br><strong><span id="backarrow" class="kaworuweapons" onclick="kaworuback()">ㅤ❮</span></strong>
+    <h2><span id="usefort17" class="blorpweapons" onclick="usefort17()">ㅤㅤㅤPistol: 4-5 Damage</span></h2>
+    <h2><span id="usemachete" class="blorpweapons" onclick="usemachete()">ㅤㅤㅤLight Knife: 2-3 Damage</span>
+      <br><strong><span id="backarrow" class="blorpweapons" onclick="blorpback()">ㅤ❮</span></strong>
     </h2>
   </div>
   <div id="topenemy" onclick="chosetopenemy()"></div>
@@ -534,9 +533,7 @@
   <div id="bottomenemy" onclick="chosebottomenemy()"></div>
   </div>
   <div id="bottomhealthnumeral"></div>
-  <div id="bottomenemyhealthbar">
-    <div id="bottomenemyhealth"></div>
-  </div>
+  <div id="bottomenemyhealthbar"><div id="bottomenemyhealth"></div></div>
   <div id="bottomenemyname"></div>
   <div id="attackbutton">
     <h2 onclick="beginoffensive()">ATTACK!</h2>
@@ -571,8 +568,8 @@
     <img id="shed" src="https://www.seekpng.com/png/full/103-1033067_shed-png-wooden-house-clipart-png.png">
     <img id="teleporter"
       src="https://www.pinclipart.com/picdir/big/334-3347322_teleportation-teleporter-clipart-png-download.png">
-    <img id="kaworumovable" src="thefront/Kaworupix.png">
-    <img id="shinjimovable" src="thefront/Shinjipix.png">
+    <img id="blorpmovable" src="thefront/blorppix.png">
+    <img id="glibmovable" src="thefront/glibpix.png">
     <div id="reidomizertext">
       <center>
         <h2>Enter the Reidomizer</h2><br>press space
@@ -753,28 +750,28 @@
     setTimeout(pressspace, 1000);
   }
   function firstcutscene2() {
-    var innertext = "Kaworu: Shinji, wake up we have company!"
+    var innertext = "blorp: glib, wake up we have company!"
     document.getElementById("textbox").style.setProperty("display", "inline-block");
     document.getElementById("innertext").innerHTML = innertext;
     cutscene2 = true
     setTimeout(pressspace, 1000);
   }
   function firstcutscene3() {
-    var innertext = "Shinji: Just five more minutes please"
+    var innertext = "glib: Just five more minutes please"
     document.getElementById("textbox").style.setProperty("display", "inline-block");
     document.getElementById("innertext").innerHTML = innertext;
     cutscene3 = true
     setTimeout(pressspace, 1000);
   }
   function firstcutscene4() {
-    var innertext = "Kaworu: SHINJI WE ARE BEING ATTACKED BY REI CLONES GET UP"
+    var innertext = "blorp: glib WE ARE BEING ATTACKED BY REI CLONES GET UP"
     document.getElementById("textbox").style.setProperty("display", "inline-block");
     document.getElementById("innertext").innerHTML = innertext;
     cutscene4 = true
     setTimeout(pressspace, 1000);
   }
   function firstcutscene5() {
-    var innertext = "Shinji: WELL WHY DIDNT YOU SAY SO ILL GRAB THE GUN"
+    var innertext = "glib: WELL WHY DIDNT YOU SAY SO ILL GRAB THE GUN"
     document.getElementById("textbox").style.setProperty("display", "inline-block");
     document.getElementById("innertext").innerHTML = innertext;
     cutscene5 = true
@@ -782,10 +779,10 @@
   }
 
   //First Battle
-  var shinjihealth = 25
-  var kaworuhealth = 25
-  var enemyname = ["Malformed Rei Clone", "Half-Breed Rei", "Soldier Rei"]
-  var enemyimage = ["thefront/malformedreipix.png", "https://www.nicepng.com/png/detail/948-9482550_nge-ayanami-rei-transparent-reblog-rei-ayanami.png", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
+  var glibhealth = 25
+  var blorphealth = 25
+  var enemyname = ["Knawknaw", "Half-Breed Rei", "Soldier Rei"]
+  var enemyimage = ["thefront/Crimfish.gif", "https://www.nicepng.com/png/detail/948-9482550_nge-ayanami-rei-transparent-reblog-rei-ayanami.png", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
   var enemyhealth = [20, 50, 75]
   var enemyattackrange = [2, 6, 10]
   var enemyattackaddition = [2, 4, 5]
@@ -800,8 +797,8 @@
     document.getElementById("textbox").style.setProperty("display", "none");
     document.getElementById("background").style.setProperty("display", "inline-block");
     document.getElementById("battlebar").style.setProperty("display", "inline-block");
-    document.getElementById("shinji").style.setProperty("display", "inline-block");
-    document.getElementById("kaworu").style.setProperty("display", "inline-block");
+    document.getElementById("glib").style.setProperty("display", "inline-block");
+    document.getElementById("blorp").style.setProperty("display", "inline-block");
     document.getElementById("enemy1").style.setProperty("display", "inline-block");
     document.getElementById("enemy2").style.setProperty("display", "inline-block");
     document.getElementById("topenemy").style.setProperty("display", "inline-block");
@@ -812,12 +809,12 @@
     document.getElementById("bottomenemyhealthbar").style.setProperty("display", "inline-block");
     document.getElementById("tophealthnumeral").style.setProperty("display", "inline-block");
     document.getElementById("bottomhealthnumeral").style.setProperty("display", "inline-block");
-    document.getElementById("shinjiname").style.setProperty("display", "inline-block");
-    document.getElementById("kaworuname").style.setProperty("display", "inline-block");
-    document.getElementById("shinjihealthbar").style.setProperty("display", "inline-block");
-    document.getElementById("kaworuhealthbar").style.setProperty("display", "inline-block");
-    document.getElementById("shinjihealthnumeral").style.setProperty("display", "inline-block");
-    document.getElementById("kaworuhealthnumeral").style.setProperty("display", "inline-block");
+    document.getElementById("glibname").style.setProperty("display", "inline-block");
+    document.getElementById("blorpname").style.setProperty("display", "inline-block");
+    document.getElementById("glibhealthbar").style.setProperty("display", "inline-block");
+    document.getElementById("blorphealthbar").style.setProperty("display", "inline-block");
+    document.getElementById("glibhealthnumeral").style.setProperty("display", "inline-block");
+    document.getElementById("blorphealthnumeral").style.setProperty("display", "inline-block");
     document.getElementById("enemy1").src = enemyimage[choosetopenemy]
     document.getElementById("enemy2").src = enemyimage[choosebottomenemy]
     document.getElementById("background").style.backgroundColor = "rgb(179, 179, 179)"
@@ -829,223 +826,223 @@
     document.getElementById("bottomenemyhealth").style.width = (bottomenemyhealth * enemyhealthbarmult[choosebottomenemy]) + "%"
     document.getElementById("tophealthnumeral").innerHTML = topenemyhealth;
     document.getElementById("bottomhealthnumeral").innerHTML = bottomenemyhealth;
-    document.getElementById("shinjihealthnumeral").innerHTML = shinjihealth;
-    document.getElementById("kaworuhealthnumeral").innerHTML = kaworuhealth;
+    document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
+    document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
     introover = true
     battleactive = true
   }
 
-  //shinji category
-  var shinjiweapons = document.getElementsByClassName('shinjiweapons')
-  var kaworuweapons = document.getElementsByClassName('kaworuweapons')
-  var pickedshinjiweapon = false
+  //glib category
+  var glibweapons = document.getElementsByClassName('glibweapons')
+  var blorpweapons = document.getElementsByClassName('blorpweapons')
+  var pickedglibweapon = false
   var antiweaponchoice = 0
 
   var pickedak47 = false
   var pickedgrenade = false
   var pickeddefense = false
 
-  var pickedkaworuweapon = false
-  var kaworuweaponchoice = 0
+  var pickedblorpweapon = false
+  var blorpweaponchoice = 0
 
   var pickedfort17 = false
   var pickedmachete = false
-  function shinjibattleop() {
-    if (pickedshinjiweapon === false) {
-      document.getElementById("shinjibattleid").style.setProperty("display", "none");
-      document.getElementById("kaworubattleid").style.setProperty("display", "none");
-      for (i = 0; i < shinjiweapons.length; i = i + 1) {
-        document.getElementsByClassName('shinjiweapons')[i].style.setProperty("display", "inline-block");
+  function glibbattleop() {
+    if (pickedglibweapon === false) {
+      document.getElementById("glibbattleid").style.setProperty("display", "none");
+      document.getElementById("blorpbattleid").style.setProperty("display", "none");
+      for (i = 0; i < glibweapons.length; i = i + 1) {
+        document.getElementsByClassName('glibweapons')[i].style.setProperty("display", "inline-block");
       }
     }
   }
-  function shinjiback() {
-    if (shinjidead === false) {
-      document.getElementById("shinjibattleid").style.setProperty("display", "inline-block");
+  function glibback() {
+    if (glibdead === false) {
+      document.getElementById("glibbattleid").style.setProperty("display", "inline-block");
     }
-    if (kaworudead === false) {
-      document.getElementById("kaworubattleid").style.setProperty("display", "inline-block");
+    if (blorpdead === false) {
+      document.getElementById("blorpbattleid").style.setProperty("display", "inline-block");
     }
-    for (i = 0; i < shinjiweapons.length; i = i + 1) {
-      document.getElementsByClassName('shinjiweapons')[i].style.setProperty("display", "none");
+    for (i = 0; i < glibweapons.length; i = i + 1) {
+      document.getElementsByClassName('glibweapons')[i].style.setProperty("display", "none");
     }
     document.getElementById("pickanenemy").style.setProperty("display", "none");
     attackappear();
   }
   function useak47() {
-    if (pickedshinjiweapon === false) {
+    if (pickedglibweapon === false) {
       document.getElementById("useak47").style.color = "red"
       document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
       document.getElementById("backarrow").style.setProperty("display", "none");
-      pickedshinjiweapon = true
+      pickedglibweapon = true
       pickedak47 = true
-      shinjiweapon = Math.round(Math.random() * 4 + 3)
+      glibweapon = Math.round(Math.random() * 4 + 3)
     }
   }
   function usegrenade() {
-    if (pickedshinjiweapon === false) {
+    if (pickedglibweapon === false) {
       document.getElementById("usegrenade").style.color = "red"
       document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
       document.getElementById("backarrow").style.setProperty("display", "none");
-      pickedshinjiweapon = true
+      pickedglibweapon = true
       pickedgrenade = true
-      shinjiweapon = Math.round(Math.random() * 1 + 2)
+      glibweapon = Math.round(Math.random() * 1 + 2)
     }
   }
   function adefense() {
-    if (pickedshinjiweapon === false) {
+    if (pickedglibweapon === false) {
       document.getElementById("adefense").style.color = "red"
       document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
       document.getElementById("backarrow").style.setProperty("display", "none");
-      pickedshinjiweapon = true
+      pickedglibweapon = true
       pickeddefense = true
     }
   }
 
-  //kaworu category
-  function kaworubattleop() {
-    if (pickedkaworuweapon === false) {
-      document.getElementById("shinjibattleid").style.setProperty("display", "none");
-      document.getElementById("kaworubattleid").style.setProperty("display", "none");
-      for (i = 0; i < kaworuweapons.length; i = i + 1) {
-        document.getElementsByClassName('kaworuweapons')[i].style.setProperty("display", "inline-block");
+  //blorp category
+  function blorpbattleop() {
+    if (pickedblorpweapon === false) {
+      document.getElementById("glibbattleid").style.setProperty("display", "none");
+      document.getElementById("blorpbattleid").style.setProperty("display", "none");
+      for (i = 0; i < blorpweapons.length; i = i + 1) {
+        document.getElementsByClassName('blorpweapons')[i].style.setProperty("display", "inline-block");
       }
     }
   }
-  function kaworuback() {
-    if (shinjidead === false) {
-      document.getElementById("shinjibattleid").style.setProperty("display", "inline-block");
+  function blorpback() {
+    if (glibdead === false) {
+      document.getElementById("glibbattleid").style.setProperty("display", "inline-block");
     }
-    if (shinjidead === false) {
-      document.getElementById("kaworubattleid").style.setProperty("display", "inline-block");
+    if (glibdead === false) {
+      document.getElementById("blorpbattleid").style.setProperty("display", "inline-block");
     }
-    for (i = 0; i < kaworuweapons.length; i = i + 1) {
-      document.getElementsByClassName('kaworuweapons')[i].style.setProperty("display", "none");
+    for (i = 0; i < blorpweapons.length; i = i + 1) {
+      document.getElementsByClassName('blorpweapons')[i].style.setProperty("display", "none");
     }
     document.getElementById("pickanenemy").style.setProperty("display", "none");
     attackappear();
   }
   function usefort17() {
-    if (pickedkaworuweapon === false) {
+    if (pickedblorpweapon === false) {
       document.getElementById("usefort17").style.color = "red"
       document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
-      document.getElementsByClassName('kaworuweapons')[2].style.setProperty("display", "none");
-      pickedkaworuweapon = true
+      document.getElementsByClassName('blorpweapons')[2].style.setProperty("display", "none");
+      pickedblorpweapon = true
       pickedfort17 = true
-      kaworuweaponchoice = Math.round(Math.random() * 1 + 4)
+      blorpweaponchoice = Math.round(Math.random() * 1 + 4)
     }
   }
   function usemachete() {
-    if (pickedkaworuweapon === false) {
+    if (pickedblorpweapon === false) {
       document.getElementById("usemachete").style.color = "red"
       document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
-      document.getElementsByClassName('kaworuweapons')[2].style.setProperty("display", "none");
-      pickedkaworuweapon = true
+      document.getElementsByClassName('blorpweapons')[2].style.setProperty("display", "none");
+      pickedblorpweapon = true
       pickedmachete = true
-      kaworuweaponchoice = Math.round(Math.random() * 1 + 2)
+      blorpweaponchoice = Math.round(Math.random() * 1 + 2)
     }
   }
   function attackappear() {
-    if (pickedkaworuweapon === true) {
-      if (pickedshinjiweapon === true) {
+    if (pickedblorpweapon === true) {
+      if (pickedglibweapon === true) {
         document.getElementById("attackbutton").style.setProperty("display", "inline-block");
       }
     }
-    if (shinjidead === true || kaworudead === true) {
+    if (glibdead === true || blorpdead === true) {
       document.getElementById("attackbutton").style.setProperty("display", "inline-block");
     }
   }
 
   //Choose The Enemy Function//
-  var shinjiattckenemy = false
-  var kaworuattckenemy = false
+  var glibattckenemy = false
+  var blorpattckenemy = false
   function chosetopenemy() {
-    if (pickedshinjiweapon === true) {
+    if (pickedglibweapon === true) {
       if (pickedak47 === true) {
-        if (shinjiattckenemy === false) {
-          shinjiback();
-          shinjiattckenemy = true
-          topenemyhealth = topenemyhealth - shinjiweapon
-          document.getElementById("shinjibattleid").style.color = "red"
+        if (glibattckenemy === false) {
+          glibback();
+          glibattckenemy = true
+          topenemyhealth = topenemyhealth - glibweapon
+          document.getElementById("glibbattleid").style.color = "red"
         }
       }
       if (pickedgrenade === true) {
-        if (shinjiattckenemy === false) {
-          shinjiback();
-          shinjiattckenemy = true
-          topenemyhealth = topenemyhealth - shinjiweapon
-          bottomenemyhealth = bottomenemyhealth - shinjiweapon
-          document.getElementById("shinjibattleid").style.color = "red"
+        if (glibattckenemy === false) {
+          glibback();
+          glibattckenemy = true
+          topenemyhealth = topenemyhealth - glibweapon
+          bottomenemyhealth = bottomenemyhealth - glibweapon
+          document.getElementById("glibbattleid").style.color = "red"
         }
       }
       if (pickeddefense === true) {
-        if (shinjiattckenemy === false) {
-          shinjiback();
-          shinjiattckenemy = true
-          document.getElementById("shinjibattleid").style.color = "red"
+        if (glibattckenemy === false) {
+          glibback();
+          glibattckenemy = true
+          document.getElementById("glibbattleid").style.color = "red"
         }
       }
     }
-    if (pickedkaworuweapon === true) {
+    if (pickedblorpweapon === true) {
       if (pickedfort17 === true) {
-        if (kaworuattckenemy === false) {
-          kaworuback();
-          kaworuattckenemy = true
-          topenemyhealth = topenemyhealth - kaworuweaponchoice
-          document.getElementById("kaworubattleid").style.color = "red"
+        if (blorpattckenemy === false) {
+          blorpback();
+          blorpattckenemy = true
+          topenemyhealth = topenemyhealth - blorpweaponchoice
+          document.getElementById("blorpbattleid").style.color = "red"
         }
       }
       if (pickedmachete === true) {
-        if (kaworuattckenemy === false) {
-          kaworuback();
-          kaworuattckenemy = true
-          topenemyhealth = topenemyhealth - kaworuweaponchoice
-          document.getElementById("kaworubattleid").style.color = "red"
+        if (blorpattckenemy === false) {
+          blorpback();
+          blorpattckenemy = true
+          topenemyhealth = topenemyhealth - blorpweaponchoice
+          document.getElementById("blorpbattleid").style.color = "red"
         }
       }
     }
   }
   function chosebottomenemy() {
-    if (pickedshinjiweapon === true) {
+    if (pickedglibweapon === true) {
       if (pickedak47 === true) {
-        if (shinjiattckenemy === false) {
-          shinjiback();
-          shinjiattckenemy = true
-          bottomenemyhealth = bottomenemyhealth - shinjiweapon
-          document.getElementById("shinjibattleid").style.color = "red"
+        if (glibattckenemy === false) {
+          glibback();
+          glibattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - glibweapon
+          document.getElementById("glibbattleid").style.color = "red"
         }
       }
       if (pickedgrenade === true) {
-        if (shinjiattckenemy === false) {
-          shinjiback();
-          shinjiattckenemy = true
-          bottomenemyhealth = bottomenemyhealth - shinjiweapon
-          document.getElementById("shinjibattleid").style.color = "red"
+        if (glibattckenemy === false) {
+          glibback();
+          glibattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - glibweapon
+          document.getElementById("glibbattleid").style.color = "red"
         }
       }
       if (pickeddefense === true) {
-        if (shinjiattckenemy === true) {
-          shinjiback();
-          shinjiattckenemy = true
-          document.getElementById("shinjibattleid").style.color = "red"
+        if (glibattckenemy === true) {
+          glibback();
+          glibattckenemy = true
+          document.getElementById("glibbattleid").style.color = "red"
         }
       }
     }
-    if (pickedkaworuweapon === true) {
+    if (pickedblorpweapon === true) {
       if (pickedfort17 === true) {
-        if (kaworuattckenemy === false) {
-          kaworuback();
-          kaworuattckenemy = true
-          bottomenemyhealth = bottomenemyhealth - kaworuweaponchoice
-          document.getElementById("kaworubattleid").style.color = "red"
+        if (blorpattckenemy === false) {
+          blorpback();
+          blorpattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - blorpweaponchoice
+          document.getElementById("blorpbattleid").style.color = "red"
         }
       }
       if (pickedmachete === true) {
-        if (kaworuattckenemy === false) {
-          kaworuback();
-          kaworuattckenemy = true
-          bottomenemyhealth = bottomenemyhealth - kaworuweaponchoice
-          document.getElementById("kaworubattleid").style.color = "red"
+        if (blorpattckenemy === false) {
+          blorpback();
+          blorpattckenemy = true
+          bottomenemyhealth = bottomenemyhealth - blorpweaponchoice
+          document.getElementById("blorpbattleid").style.color = "red"
         }
       }
     }
@@ -1089,8 +1086,8 @@
       document.getElementById("bottomenemyhealth").style.width = (bottomenemyhealth * enemyhealthbarmult[choosebottomenemy]) + "%"
     }
     document.getElementById("attackbutton").style.setProperty("display", "none");
-    document.getElementById("shinjibattleid").style.setProperty("display", "none");
-    document.getElementById("kaworubattleid").style.setProperty("display", "none");
+    document.getElementById("glibbattleid").style.setProperty("display", "none");
+    document.getElementById("blorpbattleid").style.setProperty("display", "none");
     if (topdead === false) {
       setTimeout(topenemyattacks, 1000);
     }
@@ -1100,55 +1097,55 @@
       }
     }
   }
-  var shinjidead = false
-  var kaworudead = false
+  var glibdead = false
+  var blorpdead = false
   function topenemyattacks() {
     var pickcharacter = Math.round(Math.random() * 100)
     if (pickcharacter % 2 === 0) {
       if (pickeddefense === false) {
         var enemydamage = (Math.round(Math.random() * enemyattackrange[choosetopenemy] + enemyattackaddition[choosetopenemy]))
-        shinjihealth = shinjihealth - enemydamage
-        document.getElementById("shinjihealth").style.width = (shinjihealth * 4) + "%"
-        document.getElementById("shinjihealthnumeral").innerHTML = shinjihealth;
+        glibhealth = glibhealth - enemydamage
+        document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
+        document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
         document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
-        document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to Shinji";
+        document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to glib";
       }
     }
     if (pickcharacter % 2 !== 0) {
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosetopenemy] + enemyattackaddition[choosetopenemy]))
-      kaworuhealth = kaworuhealth - enemydamage
-      document.getElementById("kaworuhealthnumeral").innerHTML = kaworuhealth;
-      document.getElementById("kaworuhealth").style.width = (kaworuhealth * 4) + "%"
+      blorphealth = blorphealth - enemydamage
+      document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
+      document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
       document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
-      document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to Kaworu";
+      document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to blorp";
     }
-    if (shinjihealth <= 0) {
-      if (shinjidead === true) {
+    if (glibhealth <= 0) {
+      if (glibdead === true) {
         document.getElementById("bottomenemyattack").innerHTML = "nothing...";
-        document.getElementById("shinjihealthnumeral").innerHTML = 0
+        document.getElementById("glibhealthnumeral").innerHTML = 0
       }
-      if (shinjidead === false) {
-        document.getElementById("shinji").style.setProperty("display", "none");
-        document.getElementById("shinjihealthnumeral").innerHTML = 0
-        document.getElementById("shinjihealth").style.width = 0 + "%"
-        document.getElementById("topenemyattack").innerHTML = "knock Shinji out";
-        shinjidead = true
+      if (glibdead === false) {
+        document.getElementById("glib").style.setProperty("display", "none");
+        document.getElementById("glibhealthnumeral").innerHTML = 0
+        document.getElementById("glibhealth").style.width = 0 + "%"
+        document.getElementById("topenemyattack").innerHTML = "knock glib out";
+        glibdead = true
       }
     }
-    else if (kaworuhealth <= 0) {
-      if (kaworudead === true) {
+    else if (blorphealth <= 0) {
+      if (blorpdead === true) {
         document.getElementById("topenemyattack").innerHTML = "nothing...";
-        document.getElementById("kaworuhealthnumeral").innerHTML = 0
+        document.getElementById("blorphealthnumeral").innerHTML = 0
       }
-      if (kaworudead === false) {
-        document.getElementById("kaworu").style.setProperty("display", "none");
-        document.getElementById("kaworuhealthnumeral").innerHTML = 0
-        document.getElementById("kaworuhealth").style.width = 0 + "%"
-        document.getElementById("topenemyattack").innerHTML = "Knock Kaworu out";
-        kaworudead = true
+      if (blorpdead === false) {
+        document.getElementById("blorp").style.setProperty("display", "none");
+        document.getElementById("blorphealthnumeral").innerHTML = 0
+        document.getElementById("blorphealth").style.width = 0 + "%"
+        document.getElementById("topenemyattack").innerHTML = "Knock blorp out";
+        blorpdead = true
       }
     }
-    if (shinjidead === true && kaworudead === true) {
+    if (glibdead === true && blorpdead === true) {
       return document.getElementById("losebattle").style.setProperty("display", "inline-block");
     }
     if (bottomdead === false) {
@@ -1162,77 +1159,77 @@
     var pickcharacter = Math.round(Math.random() * 100)
     if (pickcharacter % 2 === 0) {
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
-      shinjihealth = shinjihealth - enemydamage
-      document.getElementById("shinjihealth").style.width = (shinjihealth * 4) + "%"
-      document.getElementById("shinjihealthnumeral").innerHTML = shinjihealth;
+      glibhealth = glibhealth - enemydamage
+      document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
+      document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
       document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
-      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to Shinji";
+      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to glib";
     }
     if (pickcharacter % 2 !== 0) {
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
-      kaworuhealth = kaworuhealth - enemydamage
-      document.getElementById("kaworuhealthnumeral").innerHTML = kaworuhealth;
-      document.getElementById("kaworuhealth").style.width = (kaworuhealth * 4) + "%"
+      blorphealth = blorphealth - enemydamage
+      document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
+      document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
       document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
-      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to Kaworu";
+      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to blorp";
     }
-    else if (shinjihealth <= 0) {
-      if (shinjidead === true) {
+    else if (glibhealth <= 0) {
+      if (glibdead === true) {
         document.getElementById("bottomenemyattack").innerHTML = "nothing...";
-        document.getElementById("shinjihealthnumeral").innerHTML = 0
+        document.getElementById("glibhealthnumeral").innerHTML = 0
       }
-      if (shinjidead === false) {
-        document.getElementById("shinji").style.setProperty("display", "none");
-        document.getElementById("shinjihealthnumeral").innerHTML = 0
-        document.getElementById("shinjihealth").style.width = 0 + "%"
-        document.getElementById("bottomenemyattack").innerHTML = "knock Shinji out";
-        shinjidead = true
+      if (glibdead === false) {
+        document.getElementById("glib").style.setProperty("display", "none");
+        document.getElementById("glibhealthnumeral").innerHTML = 0
+        document.getElementById("glibhealth").style.width = 0 + "%"
+        document.getElementById("bottomenemyattack").innerHTML = "knock glib out";
+        glibdead = true
       }
     }
-    else if (kaworuhealth <= 0) {
-      if (kaworudead === true) {
+    else if (blorphealth <= 0) {
+      if (blorpdead === true) {
         document.getElementById("bottomenemyattack").innerHTML = "nothing...";
-        document.getElementById("kaworuhealthnumeral").innerHTML = 0
+        document.getElementById("blorphealthnumeral").innerHTML = 0
       }
-      if (kaworudead === false) {
-        document.getElementById("kaworu").style.setProperty("display", "none");
-        document.getElementById("kaworuhealthnumeral").innerHTML = 0
-        document.getElementById("kaworuhealth").style.width = 0 + "%"
-        document.getElementById("bottomenemyattack").innerHTML = "knock Kaworu out";
-        kaworudead = true
+      if (blorpdead === false) {
+        document.getElementById("blorp").style.setProperty("display", "none");
+        document.getElementById("blorphealthnumeral").innerHTML = 0
+        document.getElementById("blorphealth").style.width = 0 + "%"
+        document.getElementById("bottomenemyattack").innerHTML = "knock blorp out";
+        blorpdead = true
       }
     }
-    if (shinjidead === true && kaworudead === true) {
+    if (glibdead === true && blorpdead === true) {
       return document.getElementById("losebattle").style.setProperty("display", "inline-block");
     }
     setTimeout(refreshcycle, 3000);
   }
   function refreshcycle() {
-    if (shinjidead === false) {
-      document.getElementById("shinjibattleid").style.setProperty("display", "inline-block");
+    if (glibdead === false) {
+      document.getElementById("glibbattleid").style.setProperty("display", "inline-block");
     }
-    if (kaworudead === false) {
-      document.getElementById("kaworubattleid").style.setProperty("display", "inline-block");
+    if (blorpdead === false) {
+      document.getElementById("blorpbattleid").style.setProperty("display", "inline-block");
     }
     document.getElementById("bottomenemyattackdiv").style.setProperty("display", "none");
-    document.getElementById("shinjibattleid").style.color = "black"
-    document.getElementById("kaworubattleid").style.color = "black"
+    document.getElementById("glibbattleid").style.color = "black"
+    document.getElementById("blorpbattleid").style.color = "black"
     document.getElementById("useak47").style.color = "black"
     document.getElementById("usegrenade").style.color = "black"
     document.getElementById("adefense").style.color = "black"
     document.getElementById("usefort17").style.color = "black"
     document.getElementById("usemachete").style.color = "black"
-    shinjiattckenemy = false
-    kaworuattckenemy = false
-    pickedshinjiweapon = false
+    glibattckenemy = false
+    blorpattckenemy = false
+    pickedglibweapon = false
     antiweaponchoice = 0
     pickedak47 = false
     pickedgrenade = false
     pickeddefense = false
-    pickedkaworuweapon = false
-    kaworuweaponchoice = 0
+    pickedblorpweapon = false
+    blorpweaponchoice = 0
     pickedfort17 = false
     pickedmachete = false
   }
@@ -1242,8 +1239,8 @@
     document.getElementById("background").style.setProperty("display", "none");
     document.getElementById("wonbattle").style.setProperty("display", "none");
     document.getElementById("losebattle").style.setProperty("display", "none");
-    document.getElementById("shinji").style.setProperty("display", "none");
-    document.getElementById("kaworu").style.setProperty("display", "none");
+    document.getElementById("glib").style.setProperty("display", "none");
+    document.getElementById("blorp").style.setProperty("display", "none");
     document.getElementById("enemy1").style.setProperty("display", "none");
     document.getElementById("enemy2").style.setProperty("display", "none");
     document.getElementById("topenemy").style.setProperty("display", "none");
@@ -1256,26 +1253,26 @@
     document.getElementById("bottomhealthnumeral").style.setProperty("display", "none");
     document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
     document.getElementById("bottomenemyattackdiv").style.setProperty("display", "none");
-    document.getElementById("shinjiname").style.setProperty("display", "none");
-    document.getElementById("kaworuname").style.setProperty("display", "none");
-    document.getElementById("shinjihealthbar").style.setProperty("display", "none");
-    document.getElementById("kaworuhealthbar").style.setProperty("display", "none");
-    document.getElementById("shinjihealthnumeral").style.setProperty("display", "none");
-    document.getElementById("kaworuhealthnumeral").style.setProperty("display", "none");
+    document.getElementById("glibname").style.setProperty("display", "none");
+    document.getElementById("blorpname").style.setProperty("display", "none");
+    document.getElementById("glibhealthbar").style.setProperty("display", "none");
+    document.getElementById("blorphealthbar").style.setProperty("display", "none");
+    document.getElementById("glibhealthnumeral").style.setProperty("display", "none");
+    document.getElementById("blorphealthnumeral").style.setProperty("display", "none");
     battleactive = false
   }
 
-  var shinjimoving = document.getElementById("shinjimovable")
-  var kaworumoving = document.getElementById("kaworumovable")
+  var glibmoving = document.getElementById("glibmovable")
+  var blorpmoving = document.getElementById("blorpmovable")
   var walkingonce = false
-  var kaworux = 0
-  var kaworuy = 0
+  var blorpx = 0
+  var blorpy = 0
   var x = 400
   var y = 225
-  shinjimoving.style.left = x + "px"
-  shinjimoving.style.top = y + "px"
-  kaworumoving.style.left = (x - kaworux) + "px"
-  kaworumoving.style.top = (y - kaworuy) + "px"
+  glibmoving.style.left = x + "px"
+  glibmoving.style.top = y + "px"
+  blorpmoving.style.left = (x - blorpx) + "px"
+  blorpmoving.style.top = (y - blorpy) + "px"
   var moveright = false
   var moveleft = false
   var moveup = false
@@ -1284,29 +1281,29 @@
   document.addEventListener("keydown", function (event) {
     if (battleactive === false) {
       if (walkingonce === false) {
-        shinjimoving.src = "thefront/shinjiwalking.gif"
+        glibmoving.src = "thefront/glibwalking.gif"
         walkingonce = true
       }
       if (event.which === 39) {
-        shinjimoving.style.transform = "scaleX(1)"
+        glibmoving.style.transform = "scaleX(1)"
         moveright = true
-        kaworux = 100
+        blorpx = 100
       }
       if (event.which === 37) {
-        shinjimoving.style.transform = "scaleX(-1)"
+        glibmoving.style.transform = "scaleX(-1)"
         moveleft = true
-        kaworux = -100
+        blorpx = -100
       }
       if (event.which === 38) {
         if (moveup === false) {
-          shinjimoving.src = "thefront/shinjiwalkingup.gif"
+          glibmoving.src = "thefront/glibwalkingup.gif"
         }
         moveup = true
-        kaworuy = -100
+        blorpy = -100
       }
       if (event.which === 40) {
         movedown = true
-        kaworuy = 100
+        blorpy = 100
       }
       if (event.which === 32) {
         if (firstbattlewon === true) {
@@ -1316,31 +1313,31 @@
         }
       }
     }
-    shinjimoving.style.left = x + "px"
-    shinjimoving.style.top = y + "px"
+    glibmoving.style.left = x + "px"
+    glibmoving.style.top = y + "px"
   }, false);
 
   document.addEventListener("keyup", function (event) {
     walkingonce = false
     if (event.which === 37 || event.which === 39) {
-      shinjimoving.src = "thefront/Shinjipix.png"
+      glibmoving.src = "thefront/glibpix.png"
     }
     if (event.which === 39) {
       moveright = false
-      kaworux = 0
+      blorpx = 0
     }
     if (event.which === 37) {
       moveleft = false
-      kaworux = 0
+      blorpx = 0
     }
     if (event.which === 38) {
       moveup = false
-      shinjimoving.src = "thefront/shinjibackpix.png"
-      kaworuy = 0
+      glibmoving.src = "thefront/glibbackpix.png"
+      blorpy = 0
     }
     if (event.which === 40) {
       movedown = false
-      kaworuy = 0
+      blorpy = 0
     }
   })
 
@@ -1365,8 +1362,8 @@
         y = y + 1
       }
     }
-    shinjimoving.style.left = x + "px"
-    shinjimoving.style.top = y + "px"
+    glibmoving.style.left = x + "px"
+    glibmoving.style.top = y + "px"
     document.getElementById("x").innerHTML = x;
     document.getElementById("y").innerHTML = y;
   }, 1) // 1000ms = 1 second
