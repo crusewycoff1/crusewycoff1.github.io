@@ -17,7 +17,7 @@
               width: 125px;
               height: 180px;
               border-style: solid;
-              background-image: url("https://opengameart.org/sites/default/files/card%20back%20red.png");
+              background-image: url("Unused stuff/cardback.png");
               background-repeat: no-repeat;
               background-position: center;
               background-size: cover;
@@ -444,10 +444,10 @@
         </center>
     </div>
     <div id="rulesbox">1. You are trying to get your score to 21.<br><br> 2. Each numbercard is worth the amount on the card, face cards are worth 10, and Aces are worth either 1 or 11(you get to pick).<br><br>3.When you click hit me, you get another card that will add to your score, but you dont want to go over 21 or else you lose<br><br>4. By clicking hold, your turn is over and your score is final.<br><br> 5. You want your score to be higher than your opponent, so try to get as close as you can to 21</div>
-    <div id="enemyfirstcard"><img id="enemy1cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemyfirstcardnumber"></span></h1></center></div>
-    <div id="enemysecondcard"><img id="enemy2cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemysecondcardnumber"></span></h1></center></div>
-    <div id="enemythirdcard"><img id="enemy3cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemythirdcardnumber"></span></h1></center></div>
-    <div id="enemyfourthcard"><img id="enemy4cardback" src="https://opengameart.org/sites/default/files/card%20back%20red.png"><br><br><center><h1><span id="enemyfourthcardnumber"></span></h1></center></div>
+    <div id="enemyfirstcard"><img id="enemy1cardback" src="Unused stuff/cardback.png"><br><br><center><h1><span id="enemyfirstcardnumber"></span></h1></center></div>
+    <div id="enemysecondcard"><img id="enemy2cardback" src="Unused stuff/cardback.png"><br><br><center><h1><span id="enemysecondcardnumber"></span></h1></center></div>
+    <div id="enemythirdcard"><img id="enemy3cardback" src="Unused stuff/cardback.png"><br><br><center><h1><span id="enemythirdcardnumber"></span></h1></center></div>
+    <div id="enemyfourthcard"><img id="enemy4cardback" src="Unused stuff/cardback.png"><br><br><center><h1><span id="enemyfourthcardnumber"></span></h1></center></div>
     <div id="carddeck"></div>
     <div id="firstcard"><br><br><center><h1><span id="firstcardnumber"></span></h1><div id="firstace1" onclick="addone()"><strong>1</strong></div><span id="or1"> or </span><div id="firstace11" onclick="addeleven()"><strong>11</strong></div></center></div>
     <div id="secondcard"><br><br><center><h1><span id="secondcardnumber"></span></h1><div id="secondace1" onclick="addone()"><strong>1</strong></div><span id="or2"> or </span><div id="secondace11" onclick="addeleven()"><strong>11</strong></div></center></div>
@@ -997,7 +997,7 @@
     var enemythirdcardmoved = false
     var enemyfourthcardmoved = false
     function enemydrawthird(){
-        if(enemyscore < 15){
+        if(enemyscore < 16){
             document.getElementById("enemythirdcard").style.setProperty("display", "inline-block");
             if(deckofcards[7] === 0){
                 document.getElementById("enemythirdcardnumber").innerHTML = "2"
@@ -1059,7 +1059,7 @@
         }
     }
     function enemydrawfourth(){
-        if(enemyscore < 15){
+        if(enemyscore < 16){
             document.getElementById("enemyfourthcard").style.setProperty("display", "inline-block");
             if(deckofcards[8] === 0){
                 document.getElementById("enemyfourthcardnumber").innerHTML = "2"
