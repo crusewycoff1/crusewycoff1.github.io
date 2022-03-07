@@ -568,8 +568,8 @@
     <img id="shed" src="https://www.seekpng.com/png/full/103-1033067_shed-png-wooden-house-clipart-png.png">
     <img id="teleporter"
       src="https://www.pinclipart.com/picdir/big/334-3347322_teleportation-teleporter-clipart-png-download.png">
-    <img id="blorpmovable" src="thefront/blorppix.png">
-    <img id="glibmovable" src="thefront/glibpix.png">
+    <img id="blorpmovable" src="thefront/blorp.gif">
+    <img id="glibmovable" src="thefront/glib.gif">
     <div id="reidomizertext">
       <center>
         <h2>Enter the Reidomizer</h2><br>press space
@@ -781,12 +781,12 @@
   //First Battle
   var glibhealth = 25
   var blorphealth = 25
-  var enemyname = ["Knawknaw", "Half-Breed Rei", "Soldier Rei"]
-  var enemyimage = ["thefront/Crimfish.gif", "https://www.nicepng.com/png/detail/948-9482550_nge-ayanami-rei-transparent-reblog-rei-ayanami.png", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
-  var enemyhealth = [20, 50, 75]
-  var enemyattackrange = [2, 6, 10]
-  var enemyattackaddition = [2, 4, 5]
-  var enemyhealthbarmult = [5, 2, 4 / 3]
+  var enemyname = ["Knawknaw", "Mushman", "AHHHHHHHHHHHHHHHHH", "BubbaFly", "Soldier Rei"]
+  var enemyimage = ["thefront/Crimfish.gif", "thefront/mushboy.gif", "thefront/chilipeppa.gif", "thefront/bubbafly.gif", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
+  var enemyhealth = [20, 50, 75, 100, 150]
+  var enemyattackrange = [2, 6, 10, 18, 22]
+  var enemyattackaddition = [2, 4, 5, 9, 12]
+  var enemyhealthbarmult = [5, 2, 4 / 3, 1, 2/3]
   var topenemyhealth = 0
   var bottomenemyhealth = 0
   var choosetopenemy = 0
@@ -876,7 +876,7 @@
       document.getElementById("backarrow").style.setProperty("display", "none");
       pickedglibweapon = true
       pickedak47 = true
-      glibweapon = Math.round(Math.random() * 4 + 3)
+      glibweapon = Math.round(Math.random() * 4 + 1000)
     }
   }
   function usegrenade() {
@@ -1008,7 +1008,7 @@
         if (glibattckenemy === false) {
           glibback();
           glibattckenemy = true
-          bottomenemyhealth = bottomenemyhealth - glibweapon
+          bottomenemyhealth = bottomenemyhealth - glibweapon 
           document.getElementById("glibbattleid").style.color = "red"
         }
       }
@@ -1281,22 +1281,22 @@
   document.addEventListener("keydown", function (event) {
     if (battleactive === false) {
       if (walkingonce === false) {
-        glibmoving.src = "thefront/glibwalking.gif"
+        glibmoving.src = "thefront/glib.gif"
         walkingonce = true
       }
       if (event.which === 39) {
-        glibmoving.style.transform = "scaleX(1)"
+        glibmoving.style.transform = "scaleX(-1)"
         moveright = true
         blorpx = 100
       }
       if (event.which === 37) {
-        glibmoving.style.transform = "scaleX(-1)"
+        glibmoving.style.transform = "scaleX(1)"
         moveleft = true
         blorpx = -100
       }
       if (event.which === 38) {
         if (moveup === false) {
-          glibmoving.src = "thefront/glibwalkingup.gif"
+          glibmoving.src = "thefront/glib.gif"
         }
         moveup = true
         blorpy = -100
@@ -1320,7 +1320,7 @@
   document.addEventListener("keyup", function (event) {
     walkingonce = false
     if (event.which === 37 || event.which === 39) {
-      glibmoving.src = "thefront/glibpix.png"
+      glibmoving.src = "thefront/glib.gif"
     }
     if (event.which === 39) {
       moveright = false
@@ -1332,7 +1332,7 @@
     }
     if (event.which === 38) {
       moveup = false
-      glibmoving.src = "thefront/glibbackpix.png"
+      glibmoving.src = "thefront/glib.gif"
       blorpy = 0
     }
     if (event.which === 40) {
@@ -1369,8 +1369,8 @@
   }, 1) // 1000ms = 1 second
 
   function testchamber() {
-    choosetopenemy = Math.round(Math.random() * 2)
-    choosebottomenemy = Math.round(Math.random() * 2)
+    choosetopenemy = Math.round(Math.random() * 5)
+    choosebottomenemy = Math.round(Math.random() * 5)
     topdead = false
     bottomdead = false
     beginbattle();
