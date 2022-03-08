@@ -4,6 +4,12 @@
 <head>
   <title>Reipocalypse</title>
   <style>
+    body{
+      -webkit-user-select: none; /* Safari */        
+      -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* IE10+/Edge */
+      user-select: none; /* Standard */
+    }
     #title {
       background-image: url(Images/thirdimpact2.jpeg);
       background-repeat: no-repeat;
@@ -414,16 +420,36 @@
       display: none;
     }
 
-    #moveablearea {
+    #moveablearea1bk{
+      position: absolute;
+      z-index: -1;
+      width: 900px;
+      height: 315px;
+      left: 225px;
+      background-position: center;
+      background-repeat: no-repeat; 
+      background-size: cover;
+      background-image: url("https://cdn.abcotvs.com/dip/images/24996_kgo-windows-bliss-040714-1280.jpg?w=1600");
+    }
+    #moveablearea1 {
       position: absolute;
       width: 900px;
-      height: 600px;
-      top: 10px;
+      height: 400px;
+      top: 210px;
       left: 225px;
       z-index: -1;
       background-color: green;
     }
-
+    #moveablearea2 {
+      position: absolute;
+      width: 900px;
+      height: 400px;
+      top: 210px;
+      left: 225px;
+      z-index: -1;
+      background-color: green;
+      display: none;
+    }
     #glibmovable {
       height: 150px;
       position: absolute;
@@ -436,7 +462,7 @@
 
     #shed {
       position: absolute;
-      top: 10px;
+      top: -50px;
       left: 10px;
       height: 175px;
     }
@@ -445,7 +471,7 @@
       position: absolute;
       height: 175px;
       left: 750px;
-      top: 10px;
+      top: -50px;
     }
 
     #reidomizertext {
@@ -454,6 +480,90 @@
       bottom: 10px;
       color: white;
       display: none;
+    }
+    #teleportertext {
+      position: absolute;
+      left: 350px;
+      bottom: 10px;
+      color: white;
+      display: none;
+    }
+    #blorptextbox {
+      height: 200px;
+      width: 700px;
+      border-style: groove;
+      z-index: 1;
+      position: absolute;
+      background-color: white;
+      left: 100px;
+      top: 185px;
+      display: none;
+    }
+    #blorptext {
+      position: absolute;
+      left: 350px;
+      bottom: 10px;
+      color: white;
+      display: none;
+    }
+    #teleportermenu{
+      background-image: url("http://i.imgur.com/C8faqat.jpg");
+      position: absolute;
+      width: 600px;
+      height: 400px;
+      z-index: 10;
+      left: 375px;
+      top: 100px;
+      color: white;
+      display: none;
+    }
+    #exittelemenu{
+      width: 35px;
+      height: 35px;
+      position: absolute;
+      top: 0px;
+      left: 550px;
+    }
+    #world1{
+      position: absolute;
+      z-index: 100;
+      left: 80px;
+      top: 50px;
+    }
+    #world2{
+      position: absolute;
+      left: 200px;
+      top: 50px;
+    }
+    #world3{
+      position: absolute;
+      left: 320px;
+      top: 50px;
+    }
+    #world4{
+      position: absolute;
+      left: 440px;
+      top: 50px;
+    }
+    #world5{
+      position: absolute;
+      left: 80px;
+      top: 150px;
+    }
+    #world6{
+      position: absolute;
+      left: 200px;
+      top: 150px;
+    }
+    #world7{
+      position: absolute;
+      left: 320px;
+      top: 150px;
+    }
+    #world8{
+      position: absolute;
+      left: 440px;
+      top: 150px;
     }
   </style>
 </head>
@@ -563,8 +673,8 @@
   <div id="textbox">
     <h2><span id="innertext"></span></h2><br><br><br><span id="presscontinue">Press Space to Continue</span>
   </div>
-
-  <div id="moveablearea">
+  <div id="moveablearea1bk"></div>
+  <div id="moveablearea1">
     <img id="shed" src="https://www.seekpng.com/png/full/103-1033067_shed-png-wooden-house-clipart-png.png">
     <img id="teleporter"
       src="https://www.pinclipart.com/picdir/big/334-3347322_teleportation-teleporter-clipart-png-download.png">
@@ -575,6 +685,32 @@
         <h2>Enter the Reidomizer</h2><br>press space
       </center>
     </div>
+    <div id="teleportertext">
+      <center>
+        <h2>Enter the teleporter</h2><br>press space
+      </center>
+    </div>
+    <div id="blorptext">
+      <center>
+        <h2>Talk to Blorp</h2><br>press space
+      </center>
+    </div>
+    <div id="blorptextbox"><h2>Blorp: .... . .... . .... . .... .- / -.-- --- ..- / .-- .- ... - . -.. / - .. -- . / ..-. .. --. ..- .-. .. -. --. / - .... .. ... / --- ..- - ---... -.--.-</h2></div>
+  </div>
+
+  <div id="moveablearea2">
+
+  </div>
+  <div id="teleportermenu">
+    <div id="exittelemenu" onclick="exitteleportermenu()"><center><h1>X</h1></center></div>
+    <div id="world1" onclick="area1()"><h2>Home</h2></div>
+    <div id="world2" onclick="area2()"><h2>Area 2</h2></div>
+    <div id="world3"><h2>Area 3</h2></div>
+    <div id="world4"><h2>Area 4</h2></div>
+    <div id="world5"><h2>Area 5</h2></div>
+    <div id="world6"><h2>Area 6</h2></div>
+    <div id="world7"><h2>Area 7</h2></div>
+    <div id="world8"><h2>Area 8</h2></div>
   </div>
   <span id="x"></span> and <span id="y"></span>
   <!--cruse is a stupid gay boy who loves other stupid gay boys <3 <3 <3-->
@@ -779,12 +915,12 @@
   }
 
   //First Battle
-  var glibhealth = 25
-  var blorphealth = 25
+  var glibhealth = 50
+  var blorphealth = 1
   var enemyname = ["Knawknaw", "Mushman", "AHHHHHHHHHHHHHHHHH", "BubbaFly", "Soldier Rei"]
   var enemyimage = ["thefront/Crimfish.gif", "thefront/mushboy.gif", "thefront/chilipeppa.gif", "thefront/bubbafly.gif", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
-  var enemyhealth = [20, 50, 75, 100, 150]
-  var enemyattackrange = [2, 6, 10, 18, 22]
+  var enemyhealth = [20, 50, 75, 100, 150, 300]
+  var enemyattackrange = [2, 6, 10, 18, 22, 30]
   var enemyattackaddition = [2, 4, 5, 9, 12]
   var enemyhealthbarmult = [5, 2, 4 / 3, 1, 2/3]
   var topenemyhealth = 0
@@ -829,7 +965,7 @@
     document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
     document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
     introover = true
-    battleactive = true
+    battleactive = false
   }
 
   //glib category
@@ -876,7 +1012,7 @@
       document.getElementById("backarrow").style.setProperty("display", "none");
       pickedglibweapon = true
       pickedak47 = true
-      glibweapon = Math.round(Math.random() * 4 + 1000)
+      glibweapon = Math.round(Math.random() * 4 + 3)
     }
   }
   function usegrenade() {
@@ -1109,6 +1245,19 @@
         document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
         document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
         document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to glib";
+        if (glibhealth <= 0) {
+          if (glibdead === true) {
+            document.getElementById("bottomenemyattack").innerHTML = "nothing...";
+            document.getElementById("glibhealthnumeral").innerHTML = 0
+        }
+          if (glibdead === false) {
+            document.getElementById("glib").style.setProperty("display", "none");
+            document.getElementById("glibhealthnumeral").innerHTML = 0
+            document.getElementById("glibhealth").style.width = 0 + "%"
+            document.getElementById("topenemyattack").innerHTML = "knock glib out";
+            glibdead = true
+          }
+        }
       }
     }
     if (pickcharacter % 2 !== 0) {
@@ -1118,35 +1267,22 @@
       document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
       document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
       document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to blorp";
-    }
-    if (glibhealth <= 0) {
-      if (glibdead === true) {
-        document.getElementById("bottomenemyattack").innerHTML = "nothing...";
-        document.getElementById("glibhealthnumeral").innerHTML = 0
-      }
-      if (glibdead === false) {
-        document.getElementById("glib").style.setProperty("display", "none");
-        document.getElementById("glibhealthnumeral").innerHTML = 0
-        document.getElementById("glibhealth").style.width = 0 + "%"
-        document.getElementById("topenemyattack").innerHTML = "knock glib out";
-        glibdead = true
-      }
-    }
-    else if (blorphealth <= 0) {
-      if (blorpdead === true) {
-        document.getElementById("topenemyattack").innerHTML = "nothing...";
-        document.getElementById("blorphealthnumeral").innerHTML = 0
-      }
-      if (blorpdead === false) {
-        document.getElementById("blorp").style.setProperty("display", "none");
-        document.getElementById("blorphealthnumeral").innerHTML = 0
-        document.getElementById("blorphealth").style.width = 0 + "%"
-        document.getElementById("topenemyattack").innerHTML = "Knock blorp out";
-        blorpdead = true
+      if (blorphealth <= 0) {
+        if (blorpdead === true) {
+          document.getElementById("topenemyattack").innerHTML = "nothing...";
+          document.getElementById("blorphealthnumeral").innerHTML = 0
+        }
+        if (blorpdead === false) {
+          document.getElementById("blorp").style.setProperty("display", "none");
+          document.getElementById("blorphealthnumeral").innerHTML = 0
+          document.getElementById("blorphealth").style.width = 0 + "%"
+          document.getElementById("topenemyattack").innerHTML = "Knock blorp out";
+          blorpdead = true
+        }
       }
     }
     if (glibdead === true && blorpdead === true) {
-      return document.getElementById("losebattle").style.setProperty("display", "inline-block");
+      document.getElementById("losebattle").style.setProperty("display", "inline-block");
     }
     if (bottomdead === false) {
       setTimeout(bottomenemyattacks, 3000);
@@ -1165,17 +1301,7 @@
       document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
       document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to glib";
-    }
-    if (pickcharacter % 2 !== 0) {
-      var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
-      blorphealth = blorphealth - enemydamage
-      document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
-      document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
-      document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
-      document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
-      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to blorp";
-    }
-    else if (glibhealth <= 0) {
+      if (glibhealth <= 0) {
       if (glibdead === true) {
         document.getElementById("bottomenemyattack").innerHTML = "nothing...";
         document.getElementById("glibhealthnumeral").innerHTML = 0
@@ -1188,7 +1314,16 @@
         glibdead = true
       }
     }
-    else if (blorphealth <= 0) {
+    }
+    if (pickcharacter % 2 !== 0) {
+      var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
+      blorphealth = blorphealth - enemydamage
+      document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
+      document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
+      document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
+      document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
+      document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to blorp";
+      if (blorphealth <= 0) {
       if (blorpdead === true) {
         document.getElementById("bottomenemyattack").innerHTML = "nothing...";
         document.getElementById("blorphealthnumeral").innerHTML = 0
@@ -1200,6 +1335,7 @@
         document.getElementById("bottomenemyattack").innerHTML = "knock blorp out";
         blorpdead = true
       }
+    }
     }
     if (glibdead === true && blorpdead === true) {
       return document.getElementById("losebattle").style.setProperty("display", "inline-block");
@@ -1271,8 +1407,8 @@
   var y = 225
   glibmoving.style.left = x + "px"
   glibmoving.style.top = y + "px"
-  blorpmoving.style.left = (x - blorpx) + "px"
-  blorpmoving.style.top = (y - blorpy) + "px"
+  blorpmoving.style.left = 375 +"px"
+  blorpmoving.style.top = 0+"px"
   var moveright = false
   var moveleft = false
   var moveup = false
@@ -1305,10 +1441,19 @@
         movedown = true
         blorpy = 100
       }
+      document.getElementById("blorptextbox").style.setProperty("display", "none");
+      audio2.pause()
+      audio2.currentTime = 0
       if (event.which === 32) {
         if (firstbattlewon === true) {
           if (enterreidomizer === true) {
             testchamber();
+          }
+          if(enterteleporter === true){
+            telepotermenu();
+          }
+          if(talktoblorp === true){
+            talkingtoblorp();
           }
         }
       }
@@ -1343,22 +1488,22 @@
 
   setInterval(function () {
     if (moveright === true) {
-      if (x < 825) {
+      if (x < 775) {
         x = x + 1
       }
     }
     if (moveleft === true) {
-      if (x > 0) {
+      if (x > -20) {
         x = x - 1
       }
     }
     if (moveup === true) {
-      if (y > 0) {
+      if (y > -50) {
         y = y - 1
       }
     }
     if (movedown === true) {
-      if (y < 450) {
+      if (y < 300) {
         y = y + 1
       }
     }
@@ -1369,31 +1514,62 @@
   }, 1) // 1000ms = 1 second
 
   function testchamber() {
-    choosetopenemy = Math.round(Math.random() * 5)
-    choosebottomenemy = Math.round(Math.random() * 5)
+    choosetopenemy = Math.round(Math.random() * 4)
+    choosebottomenemy = Math.round(Math.random() * 4)
     topdead = false
     bottomdead = false
     beginbattle();
     refreshcycle();
   }
+  function telepotermenu(){
+    document.getElementById("teleportermenu").style.setProperty("display", "inline-block");
+  }
+  function exitteleportermenu(){
+    document.getElementById("teleportermenu").style.setProperty("display", "none");
+  }
+  var audio2 = new Audio('thefront/talkingtoblorp.wav');
+  function talkingtoblorp(){
+    document.getElementById("blorptextbox").style.setProperty("display", "inline-block");
+    document.getElementById("blorptext").style.setProperty("display", "none");
+    audio2.play();
+  }
 
+  function area1(){
+    document.getElementById("moveablearea1").style.setProperty("display", "inline-block");
+  }
+  
   //Select mode thing//
   var enterreidomizer = false
   setInterval(function () {
-    if (x > 0 && x < 185 && y > 0 && y < 150) {
+    if (x > -20 && x < 185 && y > -50 && y < 75) {
       document.getElementById("reidomizertext").style.setProperty("display", "inline-block");
       enterreidomizer = true
     }
     else {
       document.getElementById("reidomizertext").style.setProperty("display", "none");
+      enterreidomizer = false
     }
   }, 1) // 1000ms = 1 second
+  var enterteleporter = false
   setInterval(function () {
-    if (x > 700 && x < 825 && y > 0 && y < 125) {
-      document.getElementById("y").style.setProperty("display", "none");
+    if (x > 700 && x < 825 && y > -50 && y < 125) {
+      document.getElementById("teleportertext").style.setProperty("display", "inline-block");
+      enterteleporter = true
     }
     else {
-      document.getElementById("y").style.setProperty("display", "inline-block");
+      document.getElementById("teleportertext").style.setProperty("display", "none");
+      enterteleporter = false
+    }
+  }, 1) // 1000ms = 1 second
+  var talktoblorp = false
+  setInterval(function () {
+    if (x > 320 && x < 420 && y > -20 && y < 80) {
+      document.getElementById("blorptext").style.setProperty("display", "inline-block");
+      talktoblorp = true
+    }
+    else {
+      document.getElementById("blorptext").style.setProperty("display", "none");
+      talktoblorp = false
     }
   }, 1) // 1000ms = 1 second
 

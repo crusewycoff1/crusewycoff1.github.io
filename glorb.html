@@ -20,16 +20,23 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var img = document.getElementById("glorb");
 
-  function main() {
+
+  setInterval(movementy, 200)
+
+
+  var movex = 0
+  var movedx = false
+  var movey = 0
+  function movementy(){
   ctx.imageSmoothingEnabled = false;
-  ctx.drawImage(img, 10, 10);
+    ctx.clearRect(0,0,10000,10000)
+    if(movey === 0){
+      movey = 32
+    }
+    else {
+      movey = 0
+    }
+    ctx.drawImage(img, movex, movey, 32, 32, 0, 0, 100, 100);
   }
-  window.setInterval(function(){
-	main();
-}, 5);
 
-    window.onload = function() {
-  main();
-
-};
 </script>
