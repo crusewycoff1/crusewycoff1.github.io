@@ -11,7 +11,7 @@
     </style>
   </head>
   <body>
-      <img id="glorb" src="thefront/New Piskel.png">
+      <img id="glorb" src="thefront/pokemon sprite npc.png">
       <canvas id="canvas" width="700" height="300"></canvas>
   </body>
 </html>
@@ -24,19 +24,17 @@ var img = document.getElementById("glorb");
   setInterval(movementy, 200)
 
 
-  var movex = 0
-  var movedx = false
-  var movey = 0
+  var movex = [0,70, 140]
+  var movey = [25,25,25]
+  var frameindex = 0
   function movementy(){
-  ctx.imageSmoothingEnabled = false;
+    ctx.imageSmoothingEnabled = false; 
     ctx.clearRect(0,0,10000,10000)
-    if(movey === 0){
-      movey = 32
+    if(frameindex === movex.length){
+      frameindex = 0
     }
-    else {
-      movey = 0
-    }
-    ctx.drawImage(img, movex, movey, 32, 32, 0, 0, 100, 100);
+    ctx.drawImage(img, movex[frameindex], movey[frameindex], 85, 75, 0, 0, 100, 100);
+    frameindex = frameindex + 1
   }
 
 </script>
