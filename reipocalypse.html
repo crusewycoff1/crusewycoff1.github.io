@@ -1144,8 +1144,8 @@
   var yourmoney = 0
   var glibhealthmultiplier = 1
   var blorphealthmultiplier = 1
-  var glibhealth = 50 * glibhealthmultiplier
-  var blorphealth = 1 * blorphealthmultiplier
+  var glibhealth = 25 * glibhealthmultiplier
+  var blorphealth = 25 * blorphealthmultiplier
   var enemyname = ["Knawknaw", "Mushman", "AHHHHHHHHHHHHHHHHH", "BubbaFly", "Soldier Rei"]
   var enemyimage = ["thefront/Crimfish.gif", "thefront/mushboy.gif", "thefront/chilipeppa.gif", "thefront/bubbafly.gif", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
   var enemyhealth = [20, 50, 75, 100, 150, 300]
@@ -1255,7 +1255,7 @@
         document.getElementById("backarrow").style.setProperty("display", "none");
         pickedglibweapon = true
         pickedak47 = true
-        glibweapon = Math.round(Math.random() * 4 + 3 + 1000000000)
+        glibweapon = Math.round(Math.random() * 4 + 3)
         akexhaustion = akexhaustion - 1
       }
     }
@@ -1842,8 +1842,8 @@
     document.getElementById("teleportermenu").style.setProperty("display", "none");
   }
   function usemedkit() {
-    glibhealth = 10000005 * glibhealthmultiplier
-    blorphealth = 100000000 * blorphealthmultiplier
+    glibhealth = 25 * glibhealthmultiplier
+    blorphealth = 25 * blorphealthmultiplier
     glibdead = false
     blorpdead = false
     akexhaustion = 3
