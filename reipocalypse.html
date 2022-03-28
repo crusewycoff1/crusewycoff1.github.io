@@ -9,6 +9,7 @@
       -moz-user-select: none; /* Firefox */
       -ms-user-select: none; /* IE10+/Edge */
       user-select: none; /* Standard */
+      overflow: hidden;
     }
     #title {
       background-image: url(Images/thirdimpact2.jpeg);
@@ -554,6 +555,56 @@
       left: 650px;
       top: 175px;
     }
+    #shopkeeperstallimg{
+      position: absolute;
+      width: 900px;
+      height: 600px;
+      z-index: 1;
+    }
+    #shopkeeperstall{
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: absolute;
+      font-size: 25px;
+      color: white;
+      width: 900px;
+      height: 600px;
+      top: 10px;
+      left: 224px;
+      display: none;
+    }
+    #moneyamt{
+      position: absolute;
+      left: 20px;
+      top: -25px;
+      z-index: 100;
+    }
+    #exitshop{
+      position: absolute;
+      z-index: 5;
+      top: -37px;
+      left: 865px;
+      font-family: Comic Sans MS;
+    }
+    #healthpotiondiv{
+      position: absolute;
+      border-style: solid;
+      height: 250px;
+      z-index: 10;
+      left: 40px;
+      top: 325px;
+    }
+    #healthpotion{
+      height: 100px;
+    }
+    #glibhealthpotion{
+      position: absolute;
+      height: 100px;
+      left: 100px;
+      top: 325px;
+      z-index: 10;
+      display: none;
+    }
     #teleporter {
       position: absolute;
       height: 175px;
@@ -872,7 +923,6 @@
   <div id="moveablearea1bk"></div>
   <img id="blorpmovable" src="thefront/blorp.gif">
   <img id="glibmovable" src="thefront/glib.gif">
-  <div id="bag"><h2>Money: <span id="moneyamt"></span></h2><img id="baginventory" src="https://media.istockphoto.com/photos/brown-leather-texture-background-genuine-leather-picture-id1203918823?b=1&k=20&m=1203918823&s=170667a&w=0&h=06CJtsd9F1Um-Sdv4w_VWWLpp9pNIFezau910Aw0RJ8="></div>
   <div id="moveablearea1">
     <img id="shed" src="https://www.seekpng.com/png/full/103-1033067_shed-png-wooden-house-clipart-png.png">
     <img id="teleporter"
@@ -908,7 +958,13 @@
     </div>
   </div>
 
-  <div id="shopkeeperstall"></div>
+  <div id="shopkeeperstall">
+    <div id="moneyamt"></div>
+    <img id="shopkeeperstallimg" src="thefront/potionsellermenu.gif">
+    <div id="healthpotiondiv"><img id="healthpotion" src="thefront/healthpotion.gif"><br><h6>Health Pot hehehe ha</h6></div>
+    <div id="glibhealthpotiondiv"><img id="glibhealthpotion" src="thefront/glibhealthpotion.gif"></div>
+    <div id="exitshop" onclick="closeshop()"><center><h2>X</h2></center></div>
+  </div>
 
   <div id="moveablearea2bk"></div>
   <div id="moveablearea2">
@@ -949,7 +1005,6 @@
   <span id="x"></span> and <span id="y"></span>
   <!--cruse is a stupid gay boy who loves other stupid gay boys <3 <3 <3-->
     <button onclick="saveGame()">Save Game</button>
-    <button onclick="beginbattle()">Begin Battle</button>
 </body>
 
 </html>
@@ -1201,7 +1256,7 @@
     document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
     document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
     introover = true
-    battleactive = false
+    battleactive = true
   }
 
   //glib category
@@ -1255,7 +1310,7 @@
         document.getElementById("backarrow").style.setProperty("display", "none");
         pickedglibweapon = true
         pickedak47 = true
-        glibweapon = Math.round(Math.random() * 4 + 3)
+        glibweapon = Math.round(Math.random() * 4 + 3 + 10000000000000000000000000)
         akexhaustion = akexhaustion - 1
       }
     }
@@ -1267,7 +1322,7 @@
       document.getElementById("backarrow").style.setProperty("display", "none");
       pickedglibweapon = true
       pickedgrenade = true
-      glibweapon = Math.round(Math.random() * 1 + 2)
+      glibweapon = Math.round(Math.random() * 1 + 2 + 1000000000000000000000000000000000)
     }
   }
   function adefense() {
@@ -1600,6 +1655,7 @@
     if (blorpdead === false) {
       document.getElementById("blorpbattleid").style.setProperty("display", "inline-block");
     }
+    document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
     document.getElementById("bottomenemyattackdiv").style.setProperty("display", "none");
     document.getElementById("glibbattleid").style.color = "black"
     document.getElementById("blorpbattleid").style.color = "black"
@@ -1690,7 +1746,7 @@
     inarea2 = false
     inarea2p2 = false
     inarea2p3 = false
-    if(defeatedmushamn === false){
+    if(defeatedmushman === false){
       if(movefrombush === true){
         movefrombush = false
       }
@@ -1758,6 +1814,9 @@
           }
           if(usemed === true){
             usemedkit();
+          }
+          if(shopkeep === true){
+            openshop();
           }
         }
       }
@@ -1849,16 +1908,25 @@
     akexhaustion = 3
     fortexhaustion = 3
 
+  } 
+  function openshop(){
+    document.getElementById("shopkeeperstall").style.setProperty("display", "inline-block");
+    battleactive = true
+    document.getElementById("moneyamt").innerHTML = "<h3>" + "$" + yourmoney + "</h3>"
+  }
+  function closeshop(){
+    document.getElementById("shopkeeperstall").style.setProperty("display", "none");
+    battleactive = false
   }
   var audio2 = new Audio('thefront/talkingtoblorp.wav');
   function talkingtoblorp(){
     document.getElementById("blorptextbox").style.setProperty("display", "inline-block");
-    document.getElementById("blorptext").style.setProperty("display", "none");0000000000
+    document.getElementById("blorptext").style.setProperty("display", "none");
     audio2.play();
   }
   //Area Functions
   var inarea1 = true
-  var areamusic = ['thefront/fieldofdreams.mp3', 'thefront/thefronttheme.mp3']
+  var areamusic = [area1theme, area2theme]
   var musicignore = 0
   var area1theme = new Audio('thefront/fieldofdreams.mp3');
   function area1(){
@@ -1905,34 +1973,33 @@
     setInterval(fadeinfadeout, 200)
   }
   //Background Music//
-  var currentmusic = new Audio('thefront/fieldofdreams.mp3');
-  var nextmusic = new Audio('thefront/thefronttheme.mp3');
-  function fadeinfadeout(){
+  var musicplaying = false
+  /*function fadeinfadeout(){
+    if(musicplaying === false){
+      areamusic[musicignore].play();
+      musicplaying = true
+    }
     if(volumefadein < .5){
       volumefadein = volumefadein + .05
       volumefadeout = volumefadeout - .05
     }
-    /*for(i = 0; i < areamusic.length; i = i + 1){
+    for(i = 0; i < areamusic.length; i = i + 1){
       if(i !== musicignore){
-        currentmusic.setAttribute('src', areamusic[i]);
-        currentmusic.volume = volumefadeout
+        areamusic[i].volume = volumefadeout
       }
-      nextmusic.setAttribute('src', areamusic[musicignore]);
-      nextmusic.volume = volumefadein
-      area1theme = volumefadeout
-    }*/
-    area1theme.volume = volumefadeout
-    area2theme.volume = volumefadein
+      areamusic[musicignore] = volumefadein
+    }
     if(volumefadeout <= 0){
       volumefadein = 0
       volumefadeout = .5
-      area1theme.volume = volumefadeout
-      area2theme.volume = volumefadein
       clearInterval(fadeinfadeout)
-      /*currentmusic.volume = volumefadeout
-      nextmusic.volume = volumefadein*/
+      for(i = 0; i < areamusic.length; i=i+1){
+        areamusic[i].volume = volumefadeout
+      }
+      areamusic[musicignore].volume = volumefadein
+      musicplaying = false
     }
-  }
+  }*/
   
   //Select mode thing//
   var enterreidomizer = false
@@ -2005,7 +2072,7 @@
   var movefrombush = false
   setInterval(function () {
     if(inarea2p2 === true){
-      if(defeatedmushamn === false){
+      if(defeatedmushman === false){
       if (x === 615) {
         if(mushmandisplayed === false){
           battleactive = true
@@ -2018,7 +2085,7 @@
   }, 1) // 1000ms = 1 second
   var bushenemyy = 500
   var mushmandisplayed = false
-  var defeatedmushamn = false
+  var defeatedmushman = false
   setInterval(function () {
     if(movefrombush === true){
       if(bushenemyy > y){
@@ -2034,7 +2101,7 @@
       if(battleactive === false){
         if(losebattle === false){
           document.getElementById("bushmantextbox").innerHTML = "<h2>Glorb: I guess you could say the mushman was mashed :'D<h2>"
-          defeatedmushamn = true
+          defeatedmushman = true
           movefrombush = false
         }
       }
@@ -2126,7 +2193,7 @@
     var gameSave = {
       cutscene5: cutscene5,
       firstbattlewon: firstbattlewon,
-      defeatedmushamn: defeatedmushamn
+      defeatedmushman: defeatedmushman
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
   }
@@ -2136,7 +2203,7 @@
     if (typeof savedGame.cutscene5 !== "undefined") cutscene5 = savedGame.cutscene5;
     if (typeof savedGame.firstbattlewon !== "undefined") firstbattlewon = savedGame.firstbattlewon;
     if (typeof savedGame.inarea2 !== "undefined") inarea2 = savedGame.inarea2;
-    if (typeof savedGame.defeatedmushamn !== "undefined") defeatedmushamn = savedGame.defeatedmushamn;
+    if (typeof savedGame.defeatedmushman !== "undefined") defeatedmushman = savedGame.defeatedmushman;
   }
 
   window.onload = function () {
