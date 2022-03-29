@@ -4,41 +4,49 @@
 <head>
   <title>Reipocalypse</title>
   <style>
-    body{
-      -webkit-user-select: none; /* Safari */        
-      -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* IE10+/Edge */
-      user-select: none; /* Standard */
+    body {
+      -webkit-user-select: none;
+      /* Safari */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* IE10+/Edge */
+      user-select: none;
+      /* Standard */
       overflow: hidden;
     }
+
     #title {
-      background-image: url(Images/thirdimpact2.jpeg);
+      background-image: url(thefront/titlescreen.jpeg);
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
       font-size: 25px;
-      color: white;
+      color: black;
       width: 900px;
       height: 600px;
       top: 10px;
       left: 225px;
+      filter: grayscale(100%);
     }
 
     #start {
-      color: white;
+      filter: grayscale(0%);
+      color: black;
     }
 
     #start:hover {
+      filter: grayscale(0%);
       color: red;
     }
 
     #continue {
       opacity: 75%;
-      color: white;
+      color: black;
     }
 
     #continue:hover {
-      color: white;
+      color: black;
     }
 
     #background {
@@ -51,6 +59,7 @@
       left: 225px;
       display: none;
     }
+
     #firstcutscenebk {
       background-image: url("thefront/thedock.png");
       position: absolute;
@@ -66,13 +75,15 @@
       background-size: cover;
       opacity: 0%;
     }
-    #cutsceneglib{
+
+    #cutsceneglib {
       height: 125px;
       position: absolute;
       left: 275px;
       top: 125px;
     }
-    #cutsceneblorp{
+
+    #cutsceneblorp {
       height: 125px;
       position: absolute;
       left: 400px;
@@ -376,10 +387,11 @@
       color: black;
     }
 
-    #glibbattleid:hover{
+    #glibbattleid:hover {
       color: red;
     }
-    #akexhaustiondiv{
+
+    #akexhaustiondiv {
       position: absolute;
       top: -15px;
       left: 105px;
@@ -395,7 +407,7 @@
       display: none;
     }
 
-    .glibweapons:hover{
+    .glibweapons:hover {
       color: red;
       display: inline-block;
     }
@@ -411,7 +423,7 @@
     #pickanenemy {
       position: absolute;
       left: 750px;
-      top: 450px;
+      top: 500px;
       display: none;
     }
 
@@ -428,6 +440,22 @@
       top: 435px;
       display: none;
     }
+    #battlebag{
+      position: absolute;
+      height: 350px;
+      width: 550px;
+      left: 400px;
+      top: 125px;
+      z-index: 10;
+      display: none;
+      background-image: url("https://media.istockphoto.com/photos/leather-texture-closeup-picture-id482784981?k=20&m=482784981&s=612x612&w=0&h=H-z5FskIbCTFn6SPjeb77PTnjSHNclcPLLD1F8sODHk=");
+    }
+    #exitbattlebag{
+      position: absolute;
+      color: white;
+      top: -20px;
+      left: 520px;
+    }
 
     #wonbattle {
       position: absolute;
@@ -437,7 +465,9 @@
       background-color: rgb(133, 133, 235);
       left: 525px;
       top: 135px;
-      background-image: url("thefront/petrei.gif");
+      background-image: url("thefront/petglib.gif");
+      background-repeat: no-repeat; 
+      background-size: cover;
       display: none;
     }
 
@@ -456,17 +486,18 @@
       display: none;
     }
 
-    #moveablearea1bk{
+    #moveablearea1bk {
       position: absolute;
       z-index: -1;
       width: 900px;
       height: 315px;
       left: 225px;
       background-position: center;
-      background-repeat: no-repeat; 
+      background-repeat: no-repeat;
       background-size: cover;
       background-image: url("https://cdn.abcotvs.com/dip/images/24996_kgo-windows-bliss-040714-1280.jpg?w=1600");
     }
+
     #moveablearea1 {
       position: absolute;
       width: 900px;
@@ -476,18 +507,20 @@
       z-index: -1;
       background-color: green;
     }
-    #moveablearea2bk{
+
+    #moveablearea2bk {
       position: absolute;
       z-index: -1;
       width: 900px;
       height: 315px;
       left: 225px;
       background-position: center;
-      background-repeat: no-repeat; 
+      background-repeat: no-repeat;
       background-size: cover;
       background-image: url("https://previews.123rf.com/images/pakhnyushchyy/pakhnyushchyy1008/pakhnyushchyy100800730/7708216-.jpg");
       display: none;
     }
+
     #moveablearea2 {
       position: absolute;
       width: 900px;
@@ -499,6 +532,7 @@
       background-color: rgb(117, 65, 21);
       display: none;
     }
+
     #moveablearea2p2 {
       position: absolute;
       width: 900px;
@@ -510,6 +544,7 @@
       background-color: rgb(117, 65, 21);
       display: none;
     }
+
     #moveablearea2p3 {
       position: absolute;
       width: 900px;
@@ -521,6 +556,7 @@
       background-color: rgb(117, 65, 21);
       display: none;
     }
+
     #glibmovable {
       height: 150px;
       position: absolute;
@@ -532,7 +568,8 @@
       position: absolute;
       display: none;
     }
-    #bag{
+
+    #bag {
       display: none;
     }
 
@@ -549,19 +586,22 @@
       left: 50px;
       top: 175px;
     }
+
     #shopkeep {
       position: absolute;
       height: 175px;
       left: 650px;
       top: 175px;
     }
-    #shopkeeperstallimg{
+
+    #shopkeeperstallimg {
       position: absolute;
       width: 900px;
       height: 600px;
       z-index: 1;
     }
-    #shopkeeperstall{
+
+    #shopkeeperstall {
       background-repeat: no-repeat;
       background-size: cover;
       position: absolute;
@@ -573,31 +613,52 @@
       left: 224px;
       display: none;
     }
-    #moneyamt{
+
+    #moneyamt {
       position: absolute;
       left: 20px;
       top: -25px;
       z-index: 100;
     }
-    #exitshop{
+
+    #exitshop {
       position: absolute;
       z-index: 5;
       top: -37px;
       left: 865px;
       font-family: Comic Sans MS;
     }
-    #healthpotiondiv{
+
+    #healthpotiondiv {
       position: absolute;
-      border-style: solid;
-      height: 250px;
+      width: 120px;
       z-index: 10;
       left: 40px;
       top: 325px;
     }
-    #healthpotion{
+    #healthpotiondiv:hover{
+      border-style: solid;
+      border-color: red;
+    }
+    #healthpotionsigndiv{
+      position: absolute;
+      border-color: black;
+      background-color: #fada90;
+      border-style: solid;
+      height: 120px;
+      font-size: 15px;
+      color: black;
+      width: 120px;
+      z-index: 10;
+      left: 30px;
+      top: 450px;
+    }
+
+    #healthpotion {
       height: 100px;
     }
-    #glibhealthpotion{
+
+    #glibhealthpotion {
       position: absolute;
       height: 100px;
       left: 100px;
@@ -605,83 +666,99 @@
       z-index: 10;
       display: none;
     }
+
     #teleporter {
       position: absolute;
       height: 175px;
       left: 700px;
       top: -50px;
     }
-    #treesbk1{
+
+    #treesbk1 {
       left: 25px;
       top: -70px;
       z-index: 2;
       width: 868px;
-      background-position-x: -25px,  25px, 100px,150px,225px,300px,350px,425px,500px,550px, 625px, 700px, 750px, 825px, 900px, 950px;;
+      background-position-x: -25px, 25px, 100px, 150px, 225px, 300px, 350px, 425px, 500px, 550px, 625px, 700px, 750px, 825px, 900px, 950px;
+      ;
     }
-    #treesbk2{
+
+    #treesbk2 {
       top: -100px;
     }
+
     .treesbk {
       position: absolute;
       width: 893px;
       height: 125px;
-      background-size: 125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px,125px;
-      background-image: url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"),url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"),url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"),url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"),url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif");
-      background-repeat: no-repeat, no-repeat, no-repeat,no-repeat, no-repeat, no-repeat,no-repeat, no-repeat, no-repeat,no-repeat, no-repeat, no-repeat, no-repeat,no-repeat, no-repeat, no-repeat,no-repeat, no-repeat, no-repeat;
-      background-position-x: -50px, 25px, 100px,150px,225px,300px,350px,425px,500px,550px, 625px, 700px, 750px, 825px, 900px, 950px;
+      background-size: 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px, 125px;
+      background-image: url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"), url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"), url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"), url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif"), url("thefront/tree1.gif"), url("thefront/tree2.gif"), url("thefront/tree3.gif");
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-position-x: -50px, 25px, 100px, 150px, 225px, 300px, 350px, 425px, 500px, 550px, 625px, 700px, 750px, 825px, 900px, 950px;
     }
+
     #teleporter2 {
       position: absolute;
       height: 175px;
       left: 20px;
       top: 100px;
     }
-    #rock1{
+
+    #rock1 {
       position: absolute;
       top: 150px;
       left: 300px;
     }
-    #rock2{
+
+    #rock2 {
       position: absolute;
       top: 100px;
       left: 500px;
     }
-    #rock3{
+
+    #rock3 {
       position: absolute;
       top: 160px;
       left: 655px;
     }
-    #bush1{
+
+    #bush1 {
       position: absolute;
       top: 75px;
       left: 200px;
     }
-    #bush2{
+
+    #bush2 {
       position: absolute;
       top: 25px;
       left: 350px;
     }
-    #bush3{
+
+    #bush3 {
       position: absolute;
       top: 250px;
       left: 300px;
     }
-    #bush4{
+
+    #bush4 {
       position: absolute;
       top: 100px;
       left: 600px;
     }
-    #enemybush{
+
+    #enemybush {
       position: absolute;
       top: 280px;
       left: 500px;
     }
-    #enemyfrombush{
+
+    #enemyfrombush {
       position: absolute;
       top: 500px;
       left: 725px;
       display: none;
     }
+
     #bushmantextbox {
       height: 100px;
       width: 700px;
@@ -693,7 +770,8 @@
       top: 285px;
       display: none;
     }
-    #deergod{
+
+    #deergod {
       position: absolute;
       left: 750px;
       top: 125px;
@@ -706,6 +784,7 @@
       color: white;
       display: none;
     }
+
     #teleportertext {
       position: absolute;
       left: 350px;
@@ -713,6 +792,7 @@
       color: white;
       display: none;
     }
+
     #medtext {
       position: absolute;
       left: 350px;
@@ -720,6 +800,7 @@
       color: white;
       display: none;
     }
+
     #shoptext {
       position: absolute;
       left: 350px;
@@ -727,6 +808,7 @@
       color: white;
       display: none;
     }
+
     #teleportertext2 {
       position: absolute;
       left: 350px;
@@ -734,6 +816,7 @@
       color: white;
       display: none;
     }
+
     #blorptextbox {
       height: 200px;
       width: 700px;
@@ -745,6 +828,7 @@
       top: 185px;
       display: none;
     }
+
     #blorptext {
       position: absolute;
       left: 350px;
@@ -752,7 +836,8 @@
       color: white;
       display: none;
     }
-    #teleportermenu{
+
+    #teleportermenu {
       background-image: url("http://i.imgur.com/C8faqat.jpg");
       position: absolute;
       width: 600px;
@@ -763,50 +848,59 @@
       color: white;
       display: none;
     }
-    #exittelemenu{
+
+    #exittelemenu {
       width: 35px;
       height: 35px;
       position: absolute;
       top: 0px;
       left: 550px;
     }
-    #world1{
+
+    #world1 {
       position: absolute;
       z-index: 100;
       left: 80px;
       top: 50px;
     }
-    #world2{
+
+    #world2 {
       position: absolute;
       left: 200px;
       top: 50px;
     }
-    #world3{
+
+    #world3 {
       position: absolute;
       left: 320px;
       top: 50px;
     }
-    #world4{
+
+    #world4 {
       position: absolute;
       left: 440px;
       top: 50px;
     }
-    #world5{
+
+    #world5 {
       position: absolute;
       left: 80px;
       top: 150px;
     }
-    #world6{
+
+    #world6 {
       position: absolute;
       left: 200px;
       top: 150px;
     }
-    #world7{
+
+    #world7 {
       position: absolute;
       left: 320px;
       top: 150px;
     }
-    #world8{
+
+    #world8 {
       position: absolute;
       left: 440px;
       top: 150px;
@@ -815,21 +909,26 @@
 </head>
 
 <body>
-  <div id="title"><br><br>
-    <img src="data:image/jpeg;base64,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" style="height:10px">
+  <div id="title"><br>
+    <img
+      src="data:image/jpeg;base64,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"
+      style="height:10px">
     <center>
-      <h1>The Cure for Boredom</h1><br><br>
-      <h2><span id="start" onclick="startgame()">New Game</span></h2><br>
+      <h1>Glib Quest</h1><br><br><br><br><br>
+      <h2><span id="start" onclick="startgame()">New Game</span></h2>
       <h2><span id="continue" onclick="savedcontinue()">Continue</span></h2>
     </center>
   </div>
   <center>
-    <div id="background"></div><div id="firstcutscenebk"><img id="cutsceneglib" src="thefront/stillglib.gif"><img id="cutsceneblorp" src="thefront/stillblorp.gif"></div>
+    <div id="background"></div>
+    <div id="firstcutscenebk"><img id="cutsceneglib" src="thefront/stillglib.gif"><img id="cutsceneblorp"
+        src="thefront/stillblorp.gif"></div>
   </center>
   <div id="openingtext1">
     <center>
       <h1>A blue blob named Glib<br>has realized the meadows are too plain for him<br>and has began to decided
-        to venture away from home.<br>Taking his best friend, Blorp, with him,<br>they set out seeking adventure.<br></h1>
+        to venture away from home.<br>Taking his best friend, Blorp, with him,<br>they set out seeking adventure.<br>
+      </h1>
     </center>
   </div>
   <div id="openingtext2">
@@ -862,19 +961,22 @@
     <div id="blorphealth"></div>
   </div>
   <div id="blorphealthnumeral"></div>
-  <img id="enemy1" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"><img id="enemy2" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png">
+  <img id="enemy1" class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png"><img id="enemy2"
+    class="enemy" src="https://pngimg.com/uploads/squirrel/squirrel_PNG15802.png">
   <div id="battlebar">
     <h2><span id="glibbattleid" onclick="glibbattleop()">ㅤㅤㅤGlib</span></h2>
     <h2><span id="blorpbattleid" onclick="blorpbattleop()">ㅤㅤㅤBlorp</span></h2>
-              <div id="akexhaustiondiv"><h4>You can use this <span id="akexhaustion"></span> more time(s)</h4></div>
+    <div id="akexhaustiondiv">
+      <h4>You can use this <span id="akexhaustion"></span> more time(s)</h4>
+    </div>
     <h2><span id="useak47" class="glibweapons" onclick="useak47()">ㅤㅤㅤProjectile Ooze: 3-7 Damage</span><span
-        id="adefense" class="glibweapons" onclick="adefense()">ㅤㅤㅤ</span></h2>
+        id="glibadefense" class="glibweapons" onclick="openbag()">ㅤㅤㅤOpen Bag</span></h2>
     <h2><span id="usegrenade" class="glibweapons" onclick="usegrenade()">ㅤㅤㅤSlime Bomb: 2-3 Splash</span>
-      <br class="glibweapons"><strong><span id="backarrow" class="glibweapons"
-          onclick="glibback()">ㅤ❮</span></strong>
+      <br class="glibweapons"><strong><span id="backarrow" class="glibweapons" onclick="glibback()">ㅤ❮</span></strong>
     </h2>
 
-    <h2><span id="usefort17" class="blorpweapons" onclick="usefort17()">ㅤㅤㅤStick Smack: 4-5 Damage</span></h2>
+    <h2><span id="usefort17" class="blorpweapons" onclick="usefort17()">ㅤㅤㅤStick stab: 4-5 Damage</span><span
+      id="blorpadefense" class="blorpweapons" onclick="openbag()">ㅤㅤㅤOpen Bag</span></h2>
     <h2><span id="usemachete" class="blorpweapons" onclick="usemachete()">ㅤㅤㅤ: 2-3 Damage</span>
       <br><strong><span id="backarrow" class="blorpweapons" onclick="blorpback()">ㅤ❮</span></strong>
     </h2>
@@ -890,7 +992,9 @@
   <div id="bottomenemy" onclick="chosebottomenemy()"></div>
   </div>
   <div id="bottomhealthnumeral"></div>
-  <div id="bottomenemyhealthbar"><div id="bottomenemyhealth"></div></div>
+  <div id="bottomenemyhealthbar">
+    <div id="bottomenemyhealth"></div>
+  </div>
   <div id="bottomenemyname"></div>
   <div id="attackbutton">
     <h2 onclick="beginoffensive()">ATTACK!</h2>
@@ -906,6 +1010,10 @@
   </div>
   <div id="bottomenemyattackdiv">
     <h2>Bottom Enemy did <span id="bottomenemyattack"></span></h2>
+  </div>
+  <div id="battlebag">
+    <div id="exitbattlebag" onclick="exitbag()"><h1>X</h1></div>
+    <h2><span onclick="adefense()" style="color: white;">ㅤㅤㅤHealth Potion (Amt: <span id="usedhealthpotion"></span>)</h2>
   </div>
   <div id="wonbattle">
     <center><br><br><br>
@@ -925,11 +1033,9 @@
   <img id="glibmovable" src="thefront/glib.gif">
   <div id="moveablearea1">
     <img id="shed" src="https://www.seekpng.com/png/full/103-1033067_shed-png-wooden-house-clipart-png.png">
-    <img id="teleporter"
-      src="thefront/teleporter.gif">
-      <img id="medkit"
-      src="thefront/healingstation.gif">
-      <img id="shopkeep" src="thefront/potionseller.gif">
+    <img id="teleporter" src="thefront/teleporter.gif">
+    <img id="medkit" src="thefront/healingstation.gif">
+    <img id="shopkeep" src="thefront/potionseller.gif">
     <div id="reidomizertext">
       <center>
         <h2>Enter the Enemy Grinder</h2><br>press space
@@ -945,8 +1051,10 @@
         <h2>Talk to Blorp</h2><br>press space
       </center>
     </div>
-    <div id="blorptextbox"><h2>Blorp: Since you want to go somewhere, Lets go to the forest</h2></div>
-        <div id="medtext">
+    <div id="blorptextbox">
+      <h2>Blorp: Since you want to go somewhere, Lets go to the forest</h2>
+    </div>
+    <div id="medtext">
       <center>
         <h2>Use the Medkit</h2><br>press space
       </center>
@@ -961,19 +1069,36 @@
   <div id="shopkeeperstall">
     <div id="moneyamt"></div>
     <img id="shopkeeperstallimg" src="thefront/potionsellermenu.gif">
-    <div id="healthpotiondiv"><img id="healthpotion" src="thefront/healthpotion.gif"><br><h6>Health Pot hehehe ha</h6></div>
+    <div id="healthpotiondiv" onclick="buyhealthpotion()"><center><img id="healthpotion" src="thefront/healthpotion.gif"></center>
+    </div>
+    <div id="healthpotionsigndiv">
+      <center>Health Potion</center><br>
+      Heals you while in battle and tastes like lime
+      <center>$<span id="healthpotcost"></span></center>
+      <center>(Owned: <span id="healthpotionamt"></span>)</center>
+    </div>
     <div id="glibhealthpotiondiv"><img id="glibhealthpotion" src="thefront/glibhealthpotion.gif"></div>
-    <div id="exitshop" onclick="closeshop()"><center><h2>X</h2></center></div>
+    <div id="exitshop" onclick="closeshop()">
+      <center>
+        <h2>X</h2>
+      </center>
+    </div>
   </div>
 
   <div id="moveablearea2bk"></div>
   <div id="moveablearea2">
+    <img id="teleporter2" src="thefront/teleporter.gif">
     <div id="treesbk1" class="treesbk"></div>
     <div id="treesbk2" class="treesbk"></div>
     <img id="rock1" src="thefront/rock1.png">
     <img id="rock2" src="thefront/rock2.png">
     <img id="rock3" src="thefront/rock3.png">
+    <div id="teleportertext2">
+      <center>
+        <h2>Enter the teleporter</h2><br>press space
+      </center>
     </div>
+  </div>
   </div>
   <div id="moveablearea2p2">
     <div id="treesbk1" class="treesbk"></div>
@@ -989,22 +1114,42 @@
   <div id="moveablearea2p3">
     <div id="treesbk1" class="treesbk"></div>
     <div id="treesbk2" class="treesbk"></div>
-    <img id="deergod" src="thefront/deerkingstill.gif"> 
+    <img id="deergod" src="thefront/deerkingstill.gif">
   </div>
   <div id="teleportermenu">
-    <div id="exittelemenu" onclick="exitteleportermenu()"><center><h1>X</h1></center></div>
-    <div id="world1" onclick="area1()"><h2>Home</h2></div>
-    <div id="world2" onclick="area2()"><h2>Forest</h2></div>
-    <div id="world3"><h2>Area 3</h2></div>
-    <div id="world4"><h2>Area 4</h2></div>
-    <div id="world5"><h2>Area 5</h2></div>
-    <div id="world6"><h2>Area 6</h2></div>
-    <div id="world7"><h2>Area 7</h2></div>
-    <div id="world8"><h2>Area 8</h2></div>
+    <div id="exittelemenu" onclick="exitteleportermenu()">
+      <center>
+        <h1>X</h1>
+      </center>
+    </div>
+    <div id="world1" onclick="area1()">
+      <h2>Home</h2>
+    </div>
+    <div id="world2" onclick="area2()">
+      <h2>Forest</h2>
+    </div>
+    <div id="world3">
+      <h2>Area 3</h2>
+    </div>
+    <div id="world4">
+      <h2>Area 4</h2>
+    </div>
+    <div id="world5">
+      <h2>Area 5</h2>
+    </div>
+    <div id="world6">
+      <h2>Area 6</h2>
+    </div>
+    <div id="world7">
+      <h2>Area 7</h2>
+    </div>
+    <div id="world8">
+      <h2>Area 8</h2>
+    </div>
   </div>
   <span id="x"></span> and <span id="y"></span>
   <!--cruse is a stupid gay boy who loves other stupid gay boys <3 <3 <3-->
-    <button onclick="saveGame()">Save Game</button>
+  <button onclick="saveGame()">Save Game</button>
 </body>
 
 </html>
@@ -1027,6 +1172,7 @@
     cutscene5 = false
     firstbattlewon = false
   }
+  
 
   function savedcontinue() {
 
@@ -1036,12 +1182,11 @@
       beginbattle();
     }
     if (firstbattlewon === true) {
+      battleactive = false
       woncontinue();
-      area1theme.play();
-      area1theme.volume = .5
-    }
-    if(inarea2 === true){
-      area2();
+      playingaudio.src = (areamusic[0])
+      playingaudio.play();
+      playingaudio.volume = .5
     }
   }
 
@@ -1100,7 +1245,7 @@
         }
       }
     }
-    
+
   }
 
   var audio1 = new Audio('thefront/explosion.mp3');
@@ -1191,22 +1336,33 @@
     document.getElementById("cutsceneglib").src = "thefront/glibback.gif";
     document.getElementById("innertext").innerHTML = innertext;
     cutscene5 = true
+    choosetopenemy = 0
+    choosebottomenemy = 0
     audio3.pause();
     setTimeout(pressspace, 1000);
+  }
+
+  function openbag(){
+    document.getElementById("battlebag").style.setProperty("display", "inline-block");
+    document.getElementById("usedhealthpotion").innerHTML = healthpotionamt
+  }
+  function exitbag(){
+    document.getElementById("battlebag").style.setProperty("display", "none");
+    document.getElementById("usedhealthpotion").innerHTML = healthpotionamt
   }
 
   //First Battle
   var yourmoney = 0
   var glibhealthmultiplier = 1
   var blorphealthmultiplier = 1
-  var glibhealth = 25 * glibhealthmultiplier
+  var glibhealth = 15 * glibhealthmultiplier
   var blorphealth = 25 * blorphealthmultiplier
   var enemyname = ["Knawknaw", "Mushman", "AHHHHHHHHHHHHHHHHH", "BubbaFly", "Soldier Rei"]
   var enemyimage = ["thefront/Crimfish.gif", "thefront/mushboy.gif", "thefront/chilipeppa.gif", "thefront/bubbafly.gif", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
   var enemyhealth = [20, 50, 75, 100, 150, 300]
   var enemyattackrange = [2, 6, 10, 18, 22, 30]
   var enemyattackaddition = [2, 4, 5, 9, 12]
-  var enemyhealthbarmult = [5, 2, 4 / 3, 1, 2/3]
+  var enemyhealthbarmult = [5, 2, 4 / 3, 1, 2 / 3]
   var enemymoneydrop = [100, 150, 200, 250, 300]
   var topenemyhealth = 0
   var bottomenemyhealth = 0
@@ -1267,13 +1423,18 @@
 
   var pickedak47 = false
   var pickedgrenade = false
-  var pickeddefense = false
+  var pickedglibhealthpotion = false
+  
 
   var pickedblorpweapon = false
   var blorpweaponchoice = 0
+  var pickedblorphealthpotion = false
 
   var pickedfort17 = false
   var pickedmachete = false
+
+  var glibidopen = false
+  var blorpidopen = false
 
   var akexhaustion = 3
   var fortexhaustion = 3
@@ -1286,6 +1447,7 @@
       for (i = 0; i < glibweapons.length; i = i + 1) {
         document.getElementsByClassName('glibweapons')[i].style.setProperty("display", "inline-block");
       }
+      glibidopen = true
     }
   }
   function glibback() {
@@ -1300,11 +1462,12 @@
     }
     document.getElementById("pickanenemy").style.setProperty("display", "none");
     document.getElementById("akexhaustiondiv").style.setProperty("display", "none");
+    glibidopen = false
     attackappear();
   }
   function useak47() {
     if (pickedglibweapon === false) {
-      if(akexhaustion > 0){
+      if (akexhaustion > 0) {
         document.getElementById("useak47").style.color = "red"
         document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
         document.getElementById("backarrow").style.setProperty("display", "none");
@@ -1326,12 +1489,33 @@
     }
   }
   function adefense() {
-    if (pickedglibweapon === false) {
-      document.getElementById("adefense").style.color = "red"
-      document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
-      document.getElementById("backarrow").style.setProperty("display", "none");
-      pickedglibweapon = true
-      pickeddefense = true
+    if(glibidopen === true){
+      if (pickedglibweapon === false) {
+        if(healthpotionamt >= 1){
+          document.getElementById("glibadefense").style.color = "red"
+          document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+          document.getElementById("backarrow").style.setProperty("display", "none");
+          pickedglibweapon = true
+          pickedglibhealthpotion = true
+          healthpotionamt = healthpotionamt - 1
+          chosetopenemy();
+          exitbag();
+        }
+      }
+    }
+    if(blorpidopen === true){
+      if (pickedblorpweapon === false) {
+        if(healthpotionamt >= 1){
+          document.getElementById("blorpadefense").style.color = "red"
+          document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+          document.getElementById("backarrow").style.setProperty("display", "none");
+          pickedblorpweapon = true
+          pickedblorphealthpotion = true
+          healthpotionamt = healthpotionamt - 1
+          chosetopenemy();
+          exitbag();
+        }
+      }
     }
   }
 
@@ -1345,6 +1529,7 @@
       for (i = 0; i < blorpweapons.length; i = i + 1) {
         document.getElementsByClassName('blorpweapons')[i].style.setProperty("display", "inline-block");
       }
+      blorpidopen = true
     }
   }
   function blorpback() {
@@ -1359,14 +1544,15 @@
     }
     document.getElementById("pickanenemy").style.setProperty("display", "none");
     document.getElementById("akexhaustiondiv").style.setProperty("display", "none");
+    blorpidopen = true
     attackappear();
   }
   function usefort17() {
     if (pickedblorpweapon === false) {
-      if(fortexhaustion > 0){
+      if (fortexhaustion > 0) {
         document.getElementById("usefort17").style.color = "red"
         document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
-        document.getElementsByClassName('blorpweapons')[2].style.setProperty("display", "none");
+        document.getElementsByClassName('blorpweapons')[3].style.setProperty("display", "none");
         pickedblorpweapon = true
         pickedfort17 = true
         blorpweaponchoice = Math.round(Math.random() * 1 + 4)
@@ -1378,7 +1564,7 @@
     if (pickedblorpweapon === false) {
       document.getElementById("usemachete").style.color = "red"
       document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
-      document.getElementsByClassName('blorpweapons')[2].style.setProperty("display", "none");
+      document.getElementsByClassName('blorpweapons')[3].style.setProperty("display", "none");
       pickedblorpweapon = true
       pickedmachete = true
       blorpweaponchoice = Math.round(Math.random() * 1 + 2)
@@ -1417,10 +1603,13 @@
           document.getElementById("glibbattleid").style.color = "red"
         }
       }
-      if (pickeddefense === true) {
+      if (pickedglibhealthpotion === true) {
         if (glibattckenemy === false) {
           glibback();
           glibattckenemy = true
+          glibhealth = 25 * glibhealthmultiplier
+          document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
+          document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
           document.getElementById("glibbattleid").style.color = "red"
         }
       }
@@ -1442,6 +1631,16 @@
           document.getElementById("blorpbattleid").style.color = "red"
         }
       }
+      if (pickedblorphealthpotion === true) {
+        if (blorpattckenemy === false) {
+          blorpback();
+          blorpattckenemy = true
+          blorphealth = 25 * blorphealthmultiplier
+          document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
+          document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
+          document.getElementById("blorpbattleid").style.color = "red"
+        }
+      }
     }
   }
   function chosebottomenemy() {
@@ -1450,7 +1649,7 @@
         if (glibattckenemy === false) {
           glibback();
           glibattckenemy = true
-          bottomenemyhealth = bottomenemyhealth - glibweapon 
+          bottomenemyhealth = bottomenemyhealth - glibweapon
           document.getElementById("glibbattleid").style.color = "red"
         }
       }
@@ -1462,7 +1661,7 @@
           document.getElementById("glibbattleid").style.color = "red"
         }
       }
-      if (pickeddefense === true) {
+      if (pickedglibhealthpotion === true) {
         if (glibattckenemy === true) {
           glibback();
           glibattckenemy = true
@@ -1544,7 +1743,6 @@
   function topenemyattacks() {
     var pickcharacter = Math.round(Math.random() * 100)
     if (pickcharacter % 2 === 0) {
-      if (pickeddefense === false) {
         var enemydamage = (Math.round(Math.random() * enemyattackrange[choosetopenemy] + enemyattackaddition[choosetopenemy]))
         glibhealth = glibhealth - enemydamage
         document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
@@ -1555,7 +1753,7 @@
           if (glibdead === true) {
             document.getElementById("bottomenemyattack").innerHTML = "nothing...";
             document.getElementById("glibhealthnumeral").innerHTML = 0
-        }
+          }
           if (glibdead === false) {
             document.getElementById("glib").style.setProperty("display", "none");
             document.getElementById("glibhealthnumeral").innerHTML = 0
@@ -1564,7 +1762,6 @@
             glibdead = true
           }
         }
-      }
     }
     if (pickcharacter % 2 !== 0) {
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosetopenemy] + enemyattackaddition[choosetopenemy]))
@@ -1608,18 +1805,18 @@
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
       document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to glib";
       if (glibhealth <= 0) {
-      if (glibdead === true) {
-        document.getElementById("bottomenemyattack").innerHTML = "nothing...";
-        document.getElementById("glibhealthnumeral").innerHTML = 0
+        if (glibdead === true) {
+          document.getElementById("bottomenemyattack").innerHTML = "nothing...";
+          document.getElementById("glibhealthnumeral").innerHTML = 0
+        }
+        if (glibdead === false) {
+          document.getElementById("glib").style.setProperty("display", "none");
+          document.getElementById("glibhealthnumeral").innerHTML = 0
+          document.getElementById("glibhealth").style.width = 0 + "%"
+          document.getElementById("bottomenemyattack").innerHTML = "knock glib out";
+          glibdead = true
+        }
       }
-      if (glibdead === false) {
-        document.getElementById("glib").style.setProperty("display", "none");
-        document.getElementById("glibhealthnumeral").innerHTML = 0
-        document.getElementById("glibhealth").style.width = 0 + "%"
-        document.getElementById("bottomenemyattack").innerHTML = "knock glib out";
-        glibdead = true
-      }
-    }
     }
     if (pickcharacter % 2 !== 0) {
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
@@ -1630,18 +1827,18 @@
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
       document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to blorp";
       if (blorphealth <= 0) {
-      if (blorpdead === true) {
-        document.getElementById("bottomenemyattack").innerHTML = "nothing...";
-        document.getElementById("blorphealthnumeral").innerHTML = 0
+        if (blorpdead === true) {
+          document.getElementById("bottomenemyattack").innerHTML = "nothing...";
+          document.getElementById("blorphealthnumeral").innerHTML = 0
+        }
+        if (blorpdead === false) {
+          document.getElementById("blorp").style.setProperty("display", "none");
+          document.getElementById("blorphealthnumeral").innerHTML = 0
+          document.getElementById("blorphealth").style.width = 0 + "%"
+          document.getElementById("bottomenemyattack").innerHTML = "knock blorp out";
+          blorpdead = true
+        }
       }
-      if (blorpdead === false) {
-        document.getElementById("blorp").style.setProperty("display", "none");
-        document.getElementById("blorphealthnumeral").innerHTML = 0
-        document.getElementById("blorphealth").style.width = 0 + "%"
-        document.getElementById("bottomenemyattack").innerHTML = "knock blorp out";
-        blorpdead = true
-      }
-    }
     }
     if (glibdead === true && blorpdead === true) {
       return document.getElementById("losebattle").style.setProperty("display", "inline-block");
@@ -1661,7 +1858,8 @@
     document.getElementById("blorpbattleid").style.color = "black"
     document.getElementById("useak47").style.color = "black"
     document.getElementById("usegrenade").style.color = "black"
-    document.getElementById("adefense").style.color = "black"
+    document.getElementById("glibadefense").style.color = "black"
+    document.getElementById("blorpadefense").style.color = "black"
     document.getElementById("usefort17").style.color = "black"
     document.getElementById("usemachete").style.color = "black"
     glibattckenemy = false
@@ -1670,7 +1868,7 @@
     antiweaponchoice = 0
     pickedak47 = false
     pickedgrenade = false
-    pickeddefense = false
+    pickedhealthpotion = false
     pickedblorpweapon = false
     blorpweaponchoice = 0
     pickedfort17 = false
@@ -1706,7 +1904,9 @@
     document.getElementById("blorphealthbar").style.setProperty("display", "none");
     document.getElementById("glibhealthnumeral").style.setProperty("display", "none");
     document.getElementById("blorphealthnumeral").style.setProperty("display", "none");
-    yourmoney = enemymoneydrop[choosetopenemy] + enemymoneydrop[choosebottomenemy]
+    if(battleactive === true){
+      yourmoney = yourmoney + enemymoneydrop[choosetopenemy] + enemymoneydrop[choosebottomenemy]
+    }
     topdead = false
     bottomdead = false
     battleactive = false
@@ -1746,8 +1946,8 @@
     inarea2 = false
     inarea2p2 = false
     inarea2p3 = false
-    if(defeatedmushman === false){
-      if(movefrombush === true){
+    if (defeatedmushman === false) {
+      if (movefrombush === true) {
         movefrombush = false
       }
     }
@@ -1763,8 +1963,8 @@
   var y = 400
   glibmoving.style.left = x + "px"
   glibmoving.style.top = y + "px"
-  blorpmoving.style.left = 600 +"px"
-  blorpmoving.style.top = 175+"px"
+  blorpmoving.style.left = 600 + "px"
+  blorpmoving.style.top = 175 + "px"
   var moveright = false
   var moveleft = false
   var moveup = false
@@ -1776,24 +1976,24 @@
         glibmoving.src = "thefront/glib.gif"
         walkingonce = true
       }
-      if (event.which === 39) {
+      if (event.which === 39 || event.which === 68) {
         glibmoving.style.transform = "scaleX(-1)"
         moveright = true
         blorpx = 100
       }
-      if (event.which === 37) {
+      if (event.which === 37 || event.which === 65) {
         glibmoving.style.transform = "scaleX(1)"
         moveleft = true
         blorpx = -100
       }
-      if (event.which === 38) {
+      if (event.which === 38 || event.which === 87) {
         if (moveup === false) {
           glibmoving.src = "thefront/glib.gif"
         }
         moveup = true
         blorpy = -100
       }
-      if (event.which === 40) {
+      if (event.which === 40 || event.which === 83) {
         movedown = true
         blorpy = 100
       }
@@ -1806,24 +2006,24 @@
           if (enterreidomizer === true) {
             testchamber();
           }
-          if(enterteleporter === true){
+          if (enterteleporter === true) {
             telepotermenu();
           }
-          if(talktoblorp === true){
+          if (talktoblorp === true) {
             talkingtoblorp();
           }
-          if(usemed === true){
+          if (usemed === true) {
             usemedkit();
           }
-          if(shopkeep === true){
+          if (shopkeep === true) {
             openshop();
           }
         }
       }
     }
-    if(inarea2p2 === true){
-      if(defeatedmushman === false){
-      document.getElementById("enemybush").src = "thefront/movingbush.gif"
+    if (inarea2p2 === true) {
+      if (defeatedmushman === false) {
+        document.getElementById("enemybush").src = "thefront/movingbush.gif"
       }
     }
     glibmoving.style.left = x + "px"
@@ -1835,55 +2035,55 @@
     if (event.which === 37 || event.which === 39) {
       glibmoving.src = "thefront/glib.gif"
     }
-    if (event.which === 39) {
+    if (event.which === 39 || event.which === 68) {
       moveright = false
       blorpx = 0
     }
-    if (event.which === 37) {
+    if (event.which === 37 || event.which === 65) {
       moveleft = false
       blorpx = 0
     }
-    if (event.which === 38) {
+    if (event.which === 38 || event.which === 87) {
       moveup = false
       glibmoving.src = "thefront/glib.gif"
       blorpy = 0
     }
-    if (event.which === 40) {
+    if (event.which === 40 || event.which === 83) {
       movedown = false
       blorpy = 0
     }
-    if(inarea2p2 === true){
+    if (inarea2p2 === true) {
       document.getElementById("enemybush").src = "thefront/stillbush.png"
     }
   })
 
   setInterval(function () {
-    if(battleactive === false){
-    if (moveright === true) {
-      if (x < 1000) {
-        x = x + 1
+    if (battleactive === false) {
+      if (moveright === true) {
+        if (x < 1000) {
+          x = x + 1
+        }
       }
-    }
-    if (moveleft === true) {
-      if (x > 200) {
-        x = x - 1
+      if (moveleft === true) {
+        if (x > 200) {
+          x = x - 1
+        }
       }
-    }
-    if (moveup === true) {
-      if (y > 180) {
-        y = y - 1
+      if (moveup === true) {
+        if (y > 180) {
+          y = y - 1
+        }
       }
-    }
-    if (movedown === true) {
-      if (y < 500) {
-        y = y + 1
+      if (movedown === true) {
+        if (y < 500) {
+          y = y + 1
+        }
       }
+      glibmoving.style.left = x + "px"
+      glibmoving.style.top = y + "px"
+      document.getElementById("x").innerHTML = x;
+      document.getElementById("y").innerHTML = y;
     }
-    glibmoving.style.left = x + "px"
-    glibmoving.style.top = y + "px"
-    document.getElementById("x").innerHTML = x;
-    document.getElementById("y").innerHTML = y;
-  }
   }, 1) // 1000ms = 1 second
 
   function testchamber() {
@@ -1894,10 +2094,10 @@
     beginbattle();
     refreshcycle();
   }
-  function telepotermenu(){
+  function telepotermenu() {
     document.getElementById("teleportermenu").style.setProperty("display", "inline-block");
   }
-  function exitteleportermenu(){
+  function exitteleportermenu() {
     document.getElementById("teleportermenu").style.setProperty("display", "none");
   }
   function usemedkit() {
@@ -1908,34 +2108,45 @@
     akexhaustion = 3
     fortexhaustion = 3
 
-  } 
-  function openshop(){
+  }
+  var healthpotcost = 250
+  var healthpotionamt = 0
+  function openshop() {
     document.getElementById("shopkeeperstall").style.setProperty("display", "inline-block");
     battleactive = true
-    document.getElementById("moneyamt").innerHTML = "<h3>" + "$" + yourmoney + "</h3>"
+    document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
+    document.getElementById("healthpotcost").innerHTML = healthpotcost
+    document.getElementById("healthpotionamt").innerHTML = healthpotionamt
   }
-  function closeshop(){
+  function buyhealthpotion(){
+    if(yourmoney >= 250){
+      yourmoney = yourmoney - 250
+      healthpotionamt = healthpotionamt + 1
+      document.getElementById("healthpotionamt").innerHTML = healthpotionamt
+      document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
+    }
+  }
+  function closeshop() {
     document.getElementById("shopkeeperstall").style.setProperty("display", "none");
     battleactive = false
   }
   var audio2 = new Audio('thefront/talkingtoblorp.wav');
-  function talkingtoblorp(){
+  function talkingtoblorp() {
     document.getElementById("blorptextbox").style.setProperty("display", "inline-block");
     document.getElementById("blorptext").style.setProperty("display", "none");
     audio2.play();
   }
   //Area Functions
   var inarea1 = true
-  var areamusic = [area1theme, area2theme]
   var musicignore = 0
   var area1theme = new Audio('thefront/fieldofdreams.mp3');
-  function area1(){
+  function area1() {
     x = 965
     y = 205
     glibmoving.style.left = x + "px"
     glibmoving.style.top = y + "px"
-    blorpmoving.style.left = 600 +"px"
-    blorpmoving.style.top = 175+"px"
+    blorpmoving.style.left = 600 + "px"
+    blorpmoving.style.top = 175 + "px"
     inarea1 = true
     inarea2 = false
     enterteleporter = false
@@ -1945,21 +2156,22 @@
     document.getElementById("moveablearea2p2").style.setProperty("display", "none");
     document.getElementById("moveablearea2p3").style.setProperty("display", "none");
     document.getElementById("moveablearea2bk").style.setProperty("display", "none");
-    area2theme.volume = 0
     var musicignore = 0
-    setInterval(fadeinfadeout, 200)
+    playingaudio.src = (areamusic[0])
+    playingaudio.play();
+    playingaudio.volume = .5
   }
   var inarea2 = false
   var area2theme = new Audio('thefront/thefronttheme.mp3');
   var volumefadein = 0
   var volumefadeout = .5
-  function area2(){
+  function area2() {
     x = 255
     y = 365
     glibmoving.style.left = x + "px"
     glibmoving.style.top = y + "px"
-    blorpmoving.style.left = 600 +"px"
-    blorpmoving.style.top = 175+"px"
+    blorpmoving.style.left = 600 + "px"
+    blorpmoving.style.top = 175 + "px"
     inarea1 = false
     inarea2 = true
     enterteleporter = false
@@ -1967,16 +2179,17 @@
     document.getElementById("moveablearea1bk").style.setProperty("display", "none");
     document.getElementById("moveablearea2").style.setProperty("display", "inline-block");
     document.getElementById("moveablearea2bk").style.setProperty("display", "inline-block");
-    area2theme.play();
-    area2theme.volume = 0
     musicignore = 1
-    setInterval(fadeinfadeout, 200)
+    playingaudio.src = (areamusic[[musicignore]])
+    playingaudio.play();
+    area2theme.volume = 0
   }
   //Background Music//
   var musicplaying = false
+  var areamusic = new Array('thefront/fieldofdreams.mp3', 'thefront/thefronttheme.mp3')
+  var playingaudio = new Audio();
   /*function fadeinfadeout(){
     if(musicplaying === false){
-      areamusic[musicignore].play();
       musicplaying = true
     }
     if(volumefadein < .5){
@@ -1987,119 +2200,132 @@
       if(i !== musicignore){
         areamusic[i].volume = volumefadeout
       }
-      areamusic[musicignore] = volumefadein
+      playingaudio = volumefadein
     }
     if(volumefadeout <= 0){
-      volumefadein = 0
-      volumefadeout = .5
+      volumefadein = 0.5
+      volumefadeout = 0
       clearInterval(fadeinfadeout)
       for(i = 0; i < areamusic.length; i=i+1){
-        areamusic[i].volume = volumefadeout
+        areamusic[i].volume = volumefadein
       }
-      areamusic[musicignore].volume = volumefadein
+      areamusic[musicignore].volume = volumefadeout
       musicplaying = false
     }
   }*/
-  
+
   //Select mode thing//
   var enterreidomizer = false
   setInterval(function () {
-    if(inarea1 === true){
-    if (x > 200 && x < 385 && y > 0 && y < 275) {
-      document.getElementById("reidomizertext").style.setProperty("display", "inline-block");
-      enterreidomizer = true
-    }
-    else {
-      document.getElementById("reidomizertext").style.setProperty("display", "none");
-      enterreidomizer = false
-    }
+    if (inarea1 === true) {
+      if (x > 200 && x < 385 && y > 0 && y < 275) {
+        document.getElementById("reidomizertext").style.setProperty("display", "inline-block");
+        enterreidomizer = true
+      }
+      else {
+        document.getElementById("reidomizertext").style.setProperty("display", "none");
+        enterreidomizer = false
+      }
     }
   }, 1) // 1000ms = 1 second
   var enterteleporter = false
   setInterval(function () {
-    if(inarea1 === true){
-    if (x > 875 && x < 1000 && y > 100 && y < 280) {
-      document.getElementById("teleportertext").style.setProperty("display", "inline-block");
-      enterteleporter = true
-    }
-    else {
-      document.getElementById("teleportertext").style.setProperty("display", "none");
-      enterteleporter = false
-    }
+    if (inarea1 === true) {
+      if (x > 875 && x < 1000 && y > 100 && y < 280) {
+        document.getElementById("teleportertext").style.setProperty("display", "inline-block");
+        enterteleporter = true
+      }
+      else {
+        document.getElementById("teleportertext").style.setProperty("display", "none");
+        enterteleporter = false
+      }
     }
   }, 1) // 1000ms = 1 second
   var usemed = false
   setInterval(function () {
-    if(inarea1 === true){
-    if (x > 225 && x < 330 && y > 365 && y < 450) {
-      document.getElementById("medtext").style.setProperty("display", "inline-block");
-      usemed = true
-    }
-    else {
-      document.getElementById("medtext").style.setProperty("display", "none");
-      usemed = false
-    }
+    if (inarea1 === true) {
+      if (x > 225 && x < 330 && y > 365 && y < 450) {
+        document.getElementById("medtext").style.setProperty("display", "inline-block");
+        usemed = true
+      }
+      else {
+        document.getElementById("medtext").style.setProperty("display", "none");
+        usemed = false
+      }
     }
   }, 1) // 1000ms = 1 second
   var talktoblorp = false
   setInterval(function () {
-    if(inarea1 === true){
-    if (x > 525 && x < 650 && y > 150 && y < 230) {
-      document.getElementById("blorptext").style.setProperty("display", "inline-block");
-      talktoblorp = true
-    }
-    else {
-      document.getElementById("blorptext").style.setProperty("display", "none");
-      talktoblorp = false
-    }
+    if (inarea1 === true) {
+      if (x > 525 && x < 650 && y > 150 && y < 230) {
+        document.getElementById("blorptext").style.setProperty("display", "inline-block");
+        talktoblorp = true
+      }
+      else {
+        document.getElementById("blorptext").style.setProperty("display", "none");
+        talktoblorp = false
+      }
     }
   }, 1) // 1000ms = 1 second
   var shopkeep = false
   setInterval(function () {
-    if(inarea1 === true){
-    if (x > 835 && x < 945 && y > 380 && y < 490) {
-      document.getElementById("shoptext").style.setProperty("display", "inline-block");
-      shopkeep = true
-    }
-    else {
-      document.getElementById("shoptext").style.setProperty("display", "none");
-      shopkeep = false
-    }
+    if (inarea1 === true) {
+      if (x > 835 && x < 945 && y > 380 && y < 490) {
+        document.getElementById("shoptext").style.setProperty("display", "inline-block");
+        shopkeep = true
+      }
+      else {
+        document.getElementById("shoptext").style.setProperty("display", "none");
+        shopkeep = false
+      }
     }
   }, 1) // 1000ms = 1 second
 
   //AREA 2//
+  setInterval(function () {
+    if (inarea2 === true) {
+      if (x > 200 && x < 320 && y > 330 && y < 425) {
+        document.getElementById("teleportertext2").style.setProperty("display", "inline-block");
+        enterteleporter = true
+      }
+      else {
+        document.getElementById("teleportertext2").style.setProperty("display", "none");
+        enterteleporter = false
+      }
+    }
+  }, 1) // 1000ms = 1 second
+
   var movefrombush = false
   setInterval(function () {
-    if(inarea2p2 === true){
-      if(defeatedmushman === false){
-      if (x === 615) {
-        if(mushmandisplayed === false){
-          battleactive = true
-          document.getElementById("enemyfrombush").style.setProperty("display", "inline-block");
-          movefrombush = true
+    if (inarea2p2 === true) {
+      if (defeatedmushman === false) {
+        if (x === 615) {
+          if (mushmandisplayed === false) {
+            battleactive = true
+            document.getElementById("enemyfrombush").style.setProperty("display", "inline-block");
+            movefrombush = true
+          }
         }
       }
     }
-  }
   }, 1) // 1000ms = 1 second
   var bushenemyy = 500
   var mushmandisplayed = false
   var defeatedmushman = false
   setInterval(function () {
-    if(movefrombush === true){
-      if(bushenemyy > y){
+    if (movefrombush === true) {
+      if (bushenemyy > y) {
         bushenemyy = bushenemyy - 3
       }
-      if(bushenemyy <= y){
-        if(mushmandisplayed === false){
+      if (bushenemyy <= y) {
+        if (mushmandisplayed === false) {
           document.getElementById("bushmantextbox").style.setProperty("display", "inline-block");
           mushmandisplayed = true
           setTimeout(mushmanbattle, 2000);
         }
       }
-      if(battleactive === false){
-        if(losebattle === false){
+      if (battleactive === false) {
+        if (losebattle === false) {
           document.getElementById("bushmantextbox").innerHTML = "<h2>Glorb: I guess you could say the mushman was mashed :'D<h2>"
           defeatedmushman = true
           movefrombush = false
@@ -2119,8 +2345,8 @@
   //Move To a different section area 2
   var inarea2p2 = false
   setInterval(function () {
-    if(inarea2 === true){
-      if(inarea2p2 === true){
+    if (inarea2 === true) {
+      if (inarea2p2 === true) {
         if (x === 200) {
           inarea2p2 = false
           document.getElementById("moveablearea2p2").style.setProperty("display", "none");
@@ -2134,28 +2360,28 @@
     }
   }, 1) // 1000ms = 1 second
   setInterval(function () {
-    if(inarea2 === true){
-      if(inarea2p2 === false){
-        if(inarea2p3 === false){
-        if (x === 1000){
-          inarea2p2 = true
-          inarea2p3 = false
-          document.getElementById("moveablearea2p2").style.setProperty("display", "inline-block");
-          document.getElementById("moveablearea2").style.setProperty("display", "none");
-          document.getElementById("blorpmovable").style.setProperty("display", "none");
-          document.getElementById("moveablearea2p3").style.setProperty("display", "none");
-          x = 235
-          glibmoving.style.left = x + "px"
-          glibmoving.style.top = y + "px"
+    if (inarea2 === true) {
+      if (inarea2p2 === false) {
+        if (inarea2p3 === false) {
+          if (x === 1000) {
+            inarea2p2 = true
+            inarea2p3 = false
+            document.getElementById("moveablearea2p2").style.setProperty("display", "inline-block");
+            document.getElementById("moveablearea2").style.setProperty("display", "none");
+            document.getElementById("blorpmovable").style.setProperty("display", "none");
+            document.getElementById("moveablearea2p3").style.setProperty("display", "none");
+            x = 235
+            glibmoving.style.left = x + "px"
+            glibmoving.style.top = y + "px"
+          }
         }
       }
     }
-    }
   }, 1) // 1000ms = 1 second
   setInterval(function () {
-    if(inarea2p2 === false){
-      if(inarea2p3 === true){
-        if (x === 200){
+    if (inarea2p2 === false) {
+      if (inarea2p3 === true) {
+        if (x === 200) {
           inarea2p2 = true
           inarea2p3 = false
           document.getElementById("moveablearea2p2").style.setProperty("display", "inline-block");
@@ -2171,9 +2397,9 @@
   }, 1) // 1000ms = 1 second
   var inarea2p3 = false
   setInterval(function () {
-    if(inarea2p2 === true){
-      if(inarea2p3 === false){
-        if (x === 1000){
+    if (inarea2p2 === true) {
+      if (inarea2p3 === false) {
+        if (x === 1000) {
           inarea2p2 = false
           inarea2p3 = true
           document.getElementById("moveablearea2p3").style.setProperty("display", "inline-block");
@@ -2186,14 +2412,16 @@
       }
     }
   }, 1) // 1000ms = 1 second
-  
+
 
   //Save and Load Game Functions
   function saveGame() {
     var gameSave = {
       cutscene5: cutscene5,
       firstbattlewon: firstbattlewon,
-      defeatedmushman: defeatedmushman
+      defeatedmushman: defeatedmushman,
+      yourmoney: yourmoney,
+      healthpotionamt: healthpotionamt
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
   }
@@ -2202,8 +2430,9 @@
     var savedGame = JSON.parse(localStorage.getItem("gameSave"));
     if (typeof savedGame.cutscene5 !== "undefined") cutscene5 = savedGame.cutscene5;
     if (typeof savedGame.firstbattlewon !== "undefined") firstbattlewon = savedGame.firstbattlewon;
-    if (typeof savedGame.inarea2 !== "undefined") inarea2 = savedGame.inarea2;
     if (typeof savedGame.defeatedmushman !== "undefined") defeatedmushman = savedGame.defeatedmushman;
+    if (typeof savedGame.yourmoney !== "undefined") yourmoney = savedGame.yourmoney;
+    if (typeof savedGame.healthpotionamt !== "undefined") healthpotionamt = savedGame.healthpotionamt;
   }
 
   window.onload = function () {
