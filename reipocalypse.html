@@ -645,7 +645,7 @@
       border-color: black;
       background-color: #fada90;
       border-style: solid;
-      height: 120px;
+      height: 125px;
       font-size: 15px;
       color: black;
       width: 120px;
@@ -658,13 +658,84 @@
       height: 100px;
     }
 
-    #glibhealthpotion {
+    #glibhealthpotiondiv {
       position: absolute;
-      height: 100px;
-      left: 100px;
-      top: 325px;
+      height: 155px;
+      width: 130px;
       z-index: 10;
+      left: 175px;
+      top: 275px;
+    }
+    #glibhealthpotiondiv:hover{
+      border-style: solid;
+      border-color: red;
+    }
+
+    #glibhealthpotion {
+      height: 150px;
+    }
+    #glibhealthpotionsigndiv{
+      position: absolute;
+      border-color: black;
+      background-color: #fada90;
+      border-style: solid;
+      height: 125px;
+      font-size: 15px;
+      color: black;
+      width: 120px;
+      z-index: 10;
+      left: 180px;
+      top: 450px;
+    }
+    #choosegliborblorp{
+      position: absolute;
+      background-color: grey;
+      height: 300px;
+      width: 550px;
+      z-index: 11;
+      top: 150px;
+      left: 175px;
+      border-style: solid;
+      border-radius: 20px;
+      border-color: black;
+      border-width: 5px;
       display: none;
+    }
+    #choiceofglib{
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      background-image: url("thefront/stillglib.png");
+      top: 50px;
+      left: 50px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #choiceofglib:hover{
+      background-image: url("thefront/choosingglib.gif");
+      border-color: red;
+      border-style: solid;
+    }
+    #choiceofblorp{
+      position: absolute;
+      height: 200px;
+      width: 200px;
+      background-image: url("thefront/stillblorp.png");
+      top: 50px;
+      left: 300px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #choiceofblorp:hover{
+      background-image: url("thefront/blorp.gif");
+      border-color: red;
+      border-style: solid;
+    }
+    #choiceoftext{
+      color: black;
+      font-size:large;
     }
 
     #teleporter {
@@ -795,7 +866,7 @@
 
     #medtext {
       position: absolute;
-      left: 350px;
+      left: 250px;
       bottom: 10px;
       color: white;
       display: none;
@@ -1056,7 +1127,7 @@
     </div>
     <div id="medtext">
       <center>
-        <h2>Use the Medkit</h2><br>press space
+        <h2>Heal all wounds and restore stamina</h2><br>press space
       </center>
     </div>
     <div id="shoptext">
@@ -1066,10 +1137,12 @@
     </div>
   </div>
 
+  <!--Shopkeeper stall-->
   <div id="shopkeeperstall">
     <div id="moneyamt"></div>
     <img id="shopkeeperstallimg" src="thefront/potionsellermenu.gif">
-    <div id="healthpotiondiv" onclick="buyhealthpotion()"><center><img id="healthpotion" src="thefront/healthpotion.gif"></center>
+    <div id="healthpotiondiv" onclick="buyhealthpotion()">
+      <center><img id="healthpotion" src="thefront/healthpotion.gif"></center>
     </div>
     <div id="healthpotionsigndiv">
       <center>Health Potion</center><br>
@@ -1077,7 +1150,20 @@
       <center>$<span id="healthpotcost"></span></center>
       <center>(Owned: <span id="healthpotionamt"></span>)</center>
     </div>
-    <div id="glibhealthpotiondiv"><img id="glibhealthpotion" src="thefront/glibhealthpotion.gif"></div>
+    <div id="glibhealthpotiondiv" onclick="buyhealthincrease()">
+      <center><img id="glibhealthpotion" src="thefront/glibhealthpotion.gif"></center>
+    </div>
+    <div id="glibhealthpotionsigndiv">
+      <center>Life Boost Potion</center><br>
+      Permanently increases health of a chosen character
+      <center>$<span id="glibhealthpotcost"></span></center>
+    </div>
+    <div id="choosegliborblorp">
+      <div id="choiceoftext"><center>Choose Glib or Blorp to recieve the upgrade</center></div>
+      <div id="choiceofglib" onclick="chosenglibu()"></div>
+      <div id="choiceofblorp" onclick="chosenblorpu()"></div>
+    </div>
+    <div id="strengthpotion"></div>
     <div id="exitshop" onclick="closeshop()">
       <center>
         <h2>X</h2>
@@ -1175,7 +1261,6 @@
   
 
   function savedcontinue() {
-
     if (cutscene5 === true) {
       document.getElementById("title").style.setProperty("display", "none");
       document.getElementById("background").style.setProperty("display", "inline-block");
@@ -1355,8 +1440,10 @@
   var yourmoney = 0
   var glibhealthmultiplier = 1
   var blorphealthmultiplier = 1
-  var glibhealth = 15 * glibhealthmultiplier
+  var glibhealth = 25 * glibhealthmultiplier
   var blorphealth = 25 * blorphealthmultiplier
+  var glibhealthbarmult = [0, 4]
+  var blorphealthbarmult = [0, 4]
   var enemyname = ["Knawknaw", "Mushman", "AHHHHHHHHHHHHHHHHH", "BubbaFly", "Soldier Rei"]
   var enemyimage = ["thefront/Crimfish.gif", "thefront/mushboy.gif", "thefront/chilipeppa.gif", "thefront/bubbafly.gif", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
   var enemyhealth = [20, 50, 75, 100, 150, 300]
@@ -1409,10 +1496,17 @@
     document.getElementById("bottomhealthnumeral").innerHTML = bottomenemyhealth;
     document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
     document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
-    document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
-    document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
+    document.getElementById("glibhealth").style.width = (glibhealth * glibhealthbarmult[glibhealthmultiplier]) + "%"
+    document.getElementById("blorphealth").style.width = (blorphealth * blorphealthbarmult[blorphealthmultiplier]) + "%"
     introover = true
     battleactive = true
+    if(glibhealth <= 0){
+      glibdead = true
+    }
+    if(blorphealth <= 0){
+      blorpdead = true
+    }
+    refreshcycle();
   }
 
   //glib category
@@ -1544,7 +1638,7 @@
     }
     document.getElementById("pickanenemy").style.setProperty("display", "none");
     document.getElementById("akexhaustiondiv").style.setProperty("display", "none");
-    blorpidopen = true
+    blorpidopen = false
     attackappear();
   }
   function usefort17() {
@@ -1608,7 +1702,7 @@
           glibback();
           glibattckenemy = true
           glibhealth = 25 * glibhealthmultiplier
-          document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
+          document.getElementById("glibhealth").style.width = (glibhealth * glibhealthbarmult[glibhealthmultiplier]) + "%"
           document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
           document.getElementById("glibbattleid").style.color = "red"
         }
@@ -1636,7 +1730,7 @@
           blorpback();
           blorpattckenemy = true
           blorphealth = 25 * blorphealthmultiplier
-          document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
+          document.getElementById("blorphealth").style.width = (blorphealth * blorphealthbarmult[blorphealthmultiplier]) + "%"
           document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
           document.getElementById("blorpbattleid").style.color = "red"
         }
@@ -1745,7 +1839,7 @@
     if (pickcharacter % 2 === 0) {
         var enemydamage = (Math.round(Math.random() * enemyattackrange[choosetopenemy] + enemyattackaddition[choosetopenemy]))
         glibhealth = glibhealth - enemydamage
-        document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
+        document.getElementById("glibhealth").style.width = (glibhealth * glibhealthbarmult[glibhealthmultiplier]) + "%"
         document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
         document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
         document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to glib";
@@ -1767,7 +1861,7 @@
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosetopenemy] + enemyattackaddition[choosetopenemy]))
       blorphealth = blorphealth - enemydamage
       document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
-      document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
+      document.getElementById("blorphealth").style.width = (blorphealth * blorphealthbarmult[blorphealthmultiplier]) + "%"
       document.getElementById("topenemyattackdiv").style.setProperty("display", "inline-block");
       document.getElementById("topenemyattack").innerHTML = enemydamage + " damage to blorp";
       if (blorphealth <= 0) {
@@ -1799,7 +1893,7 @@
     if (pickcharacter % 2 === 0) {
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
       glibhealth = glibhealth - enemydamage
-      document.getElementById("glibhealth").style.width = (glibhealth * 4) + "%"
+      document.getElementById("glibhealth").style.width = (glibhealth * glibhealthbarmult[glibhealthmultiplier]) + "%"
       document.getElementById("glibhealthnumeral").innerHTML = glibhealth;
       document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
@@ -1822,7 +1916,7 @@
       var enemydamage = (Math.round(Math.random() * enemyattackrange[choosebottomenemy] + enemyattackaddition[choosebottomenemy]))
       blorphealth = blorphealth - enemydamage
       document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
-      document.getElementById("blorphealth").style.width = (blorphealth * 4) + "%"
+      document.getElementById("blorphealth").style.width = (blorphealth * blorphealthbarmult[blorphealthmultiplier]) + "%"
       document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
       document.getElementById("bottomenemyattackdiv").style.setProperty("display", "inline-block");
       document.getElementById("bottomenemyattack").innerHTML = enemydamage + " damage to blorp";
@@ -1843,7 +1937,9 @@
     if (glibdead === true && blorpdead === true) {
       return document.getElementById("losebattle").style.setProperty("display", "inline-block");
     }
-    setTimeout(refreshcycle, 3000);
+    else{
+      setTimeout(refreshcycle, 3000);
+    }
   }
   function refreshcycle() {
     if (glibdead === false) {
@@ -1851,6 +1947,14 @@
     }
     if (blorpdead === false) {
       document.getElementById("blorpbattleid").style.setProperty("display", "inline-block");
+    }
+    if (glibdead === true) {
+      document.getElementById("glibbattleid").style.setProperty("display", "none");
+      document.getElementById("glib").style.setProperty("display", "none");
+    }
+    if (blorpdead === true) {
+      document.getElementById("blorpbattleid").style.setProperty("display", "none");
+      document.getElementById("blorp").style.setProperty("display", "none");
     }
     document.getElementById("topenemyattackdiv").style.setProperty("display", "none");
     document.getElementById("bottomenemyattackdiv").style.setProperty("display", "none");
@@ -2109,6 +2213,8 @@
     fortexhaustion = 3
 
   }
+
+  //POTION STORE THINGS//
   var healthpotcost = 250
   var healthpotionamt = 0
   function openshop() {
@@ -2117,6 +2223,7 @@
     document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
     document.getElementById("healthpotcost").innerHTML = healthpotcost
     document.getElementById("healthpotionamt").innerHTML = healthpotionamt
+    document.getElementById("glibhealthpotcost").innerHTML = healthincreasecost
   }
   function buyhealthpotion(){
     if(yourmoney >= 250){
@@ -2126,10 +2233,34 @@
       document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
     }
   }
+  var healthincreasecost = 400
+  function buyhealthincrease() {
+    if(yourmoney >= healthincreasecost){
+      yourmoney = yourmoney - healthincreasecost
+      document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
+      healthincreasecost = Math.round(healthincreasecost * 1.5)
+      document.getElementById("choosegliborblorp").style.setProperty("display", "inline-block");
+      document.getElementById("glibhealthpotcost").innerHTML = healthincreasecost
+    }
+  }
+  function chosenglibu(){
+    glibhealthmultiplier = glibhealthmultiplier + 1
+    glibhealth = 25 * glibhealthmultiplier
+    glibhealthbarmult[glibhealthbarmult.length] = 100 / glibhealth
+    document.getElementById("choosegliborblorp").style.setProperty("display", "none");
+  }
+  function chosenblorpu(){
+    blorphealthmultiplier = blorphealthmultiplier + 1
+    blorphealth = 25 * blorphealthmultiplier
+    blorphealthbarmult[blorphealthbarmult.length] = 100 / blorphealth
+    document.getElementById("choosegliborblorp").style.setProperty("display", "none");
+  }
   function closeshop() {
     document.getElementById("shopkeeperstall").style.setProperty("display", "none");
     battleactive = false
   }
+  //END POTION STORE//
+
   var audio2 = new Audio('thefront/talkingtoblorp.wav');
   function talkingtoblorp() {
     document.getElementById("blorptextbox").style.setProperty("display", "inline-block");
@@ -2141,7 +2272,7 @@
   var musicignore = 0
   var area1theme = new Audio('thefront/fieldofdreams.mp3');
   function area1() {
-    x = 965
+    x = 935
     y = 205
     glibmoving.style.left = x + "px"
     glibmoving.style.top = y + "px"
@@ -2421,7 +2552,14 @@
       firstbattlewon: firstbattlewon,
       defeatedmushman: defeatedmushman,
       yourmoney: yourmoney,
-      healthpotionamt: healthpotionamt
+      healthpotionamt: healthpotionamt,
+      glibhealth: glibhealth,
+      blorphealth: blorphealth,
+      glibhealthmultiplier: glibhealthmultiplier,
+      blorphealthmultiplier: blorphealthmultiplier,
+      glibhealthbarmult: glibhealthbarmult,
+      blorphealthbarmult: blorphealthbarmult,
+      healthincreasecost: healthincreasecost
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
   }
@@ -2433,6 +2571,11 @@
     if (typeof savedGame.defeatedmushman !== "undefined") defeatedmushman = savedGame.defeatedmushman;
     if (typeof savedGame.yourmoney !== "undefined") yourmoney = savedGame.yourmoney;
     if (typeof savedGame.healthpotionamt !== "undefined") healthpotionamt = savedGame.healthpotionamt;
+    if (typeof savedGame.glibhealthmultiplier !== "undefined") glibhealthmultiplier = savedGame.glibhealthmultiplier;
+    if (typeof savedGame.blorphealthmultiplier !== "undefined") blorphealthmultiplier = savedGame.blorphealthmultiplier;
+    if (typeof savedGame.glibhealthbarmult !== "undefined") glibhealthbarmult = savedGame.glibhealthbarmult;
+    if (typeof savedGame.blorphealthbarmult !== "undefined") blorphealthbarmult = savedGame.blorphealthbarmult;
+    if (typeof savedGame.healthincreasecost !== "undefined") healthincreasecost = savedGame.healthincreasecost;
   }
 
   window.onload = function () {
