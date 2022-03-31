@@ -687,7 +687,77 @@
       left: 180px;
       top: 450px;
     }
+    #strengthpotiondiv{
+      position: absolute;
+      height: 135px;
+      width: 150px;
+      z-index: 10;
+      left: 500px;
+      top: 300px;
+    }
+    #strengthpotiondiv:hover{
+      border-style: solid;
+      border-color: red;
+    }
+    #strengthpotion{
+      height: 125px;
+    }
+    #strengthpotionsigndiv{
+      position: absolute;
+      border-color: black;
+      background-color: #fada90;
+      border-style: solid;
+      height: 125px;
+      font-size: 15px;
+      color: black;
+      width: 120px;
+      z-index: 10;
+      left: 515px;
+      top: 450px;
+    }
+    #staminapotiondiv{
+      position: absolute;
+      height: 130px;
+      width: 120px;
+      z-index: 10;
+      left: 700px;
+      top: 300px;
+    }
+    #staminapotiondiv:hover{
+      border-style: solid;
+      border-color: red;
+    }
+    #staminapotion{
+      height: 125px;
+    }
+    #staminapotionsigndiv{
+      position: absolute;
+      border-color: black;
+      background-color: #fada90;
+      border-style: solid;
+      height: 125px;
+      font-size: 15px;
+      color: black;
+      width: 120px;
+      z-index: 10;
+      left: 700px;
+      top: 450px;
+    }
     #choosegliborblorp{
+      position: absolute;
+      background-color: grey;
+      height: 300px;
+      width: 550px;
+      z-index: 11;
+      top: 150px;
+      left: 175px;
+      border-style: solid;
+      border-radius: 20px;
+      border-color: black;
+      border-width: 5px;
+      display: none;
+    }
+    #choosegliborblorp2{
       position: absolute;
       background-color: grey;
       height: 300px;
@@ -844,8 +914,120 @@
 
     #deergod {
       position: absolute;
-      left: 750px;
+      left: 700px;
       top: 125px;
+    }
+    .hedgemaze {
+      height: 100px;
+    }
+    #curvedhedge1{
+      position: absolute;
+      top: 30px;
+      left: 200px;
+    }
+    #straightendhedge1{
+      position: absolute;
+      top: 130px;
+      left: 200px;
+      transform: scale(1, -1);
+      height: 45px;
+      width: 100px;
+    }
+    #curvedhedge2{
+      position: absolute;
+      top: 325px;
+      left: 200px;
+      transform: scale(1, -1);
+    }
+    #straightendhedge2{
+      position: absolute;
+      top: 255px;
+      left: 200px;
+      height: 70px;
+      width: 100px;
+    }
+    #straighthedge1{
+      position: absolute;
+      top: 42px;
+      left: 300px;
+      transform: rotate(90deg);
+    }
+    #straighthedge2{
+      position: absolute;
+      top: 315px;
+      left: 300px;
+      transform: rotate(90deg);
+    }
+    #straighthedge3{
+      position: absolute;
+      top: 42px;
+      left: 400px;
+      transform: rotate(90deg);
+    }
+    #straighthedge4{
+      position: absolute;
+      top: 315px;
+      left: 400px;
+      transform: rotate(90deg);
+    }
+    #straighthedge5{
+      position: absolute;
+      top: 42px;
+      left: 500px;
+      transform: rotate(90deg);
+    }
+    #straighthedge6{
+      position: absolute;
+      top: 315px;
+      left: 500px;
+      transform: rotate(90deg);
+    }
+    #straighthedge7{
+      position: absolute;
+      top: 42px;
+      left: 600px;
+      transform: rotate(90deg);
+    }
+    #straighthedge8{
+      position: absolute;
+      top: 315px;
+      left: 600px;
+      transform: rotate(90deg);
+    }
+    #straighthedge9{
+      position: absolute;
+      top: 42px;
+      left: 700px;
+      transform: rotate(90deg);
+    }
+    #straighthedge10{
+      position: absolute;
+      top: 315px;
+      left: 700px;
+      transform: rotate(90deg);
+    }
+    #curvedhedge3{
+      position: absolute;
+      top: 325px;
+      left: 800px;
+      transform: rotate(180deg);
+    }
+    #curvedhedge4{
+      position: absolute;
+      top: 30px;
+      left: 800px;
+      transform: rotate(180deg);
+      transform: scaleX(-1);
+    }
+    #straighthedge11{
+      position: absolute;
+      top: 225px;
+      left: 800px;
+    }
+    #straighthedge12{
+      position: absolute;
+      top: 130px;
+      left: 800px;
     }
 
     #reidomizertext {
@@ -1040,13 +1222,13 @@
     <div id="akexhaustiondiv">
       <h4>You can use this <span id="akexhaustion"></span> more time(s)</h4>
     </div>
-    <h2><span id="useak47" class="glibweapons" onclick="useak47()">ㅤㅤㅤProjectile Ooze: 3-7 Damage</span><span
+    <h2><span id="useak47" class="glibweapons" onclick="useak47()">ㅤㅤㅤProjectile Ooze: <span id="glibspecattackdamage">3-7</span> Damage</span><span
         id="glibadefense" class="glibweapons" onclick="openbag()">ㅤㅤㅤOpen Bag</span></h2>
     <h2><span id="usegrenade" class="glibweapons" onclick="usegrenade()">ㅤㅤㅤSlime Bomb: 2-3 Splash</span>
       <br class="glibweapons"><strong><span id="backarrow" class="glibweapons" onclick="glibback()">ㅤ❮</span></strong>
     </h2>
 
-    <h2><span id="usefort17" class="blorpweapons" onclick="usefort17()">ㅤㅤㅤStick stab: 4-5 Damage</span><span
+    <h2><span id="usefort17" class="blorpweapons" onclick="usefort17()">ㅤㅤㅤStick stab: <span id="blorpspecattackdamage">4-5</span> Damage</span><span
       id="blorpadefense" class="blorpweapons" onclick="openbag()">ㅤㅤㅤOpen Bag</span></h2>
     <h2><span id="usemachete" class="blorpweapons" onclick="usemachete()">ㅤㅤㅤ: 2-3 Damage</span>
       <br><strong><span id="backarrow" class="blorpweapons" onclick="blorpback()">ㅤ❮</span></strong>
@@ -1085,6 +1267,7 @@
   <div id="battlebag">
     <div id="exitbattlebag" onclick="exitbag()"><h1>X</h1></div>
     <h2><span onclick="adefense()" style="color: white;">ㅤㅤㅤHealth Potion (Amt: <span id="usedhealthpotion"></span>)</h2>
+    <h2><span onclick="usestamina()" style="color: white;">ㅤㅤㅤStamina Potion (Amt: <span id="usedstaminapotion"></span>)</h2>
   </div>
   <div id="wonbattle">
     <center><br><br><br>
@@ -1163,7 +1346,28 @@
       <div id="choiceofglib" onclick="chosenglibu()"></div>
       <div id="choiceofblorp" onclick="chosenblorpu()"></div>
     </div>
-    <div id="strengthpotion"></div>
+    <div id="strengthpotiondiv" onclick="buystrengthincrease()">
+      <center><img id="strengthpotion" src="thefront/strengthpotion.gif"></center>
+    </div>
+    <div id="strengthpotionsigndiv">
+      <center>Strength Potion</center><br>
+      Uses the power of Lean to make you stronger (Boosts Spec. Attack)
+      <center>$<span id="strengthpotcost"></span></center>
+    </div>
+    <div id="choosegliborblorp2">
+      <div id="choiceoftext"><center>Choose Glib or Blorp to recieve the upgrade</center></div>
+      <div id="choiceofglib" onclick="chosenglibstrength()"></div>
+      <div id="choiceofblorp" onclick="chosenblorpstrength()"></div>
+    </div>
+    <div id="staminapotiondiv" onclick="buystaminapotion()">
+      <img id="staminapotion" src="thefront/staminapotion.gif">
+    </div>
+    <div id="staminapotionsigndiv">
+      <center>Stamina Potion</center><br>
+      Restores stamina to special attacks (NOT PISS)
+      <center>$100<span id="staminapotcost"></span></center>
+      <center>(Owned: <span id="staminapotionamt"></span>)</center>
+    </div>
     <div id="exitshop" onclick="closeshop()">
       <center>
         <h2>X</h2>
@@ -1200,6 +1404,24 @@
   <div id="moveablearea2p3">
     <div id="treesbk1" class="treesbk"></div>
     <div id="treesbk2" class="treesbk"></div>
+    <img id="curvedhedge1" class="hedgemaze" src="thefront/hedgecurved.png">
+    <img id="straightendhedge1" class="hedgemaze" src="thefront/hedgestraightend.png">
+    <img id="curvedhedge2" class="hedgemaze" src="thefront/hedgecurved.png">
+    <img id="straightendhedge2" class="hedgemaze" src="thefront/hedgestraightend.png">
+    <img id="straighthedge1" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge2" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge3" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge4" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge5" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge6" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge7" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge8" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge9" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge10" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="curvedhedge3" class="hedgemaze" src="thefront/hedgecurved.png">
+    <img id="curvedhedge4" class="hedgemaze" src="thefront/hedgecurved.png">
+    <img id="straighthedge11" class="hedgemaze" src="thefront/hedgestraight.gif">
+    <img id="straighthedge12" class="hedgemaze" src="thefront/hedgestraight.gif">
     <img id="deergod" src="thefront/deerkingstill.gif">
   </div>
   <div id="teleportermenu">
@@ -1235,7 +1457,7 @@
   </div>
   <span id="x"></span> and <span id="y"></span>
   <!--cruse is a stupid gay boy who loves other stupid gay boys <3 <3 <3-->
-  <button onclick="saveGame()">Save Game</button>
+  <button onclick="saveGame()">Save Game</button><button onclick="gibemoney()">$$$</button>
 </body>
 
 </html>
@@ -1257,6 +1479,9 @@
     openingopac1 = true
     cutscene5 = false
     firstbattlewon = false
+  }
+  function gibemoney() {
+    yourmoney = yourmoney + 100000000
   }
   
 
@@ -1430,6 +1655,7 @@
   function openbag(){
     document.getElementById("battlebag").style.setProperty("display", "inline-block");
     document.getElementById("usedhealthpotion").innerHTML = healthpotionamt
+    document.getElementById("usedstaminapotion").innerHTML = staminapotionamt
   }
   function exitbag(){
     document.getElementById("battlebag").style.setProperty("display", "none");
@@ -1444,6 +1670,8 @@
   var blorphealth = 25 * blorphealthmultiplier
   var glibhealthbarmult = [0, 4]
   var blorphealthbarmult = [0, 4]
+  var glibspecattackaddition = 0
+  var blorpspecattackaddition = 0
   var enemyname = ["Knawknaw", "Mushman", "AHHHHHHHHHHHHHHHHH", "BubbaFly", "Soldier Rei"]
   var enemyimage = ["thefront/Crimfish.gif", "thefront/mushboy.gif", "thefront/chilipeppa.gif", "thefront/bubbafly.gif", "https://cdn10.bigcommerce.com/s-8v6b4hr6ku/products/8099/images/24077/2__42576.1614731031.1280.1280.png?c=2"]
   var enemyhealth = [20, 50, 75, 100, 150, 300]
@@ -1542,6 +1770,7 @@
         document.getElementsByClassName('glibweapons')[i].style.setProperty("display", "inline-block");
       }
       glibidopen = true
+      document.getElementById("glibspecattackdamage").innerHTML = (3 + glibspecattackaddition) + "-" + ((4 + glibspecattackaddition) + (3 + glibspecattackaddition))
     }
   }
   function glibback() {
@@ -1567,7 +1796,7 @@
         document.getElementById("backarrow").style.setProperty("display", "none");
         pickedglibweapon = true
         pickedak47 = true
-        glibweapon = Math.round(Math.random() * 4 + 3 + 10000000000000000000000000)
+        glibweapon = Math.round(Math.random() * (4 + glibspecattackaddition)) + (3 + glibspecattackaddition)
         akexhaustion = akexhaustion - 1
       }
     }
@@ -1612,6 +1841,39 @@
       }
     }
   }
+  var pickedglibstaminapotion = false
+  var pickedblorpstaminapotion = false
+  var staminapotionamt = 0
+  function usestamina() {
+    if(glibidopen === true){
+      if (pickedglibweapon === false) {
+        if(staminapotionamt >= 1){
+          document.getElementById("glibadefense").style.color = "red"
+          document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+          document.getElementById("backarrow").style.setProperty("display", "none");
+          pickedglibweapon = true
+          pickedglibstaminapotion = true
+          staminapotionamt = staminapotionamt - 1
+          chosetopenemy();
+          exitbag();
+        }
+      }
+    }
+    if(blorpidopen === true){
+      if (pickedblorpweapon === false) {
+        if(staminapotionamt >= 1){
+          document.getElementById("blorpadefense").style.color = "red"
+          document.getElementById("pickanenemy").style.setProperty("display", "inline-block");
+          document.getElementById("backarrow").style.setProperty("display", "none");
+          pickedblorpweapon = true
+          pickedblorpstaminapotion = true
+          staminapotionamt = staminapotionamt - 1
+          chosetopenemy();
+          exitbag();
+        }
+      }
+    }
+  }
 
   //blorp category
   function blorpbattleop() {
@@ -1624,6 +1886,7 @@
         document.getElementsByClassName('blorpweapons')[i].style.setProperty("display", "inline-block");
       }
       blorpidopen = true
+      document.getElementById("blorpspecattackdamage").innerHTML = (4 + blorpspecattackaddition) + "-" + ((1 + blorpspecattackaddition) + (4 + blorpspecattackaddition))
     }
   }
   function blorpback() {
@@ -1649,7 +1912,7 @@
         document.getElementsByClassName('blorpweapons')[3].style.setProperty("display", "none");
         pickedblorpweapon = true
         pickedfort17 = true
-        blorpweaponchoice = Math.round(Math.random() * 1 + 4)
+        blorpweaponchoice = Math.round(Math.random() * (1 + blorpspecattackaddition)) + (4 + blorpspecattackaddition)
         fortexhaustion = fortexhaustion - 1
       }
     }
@@ -1707,6 +1970,14 @@
           document.getElementById("glibbattleid").style.color = "red"
         }
       }
+      if(pickedglibstaminapotion === true){
+        if(glibattckenemy === false){
+          glibback();
+          glibattckenemy = true
+          akexhaustion = 3
+          document.getElementById("glibbattleid").style.color = "red"
+        }
+      }
     }
     if (pickedblorpweapon === true) {
       if (pickedfort17 === true) {
@@ -1732,6 +2003,14 @@
           blorphealth = 25 * blorphealthmultiplier
           document.getElementById("blorphealth").style.width = (blorphealth * blorphealthbarmult[blorphealthmultiplier]) + "%"
           document.getElementById("blorphealthnumeral").innerHTML = blorphealth;
+          document.getElementById("blorpbattleid").style.color = "red"
+        }
+      }
+      if(pickedblorpstaminapotion === true){
+        if(blorpattckenemy === false){
+          blorpback();
+          blorpattckenemy = true
+          fortexhaustion = 3
           document.getElementById("blorpbattleid").style.color = "red"
         }
       }
@@ -1879,7 +2158,7 @@
       }
     }
     if (glibdead === true && blorpdead === true) {
-      document.getElementById("losebattle").style.setProperty("display", "inline-block");
+      return document.getElementById("losebattle").style.setProperty("display", "inline-block");
     }
     if (bottomdead === false) {
       setTimeout(bottomenemyattacks, 3000);
@@ -2165,7 +2444,7 @@
     if (battleactive === false) {
       if (moveright === true) {
         if (x < 1000) {
-          x = x + 1
+          x = x + 5
         }
       }
       if (moveleft === true) {
@@ -2211,8 +2490,13 @@
     blorpdead = false
     akexhaustion = 3
     fortexhaustion = 3
-
+    document.getElementById("glibmovable").src = "thefront/glibhealing.gif"
+    setTimeout(returnglibgif, 1000)
+    }
+  function returnglibgif() {
+    document.getElementById("glibmovable").src = "thefront/glib.gif"
   }
+
 
   //POTION STORE THINGS//
   var healthpotcost = 250
@@ -2224,6 +2508,8 @@
     document.getElementById("healthpotcost").innerHTML = healthpotcost
     document.getElementById("healthpotionamt").innerHTML = healthpotionamt
     document.getElementById("glibhealthpotcost").innerHTML = healthincreasecost
+    document.getElementById("strengthpotcost").innerHTML = strengthincreasecost
+    document.getElementById("staminapotionamt").innerHTML = staminapotionamt
   }
   function buyhealthpotion(){
     if(yourmoney >= 250){
@@ -2248,18 +2534,47 @@
     glibhealth = 25 * glibhealthmultiplier
     glibhealthbarmult[glibhealthbarmult.length] = 100 / glibhealth
     document.getElementById("choosegliborblorp").style.setProperty("display", "none");
+    usemedkit();
   }
   function chosenblorpu(){
     blorphealthmultiplier = blorphealthmultiplier + 1
     blorphealth = 25 * blorphealthmultiplier
     blorphealthbarmult[blorphealthbarmult.length] = 100 / blorphealth
     document.getElementById("choosegliborblorp").style.setProperty("display", "none");
+    usemedkit();
+  }
+  var strengthincreasecost = 200
+  function buystrengthincrease(){
+    if(yourmoney >= strengthincreasecost){
+      yourmoney = yourmoney - strengthincreasecost
+      strengthincreasecost = Math.round(strengthincreasecost * 1.2)
+      document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
+      document.getElementById("choosegliborblorp2").style.setProperty("display", "inline-block");
+      document.getElementById("strengthpotcost").innerHTML = strengthincreasecost
+    }
+  }
+  function chosenglibstrength(){
+    glibspecattackaddition = glibspecattackaddition + 5
+    document.getElementById("choosegliborblorp2").style.setProperty("display", "none");
+  }
+  function chosenblorpstrength(){
+    blorpspecattackaddition = blorpspecattackaddition + 5
+    document.getElementById("choosegliborblorp2").style.setProperty("display", "none");
+  }
+  function buystaminapotion(){
+    if(yourmoney >= 100){
+      yourmoney = yourmoney - 100
+      staminapotionamt = staminapotionamt + 1
+      document.getElementById("staminapotionamt").innerHTML = staminapotionamt
+      document.getElementById("moneyamt").innerHTML = "<h3>" + "Money: " + "$" + yourmoney + "</h3>"
+    }
   }
   function closeshop() {
     document.getElementById("shopkeeperstall").style.setProperty("display", "none");
     battleactive = false
   }
   //END POTION STORE//
+
 
   var audio2 = new Audio('thefront/talkingtoblorp.wav');
   function talkingtoblorp() {
@@ -2553,13 +2868,17 @@
       defeatedmushman: defeatedmushman,
       yourmoney: yourmoney,
       healthpotionamt: healthpotionamt,
+      staminapotionamt: staminapotionamt,
       glibhealth: glibhealth,
       blorphealth: blorphealth,
       glibhealthmultiplier: glibhealthmultiplier,
       blorphealthmultiplier: blorphealthmultiplier,
       glibhealthbarmult: glibhealthbarmult,
       blorphealthbarmult: blorphealthbarmult,
-      healthincreasecost: healthincreasecost
+      healthincreasecost: healthincreasecost,
+      glibspecattackaddition: glibspecattackaddition,
+      blorpspecattackaddition: blorpspecattackaddition,
+      strengthincreasecost: strengthincreasecost
     };
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
   }
@@ -2571,11 +2890,17 @@
     if (typeof savedGame.defeatedmushman !== "undefined") defeatedmushman = savedGame.defeatedmushman;
     if (typeof savedGame.yourmoney !== "undefined") yourmoney = savedGame.yourmoney;
     if (typeof savedGame.healthpotionamt !== "undefined") healthpotionamt = savedGame.healthpotionamt;
+    if (typeof savedGame.staminapotionamt !== "undefined") staminapotionamt = savedGame.staminapotionamt;
+    if (typeof savedGame.glibhealth !== "undefined") glibhealth = savedGame.glibhealth;
+    if (typeof savedGame.blorphealth !== "undefined") blorphealth = savedGame.blorphealth;
     if (typeof savedGame.glibhealthmultiplier !== "undefined") glibhealthmultiplier = savedGame.glibhealthmultiplier;
     if (typeof savedGame.blorphealthmultiplier !== "undefined") blorphealthmultiplier = savedGame.blorphealthmultiplier;
     if (typeof savedGame.glibhealthbarmult !== "undefined") glibhealthbarmult = savedGame.glibhealthbarmult;
     if (typeof savedGame.blorphealthbarmult !== "undefined") blorphealthbarmult = savedGame.blorphealthbarmult;
     if (typeof savedGame.healthincreasecost !== "undefined") healthincreasecost = savedGame.healthincreasecost;
+    if (typeof savedGame.glibspecattackaddition !== "undefined") glibspecattackaddition = savedGame.glibspecattackaddition;
+    if (typeof savedGame.blorpspecattackaddition !== "undefined") blorpspecattackaddition = savedGame.blorpspecattackaddition;
+    if (typeof savedGame.strengthincreasecost !== "undefined") strengthincreasecost = savedGame.strengthincreasecost;
   }
 
   window.onload = function () {
@@ -2583,6 +2908,7 @@
     if (cutscene5 === true) {
       document.getElementById("continue").style.opacity = 100 + "%"
     }
+    usemedkit();
   }
 
   setInterval(function () {
