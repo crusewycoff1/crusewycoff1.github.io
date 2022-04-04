@@ -81,7 +81,9 @@
     <img id="fish" src="https://www.seekpng.com/png/full/123-1238243_fish-clipart-blue-blue-fish-clipart.png">
     <div id="outsideborder"></div><div id="outsideborder2"></div><div id="fishingbackground"></div>
     <div id="fishingline"></div>
-    <div><span id="playerx"></span> and <span id="playery"></span></span></div>
+    <div>You: <span id="playerx"></span> and <span id="playery"></span></span></div>
+    <div>FISH: <span id="fishx"></span> and <span id="fishy"></span></span></div>
+    <div>Progress: <span id="progress"></span></div>
     <div id="progressbar"><div id="yourprogress"></div></div>
 
   </body>
@@ -99,7 +101,9 @@
   var moveup = false
   var movedown = false
 
-  function moveline(){
+  var movefishthingy = false
+  var pressedspace = false
+
     document.addEventListener("keydown", function(event) {
       if(event.which === 39){
         moveright = true
@@ -113,10 +117,16 @@
       if(event.which === 40){
         movedown = true
       }
+      if(event.which === 32){
+        if(pressedspace === false){
+          movefishthingy = true
+        }
+        if(pressedspace === true){
+          movefishthingy = false
+        }
+      }
     }, false);
-  }
 
-  function stopline(){
     document.addEventListener("keyup", function(event) {
       if(event.which === 39){
         moveright = false
@@ -131,10 +141,8 @@
         movedown = false
       }
     })
-  }
+
   setInterval(function() {
-    moveline()
-    stopline()
     if(moveright === true){
       if(x <= 860){
         x = x + 2
@@ -159,13 +167,16 @@
     line.style.top = y + "px"
     fish.style.left = xfish + "px"
     fish.style.top = yfish + "px"
-    document.getElementById("playerx").innerHTML = xfish
-    document.getElementById("playery").innerHTML = yfish
+    document.getElementById("playerx").innerHTML = x
+    document.getElementById("playery").innerHTML = y
+    document.getElementById("fishx").innerHTML = xfish
+    document.getElementById("fishy").innerHTML = yfish
   }, 1);
 
-  var fishmovementx = 0
-  var fishmovementy = 0
+  var fishmovementx = 2
+  var fishmovementy = 2
   setInterval(function() {
+    if(movefishthingy === false){
     if(xfish <= 860 && xfish >= 330){
         xfish = xfish + fishmovementx
     }
@@ -176,44 +187,75 @@
       yfish = yfish + 10
       fishmovementx = 0
       fishmovementy = 0
+      fishrandommulty = 2
+      fishrandomfunction()
     }
     if(yfish > 380){
       yfish = yfish - 10
       fishmovementx = 0
       fishmovementy = 0
+      fishrandommulty = 0
+      fishrandomfunction()
     }
     if(xfish < 330){
       xfish = xfish + 10
       fishmovementx = 0
+      fishrandommultx = 2
       fishmovementy = 0
+      fishrandomfunction()
     }
     if(xfish > 860){
       xfish = xfish - 10
       fishmovementx = 0
+      fishrandommultx = 0
       fishmovementy = 0
+      fishrandomfunction()
     }
+  }
+  catchthatfish()
   }, 1);
 
-  setInterval(function() {
-    fishmovementx = Math.round(Math.random()*4 - 2)
-    fishmovementy = Math.round(Math.random()*4 - 2)
-  }, 1000);
+  var fishrandommultx = 2
+  var fishrandommulty = 2
+  setInterval(fishrandomfunction, 1000)
+  function fishrandomfunction() {
+    fishmovementx = Math.round(Math.random()*fishrandommultx - 1)
+    fishmovementy = Math.round(Math.random()*fishrandommulty - 1)
+    if(fishmovementx === 0){
+      while(fishmovementx === 0){
+        fishmovementx = Math.round(Math.random()*fishrandommultx - 1)
+      }
+    }
+    if(fishmovementy === 0){
+      while(fishmovementy === 0){
+        fishmovementy = Math.round(Math.random()*fishrandommulty - 1)
+      }
+    }
+  }
 
   //MAKE IT SO the function looks like this math.random()*1 -1 or something so the only variables are -1 0 1 and then have the fish have a set speed so then it will only move and not get stuck
   var progress = 0
   var yourprogress = document.getElementById("yourprogress");
-  setInterval(function() {
-    if((x > xfish + 50) && (x + 50 < xfish) && (y > yfish - 50) && (y - 50 < yfish)){
-      if(progress <= 99){
-        progress = progress + 1
-        if(progress === 99){
+  var fishcatch = false
+  function catchthatfish() {
+    if(fishcatch === false){
+    if(x > xfish - 65 && x < xfish + 50 && y > yfish - 50 && y < yfish + 50){
+      if(progress <= 100){
+        progress = progress + .25
+        if(progress >= 99){
           document.getElementById("caught").style.setProperty("display", "inline-block");
+          progress = 100
+          fishcatch = true
+          movefishthingy = true
         }
       }
     }
     else{
-      progress = progress - 1
+      if(progress >= 0)
+      progress = progress - .05
     }
     yourprogress.style.height = progress + "%"
-  }, 10);
+    document.getElementById("progress").innerHTML = progress
+  }
+  }
 </script>
