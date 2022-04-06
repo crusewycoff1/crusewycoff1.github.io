@@ -38,6 +38,9 @@
       #pickupmayo{
           display: none;
       }
+      #splatem{
+          display: none;
+      }
       #hallwaycont{
           top: 105px;
           height: 200px;
@@ -56,6 +59,36 @@
           z-index: -1;
           display: none;
           background-size: 100% 100%;
+      }
+      #endcutscene{
+          left: 105px;
+          height: 400px;
+          width: 1000px;
+          background-image: url("https://i.ytimg.com/vi/tGTTOHohmuU/maxresdefault.jpg");
+          position:absolute;
+          z-index: -1;
+          background-size: 100% 100%;
+          display: none;
+          color: white;
+      }
+      #endingfinal{
+          left: 105px;
+          height: 400px;
+          width: 1000px;
+          background-image: url("https://external-preview.redd.it/RxmcCe3unOq4jsmJSTME3HYYzdGTup0Q-8eCVxbcGEA.jpg?auto=webp&s=e21d6f434e309b1e5a1785411d1fade5472d6349");
+          position:absolute;
+          z-index: -1;
+          background-size: 100% 100%;
+          color: white;
+          display: none;
+      }
+      #asukatextend{
+          position: absolute;
+          top: 300px;
+      }
+      #bottomtext{
+          position: absolute;
+          top: 325px;
       }
       #shinjiboss{
           left: 105px;
@@ -79,10 +112,10 @@
 </head>
 <!--url("https://78.media.tumblr.com/1b253dae0f55871124159dcf81fd8eac/tumblr_mmfxka3T3X1s8i1jyo3_1280.png")-->
 <body>
-  <div id="background"></div><div id="hallway"></div><div id="hallwaycont"></div><div id="background2"></div><div id="shinjiboss"></div>
+  <div id="background"></div><div id="hallway"></div><div id="hallwaycont"></div><div id="background2"></div><div id="shinjiboss"></div><div id="endcutscene"><center><div id="bottomtext"><h2>Shinji: ASUKA WTF DID YOU DO IM ABOUT TO SHOW YOU WHAT HAPPENS WHEN A NICE GUY LOSES HIS CHILL</h2></div></center></div><div id="endingfinal"><h2><center>In the end, Chad Shinji choked beta asuka proving he always on that grindset💯💯🥶</center></h2><center><div id="asukatextend"><h2>Also Asuka died and Shinji got away with it so this story ends absolutely terribly and there is nothing you can take away from it. It is literally just murder.</h2></center></div></div>
   <img id="asuka" src="datingimages/Asuka.png"><img id="mayo"src="https://asset-americas.unileversolutions.com/content/dam/unilever/hellmann_s_world/canada/pack_shot/68400662600-1887726-png.png.ulenscale.460x460.png"><img id="asukarunning" src="https://i.imgur.com/PGEmC7l.gif"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <h1>Asuka's Revenge!!!</h1>
-  <div id="continue">press space to continue</div><div id="pickupmayo">press space to pick up mayo</div>
+  <div id="continue">press space to continue</div><div id="pickupmayo">press space to pick up mayo</div><div id="splatem">press space to ?????</div>
 </body>
 </html>
 <script>
@@ -387,7 +420,39 @@
         setInterval(function () {
             asuka.style.left = asukax + "px"
             asuka.style.top = asukay + "px"
+            document.getElementById("asukax").innerHTML = asukax
+            document.getElementById("asukay").innerHTML = asukay
         }, 1) // 1000ms = 1 second
 
+        var ontopofshinji = false
+        setInterval(function () {
+            if(shinjibossroom === true){
+                if(asukax > 740 && asukax < 900 && asukay > 70 && asukay < 280){
+                    document.getElementById("splatem").style.setProperty("display", "inline-block");
+                    ontopofshinji = true
+                }
+                else{
+                    document.getElementById("splatem").style.setProperty("display", "none");
+                    ontopofshinji = false
+                }
+            }
+        }, 1) // 1000ms = 1 second
+
+  document.addEventListener("keydown", function (event) {
+      if(event.which === 32){
+          if(ontopofshinji === true){
+              spreadmayo()
+          }
+      }
+  }, false);
+  function spreadmayo(){
+    document.getElementById("endcutscene").style.setProperty("display", "inline-block");
+    document.getElementById("asuka").style.setProperty("display", "none");
+    setTimeout(playfinalcutscene, 5000)
+  }
+
+  function playfinalcutscene(){
+    document.getElementById("endingfinal").style.setProperty("display", "inline-block");
+  }
     
 </script>
