@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+          #monkeydialogue{
+              width: 700px;
+              border-style: solid;
+              word-wrap: break-word; 
+          }
+          #jumpscare{
+              position: absolute;
+              z-index: 10000000;
+              width: 1000px;
+              height: 1000px;
+
+              left: 200px;
+              display: none;
+          }
+          #jumpscareimg{
+              height: 700px;
+          }
+      </style>
+  </head>
+  <body>
+      <span id="monkeypaperlength"></span>
+      <center><div id="jumpscare"><img id="jumpscareimg" src=""></div></center>
+      <center><div id="monkeydialogue" onclick="jumpscare()"></div></center>
+  </body>
+</html>
+<script>
+    var monkeypaper = document.getElementById("monkeydialogue").innerHTML
+    var monkeykeypress = ""
+
+    function monkeytype(){
+        if(monkeypaper.search("sussy") === -1){
+        for(i = 0; i < 100; i = i + 1){
+            for(i = 0; i < 100; i = i + 1){
+                for(i = 0; i < 100; i = i + 1){
+                    for(i = 0; i < 100; i = i + 1){
+                        for(i = 0; i < 100; i = i + 1){
+                            if(monkeypaper.length <= 30000){
+                            monkeypaper = document.getElementById("monkeydialogue").innerHTML
+                            monkeybrain()
+                            document.getElementById("monkeydialogue").innerHTML = monkeypaper + monkeykeypress
+                            }
+                            else{
+                                document.getElementById("monkeydialogue").innerHTML = monkeykeypress
+                                monkeypaper = ""
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        document.getElementById("monkeypaperlength").innerHTML = monkeypaper.search("sussy")
+    }
+    else{
+        document.getElementById("monkeypaperlength").innerHTML = monkeypaper.search("sussy")
+    }
+    }
+
+
+    setInterval(monkeytype, 1)
+    function monkeybrain(){
+        randombrainfunction = Math.round((Math.random()*100)+1)
+        for(i = 0; i < randombrainfunction; i = i + 1){
+            nueron = Math.round((Math.random()*25)+1)
+        }
+        if(nueron === 1){
+            monkeykeypress = "a"
+        }
+        if(nueron === 2){
+            monkeykeypress = "b"
+        }
+        if(nueron === 3){
+            monkeykeypress = "c"
+        }
+        if(nueron === 4){
+            monkeykeypress = "d"
+        }
+        if(nueron === 5){
+            monkeykeypress = "e"
+        }
+        if(nueron === 6){
+            monkeykeypress = "f"
+        }
+        if(nueron === 7){
+            monkeykeypress = "g"
+        }
+        if(nueron === 8){
+            monkeykeypress = "h"
+        }
+        if(nueron === 9){
+            monkeykeypress = "i"
+        }
+        if(nueron === 10){
+            monkeykeypress = "j"
+        }
+        if(nueron === 11){
+            monkeykeypress = "k"
+        }
+        if(nueron === 12){
+            monkeykeypress = "l"
+        }
+        if(nueron === 13){
+            monkeykeypress = "m"
+        }
+        if(nueron === 14){
+            monkeykeypress = "n"
+        }
+        if(nueron === 15){
+            monkeykeypress = "o"
+        }
+        if(nueron === 16){
+            monkeykeypress = "p"
+        }
+        if(nueron === 17){
+            monkeykeypress = "q"
+        }
+        if(nueron === 18){
+            monkeykeypress = "r"
+        }
+        if(nueron === 19){
+            monkeykeypress = "s"
+        }
+        if(nueron === 20){
+            monkeykeypress = "t"
+        }
+        if(nueron === 21){
+            monkeykeypress = "u"
+        }
+        if(nueron === 22){
+            monkeykeypress = "v"
+        }
+        if(nueron === 23){
+            monkeykeypress = "w"
+        }
+        if(nueron === 24){
+            monkeykeypress = "x"
+        }
+        if(nueron === 25){
+            monkeykeypress = "y"
+        }
+        if(nueron === 26){
+            monkeykeypress = "z"
+        }
+    }
+    document.addEventListener("keydown", function (event) {
+            clearInterval(monkeytype)
+    }, false);
+
+    function jumpscare(){
+        document.getElementById("jumpscare").style.setProperty("display", "inline-block");
+        document.getElementById("jumpscareimg").src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f5354ff5-1607-4915-8647-55954b0d88a9/d9xjmt8-6ed0e545-a5b3-4bf1-b7bc-9eb93eef3a7d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y1MzU0ZmY1LTE2MDctNDkxNS04NjQ3LTU1OTU0YjBkODhhOVwvZDl4am10OC02ZWQwZTU0NS1hNWIzLTRiZjEtYjdiYy05ZWI5M2VlZjNhN2QuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.4-dFtq3YIR3uFsBMwGpy7y25F9SB6x2A3ofB9Cr0Ue0"
+        setInterval(stopjumpscare, 1000)
+    }
+    function stopjumpscare(){
+        document.getElementById("jumpscareimg").src = ""
+    }
+</script>

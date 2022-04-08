@@ -410,7 +410,7 @@
             document.getElementById("pickupmayo").style.setProperty("display", "none");
             overmayo = false
         }
-        if(asuaky > 150){
+        if(asukay > 150){
             document.getElementById("pickupmayo").style.setProperty("display", "none");
             overmayo = false
         }
@@ -446,12 +446,15 @@
       }
   }, false);
   function spreadmayo(){
+      asukax = 0
+      asukay = 0
     document.getElementById("endcutscene").style.setProperty("display", "inline-block");
     document.getElementById("asuka").style.setProperty("display", "none");
     setTimeout(playfinalcutscene, 5000)
   }
 
   function playfinalcutscene(){
+    document.getElementById("endcutscene").style.setProperty("display", "none");
     document.getElementById("endingfinal").style.setProperty("display", "inline-block");
   }
     

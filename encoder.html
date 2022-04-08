@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+           body{
+              font-family:  Comic Sans MS;
+              background-color: rgb(255, 210, 105);
+            }
+          #messageinput{
+              height: 200px;
+              width: 400px;
+              border-style: solid;
+              resize: none;
+            }
+            #test{
+              width: 200px;
+              word-wrap: break-word; 
+            }
+      </style>
+  </head>
+  <body>
+    <center><h1>Text Encoder</h1><br>(Capital letters are finicky so use with caution. Punctuation and numbers will render your code useless.  Also Key is necessary to decode.)<br>Also check out the <a href="recoder.html">Decoder</a> </center>
+    
+      <center><textarea id="messageinput"></textarea></center>
+      <center><button onclick="encode()">Encode</button><br>Key: <span id="test"></span></center>
+  </body>
+</html>
+<script>
+  var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," ","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Z","Q","X","V","Z","Q","X"]
+  var messagearray = []
+
+
+  function encode(){
+    randomnumber = Math.round((Math.random()* alphabet.length - 1))
+    messagearray = []
+    document.getElementById("test").innerHTML = ""
+    var initialmessage = document.getElementById("messageinput").value;
+    for(i = 0; i < initialmessage.length; i = i + 1){
+      messagearray[i] = initialmessage.charAt(i);
+    }
+    for(i = 0; i < messagearray.length; i = i + 1){
+      for(j=0; j < alphabet.length; j = j + 1){
+        if(messagearray[i] === alphabet[j]){
+          var randomnumber = Math.round((Math.random()* 9))
+          var keysavestate = document.getElementById("test").innerHTML
+          //for(k = j; k < j+ randomnumber; k = k + 1){
+            messagearray[i] = alphabet[j + randomnumber]
+         // }
+          document.getElementById("test").innerHTML = keysavestate + randomnumber
+          break;
+        }
+      }
+    }
+    var startingthing = ""
+    for(i = 0; i < messagearray.length; i = i+1){
+      document.getElementById("messageinput").value = startingthing + messagearray[i];
+      startingthing = document.getElementById("messageinput").value;
+    }
+  }
+  setInterval(display,1)
+  function display(){
+  }
+</script>

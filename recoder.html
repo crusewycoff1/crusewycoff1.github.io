@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <style>
+           body{
+              font-family:  Comic Sans MS;
+              background-color: rgb(255, 210, 105);
+            }
+          #keyinput{
+              height: 15px;
+              width: 400px;
+              border-style: solid;
+              resize: none;
+            }
+            #messageinput{
+              height: 200px;
+              width: 400px;
+              border-style: solid;
+              resize: none;
+            }
+            #decodedmessage{
+              width: 200px;
+              word-wrap: break-word;
+            }
+      </style>
+  </head>
+  <body>
+      <center><h1>Text Recoder</h1><br>Also check out the <a href="encoder.html">Encoder</a><br>Key:<br> <span id="test"></span><textarea id="keyinput"></textarea><br>
+        <br>Message: <br><textarea id="messageinput"></textarea></center>
+      <center><button onclick="recode()">Decode</button></center>
+      <center>Decoded Message : <span id="decodedmessage"></span></center>
+  </body>
+</html>
+<script>
+    var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", " ","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Z","Q","X","V","Z","Q","X"]
+
+    var keycode = []
+    var encodedmessage = []
+    var decodedmessage = []
+
+    function recode(){
+      keycode = []
+      encodedmessage = []
+      decodedmessage = []
+      document.getElementById("decodedmessage").innerHTML = ""
+      var keyinput = document.getElementById("keyinput").value;
+      var messageinput = document.getElementById("messageinput").value;
+      for(i = 0; i < keyinput.length; i = i + 1){
+        keycode[i] = parseInt(keyinput.charAt(i));
+      }
+      for(i = 0; i < messageinput.length; i = i + 1){
+        encodedmessage[i] = messageinput.charAt(i);
+      }
+      for(i = 0; i < encodedmessage.length; i = i + 1){
+        for(j=0; j < alphabet.length; j = j + 1){
+          if(encodedmessage[i] === alphabet[j]){
+            decodedmessage[i] = alphabet[Math.abs(j - keycode[i])]
+          break;
+        }
+      }
+    }
+    var stringthing = ""
+    for(i = 0;i < decodedmessage.length; i=i+1){
+      document.getElementById("decodedmessage").innerHTML = stringthing + decodedmessage[i];
+      stringthing = document.getElementById("decodedmessage").innerHTML
+    }
+    }
+    //setInterval(display,1)
+    function display(){
+      document.getElementById("decodedmessage").innerHTML = decodedmessage[0]
+    }
+</script>
