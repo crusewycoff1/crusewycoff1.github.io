@@ -26,7 +26,6 @@
                  display: flex;
                  align-items: center;
                  color: black;
-                 flex: 1;
                  margin: 0;
              }
              nav ul{
@@ -55,12 +54,20 @@
              .sidebar img{
                  width: 200px;
              }
+             #interests{
+                 position: absolute;
+                 top: 200px;
+                 left: 270px;
+             }
              .content{
                  flex: 1;
                  padding: 10px
              }
              h2, h3{
                  margin: 0px;   
+             }
+             #RATTTTTTT{
+                 height: 350px;
              }
 
         </style>
@@ -88,7 +95,7 @@
             </nav>
 
             <main>
-                <div id="all-contents">
+                <div id="contents">
                 <div class="sidebar">
                     <a href="Cursed.html">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKHI9Bfn262T1vzUlxw7mbdOiylMPbd-sUyA&usqp=CAU"></div>
@@ -112,9 +119,18 @@
                     </ul>
                 </div>
                 <div>
+                    <img id="RATTTTTTT" src="https://c.tenor.com/aaEMtGfZFbkAAAAC/rat-spinning.gif"><br>
+                    <center><button id="ratclick" onclick="ratbutton()">rat button of DOOOOOOOM</button></center>
                     
                 </div>
             </main>
         </div>
     </body>
 </html>
+<script>
+    var ratsize = 0
+    function ratbutton(){
+        ratsize = ratsize + 10
+        document.getElementById("RATTTTTTT").style.height = 350 + ratsize + "px"
+    }
+</script>
