@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PONG</title>
+    <style>
+        #title {
+            height: 600px;
+            width: 600px;
+            background-color: black;
+            color: white;
+            position: absolute;
+            left: 375px;
+        }
+
+        #roll {
+            position: absolute;
+            height: 125px;
+            top: 300px;
+            left: 623px;
+        }
+
+        #pongdiv {
+            height: 600px;
+            width: 600px;
+            background-color: black;
+            color: white;
+            display: none;
+            position: absolute;
+            left: 375px;
+            border-style: solid;
+            border-color: black;
+        }
+
+        #yourpaddle {
+            height: 100px;
+            width: 25px;
+            background-color: white;
+            position: absolute;
+            left: 25px;
+        }
+        #ball{
+            height: 25px;
+            width: 25px;
+            background-color: white;
+            position: absolute;
+            border-radius: 100px;
+            /*background-image: url("https://purepng.com/public/uploads/large/purepng.com-tennis-balltennistennis-ballracketpat-ballgame-1701528200247vm5nf.png");
+            background-position: center; Center the image
+            background-repeat: no-repeat; Do not repeat the image
+            background-size: cover;*/
+        }
+        #enemypaddle {
+            height: 100px;
+            width: 25px;
+            background-color: white;
+            position: absolute;
+            left: 550px;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div id="title"><br>
+            <h1>Pong</h1><br><br><br><br><br><br><br><br><br>
+            <h2 onclick="startgame()">Start</h2>
+        </div>
+    </center>
+    <center>
+        <div id="pongdiv">
+            <h1>PONG</h1>
+            <h2><span id="yourpoints"></span> - <span id="enemypoints"></span></h2>
+            <div id="yourpaddle"></div>
+            <div id="ball"></div>
+            <div id="enemypaddle"></div>
+        </div>
+    </center>
+    <div id="ballpos"></div>
+    <div id="youry"></div>
+</body>
+
+</html>
+<script>
+    var randomgame = 1
+    var pongstarted = false
+
+    function startgame() {
+        document.getElementById("title").style.setProperty("display", "none");
+        beginplaying();
+    }
+    var changeserve = 0
+    function beginplaying() {
+        if (randomgame === 1) {
+            paddley = 265
+            epaddley = 265
+            ballpositionx = 285
+            ballpositiony = 300
+            ballxspeed = -.5
+            changeserve = changeserve + 1
+            if(changeserve % 2 === 0){
+                ballyspeed = -.5
+            }
+            else{
+                ballyspeed = .5
+            }
+            pongstarted = true
+            enemypaddlehit = false
+            startpong();
+        }
+    }
+    //PONG GAME//
+    function startpong() {
+        document.getElementById("pongdiv").style.setProperty("display", "inline-block");
+        document.getElementById("yourpaddle").style.top = paddley + "px"
+        document.getElementById("enemypaddle").style.top = epaddley + "px"
+    }
+    var moveup = false
+    var movedown = false
+    document.addEventListener("keydown", function (event) {
+        if (pongstarted === true) {
+            if (event.which === 38 || event.which === 87) {
+                moveup = true
+            }
+            if (event.which === 40 || event.which === 83) {
+                movedown = true
+            }
+        }
+        startedmoving = true
+    }, false);
+    document.addEventListener("keyup", function (event) {
+        if (event.which === 38 || event.which === 87) {
+            moveup = false
+        }
+        if (event.which === 40 || event.which === 83) {
+            movedown = false
+        }
+        startedmoving = true
+    })
+
+    var paddley = 265
+    var enemyscore = 0
+    var yourpoints = 0
+    setInterval(movepaddle, 1)
+    function movepaddle() {
+        if (moveup === true) {
+            if (paddley > 0) {
+                paddley = paddley - 1.5
+            }
+        }
+        if (movedown === true) {
+            if (paddley < 500) {
+                paddley = paddley + 1.5
+            }
+        }
+        document.getElementById("yourpaddle").style.top = paddley + "px"
+    }
+    var ballpositionx = 285
+    var ballpositiony = 300
+    var ballxspeed = -.5
+    var ballyspeed = -.5
+    var startedmoving = false
+    var beep = new Audio('Unused stuff/beep.mp3');
+    setInterval(ballbouncing, 1)
+    function ballbouncing(){
+        if(pongstarted === true){
+        if(startedmoving === true){
+            ballpositionx = ballpositionx + ballxspeed
+            ballpositiony = ballpositiony + ballyspeed
+            if(ballpositionx <= 48){
+                if(ballpositiony > paddley && ballpositiony < paddley + 100){
+                    beep.play()
+                    ballxspeed = ballxspeed * -1 + (Math.random()*.3 -.15)
+                    ballxspeed = ballxspeed + (ballxspeed/4)
+                    enemypaddlehit = false
+                    var stupiddumb = Math.round(Math.random()*10)
+                    if( stupiddumb % 2 === 0){
+                        ballyspeed = ballyspeed * -1
+                    }
+                }
+            }
+            if(ballpositionx >= 525){
+                if(ballpositiony >= epaddley && ballpositiony <= epaddley + 100){
+                    beep.play()
+                    ballxspeed = ballxspeed * -1
+                    ballxspeed = ballxspeed + (ballxspeed/4)
+                    enemypaddlehit = true
+                    var stupiddumb = Math.round(Math.random()*10)
+                    if( stupiddumb % 2 === 0){
+                        ballyspeed = ballyspeed * -1
+                    }
+                }
+            }
+            if(ballpositionx <= 0){
+                pongstarted = false
+                startedmoving = false
+                enemyscore = enemyscore + 1
+                document.getElementById("pongdiv").style.setProperty("display", "none");
+                beginplaying();
+            }
+            if(ballpositiony <= 0){
+                ballyspeed = ballyspeed * -1
+            }
+            if(ballpositiony >= 575){
+                ballyspeed = ballyspeed * -1
+            }
+            if(ballpositionx >= 575){
+                pongstarted = false
+                startedmoving = false
+                yourpoints = yourpoints + 1
+                document.getElementById("pongdiv").style.setProperty("display", "none");
+                beginplaying();
+            }
+        }
+            document.getElementById("ball").style.left = ballpositionx + "px"
+            document.getElementById("ball").style.top = ballpositiony + "px"
+        }
+    
+        document.getElementById("ballpos").innerHTML = "Yourball: " +  ballpositionx + " , " + ballpositiony
+        document.getElementById("youry").innerHTML = "Yourpos: " + paddley
+        document.getElementById("yourpoints").innerHTML = yourpoints
+        document.getElementById("enemypoints").innerHTML = enemyscore
+    }
+
+    var enemypaddlehit = false
+    var epaddley = 265
+    setInterval(moveenemypaddle,1)
+    function moveenemypaddle(){
+        if(enemypaddlehit === false){
+            if(startedmoving === true){
+            if(ballpositiony - 50 > epaddley){
+                if (epaddley < 500) {
+                    epaddley = epaddley + .75
+                }
+            }
+            if(ballpositiony - 50 < epaddley){
+                if (epaddley > 10) {
+                    epaddley = epaddley - .75
+                }
+            }
+        document.getElementById("enemypaddle").style.top = epaddley + "px"
+        }
+    }
+    }
+    /*setInterval(moveyourpaddle,1)
+    function moveyourpaddle(){
+        startedmoving = true
+        if(ballpositiony -50 > paddley){
+            if (paddley < 490) {
+                paddley = paddley + 5
+            }
+        }
+         if(ballpositiony - 50 < paddley){
+            if (paddley > 10) {
+                paddley = paddley - 5
+            }
+        }
+    document.getElementById("yourpaddle").style.top = paddley + "px"
+    }*/
+
+</script>

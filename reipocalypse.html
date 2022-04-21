@@ -2406,7 +2406,6 @@
   var movedown = false
 
   document.addEventListener("keydown", function (event) {
-    if (inarea2p3 === false) {
       if (battleactive === false) {
         if (walkingonce === false) {
           glibmoving.src = "thefront/glib.gif"
@@ -2464,43 +2463,9 @@
       }
       glibmoving.style.left = x + "px"
       glibmoving.style.top = y + "px"
-    }
   }, false);
 
-  //AREA2 PART 3 walking function//
-  /*document.addEventListener("keydown", function (event) {
-  if(inarea2p3 === true){
-    if (battleactive === false) {
-      if (walkingonce === false) {
-        glibmoving.src = "thefront/glib.gif"
-        walkingonce = true
-      }
-      if (event.which === 39 || event.which === 68) {
-        glibmoving.style.transform = "scaleX(-1)"
-        moveright = true
-        blorpx = 100
-      }
-      if (event.which === 37 || event.which === 65) {
-        glibmoving.style.transform = "scaleX(1)"
-        moveleft = true
-        blorpx = -100
-      }
-      if (event.which === 38 || event.which === 87) {
-        if (moveup === false) {
-          glibmoving.src = "thefront/glib.gif"
-        }
-        moveup = true
-        blorpy = -100
-      }
-      if (event.which === 40 || event.which === 83) {
-        movedown = true
-        blorpy = 100
-      }
-    glibmoving.style.left = x + "px"
-    glibmoving.style.top = y + "px"
-    }
-  }
-  }, false);*/
+
 
 
   document.addEventListener("keyup", function (event) {
@@ -2530,8 +2495,11 @@
     }
   })
 
+  var hittingtophedge = false
+  var hittingjuttinghedge = false
   setInterval(function () {
     if (battleactive === false) {
+      if(inarea2p3 === false){
       if (moveright === true) {
         if (x < 1000) {
           x = x + 5
@@ -2557,6 +2525,54 @@
       document.getElementById("x").innerHTML = x;
       document.getElementById("y").innerHTML = y;
     }
+    if(inarea2p3 === true){
+      if (moveright === true) {
+        if (x < 920) {
+          if(!((y > 377 && x > 320) || (y < 300 && x > 320)) && x < 330){
+            x = x + 2
+          }
+          if(x >= 330){
+            x = x + 2
+          }
+        }
+      }
+      if (moveleft === true) {
+        if (x > 200) {
+          if(!((y < 335 && x < 485) || (y > 375 && x < 485))){
+            x = x - 1
+          }
+        }
+      }
+      if (moveup === true) {
+        if (y > 180) {
+          if(hittingtophedge === false){
+            if(((x > 450) || (x < 350))){
+              y = y - 1
+              hittingjuttinghedge = true
+            }
+          }
+          if(hittingjuttinghedge === false)
+          if(!(x > 485 && y < 275)){
+            y = y - 1
+            hittingtophedge = true
+          }
+        }
+      }
+      if (movedown === true) {
+        if (y < 500) {
+          if(((x > 450) || (x < 350))){
+          y = y + 1
+          hittingtophedge = false
+          hittingjuttinghedge = false
+        }
+      }
+      }
+      glibmoving.style.left = x + "px"
+      glibmoving.style.top = y + "px"
+      document.getElementById("x").innerHTML = x;
+      document.getElementById("y").innerHTML = y;
+    }
+  }
   }, 1) // 1000ms = 1 second
 
   function testchamber() {
