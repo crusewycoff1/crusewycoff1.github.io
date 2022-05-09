@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      #menubackground {
+        width: 1000px;
+        height: 600px;
+        background-color: rgb(139, 139, 248);
+        position: absolute;
+        left: 200px;
+      }
+      #title {
+        font-size: 25px;
+      }
+      #playroom {
+        width: 1000px;
+        height: 600px;
+        background-color: rgb(5, 59, 0);
+        position: absolute;
+        left: 200px;
+        display: none;
+      }
+      #bottomfloor {
+        height: 100px;
+        width: 1000px;
+        background-color: brown;
+        position: absolute;
+        top: 500px;
+      }
+      #topleftpanel {
+        height: 25px;
+        width: 225px;
+        background-color: brown;
+        position: absolute;
+        top: 275px;
+        left: 175px;
+      }
+      #toprightpanel {
+        height: 25px;
+        width: 225px;
+        background-color: brown;
+        position: absolute;
+        top: 275px;
+        right: 175px;
+      }
+      #characterdiv {
+        height: 100px;
+        width: 50px;
+        background-color: purple;
+        position: absolute;
+      }
+      #enemycharacter1 {
+        height: 100px;
+        width: 50px;
+        background-image: url("https://i.gifer.com/origin/c2/c2247d10cddc455ea6d676a9969fee49_w200.gif");
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: -25px;
+      }
+      #enemycharacter2 {
+        height: 100px;
+        width: 50px;
+        background-color: white;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menubackground"><br>
+      <div id="title"><center><h1>Just Add Jet Fuel</h1></center></div>
+      <br><br><br><br><br><br><br>
+      <center><h2>PLAY</h2></center>
+      <br><br>
+      <center><h2 onclick="startendless()">Endless Mode</h2></center>
+    </div>
+    <div id="playroom">
+      <div id="bottomfloor"></div>
+      <div id="topleftpanel"></div>
+      <div id="toprightpanel"></div>
+      <div id="characterdiv"></div>
+      <div id="enemycharacter1"></div>
+      <div id="enemycharacter2"></div>
+    </div>
+  </body>
+</html>
+<script>
+  function startendless(){
+    document.getElementById("menubackground").style.setProperty("display", "none");
+    document.getElementById("playroom").style.setProperty("display", "inline-block");
+    setTimeout(threeseconds, 3000)
+  }
+  function threeseconds(){
+
+  }
+
+  var character = document.getElementById("characterdiv")
+  var x = 500
+  var y = 400
+  character.style.left = x + "px"
+  character.style.top = y + "px"
+  var moveright = false
+  var moveleft = false
+  var moveup = false
+  document.addEventListener("keydown", function (event) {
+        if (event.which === 39 || event.which === 68) {
+          moveright = true
+        }
+        if (event.which === 37 || event.which === 65) {
+          moveleft = true
+        }
+        if (event.which === 38 || event.which === 87) {
+          moveup = true
+        }
+        if (event.which === 40 || event.which === 83) {
+          fallingstop = false
+        }
+      character.style.left = x + "px"
+      character.style.top = y + "px"
+  }, false);
+
+  document.addEventListener("keyup", function (event) {
+    if (event.which === 39 || event.which === 68) {
+      moveright = false
+    }
+    if (event.which === 37 || event.which === 65) {
+      moveleft = false
+    }
+    if (event.which === 38 || event.which === 87) {
+      moveup = false
+    }
+    if (event.which === 40 || event.which === 83) {
+      fallingstop = false
+    }
+  })
+
+  setInterval(function () {
+      if (moveright === true) {
+        if (x < 950) {
+          x = x + 1
+        }
+      }
+      if (moveleft === true) {
+        if (x > 0) {
+          x = x - 1
+        }
+      }
+      character.style.left = x + "px"
+      character.style.top = y + "px"
+  }, 1) // 1000ms = 1 second
+
+  setInterval(jump,1)
+  function jump(){
+    if(moveup === true){
+      if(y >= 1)
+      y = y - 1
+    }
+    if(moveup === false){
+      if(y < 400){
+        if(fallingstop === false){
+          if(y % 2 === 0){
+            y = y + 2
+          }
+          else {
+            y = y - 1
+          }
+        }
+      }
+    } 
+  } 
+
+
+    setInterval(charactermove, 1)
+    function charactermove(){
+      character.style.left = x + "px"
+      character.style.top = y + "px"
+    }
+
+
+    var fallingstop = true
+    setInterval(wallcollision, 1)
+    function wallcollision(){
+      if(y === 176){
+        if((x > 125 && x < 400) || (x > 550 && x < 825)){
+          fallingstop = true
+        }
+        else {
+          fallingstop = false
+        }
+      }
+      else {
+        fallingstop = false
+      }
+    }
+
+    //enemy movement functions
+    var enemy1x = 50
+    var enemy1y = 400
+    var enemy2x = 950
+    var enemy2y = 400
+    var enemy1 = document.getElementById("enemycharacter1")
+    var enemy2 = document.getElementById("enemycharacter2")
+    var e1jumpedonce = false
+    var e2jumpedonce = false
+    setInterval(enemy1move, 1)
+    function enemy1move() {
+      if(enemy1x > x + 75){
+        enemy1x = enemy1x - .5
+      }
+      if(enemy1x < x - 75){
+        enemy1x = enemy1x + .5
+      }
+      if(enemy1y > y + 1){
+        if(e1jumpedonce === false){
+          setTimeout(enemy1startjump, 500)
+          e1jumpedonce = true
+        }
+      }
+      enemy1.style.left = enemy1x + "px"
+      enemy1.style.top = enemy1y + "px"
+    }
+
+    setInterval(enemy2move, 2)
+    function enemy2move() {
+      if(enemy2x > x + 75){
+        enemy2x = enemy2x - .5
+      }
+      if(enemy2x < x - 75){
+        enemy2x = enemy2x + .5
+      }
+      if(enemy2y > y + 1){
+        if(e2jumpedonce === false){
+          setTimeout(enemy2startjump, 500)
+          e2jumpedonce = true
+        }
+      }
+      enemy2.style.left = enemy2x + "px"
+      enemy2.style.top = enemy2y + "px"
+    }
+
+    var e1jumpstarted = false
+    var e2jumpstarted = false
+    function enemy1startjump(){
+      e1jumpstarted = true
+    }
+    function enemy2startjump(){
+      e2jumpstarted = true
+    }
+    setInterval(enemy1jump,1)
+    var e1rising = 0
+    var e2rising = 0
+    var float = 25 
+    var stope1falling = false
+    function enemy1jump(){
+      if(e1jumpstarted === true){
+        if(e1rising < 150){
+          if(enemy1y > y + 1){
+            enemy1y = enemy1y - 2
+          }
+          e1rising = e1rising + 1
+        }
+        if(e1rising === 150){
+          if(enemy1y === 176 && ((enemy1x > 125 && enemy1x < 400) || (enemy1x > 550 && enemy1x < 825))){
+          }
+          else {
+            if(enemy1y < 400){
+            enemy1y = enemy1y + 2
+            }
+            else{
+              e1rising = 0
+              e1jumpstarted = false
+            }
+          }
+        }
+      }
+    }
+
+    function enemy2jump(){
+      if(e2jumpstarted === true){
+        if(e2rising < 150){
+          if(enemy2y > y + 1){
+            enemy2y = enemy2y - 2
+          }
+          e2rising = e2rising + 1
+        }
+        if(e2rising === 150){
+          if(enemy2y === 176 && ((enemy2x > 125 && enemy2x < 400) || (enemy2x > 550 && enemy2x < 825))){
+          }
+          else {
+            if(enemy2y < 400){
+            enemy2y = enemy2y + 2
+            }
+            else{
+              e2rising = 0
+              e2jumpstarted = false
+            }
+          }
+        }
+      }
+    }
+
+    setInterval(jumpreset, 3000)
+    function jumpreset(){
+      e1jumpedonce = false
+      e2jumpedonce = false
+      e1rising = 0
+    }
+</script>
