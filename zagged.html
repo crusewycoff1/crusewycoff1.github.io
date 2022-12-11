@@ -6,11 +6,15 @@
             border: 4px solid black;
             background-image: url("zagged/dirt.png");
         }
+        .pipe{
+            display: none;
+        }
     </style>
   </head>
   <body>
+    <img id="BBpipe" class="pipe" src="zagged/BBpipe.png"><img id="BTpipe" class="pipe" src="zagged/BTpipe.png"><img id="TBpipe" class="pipe" src="zagged/TBpipe.png"><img id="TTpipe" class="pipe" src="zagged/TTpipe.png">
    <center><canvas id="gamewindow" height="750px" width="550px"></center> 
-    <div id="x"></div><div id="y"></div>
+    <div id="x"></div><div id="y"></div><div id="pipeselction"></div>
   </body>
 </html>
 
@@ -18,34 +22,39 @@
     
  const canvas = document.getElementById('gamewindow')
  const ctx = canvas.getContext('2d')
- var timer = 10
 
+ var timer = 10 // timer number for later
+
+ var pipeimg = document.getElementById("BTpipe") // initial pipe image but can be rotated through with a and d
+
+ //draw the shit on the canvas
 setInterval(draw, 1)
  function draw(){
     ctx.clearRect(0,0,10000,10000)
 
-    ctx.fillStyle = "rgba(6, 196, 255, 1)";
+    ctx.fillStyle = "rgba(6, 196, 255, 1)"; //draws the big blue rectangle at the top of the screen
     ctx.fillRect(0,0, 550, 200)
 
     ctx.fillStyle = "rgba(0, 0, 0, 1)";
-    ctx.fillRect(0, 200, 560, 3)
 
-    /*for(i = 0; i <= 550; i = i + 110){
+    ctx.fillRect(0, 200, 560, 3) //draws a black separator line between blue rect and dirt
+
+    for(i = 0; i <= 550; i = i + 110){ // Draws the grid
         for(j = 0; j <= 550; j = j + 110){
-            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
             ctx.strokeRect(0, 200, j, i)
         }
-    }*/
+    }
 
-    ctx.font = "50px Arial";
+    ctx.font = "50px Arial"; //all three lines are used for the timer up top
     ctx.textAlign = "center";
     ctx.fillText(timer, canvas.width/2, 60);
 
-    ctx.strokeStyle = "rgba(200, 0, 0, 1)";
-    ctx.lineWidth = "3"
-    ctx.strokeRect(x + 3, y + 2, 110, 110)
-    document.getElementById("x").innerHTML = x
-    document.getElementById("y").innerHTML = y
+    document.getElementById("x").innerHTML = areax[playerx] //displays the x and y cords
+    document.getElementById("y").innerHTML = areay[playery]
+
+    //ctx.rotate(90 * Math.PI / 180) // The thing i am trying to make the image rotate 90
+    ctx.drawImage(pipeimg, areax[playerx], areay[playery], 110, 110); //image displayer
+   // ctx.rotate(-90 * Math.PI / 180)
     }
 
     setInterval(countdown, 1000)
@@ -54,45 +63,89 @@ setInterval(draw, 1)
         timer = timer - 1
     }
 
-    var x = 0
-    var y = 200
+    //PLAYER SELECTION AND MOVEMENT//
+
+    var areax = [0,110,220,330,440] //array for the x movement values
+    var areay = [200,310,420,530,640] // array for the y movement values
+    var playerx = 0 // the players x movement in the array
+    var playery = 0 // the players y movement in the array
+    var pipeselection = 0 // used to help iterate through which pipe the player wants(dunno why culdnt use an array)
+    var piperotation
+
     document.addEventListener("keyup", function(event) {
-        if(event.which === 39){
-            if(x < 435){
-                x = x + 110
-                if(x >= 440){
-                    x = x - 5
-                }
+        if(event.which === 39){ //left
+            if(playerx < 4){
+                playerx = playerx + 1
             }
         }
-        if(event.which === 37){
-            if(x > 0){
-                x = x - 110
-            }
-            if(x < 0){
-                x=x+5
+        if(event.which === 37){//right
+            if(playerx > 0){
+                playerx = playerx - 1
             }
         }
-        if(event.which === 40){
-            if(y < 550){
-                y = y + 110
-            }
-            if(y >= 640){
-                y = y - 5
+        if(event.which === 40){//down
+            if(playery < 4){
+                playery = playery + 1
             }
         }
-        if(event.which === 38){
-            if(y > 200){
-                y = y - 110
+        if(event.which === 38){//up
+            if(playery > 0){
+                playery = playery - 1
             }
-            if(y < 200){
-                y = y + 5
+        }
+        if(event.which === 68){ //swap pipes left
+            pipeselection = pipeselection + 1
+            if(pipeselection >= 4){
+                pipeselection = 0
+            }
+        }
+        if(event.which === 65){ // swap pipes right
+            pipeselection = pipeselection - 1
+            if(pipeselection < 0){
+                pipeselection = 3
+            }
+        }
+        if(event.which === 87){ //SUPPOSED to move the pipes rotation 90 deg once i figure out how to rotate without breaking the game
+            piperotation = piperotation + 1
+            if(piperotation >= 4){
+                piperotation = 0
+            }
+        }
+        if(event.which === 83){ // just the inverse of the above unused function
+            piperotation = piperotation - 1
+            if(piperotation < 0){
+                piperotation = 3
             }
         }
     })
 
-    function pipeLayer(){
-        
+    //chnages the pipe you have
+    setInterval(checkPipeImg,1)
+    function checkPipeImg() {
+        if(pipeselection === 0){
+            pipeimg = document.getElementById("BBpipe")// bottom to bottom
+        }
+        if(pipeselection === 1){
+            pipeimg = document.getElementById("BTpipe")// bottom to top
+        }
+        if(pipeselection === 2){
+            pipeimg = document.getElementById("TTpipe")// top to top
+        }
+        if(pipeselection === 3){
+            pipeimg = document.getElementById("TBpipe")// top to bottom
+        }
+        document.getElementById("pipeselction").innerHTML = pipeselection //updates in the html which pipe we one
+    }
+
+    var rotationamt
+    setInterval(rotatePipeImg,1)
+    function rotatePipeImg() { // is going to maybe help rotate the pipe but idk if it will even be useful yet
+        if(piperotation === 0){
+            rotationamt = Math.PI / 4
+        }
+        if(piperotation === 1){
+            rotationamt
+        }
     }
 
 
