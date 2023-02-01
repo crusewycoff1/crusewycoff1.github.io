@@ -148,5 +148,29 @@ setInterval(draw, 1)
         }
     }
 
+    var sourceblock = {
+        position: 50,
+        rotation: 50,
+        startside: "left",
+        endside: "left"
+    }
+    var pipecomplete = false
+    var sourceplaced = false
+    var pipeplaced = {}
+    function layPipe() {
+      //  while(!pipecomplete){
+            if(!sourceplaced){
+                sourceblock.position = Math.round(Math.random()*4)
+                if(Math.round(Math.random()*2) % 2 === 0){
+                    sourceblock.endside = "right"
+                }
+                else {
+                    sourceblock.endside = "left"
+                }
+            }
+            var randomI = Math.random()
+      //  }
+    }
+
 
 </script>

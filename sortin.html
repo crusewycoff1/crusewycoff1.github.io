@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <center><h1>Amount of Hoes:<div id="amountofbitches">0</div></h1>
+    <button onclick="addbitches()">Add Bitches</button><br><br>
+    <button onclick="playfortnite()">PLAY FORTNITE</button>
+    <button onclick="reset()">Start a new life</button>
+    </center>
+  </body>
+</html>
+<script>
+  var hoes = 0
+
+  setInterval(update,1)
+  function update() {
+    document.getElementById("amountofbitches").innerHTML = hoes
+  }
+
+  function addbitches() {
+    hoes++
+    document.getElementById("amountofbitches").innerHTML = hoes
+  }
+
+  setInterval(infinite, 1)
+  function infinite() {
+    if(fortnite === false){
+      if(inf === true){
+        hoes++
+      }
+    }
+    else{
+      hoes--
+    }
+  }
+  var inf = false
+  document.addEventListener("keydown", function(event) {
+    inf = true
+    setInterval(infinite, 1)
+    }, false);
+
+    var fortnite = false
+    function playfortnite() {
+      fortnite = true
+    }
+
+    function reset(){
+      
+    }
+</script>
