@@ -24,43 +24,57 @@
   <body>
       <span id="monkeypaperlength"></span>
       <center><div id="jumpscare"><img id="jumpscareimg" src=""></div></center>
+      <center><div id="plaqueOutsideMonkeyRoom">Enter what you want the monkey to do:<br><input id="userInputA" type="text" name="testfield" /></div><br></center>
+      <center><button onclick="startMonkey()" id="monkeyStimulation">START THE MONKEY</button></center>
       <center><div id="monkeydialogue" onclick="jumpscare()"></div></center>
   </body>
 </html>
 <script>
     var monkeypaper = document.getElementById("monkeydialogue").innerHTML
     var monkeykeypress = ""
+    var inputA = document.getElementById('userInputA').value
+    var characternum = 0
+
 
     function monkeytype(){
-        if(monkeypaper.search("sussy") === -1){
         for(i = 0; i < 100; i = i + 1){
             for(i = 0; i < 100; i = i + 1){
                 for(i = 0; i < 100; i = i + 1){
                     for(i = 0; i < 100; i = i + 1){
                         for(i = 0; i < 100; i = i + 1){
-                            if(monkeypaper.length <= 30000){
-                            monkeypaper = document.getElementById("monkeydialogue").innerHTML
-                            monkeybrain()
-                            document.getElementById("monkeydialogue").innerHTML = monkeypaper + monkeykeypress
+                            if(monkeypaper.search(inputA) === -1){
+                                if(monkeypaper.length <= inputA.length){
+                                monkeypaper = document.getElementById("monkeydialogue").innerHTML
+                                monkeybrain()
+                                document.getElementById("monkeydialogue").innerHTML = monkeypaper + monkeykeypress
+                                characternum++
+                            }
+                                else{
+                                    monkeypaper = monkeypaper.slice(1)
+                                    document.getElementById("monkeydialogue").innerHTML = monkeypaper
+                                }
                             }
                             else{
-                                document.getElementById("monkeydialogue").innerHTML = monkeykeypress
-                                monkeypaper = ""
+                                monkeypaper.slice(0, -1)
+                                document.getElementById("monkeydialogue").innerHTML = monkeypaper
                             }
                         }
                     }
                 }
             }
+            document.getElementById("monkeypaperlength").innerHTML = monkeypaper.search(inputA)
         }
-        document.getElementById("monkeypaperlength").innerHTML = monkeypaper.search("sussy")
-    }
-    else{
-        document.getElementById("monkeypaperlength").innerHTML = monkeypaper.search("sussy")
-    }
+        document.getElementById("monkeypaperlength").innerHTML = monkeypaper.search(inputA)
     }
 
+    function startMonkey() {
+        inputA = document.getElementById('userInputA').value
+        document.getElementById("plaqueOutsideMonkeyRoom").style.display = "none"
+        document.getElementById("monkeyStimulation").style.display = "none"
+        setInterval(monkeytype, 1)
+        setTimeout(killMonkey, 1000)
+    }
 
-    setInterval(monkeytype, 1)
     function monkeybrain(){
         randombrainfunction = Math.round((Math.random()*100)+1)
         for(i = 0; i < randombrainfunction; i = i + 1){
@@ -149,12 +163,16 @@
             clearInterval(monkeytype)
     }, false);
 
-    function jumpscare(){
+    function killMonkey(){
+        clearInterval(monkeytype)
+    }
+
+   /* function jumpscare(){
         document.getElementById("jumpscare").style.setProperty("display", "inline-block");
         document.getElementById("jumpscareimg").src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f5354ff5-1607-4915-8647-55954b0d88a9/d9xjmt8-6ed0e545-a5b3-4bf1-b7bc-9eb93eef3a7d.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y1MzU0ZmY1LTE2MDctNDkxNS04NjQ3LTU1OTU0YjBkODhhOVwvZDl4am10OC02ZWQwZTU0NS1hNWIzLTRiZjEtYjdiYy05ZWI5M2VlZjNhN2QuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.4-dFtq3YIR3uFsBMwGpy7y25F9SB6x2A3ofB9Cr0Ue0"
         setInterval(stopjumpscare, 1000)
     }
     function stopjumpscare(){
         document.getElementById("jumpscareimg").src = ""
-    }
+    }*/
 </script>

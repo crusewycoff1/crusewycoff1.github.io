@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rotating Panels</title>
+  <style>
+    /* style for panels */
+    .panel {
+      width: 300px;
+      height: 200px;
+      background-color: #f7f7f7;
+      position: absolute;
+      transition: all 0.5s ease;
+    }
+    
+    /* style for active panel */
+    .active {
+      z-index: 2;
+      left: 0%;
+    }
+    
+    /* style for previous and next panels */
+    .previous, .next {
+      z-index: 1;
+    }
+    
+    /* style for previous panel */
+    .previous {
+      left: -33.33%;
+    }
+    
+    /* style for next panel */
+    .next {
+      left: 33.33%;
+    }
+    
+    /* style for button container */
+    #button-container {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="button-container">
+    <button onclick="rotatePanel()">Rotate</button>
+  </div>
+  <div id="panel-container">
+    <div class="panel active">
+      <h2>Panel 1</h2>
+      <p>This is the content for Panel 1.</p>
+    </div>
+    <div class="panel next">
+      <h2>Panel 2</h2>
+      <p>This is the content for Panel 2.</p>
+    </div>
+    <div class="panel previous">
+      <h2>Panel 3</h2>
+      <p>This is the content for Panel 3.</p>
+    </div>
+  </div>
+  
+  <script>
+    var panelIndex = 0;
+    var panels = document.getElementsByClassName("panel");
+    
+    function rotatePanel() {
+      panels[panelIndex].classList.remove("active");
+      panels[(panelIndex + 1) % panels.length].classList.add("next");
+      panels[panelIndex].classList.add("previous");
+      panelIndex = (panelIndex + 1) % panels.length;
+      panels[panelIndex].classList.add("active");
+      panels[(panelIndex + 2) % panels.length].classList.remove("next");
+      panels[(panelIndex + panels.length - 1) % panels.length].classList.remove("previous");
+    }
+    
+    // show the first panel by default
+    panels[0].classList.add("active");
+    panels[1].classList.add("next");
+    panels[2].classList.add("previous");
+    
+    // move the panels to the left by 33.33% every 5 seconds
+    setInterval(function() {
+      rotatePanel();
+    }, 5000);
+  </script>
+</body>
+</html>

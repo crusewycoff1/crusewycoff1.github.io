@@ -2,51 +2,195 @@
 <html lang="en">
   <head>
     <title></title>
+    <style>
+      #gamebody{
+        position: absolute;
+        width: 800px;
+        height: 600px;
+        background-color: rgb(14, 136, 218);
+        left: calc(50vw - 400px);
+      }
+      #boatdiv{
+        position: absolute;
+        left: 30px;
+        
+      }
+      #enemyboatdiv{
+        position: absolute;
+        left: 700px;
+      }
+      .boat{
+        position: absolute;
+        background-color: brown;
+        width: 50px;
+        height: 100px;
+      }
+      .triangle {
+	      width: 0;
+	      height: 0;
+	      border-left: 25px solid transparent;
+	      border-right: 25px solid transparent;
+	      border-bottom: 50px solid brown;
+      }
+      #cannonball {
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: #555;
+        border-radius: 50%;
+        top: 75px;
+        left: 30px;
+      }
+
+    </style>
   </head>
   <body>
-    <center><h1>Amount of Hoes:<div id="amountofbitches">0</div></h1>
-    <button onclick="addbitches()">Add Bitches</button><br><br>
-    <button onclick="playfortnite()">PLAY FORTNITE</button>
-    <button onclick="reset()">Start a new life</button>
-    </center>
+    <div id="gamebody">
+      <div id="boatdiv">
+        <div class="triangle"></div>
+        <div class="boat"></div>
+      </div>
+      <div id="enemyboatdiv">
+        <div class="triangle"></div>
+        <div class="boat"></div>
+      </div>
+      <div id="cannonball"></div>
+    </div>
   </body>
 </html>
 <script>
-  var hoes = 0
-
+  var boaty = 0
+  
   setInterval(update,1)
-  function update() {
-    document.getElementById("amountofbitches").innerHTML = hoes
+  function update(){
+    if(cannonfired === false){ //placed so that if the cannon is fired it doesnt move with the boat
+      document.getElementById("cannonball").style.top = boaty + 75 + "px"
+    }
+    document.getElementById("boatdiv").style.top = boaty + "px"
+    document.getElementById("enemyboatdiv").style.top = enemyboaty + "px"
   }
 
-  function addbitches() {
-    hoes++
-    document.getElementById("amountofbitches").innerHTML = hoes
-  }
-
-  setInterval(infinite, 1)
-  function infinite() {
-    if(fortnite === false){
-      if(inf === true){
-        hoes++
-      }
-    }
-    else{
-      hoes--
-    }
-  }
-  var inf = false
+  var pressedup = false
+  var presseddown = false
   document.addEventListener("keydown", function(event) {
-    inf = true
-    setInterval(infinite, 1)
+    if(event.which === 38){
+      pressedup = true
+    }
+    if(event.which === 40){
+      presseddown = true
+    }
+    if(event.which === 32){
+      fire();
+    }
     }, false);
 
-    var fortnite = false
-    function playfortnite() {
-      fortnite = true
+  document.addEventListener("keyup", function(event) {
+    if(event.which === 38){
+      pressedup = false
+    }
+    if(event.which === 40){
+      presseddown = false
+    }
+    if(event.which === 32){
+      fire();
+    }
+    decidemvmt()
+    }, false);
+
+    setInterval(checkkeys,1)
+    function checkkeys() {
+      if(pressedup === true){
+        if(boaty > 0){
+          boaty = boaty - 2
+        }
+      }
+      if(presseddown === true){
+        if(boaty < 450){
+          boaty = boaty + 2
+        }
+      }
     }
 
-    function reset(){
-      
+    var cooldown = 0
+    var cannonfired = false
+    function fire() {
+      if(cooldown === 0){
+        cannonfired = true
+        currentcannonpos = boaty
+      }
     }
+
+    var cannonballmvmt = 30
+    var currentcannonpos = 0
+    setInterval(launchball,1)
+    function launchball() {
+      if(cannonballmvmt > 750){
+        resetcannon();
+      }
+      if(cannonfired === true){
+        cannonballmvmt = cannonballmvmt + 3
+        document.getElementById("cannonball").style.left = cannonballmvmt + "px"
+      }
+    }
+
+    function resetcannon(){
+      cannonfired = false
+      cannonballmvmt = 30
+      document.getElementById("cannonball").style.left = cannonballmvmt + "px"
+      document.getElementById("cannonball").style.top = boaty + 75 + "px"
+    }
+
+    //Enemy AI stuff
+    var enemyboaty = Math.round(Math.random()* 450)
+    setInterval(moveenemy,1)
+    function moveenemy() {
+      if(moveRandom === true){
+        var randommvmt = Math.round((Math.random()*4)-2)
+        while(randommvmt === 0){
+          randommvmt = Math.round((Math.random()*4)-2)
+        }
+        if(enemyboaty > 0 && enemyboaty < 450){
+          enemyboaty = enemyboaty + randommvmt
+        }
+      }
+      if(moveToYou === true){
+        if(enemyboaty < boaty){
+          enemyboaty = enemyboaty + 1
+        }
+        if(enemyboaty > boaty){
+          enemyboaty = enemyboaty - 1
+        }
+      }
+      if(moveAwayYou === true){
+        if(enemyboaty < boaty){
+          if(enemyboaty > 0){
+            enemyboaty = enemyboaty - 1
+          }
+        }
+        if(enemyboaty > boaty){
+          if(enemyboaty < 450){
+            enemyboaty = enemyboaty + 1
+          }
+        }
+      }
+
+    }
+
+    var moveRandom = false
+    var moveToYou = false
+    var moveAwayYou = false
+    decidemvmt()
+    setInterval(decidemvmt, 2000)
+    function decidemvmt() {
+      var random = Math.round((Math.random()*1)+2)
+      if(random === 2){
+        moveToYou = true
+        moveAwayYou = false
+      }
+      if(random === 3){
+        moveToYou = false
+        moveAwayYou = true
+      }
+    }
+
 </script>
