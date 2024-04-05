@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light gray background */
+        }
+
+        header {
+            background-color: #e74141; /* Pastel red */
+            padding: 20px;
+            text-align: center;
+            color: #ffffff; /* White text */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff; /* White text */
+        }
+
+        .section {
+            padding: 50px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        footer {
+            background-color: #2abcec; /* Pastel blue */
+            text-align: center;
+            padding: 20px;
+            bottom: 0;
+
+        }
+        /* Fancy countdown styles */
+        #countdown {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            background-color: #e74141; /* pastel red */
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+    </style>
+    <script>
+         function calculateTimeUntilNextFriday() {
+            var today = new Date();
+            var dayOfWeek = today.getDay(); // 0 (Sunday) to 6 (Saturday)
+
+            // If today is Friday and time is past 8:00 PM, adjust date to next Friday
+            if (dayOfWeek === 5 && today.getHours() >= 20) {
+                today.setDate(today.getDate() + 7); // Move to next Friday
+            }
+
+            var daysUntilFriday = (5 - dayOfWeek + 7) % 7; // Number of days until next Friday
+            var nextFriday = new Date(today.getTime() + daysUntilFriday * 24 * 60 * 60 * 1000);
+            nextFriday.setHours(20, 0, 0, 0); // Set time to 8:00 PM
+
+            // Calculate remaining time
+            var timeUntilNextFriday = nextFriday.getTime() - today.getTime();
+            var seconds = Math.floor(timeUntilNextFriday / 1000);
+            var minutes = Math.floor(seconds / 60);
+            var hours = Math.floor(minutes / 60);
+            var days = Math.floor(hours / 24);
+
+            // Display countdown
+            document.getElementById('countdown').innerHTML = "Time until Hawaiian Friday: <br>" + days + "d " + (hours % 24) + "h " + (minutes % 60) + "m " + (seconds % 60) + "s";
+        }
+
+        // Update countdown every second
+        setInterval(calculateTimeUntilNextFriday, 1000);
+
+        // Initialize countdown on page load
+        window.onload = calculateTimeUntilNextFriday;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Tau Kappa Iota</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br><br>
+    <center><div id="countdown"></div></center>
+            <section id="about" class="section">
+                <div class="container">
+                    <center><img src="TKI/IMG_0883.JPG" width="750px"></center>
+                    <h2>About Tau Kappa Iota</h2>
+                    <p>Welcome to Tau Kappa Iota, a prestigious fraternity dedicated to fostering brotherhood, academic excellence, and the preservation of cherished traditions. Founded on February 29th, 2024, by visionary leaders M. Woodson Q. Hinrichs and C. Wycoff, our fraternity stands as a testament to the enduring spirit of camaraderie and the pursuit of shared ideals.</p>
+                    <p>Our storied history traces its origins to a humble yet momentous gathering, where our illustrious founders, inspired by a fervent desire for fellowship and the spirit of adventure, conceived the bold vision of creating a fraternity unlike any other. From this visionary notion emerged Tau Kappa Iota, a bastion of tradition and a sanctuary where bonds of brotherhood are forged amidst the vibrant tapestry of life.</p>
+                    <p>Guided by the sacred principles enshrined in our constitution, we celebrate the rich tapestry of diversity that defines our brotherhood. Through a myriad of academic pursuits, philanthropic endeavors, and social engagements, we strive to cultivate an environment where each member is empowered to realize their fullest potential and contribute meaningfully to the tapestry of our fraternity.</p>
+                    <p>As proud stewards of our cherished legacy, we remain steadfast in our commitment to upholding the values of integrity, respect, and inclusivity that have guided Tau Kappa Iota since its inception. Together, we embark on a journey fueled by the boundless spirit of brotherhood, united in our quest to leave an indelible mark upon the annals of time.</p>
+                </div>
+            </section>
+
+    <section id="events" class="section">
+        <div class="container">
+            <h2>Events</h2>
+            <ul>
+                <li>Join us every Friday for Hawaiian Fridays! The event starts at 8:00pm to 10:00pm and then we move to tigerland from 10:00 to 2:00</li>
+                <li>On 4/13/24, We are hosting the first annual TKI Grog and Offense dinner</li>
+            </ul><!-- Add events list here -->
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or inquiries, feel free to reach out to us:</p>
+            <ul>
+                <li>Email: TauKappaIota@gmail.com</li>
+                <li>Phone: (985) 373-7393</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tau Kappa Iota. All rights reserved.</p>
+    </footer>
+</body>
+</html>
