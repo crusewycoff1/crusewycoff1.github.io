@@ -27,6 +27,7 @@
       <center><div id="plaqueOutsideMonkeyRoom">Enter what you want the monkey to do:<br><input id="userInputA" type="text" name="testfield" /></div><br></center>
       <center><button onclick="startMonkey()" id="monkeyStimulation">START THE MONKEY</button></center>
       <center><div id="monkeydialogue" onclick="jumpscare()"></div></center>
+      <center><div id="charcount"></div></center>
   </body>
 </html>
 <script>
@@ -51,6 +52,7 @@
                             }
                                 else{
                                     monkeypaper = monkeypaper.slice(1)
+                                    monkeypaper = monkeypaper.slice(1)
                                     document.getElementById("monkeydialogue").innerHTML = monkeypaper
                                 }
                             }
@@ -58,6 +60,7 @@
                                 monkeypaper.slice(0, -1)
                                 document.getElementById("monkeydialogue").innerHTML = monkeypaper
                             }
+                            document.getElementById("charcount").innerHTML = "Character Count: " + characternum
                         }
                     }
                 }
